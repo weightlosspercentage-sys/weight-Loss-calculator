@@ -1,0 +1,29 @@
+# Weight Loss Percentage
+
+> Free, accurate weight loss percentage and health/fitness calculators including BMI, TDEE, BMR, macros, calories, body fat, protein, water intake, keto, and newborn weight loss.
+
+## Calculators
+
+- [Weight Loss Percentage Calculator](/calculators/weight-loss): % of body weight lost between two measurements. Formula: ((Start − Current) ÷ Start) × 100.
+- [Newborn Weight Loss Calculator](/calculators/newborn-weight-loss): Pediatric weight-loss % with clinical thresholds (5% / 7% / 10%).
+- [BMI Calculator](/calculators/bmi): Body Mass Index from height and weight.
+- [BMR Calculator](/calculators/bmr): Basal Metabolic Rate using Mifflin–St Jeor.
+- [TDEE Calculator](/calculators/tdee): Total Daily Energy Expenditure = BMR × activity multiplier.
+- [Calorie Calculator](/calculators/calorie): Daily calorie targets for cut, maintain, or bulk.
+- [Macro Calculator](/calculators/macro): Protein / carbs / fat split by goal.
+- [Body Fat Calculator](/calculators/body-fat): US Navy method body fat %.
+- [Protein Calculator](/calculators/protein): Grams of protein per kg/lb of body weight.
+- [Water Intake Calculator](/calculators/water-intake): Daily hydration target.
+- [Keto Calculator](/calculators/keto): Keto macro split (typically 70/25/5).
+
+## Reference
+
+- [Calculator Hub](/calculators)
+- [Nutrition Database](/nutrition)
+- [Glossary](/glossary)
+- [Blog](/blog)
+- [Comparisons](/compare)
+
+## About
+
+- [About](/about) · [Contact](/contact) · [Privacy](/privacy) · [Terms](/terms) · [Disclaimer](/disclaimer)
