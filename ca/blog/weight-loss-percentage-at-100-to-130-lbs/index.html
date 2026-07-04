@@ -1,4 +1,271 @@
 <!doctype html>
+
+    <!-- Premium Blog Typography and Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Base overrides for premium editorial look */
+      body {
+        font-family: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        background-colour: #f8fafc !important;
+        colour: #334155 !important;
+      }
+      
+      .blog-container {
+        max-width: 850px !important;
+        margin: 4rem auto !important;
+        padding: 3rem 2.5rem !important;
+        background-colour: #ffffff !important;
+        border-radius: 24px !important;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+        border: 1px solid #e2e8f0 !important;
+        box-sizing: border-box;
+      }
+      
+      @media (max-width: 640px) {
+        .blog-container {
+          margin: 1rem auto !important;
+          padding: 1.75rem 1.25rem !important;
+          border-radius: 16px !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+      }
+
+      /* Headings */
+      .blog-container h1 {
+        font-family: 'Outfit', sans-serif !important;
+        colour: #0f172a !important;
+        font-size: 2.75rem !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.03em !important;
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      
+      @media (max-width: 640px) {
+        .blog-container h1 {
+          font-size: 2rem !important;
+        }
+      }
+
+      .blog-container h2 {
+        font-family: 'Outfit', sans-serif !important;
+        colour: #0f172a !important;
+        font-size: 1.85rem !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        letter-spacing: -0.02em !important;
+        margin-top: 3rem !important;
+        margin-bottom: 1.25rem !important;
+        border-bottom: 2px solid #f1f5f9 !important;
+        padding-bottom: 0.5rem !important;
+      }
+
+      .blog-container h3 {
+        font-family: 'Outfit', sans-serif !important;
+        colour: #0f172a !important;
+        font-size: 1.4rem !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        margin-top: 2rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      /* General paragraph and lists formatting */
+      .blog-container p {
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.8 !important;
+        font-size: 1.05rem !important;
+        colour: #475569 !important;
+      }
+      
+      .blog-container ul, .blog-container ol {
+        margin-top: 0 !important;
+        margin-bottom: 1.75rem !important;
+        padding-left: 1.75rem !important;
+      }
+      
+      .blog-container li {
+        margin-bottom: 0.6rem !important;
+        line-height: 1.75 !important;
+        font-size: 1.05rem !important;
+        colour: #475569 !important;
+      }
+
+      .blog-container a {
+        colour: #4f46e5 !important;
+        text-decoration: none !important;
+        font-weight: 500;
+        transition: colour 0.2s ease;
+      }
+
+      .blog-container a:hover {
+        colour: #3730a3 !important;
+        text-decoration: underline !important;
+      }
+
+      /* Featured Image styling */
+      .featured-image {
+        margin-bottom: 2.5rem !important;
+        overflow: hidden !important;
+        border-radius: 16px !important;
+        border: 1px solid #e2e8f0 !important;
+        aspect-ratio: 16 / 9 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+      }
+      
+      .featured-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform 0.5s ease;
+      }
+      
+      .featured-image:hover img {
+        transform: scale(1.02);
+      }
+
+      /* Meta block */
+      .blog-meta {
+        margin-bottom: 2.5rem !important;
+        padding: 1.25rem 1.5rem !important;
+        background: #f8fafc !important;
+        border-radius: 12px !important;
+        border: 1px solid #e2e8f0 !important;
+        font-size: 0.9rem !important;
+        colour: #64748b !important;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .blog-meta p {
+        margin: 0 !important;
+        font-size: 0.9rem !important;
+        colour: #64748b !important;
+      }
+      .blog-meta strong {
+        colour: #334155 !important;
+      }
+
+      /* Key Takeaways block */
+      .key-takeaways {
+        margin-bottom: 2.5rem !important;
+        padding: 1.75rem !important;
+        background: #f0fdf4 !important;
+        border-left: 5px solid #10b981 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.02) !important;
+      }
+      .key-takeaways h3 {
+        colour: #065f46 !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+        font-family: 'Outfit', sans-serif !important;
+      }
+      .key-takeaways ul {
+        margin-bottom: 0 !important;
+        padding-left: 1.5rem !important;
+      }
+      .key-takeaways li {
+        colour: #065f46 !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      /* FAQ Accordion Styling */
+      details.faq-accordion {
+        margin-bottom: 1rem !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        transition: all 0.2s ease !important;
+      }
+      details.faq-accordion:hover {
+        border-colour: #cbd5e1 !important;
+        box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03) !important;
+      }
+      details.faq-accordion summary {
+        padding: 1.25rem 1.5rem !important;
+        font-weight: 600 !important;
+        colour: #0f172a !important;
+        cursor: pointer !important;
+        user-select: none !important;
+        outline: none !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        list-style: none !important;
+        font-size: 1.05rem !important;
+      }
+      details.faq-accordion summary::-webkit-details-marker {
+        display: none !important;
+      }
+      details.faq-accordion summary svg {
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        fill: none !important;
+        stroke: #64748b !important;
+        stroke-width: 2.5 !important;
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+        transition: transform 0.2s ease, stroke 0.2s ease !important;
+      }
+      details.faq-accordion:hover summary svg {
+        stroke: #4f46e5 !important;
+      }
+      details.faq-accordion[open] {
+        border-colour: #4f46e5 !important;
+        box-shadow: 0 4px 20px -4px rgba(79, 70, 229, 0.08) !important;
+      }
+      details.faq-accordion[open] summary {
+        background: #f8fafc !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+      }
+      details.faq-accordion[open] summary svg {
+        transform: rotate(180deg) !important;
+        stroke: #4f46e5 !important;
+      }
+      details.faq-accordion .faq-content {
+        padding: 1.5rem !important;
+        colour: #475569 !important;
+        line-height: 1.75 !important;
+        background: #ffffff !important;
+        font-size: 1.025rem !important;
+      }
+      details.faq-accordion .faq-content p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      /* References */
+      .article-sources {
+        margin-top: 4rem !important;
+        padding-top: 2rem !important;
+        border-top: 1px solid #e2e8f0 !important;
+      }
+      .article-sources h3 {
+        font-size: 1.25rem !important;
+        colour: #1e293b !important;
+        margin-top: 0 !important;
+        margin-bottom: 1.25rem !important;
+      }
+      .article-sources ul {
+        padding-left: 1.5rem !important;
+        margin-bottom: 0 !important;
+      }
+      .article-sources li {
+        font-size: 0.95rem !important;
+        colour: #64748b !important;
+        margin-bottom: 0.5rem !important;
+      }
+    </style>
+
 <html lang="en">
   <head>
     <script>window.__ROUTE_BASEPATH__ = "/ca";</script>
@@ -92,8 +359,8 @@
       "headline": "Weight Loss Percentage at 100–130 lbs: What Small Changes Mean",
       "description": "Calculate weight loss percentage at 100 to 130 lbs starting weight. Learn why each pound counts more at lower body weights and what 5%, 10%, and 15% loss look like.",
       "url": "https://www.weightlosspercentage.com/blog/weight-loss-percentage-at-100-to-130-lbs/",
-      "datePublished": "2026-07-05",
-      "dateModified": "2026-07-05",
+      "datePublished": "2026-07-04",
+      "dateModified": "2026-07-04",
       "author": { "@type": "Person", "name": "Dr. Sarah Jenkins", "jobTitle": "Clinical Dietitian & Weight Management Specialist" },
       "publisher": {
         "@type": "Organization",
@@ -163,15 +430,15 @@
       </header>
 
 
-      <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; colour: #334155;">
+      <main id="main-content" class="blog-container">
         <h1 style="colour: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Weight Loss Percentage at 100–130 lbs: Every Pound Counts (Canada)</h1>
 
-        <div class="blog-meta" style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+        <div class="blog-meta">
           <p><strong>Written by:</strong> Dr. Sarah Jenkins (Clinical Dietitian & Weight Management Specialist)</p>
-          <p><strong>Published:</strong> 2026-07-05</p>
+          <p><strong>Published:</strong> 2026-07-04</p>
         </div>
 
-        <div class="key-takeaways" style="margin-bottom: 2rem; padding: 1.5rem; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 4px;">
+        <div class="key-takeaways">
           <h3>Key Takeaways</h3>
           <ul>
             <li>Weight loss percentage is the fairest way to track progress across different body sizes.</li>
@@ -201,7 +468,7 @@
 
         </div>
 
-        <div class="article-sources" style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+        <div class="article-sources">
           <h3>References</h3>
           <ul>
             <li><a href="https://www.cdc.gov/healthyweight/losing_weight/index.html" target="_blank" rel="noopener noreferrer">CDC: Losing Weight</a></li>

@@ -1,4 +1,271 @@
 <!doctype html>
+
+    <!-- Premium Blog Typography and Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Base overrides for premium editorial look */
+      body {
+        font-family: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        background-color: #f8fafc !important;
+        color: #334155 !important;
+      }
+      
+      .blog-container {
+        max-width: 850px !important;
+        margin: 4rem auto !important;
+        padding: 3rem 2.5rem !important;
+        background-color: #ffffff !important;
+        border-radius: 24px !important;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+        border: 1px solid #e2e8f0 !important;
+        box-sizing: border-box;
+      }
+      
+      @media (max-width: 640px) {
+        .blog-container {
+          margin: 1rem auto !important;
+          padding: 1.75rem 1.25rem !important;
+          border-radius: 16px !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+      }
+
+      /* Headings */
+      .blog-container h1 {
+        font-family: 'Outfit', sans-serif !important;
+        color: #0f172a !important;
+        font-size: 2.75rem !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.03em !important;
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      
+      @media (max-width: 640px) {
+        .blog-container h1 {
+          font-size: 2rem !important;
+        }
+      }
+
+      .blog-container h2 {
+        font-family: 'Outfit', sans-serif !important;
+        color: #0f172a !important;
+        font-size: 1.85rem !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        letter-spacing: -0.02em !important;
+        margin-top: 3rem !important;
+        margin-bottom: 1.25rem !important;
+        border-bottom: 2px solid #f1f5f9 !important;
+        padding-bottom: 0.5rem !important;
+      }
+
+      .blog-container h3 {
+        font-family: 'Outfit', sans-serif !important;
+        color: #0f172a !important;
+        font-size: 1.4rem !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        margin-top: 2rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      /* General paragraph and lists formatting */
+      .blog-container p {
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.8 !important;
+        font-size: 1.05rem !important;
+        color: #475569 !important;
+      }
+      
+      .blog-container ul, .blog-container ol {
+        margin-top: 0 !important;
+        margin-bottom: 1.75rem !important;
+        padding-left: 1.75rem !important;
+      }
+      
+      .blog-container li {
+        margin-bottom: 0.6rem !important;
+        line-height: 1.75 !important;
+        font-size: 1.05rem !important;
+        color: #475569 !important;
+      }
+
+      .blog-container a {
+        color: #4f46e5 !important;
+        text-decoration: none !important;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .blog-container a:hover {
+        color: #3730a3 !important;
+        text-decoration: underline !important;
+      }
+
+      /* Featured Image styling */
+      .featured-image {
+        margin-bottom: 2.5rem !important;
+        overflow: hidden !important;
+        border-radius: 16px !important;
+        border: 1px solid #e2e8f0 !important;
+        aspect-ratio: 16 / 9 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+      }
+      
+      .featured-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform 0.5s ease;
+      }
+      
+      .featured-image:hover img {
+        transform: scale(1.02);
+      }
+
+      /* Meta block */
+      .blog-meta {
+        margin-bottom: 2.5rem !important;
+        padding: 1.25rem 1.5rem !important;
+        background: #f8fafc !important;
+        border-radius: 12px !important;
+        border: 1px solid #e2e8f0 !important;
+        font-size: 0.9rem !important;
+        color: #64748b !important;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .blog-meta p {
+        margin: 0 !important;
+        font-size: 0.9rem !important;
+        color: #64748b !important;
+      }
+      .blog-meta strong {
+        color: #334155 !important;
+      }
+
+      /* Key Takeaways block */
+      .key-takeaways {
+        margin-bottom: 2.5rem !important;
+        padding: 1.75rem !important;
+        background: #f0fdf4 !important;
+        border-left: 5px solid #10b981 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.02) !important;
+      }
+      .key-takeaways h3 {
+        color: #065f46 !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+        font-family: 'Outfit', sans-serif !important;
+      }
+      .key-takeaways ul {
+        margin-bottom: 0 !important;
+        padding-left: 1.5rem !important;
+      }
+      .key-takeaways li {
+        color: #065f46 !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      /* FAQ Accordion Styling */
+      details.faq-accordion {
+        margin-bottom: 1rem !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        transition: all 0.2s ease !important;
+      }
+      details.faq-accordion:hover {
+        border-color: #cbd5e1 !important;
+        box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03) !important;
+      }
+      details.faq-accordion summary {
+        padding: 1.25rem 1.5rem !important;
+        font-weight: 600 !important;
+        color: #0f172a !important;
+        cursor: pointer !important;
+        user-select: none !important;
+        outline: none !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        list-style: none !important;
+        font-size: 1.05rem !important;
+      }
+      details.faq-accordion summary::-webkit-details-marker {
+        display: none !important;
+      }
+      details.faq-accordion summary svg {
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        fill: none !important;
+        stroke: #64748b !important;
+        stroke-width: 2.5 !important;
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+        transition: transform 0.2s ease, stroke 0.2s ease !important;
+      }
+      details.faq-accordion:hover summary svg {
+        stroke: #4f46e5 !important;
+      }
+      details.faq-accordion[open] {
+        border-color: #4f46e5 !important;
+        box-shadow: 0 4px 20px -4px rgba(79, 70, 229, 0.08) !important;
+      }
+      details.faq-accordion[open] summary {
+        background: #f8fafc !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+      }
+      details.faq-accordion[open] summary svg {
+        transform: rotate(180deg) !important;
+        stroke: #4f46e5 !important;
+      }
+      details.faq-accordion .faq-content {
+        padding: 1.5rem !important;
+        color: #475569 !important;
+        line-height: 1.75 !important;
+        background: #ffffff !important;
+        font-size: 1.025rem !important;
+      }
+      details.faq-accordion .faq-content p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      /* References */
+      .article-sources {
+        margin-top: 4rem !important;
+        padding-top: 2rem !important;
+        border-top: 1px solid #e2e8f0 !important;
+      }
+      .article-sources h3 {
+        font-size: 1.25rem !important;
+        color: #1e293b !important;
+        margin-top: 0 !important;
+        margin-bottom: 1.25rem !important;
+      }
+      .article-sources ul {
+        padding-left: 1.5rem !important;
+        margin-bottom: 0 !important;
+      }
+      .article-sources li {
+        font-size: 0.95rem !important;
+        color: #64748b !important;
+        margin-bottom: 0.5rem !important;
+      }
+    </style>
+
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
@@ -200,16 +467,16 @@
       </header>
 
 
-      <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; color: #334155;">
+      <main id="main-content" class="blog-container">
         <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Weight Loss Plateau: Why You Stopped Losing Weight and How to Fix It</h1>
 
 
-      <div class="featured-image" style="margin-bottom: 2rem; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; aspect-ratio: 16/9;">
+      <div class="featured-image">
         <img src="https://images.unsplash.com/photo-1531180614310-37033e64c090?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Plateau: Science-Backed Strategies to Break Through" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
 
 
-      <div class="blog-meta" style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+      <div class="blog-meta">
 
         <p><strong>Written by:</strong> Michael Chen, MS, CSCS (Exercise Physiologist & Performance Coach)</p>
         <p>Michael Chen specializes in helping clients overcome weight loss plateaus through strategic adjustments to nutrition, training, and recovery protocols.</p>
@@ -218,7 +485,7 @@
       </div>
 
 
-      <div class="key-takeaways" style="margin-bottom: 2rem; padding: 1.5rem; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 4px;">
+      <div class="key-takeaways">
         <h3>Key Takeaways</h3>
         <ul>
           <li>Weight loss fundamentally requires a sustained calorie deficit — no diet works without it.</li>
@@ -312,30 +579,55 @@ After this week-long reset, many people find that the scale drops 2 to 4 pounds 
 
           <h2>Frequently Asked Questions (FAQs)</h2>
           
-        <div style="margin-bottom: 1.5rem;">
-          <p style="margin: 0 0 0.5rem 0; font-weight: 700; color: #0f172a;">Q: How long does a weight loss plateau last?</p>
-          <p style="margin: 0; color: #475569;">A true physiological plateau typically lasts 2 to 6 weeks. Pseudo-plateaus (water retention masking fat loss) can last 1 to 3 weeks. If you have maintained a consistent calorie deficit for 4+ weeks with no scale movement or measurement changes, it is time to implement one of the strategies above.</p>
-        </div>
-        <div style="margin-bottom: 1.5rem;">
-          <p style="margin: 0 0 0.5rem 0; font-weight: 700; color: #0f172a;">Q: Should I eat fewer calories when I hit a plateau?</p>
-          <p style="margin: 0; color: #475569;">Usually, no. If you have already been dieting for 12+ weeks, eating fewer calories can worsen metabolic adaptation and accelerate muscle loss. A diet break (eating at maintenance for 1 to 2 weeks) is usually more effective than further restriction. Use our <a href='/calculators/calorie'>calorie calculator</a> to find your maintenance level.</p>
-        </div>
-        <div style="margin-bottom: 1.5rem;">
-          <p style="margin: 0 0 0.5rem 0; font-weight: 700; color: #0f172a;">Q: Can I break a plateau by doing more cardio?</p>
-          <p style="margin: 0; color: #475569;">Adding moderate cardio can help, but excessive cardio can increase cortisol and impair recovery. Instead of adding hours of cardio, try increasing your daily step count to 8,000 to 12,000 steps per day. This increases NEAT without the hormonal downsides of excessive structured exercise.</p>
-        </div>
-        <div style="margin-bottom: 1.5rem;">
-          <p style="margin: 0 0 0.5rem 0; font-weight: 700; color: #0f172a;">Q: Why did I gain weight on the scale even though I'm eating less?</p>
-          <p style="margin: 0; color: #475569;">Common causes include: increased sodium (restaurant meals, processed foods), new exercise program (muscle inflammation retains water), menstrual cycle phase, increased carbohydrate intake (glycogen binds to 3–4 parts water), or increased stress/cortisol. Wait 5 to 7 days before panicking — this is almost always water, not fat.</p>
-        </div>
-        <div style="margin-bottom: 1.5rem;">
-          <p style="margin: 0 0 0.5rem 0; font-weight: 700; color: #0f172a;">Q: How often should I adjust my calorie deficit as I lose weight?</p>
-          <p style="margin: 0; color: #475569;">Every 10 to 15 pounds of weight loss. As you get smaller, your TDEE decreases. Recalculate your TDEE using our <a href='/calculators/tdee'>TDEE calculator</a> every 10 to 15 pounds and adjust your calorie target accordingly. This prevents your deficit from shrinking to zero without you noticing.</p>
-        </div>
+        <details class="faq-accordion">
+          <summary>
+            <span>How long does a weight loss plateau last?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-content">
+            <p>A true physiological plateau typically lasts 2 to 6 weeks. Pseudo-plateaus (water retention masking fat loss) can last 1 to 3 weeks. If you have maintained a consistent calorie deficit for 4+ weeks with no scale movement or measurement changes, it is time to implement one of the strategies above.</p>
+          </div>
+        </details>
+        <details class="faq-accordion">
+          <summary>
+            <span>Should I eat fewer calories when I hit a plateau?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-content">
+            <p>Usually, no. If you have already been dieting for 12+ weeks, eating fewer calories can worsen metabolic adaptation and accelerate muscle loss. A diet break (eating at maintenance for 1 to 2 weeks) is usually more effective than further restriction. Use our <a href='/calculators/calorie'>calorie calculator</a> to find your maintenance level.</p>
+          </div>
+        </details>
+        <details class="faq-accordion">
+          <summary>
+            <span>Can I break a plateau by doing more cardio?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-content">
+            <p>Adding moderate cardio can help, but excessive cardio can increase cortisol and impair recovery. Instead of adding hours of cardio, try increasing your daily step count to 8,000 to 12,000 steps per day. This increases NEAT without the hormonal downsides of excessive structured exercise.</p>
+          </div>
+        </details>
+        <details class="faq-accordion">
+          <summary>
+            <span>Why did I gain weight on the scale even though I'm eating less?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-content">
+            <p>Common causes include: increased sodium (restaurant meals, processed foods), new exercise program (muscle inflammation retains water), menstrual cycle phase, increased carbohydrate intake (glycogen binds to 3–4 parts water), or increased stress/cortisol. Wait 5 to 7 days before panicking — this is almost always water, not fat.</p>
+          </div>
+        </details>
+        <details class="faq-accordion">
+          <summary>
+            <span>How often should I adjust my calorie deficit as I lose weight?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-content">
+            <p>Every 10 to 15 pounds of weight loss. As you get smaller, your TDEE decreases. Recalculate your TDEE using our <a href='/calculators/tdee'>TDEE calculator</a> every 10 to 15 pounds and adjust your calorie target accordingly. This prevents your deficit from shrinking to zero without you noticing.</p>
+          </div>
+        </details>
       </div>
 
 
-      <div class="article-sources" style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+      <div class="article-sources">
         <h3>References & Sources</h3>
         <ul>
           <li><a href="https://www.cdc.gov/healthyweight/losing_weight/index.html" target="_blank" rel="noopener noreferrer">CDC: Losing Weight</a></li>
