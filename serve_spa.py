@@ -17,7 +17,13 @@ class SPAMapHandler(http.server.SimpleHTTPRequestHandler):
             # Check if there is an index.html in the directory first (default behavior)
             if os.path.isdir(path) and os.path.exists(os.path.join(path, 'index.html')):
                 return super().do_GET()
-            self.path = '/index.html'
+            
+            # Extract country code if present (e.g. /uk/something -> uk)
+            parts = [p for p in self.path.split('/') if p]
+            if parts and parts[0] in ['uk', 'ca', 'au', 'nz', 'zh', 'ru']:
+                self.path = f'/{parts[0]}/index.html'
+            else:
+                self.path = '/index.html'
         return super().do_GET()
 
 if __name__ == '__main__':

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>window.__ROUTE_BASEPATH__ = "/ca";</script>
+    <script>window.__TRANSLATIONS__ = {};</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VY7X5E6GFN');
+      // Intercept SPA router transitions for GA tracking
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) {
+            window.gtag('config', 'G-VY7X5E6GFN', {
+              page_path: window.location.pathname
+            });
+          }
+        }
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          trackPageView();
+        };
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          trackPageView();
+        };
+        window.addEventListener('popstate', trackPageView);
+      })();
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) { window.gtag('config', 'G-VY7X5E6GFN', { page_path: window.location.pathname }); }
+        }
+        history.pushState = function() { pushState.apply(history, arguments); trackPageView(); };
+        history.replaceState = function() { replaceState.apply(history, arguments); trackPageView(); };
+        window.addEventListener('popstate', trackPageView);
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-colour" content="#4f46e5" />
+
+    <title>Calorie Deficit Calculator (Canada) — Find Your Exact Daily Target (Free 2026)</title>
+    <meta name="description" content="Calculate your exact calorie deficit to lose weight at a safe, sustainable pace. Enter your stats and get your daily calorie target, TDEE, and weekly loss projection in seconds. Dietitian-reviewed." />
+
+    <meta property="og:site_name" content="Weight Loss Percentage" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Free Calorie Deficit Calculator — How Big Should Your Deficit Be?" />
+    <meta property="og:description" content="Find the exact calorie deficit you need to reach your goal weight safely. Based on your TDEE, activity level, and target timeline. Results in under 60 seconds." />
+    <meta property="og:image" content="https://www.weightlosspercentage.com/og-default.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.weightlosspercentage.com/og-default.jpg" />
+
+    <!-- AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-7203223934454111" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preconnect for AdSense -->
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin="anonymous" />
+    <link rel="dns-prefetch" href="https://www.googletagservices.com" />
+    <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7203223934454111" crossorigin="anonymous"></script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Weight Loss Percentage",
+      "url": "https://www.weightlosspercentage.com",
+      "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
+    }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calorie Deficit Calculator",
+      "description": "Free calorie deficit calculator that determines your exact daily calorie target for weight loss based on your TDEE, activity level, and goal timeline. Dietitian-reviewed.",
+      "url": "https://www.weightlosspercentage.com/calculators/calorie-deficit/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": ["BMR calculation using Mifflin-St Jeor equation","TDEE calculation with activity multiplier","Daily calorie target for weight loss","Weekly weight loss projection","Minimum calorie floor warnings"],
+      "author": { "@type": "Organization", "name": "WeightLossPercentage.com", "url": "https://www.weightlosspercentage.com" }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.weightlosspercentage.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.weightlosspercentage.com/calculators/" },
+        { "@type": "ListItem", "position": 3, "name": "Calorie Deficit Calculator", "item": "https://www.weightlosspercentage.com/calculators/calorie-deficit/" }
+      ]
+    }
+    </script>
+
+    <!-- MedicalWebPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Calorie Deficit Calculator",
+      "description": "Free dietitian-reviewed calorie deficit calculator using Mifflin-St Jeor equation. Determines safe daily calorie targets for sustainable weight loss.",
+      "url": "https://www.weightlosspercentage.com/calculators/calorie-deficit/",
+      "lastReviewed": "2026-07-03",
+      "reviewedBy": { "@type": "Person", "name": "Dr. Sarah Jenkins", "jobTitle": "Clinical Dietitian" },
+      "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
+      "citation": ["https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner","https://www.cdc.gov/healthyweight/losing_weight/index.html"]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What calorie deficit do I need to lose 1 pound a week?", "acceptedAnswer": { "@type": "Answer", "text": "A deficit of 500 calories per day (3,500 calories per week) produces approximately 1 pound of fat loss per week. This is within the CDC's recommended safe rate of 0.5 to 2 pounds per week." } },
+        { "@type": "Question", "name": "Is a 500 calorie deficit safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A 500 calorie daily deficit is widely considered safe for most healthy adults, producing approximately 1 lb per week loss. Ensure your total daily intake does not fall below 1,200 calories (women) or 1,500 calories (men)." } },
+        { "@type": "Question", "name": "What is the maximum safe calorie deficit?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinical guidelines cap safe deficits at 1,000 calories per day (approximately 2 lbs per week) for adults without medical supervision. Beyond this, muscle loss increases significantly and nutrient deficiencies become likely." } },
+        { "@type": "Question", "name": "Why has my weight loss stopped even though I am in a calorie deficit?", "acceptedAnswer": { "@type": "Answer", "text": "The three most common reasons are: (1) Your TDEE decreased as you lost weight, shrinking your effective deficit. (2) Water retention masking fat loss. (3) Calorie tracking error — studies show most people underestimate intake by 20-40%. Reassess using your current weight in this calorie deficit calculator." } },
+        { "@type": "Question", "name": "Should I eat more on days I exercise?", "acceptedAnswer": { "@type": "Answer", "text": "If you selected an activity level that already accounts for your exercise frequency, do not eat back exercise calories. If you chose sedentary as your base and exercise on top, eating back 50–70% of estimated exercise calories burned is a reasonable adjustment." } },
+        { "@type": "Question", "name": "What is the difference between a calorie deficit and TDEE?", "acceptedAnswer": { "@type": "Answer", "text": "TDEE (Total Daily Energy Expenditure) is how many calories your body burns each day. A calorie deficit is the gap between your TDEE and what you actually eat. To lose weight, your daily intake must be below your TDEE — that gap is your calorie deficit." } }
+      ]
+    }
+    </script>
+
+    <script type="module" crossorigin src="/assets/index-Ctp2HkQJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/router-BvPvcSMX.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BTK8ZW4o.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-43gqMy96.css">
+    <link rel="canonical" href="https://www.weightlosspercentage.com/ca/calculators/calorie-deficit/" />
+      <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="en-ca" href="https://www.weightlosspercentage.com/ca/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="en-au" href="https://www.weightlosspercentage.com/au/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="en-nz" href="https://www.weightlosspercentage.com/nz/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/calculators/calorie-deficit/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/calculators/calorie-deficit/" />
+  </head>
+  <body>
+    <div id="root">
+
+      <div id="spa-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: sans-serif;">
+        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite; margin-bottom: 1rem;"></div>
+        <div style="font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); -webkit-background-clip: text; -webkit-text-fill-colour: transparent; font-family: sans-serif; letter-spacing: -0.025em;">Weight Loss Percentage</div>
+        <style>@keyframes spa-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+      </div>
+
+      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
+          <a href="/ca/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; colour: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); colour: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
+            Weight Loss Percentage
+          </a>
+          <nav style="display: flex; gap: 1.5rem;">
+            <a href="/ca/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
+            <a href="/ca/calculators/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
+            <a href="/ca/nutrition/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
+            <a href="/ca/blog/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+            <a href="/ca/compare/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; colour: #334155;">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" style="font-size:0.875rem; colour:#64748b; margin-bottom:1.5rem;">
+          <a href="/ca/" style="colour:#4f46e5; text-decoration:none;">Home</a>
+          <span style="margin:0 0.5rem;">›</span>
+          <a href="/ca/calculators/" style="colour:#4f46e5; text-decoration:none;">Calculators</a>
+          <span style="margin:0 0.5rem;">›</span>
+          <span>Calorie Deficit Calculator</span>
+        </nav>
+
+        <h1 style="colour: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.25;">Calorie Deficit Calculator (Canada)</h1>
+
+        <p style="colour:#64748b; font-size:0.9rem; margin-bottom:1.5rem;">
+          ✅ Dietitian-Reviewed &nbsp;|&nbsp; ✅ Mifflin-St Jeor Equation &nbsp;|&nbsp; ✅ Updated July 2026
+        </p>
+
+        <p style="font-size:1.1rem; margin-bottom:2rem;">A calorie deficit is the single most important number in weight loss. Get it too small and progress stalls. Get it too large and you lose muscle and regain weight. This calculator finds your <strong>exact daily calorie target</strong> — personalized to your body, activity level, and timeline. Takes under 60 seconds.</p>
+
+        <!-- ── CALCULATOR WIDGET RENDERED BY REACT ── -->
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">What Is a Calorie Deficit?</h2>
+        <p>A calorie deficit means you consume <strong>fewer calories than your body burns</strong> in a day. When your body doesn't get enough energy from food, it uses stored fat as fuel — and that's what creates weight loss.</p>
+
+        <div style="background:#f0fdf4; border-left:4px solid #10b981; padding:1rem 1.5rem; border-radius:4px; margin:1.5rem 0;">
+          <strong>Calorie Deficit = TDEE − Daily Calories Consumed</strong>
+        </div>
+
+        <p>For example: if your body burns 2,400 calories/day (your TDEE) and you eat 1,900 calories/day, your calorie deficit = <strong>500 calories/day</strong>. Over one week: 500 × 7 = 3,500 calories ≈ 1 lb of fat lost.</p>
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">How Big Should Your Calorie Deficit Be?</h2>
+        <p>Not all deficits are equal. Here's a complete breakdown by deficit size:</p>
+
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem; margin:1.5rem 0;">
+          <thead>
+            <tr style="background:#f8fafc;">
+              <th style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem; text-align:left;">Deficit Size</th>
+              <th style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem; text-align:left;">Daily Cut</th>
+              <th style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem; text-align:left;">Expected Loss/Week</th>
+              <th style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem; text-align:left;">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;"><strong>Small</strong></td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">200–300 cal/day</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">0.4–0.6 lbs/week</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">Near goal weight, athletes, muscle preservation</td>
+            </tr>
+            <tr style="background:#f0fdf4;">
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;"><strong>Moderate ✅ Recommended</strong></td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">400–600 cal/day</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">0.8–1.2 lbs/week</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">Most people — sustainable, effective, manageable hunger</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;"><strong>Aggressive</strong></td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">750–1,000 cal/day</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">1.5–2 lbs/week</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">Medically supervised, BMI over 30, short-term</td>
+            </tr>
+            <tr style="background:#fff7ed;">
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;"><strong>Very Aggressive ⚠️</strong></td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">1,000+ cal/day</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">2+ lbs/week</td>
+              <td style="border:1px solid #e2e8f0; padding:0.6rem 0.75rem;">Not recommended without medical supervision</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background:#eff6ff; border-left:4px solid #3b82f6; padding:1rem 1.5rem; border-radius:4px; margin:1.5rem 0;">
+          <strong>💡 The Sweet Spot:</strong> For most adults, a 400–600 calorie daily deficit produces consistent results (0.8–1.2 lbs/week) while keeping hunger manageable, protecting muscle mass, and being sustainable for months — not just days.
+        </div>
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">How This Calculator Works</h2>
+
+        <h3 style="colour:#0f172a; font-size:1.2rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.75rem;">Step 1 — Calculate Your BMR</h3>
+        <p>Your <strong>Basal Metabolic Rate (BMR)</strong> is how many calories your body burns at complete rest. This calculator uses the <strong>Mifflin-St Jeor equation</strong>, the most validated formula for estimating BMR in adults:</p>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:1rem 1.5rem; border-radius:4px; margin:1rem 0; font-size:0.9rem;">
+          <p style="margin:0 0 0.5rem;"><strong>Men:</strong> BMR = (10 × weight kg) + (6.25 × height cm) − (5 × age) + 5</p>
+          <p style="margin:0;"><strong>Women:</strong> BMR = (10 × weight kg) + (6.25 × height cm) − (5 × age) − 161</p>
+        </div>
+
+        <h3 style="colour:#0f172a; font-size:1.2rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.75rem;">Step 2 — Multiply by Activity Level (TDEE)</h3>
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem; margin:1rem 0;">
+          <thead>
+            <tr style="background:#f8fafc;">
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Activity Level</th>
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Description</th>
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Multiplier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Sedentary</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Desk job, little or no exercise</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">× 1.2</td></tr>
+            <tr style="background:#f8fafc;"><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Lightly Active</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Light exercise 1–3 days/week</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">× 1.375</td></tr>
+            <tr><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Moderately Active</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Moderate exercise 3–5 days/week</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">× 1.55</td></tr>
+            <tr style="background:#f8fafc;"><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Very Active</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Hard exercise 6–7 days/week</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">× 1.725</td></tr>
+            <tr><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Extra Active</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Physical job + hard exercise daily</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">× 1.9</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="colour:#0f172a; font-size:1.2rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.75rem;">Step 3 — Subtract Your Target Deficit</h3>
+        <p>Your <strong>daily calorie target = TDEE − deficit</strong>. The calculator takes your goal weight and timeline and calculates the deficit automatically.</p>
+
+        <div style="background:#fff7ed; border-left:4px solid #f97316; padding:1rem 1.5rem; border-radius:4px; margin:1.5rem 0;">
+          <strong>⚠️ Minimum Calorie Floor:</strong> Your daily calorie target should never fall below <strong>1,200 calories/day (women)</strong> or <strong>1,500 calories/day (men)</strong> without medical supervision. Going below risks nutritional deficiencies and metabolic adaptation.
+        </div>
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Worked Example: 35-Year-Old Woman, 170 lbs</h2>
+
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem; margin:1rem 0;">
+          <tbody>
+            <tr><th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left; background:#f8fafc; width:40%;">Age</th><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">35</td></tr>
+            <tr><th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left; background:#f8fafc;">Height</th><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">5'5" (165 cm)</td></tr>
+            <tr><th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left; background:#f8fafc;">Current weight</th><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">170 lbs (77 kg)</td></tr>
+            <tr><th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left; background:#f8fafc;">Goal weight</th><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">150 lbs (68 kg)</td></tr>
+            <tr><th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left; background:#f8fafc;">Activity level</th><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">Lightly active (walks 3×/week)</td></tr>
+            <tr><th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left; background:#f8fafc;">Timeline</th><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">20 weeks</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>BMR</strong> = (10 × 77) + (6.25 × 165) − (5 × 35) − 161 = <strong>1,465 cal/day</strong></p>
+        <p><strong>TDEE</strong> = 1,465 × 1.375 = <strong>2,014 cal/day</strong></p>
+        <p><strong>Weight to lose:</strong> 20 lbs in 20 weeks = 1 lb/week = 500 cal/day deficit</p>
+        <p><strong>Daily calorie target</strong> = 2,014 − 500 = <strong>1,514 cal/day</strong> ✅ (above 1,200 floor, safe and sustainable)</p>
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">5 Calorie Deficit Mistakes That Stall Progress</h2>
+
+        <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.5rem;">1. Making the Deficit Too Large From the Start</h3>
+        <p>Cutting 1,200+ calories on day one triggers intense hunger, muscle loss, and metabolic slowdown within 2–3 weeks. Start with 400–500 calories — you can always increase if results plateau.</p>
+
+        <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.5rem;">2. Not Adjusting as You Lose Weight</h3>
+        <p>Every pound you lose reduces your TDEE slightly — meaning your deficit shrinks over time even if you eat the same amount. Recalculate your deficit every <strong>4–6 weeks</strong> using your updated weight.</p>
+
+        <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.5rem;">3. Underestimating Calories Eaten</h3>
+        <p>Studies consistently show people underestimate their calorie intake by 20–40%. If progress stalls despite a calculated deficit, try accurate tracking for 1–2 weeks to identify gaps.</p>
+
+        <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.5rem;">4. Overestimating Exercise Calories Burned</h3>
+        <p>Fitness trackers and cardio machines typically overestimate calories burned by 15–30%. Use only 50–70% of the estimated exercise burn as a safer adjustment.</p>
+
+        <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.5rem;">5. Going Too Low in Protein</h3>
+        <p>In a calorie deficit, protein preserves muscle mass. Aim for at least <strong>0.7–1g of protein per pound of body weight</strong>. Use our <a href="/ca/calculators/protein/" style="colour:#4f46e5;">Protein Calculator</a> to find your target.</p>
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Related Calculators</h2>
+        <ul style="padding-left:1.5rem; margin-bottom:2rem;">
+          <li style="margin-bottom:0.5rem;"><a href="/ca/calculators/weight-loss/" style="colour:#4f46e5; font-weight:600;">Weight Loss Calculator</a> — Timeline + calorie target + weight loss %</li>
+          <li style="margin-bottom:0.5rem;"><a href="/ca/calculators/tdee/" style="colour:#4f46e5; font-weight:600;">TDEE Calculator</a> — Find your daily calorie burn</li>
+          <li style="margin-bottom:0.5rem;"><a href="/ca/calculators/bmr/" style="colour:#4f46e5; font-weight:600;">BMR Calculator</a> — Your basal metabolic rate</li>
+          <li style="margin-bottom:0.5rem;"><a href="/ca/calculators/protein/" style="colour:#4f46e5; font-weight:600;">Protein Calculator</a> — Daily protein target for your goals</li>
+          <li style="margin-bottom:0.5rem;"><a href="/ca/calculators/calorie/" style="colour:#4f46e5; font-weight:600;">Calorie Calculator</a> — Full nutrition planning tool</li>
+        </ul>
+
+        <h2 style="colour:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Frequently Asked Questions</h2>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">What calorie deficit do I need to lose 1 pound a week?</h3>
+          <p>A deficit of <strong>500 calories per day</strong> (3,500 calories/week) produces approximately 1 pound of fat loss per week. This is the most commonly recommended target because it's effective, sustainable, and well within safe limits for most adults.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Is a 500 calorie deficit safe?</h3>
+          <p>Yes. A 500 calorie daily deficit is widely considered safe for most healthy adults. It produces ≈1 lb/week loss, which is within the CDC's recommended range of 0.5–2 lbs/week. The key is ensuring your total daily intake doesn't fall below 1,200 calories (women) or 1,500 calories (men).</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Can I lose weight without counting calories?</h3>
+          <p>Yes, but creating a calorie deficit remains the underlying mechanism regardless of your approach. Methods like intermittent fasting, low-carb diets, and portion control all work by reducing total calorie intake — even if you're not tracking numbers directly.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Why has my weight loss stopped even though I'm in a deficit?</h3>
+          <p>Three main reasons: (1) Your TDEE decreased as you lost weight — your effective deficit is now smaller. (2) Water retention masking fat loss — common with increased exercise or hormonal shifts. (3) Calorie tracking error — underestimating intake is extremely common. Reassess with your current weight using this calculator.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">What is the maximum safe calorie deficit?</h3>
+          <p>Most guidelines cap safe deficits at <strong>1,000 calories/day</strong> (≈2 lbs/week) for adults without medical supervision. Beyond this threshold, muscle loss increases significantly, nutrient deficiencies become likely, and the deficit becomes difficult to sustain.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="colour:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Should I eat more on days I exercise?</h3>
+          <p>If you selected an activity level that already accounts for your exercise frequency, do not eat back exercise calories — they're already factored in. If you chose sedentary as your base and exercise on top, eating back 50–70% of estimated exercise calories is a reasonable adjustment.</p>
+        </div>
+
+        <!-- Expert Reviewer -->
+        <div style="margin-top:3rem; padding:1.5rem; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">
+          <h3 style="colour:#0f172a; font-size:1rem; font-weight:700; margin-bottom:0.75rem;">Medically Reviewed By</h3>
+          <p style="margin:0 0 0.5rem;"><strong>Dr. Sarah Jenkins, RD</strong> — Clinical Dietitian &amp; Weight Management Specialist</p>
+          <p style="margin:0 0 0.5rem; font-size:0.875rem; colour:#64748b;">Dr. Jenkins has over 15 years of experience in clinical nutrition and metabolic health, specializing in evidence-based weight loss strategies.</p>
+          <p style="font-size:0.875rem; colour:#64748b; margin:0.5rem 0 0;"><strong>Last reviewed:</strong> July 2026 &nbsp;|&nbsp;
+            <strong>Sources:</strong>
+            <a href="https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner" target="_blank" rel="noopener noreferrer" style="colour:#4f46e5;">NIDDK Body Weight Planner</a> &nbsp;·&nbsp;
+            <a href="https://www.cdc.gov/healthyweight/losing_weight/index.html" target="_blank" rel="noopener noreferrer" style="colour:#4f46e5;">CDC Healthy Weight Guidelines</a> &nbsp;·&nbsp;
+            Mifflin MD, et al. <em>American Journal of Clinical Nutrition.</em> 1990.
+          </p>
+        </div>
+
+      </main>
+
+      <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+    <a href="/calculators/calorie-deficit/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/uk/calculators/calorie-deficit/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ca/calculators/calorie-deficit/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/au/calculators/calorie-deficit/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/nz/calculators/calorie-deficit/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/zh/calculators/calorie-deficit/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ru/calculators/calorie-deficit/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
+  </div>
+</div>
+          <p style="colour: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
+            <a href="/ca/about/" style="colour: #64748b; text-decoration: none;">About Us</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/contact/" style="colour: #64748b; text-decoration: none;">Contact Us</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/privacy/" style="colour: #64748b; text-decoration: none;">Privacy Policy</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/terms/" style="colour: #64748b; text-decoration: none;">Terms of Service</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/disclaimer/" style="colour: #64748b; text-decoration: none;">Medical Disclaimer</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/glossary/" style="colour: #64748b; text-decoration: none;">Glossary</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </body>
+</html>

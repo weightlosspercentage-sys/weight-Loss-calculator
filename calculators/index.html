@@ -1,6 +1,36 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VY7X5E6GFN');
+      // Intercept SPA router transitions for GA tracking
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) {
+            window.gtag('config', 'G-VY7X5E6GFN', {
+              page_path: window.location.pathname
+            });
+          }
+        }
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          trackPageView();
+        };
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          trackPageView();
+        };
+        window.addEventListener('popstate', trackPageView);
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
@@ -46,34 +76,34 @@
         "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
       }
     </script>
-    <script type="application/ld+json">
-      {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-            {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.weightlosspercentage.com/"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Calculators",
-                  "item": "https://www.weightlosspercentage.com/calculators"
-            }
-      ]
-}
-    </script>
-    <script type="module" crossorigin src="/assets/index-BNwmqCPp.js"></script>
+    <script type="module" crossorigin src="/assets/index-Ctp2HkQJ.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/router-BvPvcSMX.js">
-    <link rel="modulepreload" crossorigin href="/assets/ui-B22R8Aud.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-rQ4VoLna.css">
-    <link rel="canonical" href="https://www.weightlosspercentage.com/calculators" />
+    <link rel="modulepreload" crossorigin href="/assets/ui-BTK8ZW4o.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-43gqMy96.css">
+    <link rel="canonical" href="https://www.weightlosspercentage.com/calculators/" />
+      <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/calculators/" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/calculators/" />
+    <link rel="alternate" hreflang="en-ca" href="https://www.weightlosspercentage.com/ca/calculators/" />
+    <link rel="alternate" hreflang="en-au" href="https://www.weightlosspercentage.com/au/calculators/" />
+    <link rel="alternate" hreflang="en-nz" href="https://www.weightlosspercentage.com/nz/calculators/" />
+    <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/calculators/" />
+    <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/calculators/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/calculators/" />
   </head>
-  <body style="background-color: #ffffff; color: #334155;">
+  <body>
     <div id="root">
+      
+      <div id="spa-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: sans-serif;">
+        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite; margin-bottom: 1rem;"></div>
+        <div style="font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: sans-serif; letter-spacing: -0.025em;">Weight Loss Percentage</div>
+        <style>
+          @keyframes spa-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        </style>
+      </div>
+    
       
       <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
@@ -83,10 +113,10 @@
           </a>
           <nav style="display: flex; gap: 1.5rem;">
             <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
+            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
+            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
           </nav>
         </div>
       </header>
@@ -96,43 +126,59 @@
         
           <p>Explore our suite of free, dietitian-reviewed calculators designed to support your weight management, fitness, and health goals.</p>
           <ul>
-            <li><a href="/calculators/bmi">BMI Calculator</a></li>
-            <li><a href="/calculators/tdee">TDEE Calculator</a></li>
-            <li><a href="/calculators/bmr">BMR Calculator</a></li>
-            <li><a href="/calculators/macro">Macro Calculator</a></li>
-            <li><a href="/calculators/calorie">Calorie Calculator</a></li>
-            <li><a href="/calculators/body-fat">Body Fat Calculator</a></li>
-            <li><a href="/calculators/protein">Protein Calculator</a></li>
-            <li><a href="/calculators/water-intake">Water Intake Calculator</a></li>
-            <li><a href="/calculators/weight-loss">Weight Loss Calculator</a></li>
-            <li><a href="/calculators/keto">Keto Calculator</a></li>
-            <li><a href="/calculators/newborn-weight-loss">Newborn Weight Loss Calculator</a></li>
-            <li><a href="/calculators/dog-weight-loss">Dog Weight Loss Calculator</a></li>
-            <li><a href="/calculators/peptide-dosage">Peptide Dosage Calculator</a></li>
-            <li><a href="/calculators/bariatric-surgery-weight-loss">Bariatric Surgery Calculator</a></li>
-            <li><a href="/calculators/postpartum-weight-loss">Postpartum Weight Loss Calculator</a></li>
-            <li><a href="/calculators/biggest-loser">Biggest Loser Calculator</a></li>
-            <li><a href="/calculators/walking">Walking Calorie Calculator</a></li>
-            <li><a href="/calculators/fat-loss">Fat Loss Calculator</a></li>
+            <li><a href="/calculators/bmi/">BMI Calculator</a></li>
+            <li><a href="/calculators/tdee/">TDEE Calculator</a></li>
+            <li><a href="/calculators/bmr/">BMR Calculator</a></li>
+            <li><a href="/calculators/macro/">Macro Calculator</a></li>
+            <li><a href="/calculators/calorie-deficit/">Calorie Deficit Calculator</a></li>
+            <li><a href="/calculators/calorie/">Calorie Calculator</a></li>
+            <li><a href="/calculators/body-fat/">Body Fat Calculator</a></li>
+            <li><a href="/calculators/protein/">Protein Calculator</a></li>
+            <li><a href="/calculators/water-intake/">Water Intake Calculator</a></li>
+            <li><a href="/calculators/weight-loss/">Weight Loss Calculator</a></li>
+            <li><a href="/calculators/keto/">Keto Calculator</a></li>
+            <li><a href="/calculators/newborn-weight-loss/">Newborn Weight Loss Calculator</a></li>
+            <li><a href="/calculators/dog-weight-loss/">Dog Weight Loss Calculator</a></li>
+            <li><a href="/calculators/peptide-dosage/">Peptide Dosage Calculator</a></li>
+            <li><a href="/calculators/bariatric-surgery-weight-loss/">Bariatric Surgery Calculator</a></li>
+            <li><a href="/calculators/postpartum-weight-loss/">Postpartum Weight Loss Calculator</a></li>
           </ul>
         
       </main>
       
       <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-          <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
+<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+    <a href="/calculators/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/uk/calculators/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ca/calculators/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/au/calculators/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/nz/calculators/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/zh/calculators/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ru/calculators/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
+  </div>
+</div>
+<p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
-            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/about/" style="color: #64748b; text-decoration: none;">About Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact Us</a>
+            <a href="/contact/" style="color: #64748b; text-decoration: none;">Contact Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/privacy/" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/terms/" style="color: #64748b; text-decoration: none;">Terms of Service</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
+            <a href="/disclaimer/" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/glossary" style="color: #64748b; text-decoration: none;">Glossary</a>
+            <a href="/glossary/" style="color: #64748b; text-decoration: none;">Glossary</a>
           </div>
         </div>
       </footer>

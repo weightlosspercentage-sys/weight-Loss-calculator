@@ -1,14 +1,44 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VY7X5E6GFN');
+      // Intercept SPA router transitions for GA tracking
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) {
+            window.gtag('config', 'G-VY7X5E6GFN', {
+              page_path: window.location.pathname
+            });
+          }
+        }
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          trackPageView();
+        };
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          trackPageView();
+        };
+        window.addEventListener('popstate', trackPageView);
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#4f46e5" />
 
-    <title>Weight Loss Calculator — How Long to Reach Your Goal</title>
-    <meta name="description" content="Project exactly how long it will take to reach your target weight at a sustainable calorie deficit. Adjustable rate and timeline." />
+    <title>Weight Loss Calculator — Free Tool to Reach Your Goal (2026)</title>
+    <meta name="description" content="Use our free weight loss calculator to find your daily calorie target, calorie deficit, weekly loss rate, and exact timeline to your goal weight. Dietitian-reviewed. Takes under 60 seconds." />
 
     <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
     <meta property="og:site_name" content="Weight Loss Percentage" />
@@ -46,55 +76,96 @@
         "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
       }
     </script>
+
+    <!-- WebApplication Schema -->
     <script type="application/ld+json">
-      {
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Weight Loss Calculator",
+      "description": "Free weight loss calculator that calculates your daily calorie target, calorie deficit, weekly weight loss rate, time to reach goal weight, and weight loss percentage. Dietitian-reviewed.",
+      "url": "https://www.weightlosspercentage.com/calculators/weight-loss/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": ["Calorie deficit calculation","Weight loss timeline projection","Weight loss percentage calculation","Daily calorie target","Supports lbs and kg"],
+      "author": { "@type": "Organization", "name": "WeightLossPercentage.com", "url": "https://www.weightlosspercentage.com" },
+      "reviewedBy": { "@type": "Person", "name": "Dr. Sarah Jenkins", "jobTitle": "Clinical Dietitian" }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-            {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.weightlosspercentage.com/"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Calculators",
-                  "item": "https://www.weightlosspercentage.com/calculators"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Weight Loss Calculator",
-                  "item": "https://www.weightlosspercentage.com/calculators/weight-loss"
-            }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.weightlosspercentage.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.weightlosspercentage.com/calculators/" },
+        { "@type": "ListItem", "position": 3, "name": "Weight Loss Calculator", "item": "https://www.weightlosspercentage.com/calculators/weight-loss/" }
       ]
-}
+    }
     </script>
+
+    <!-- MedicalWebPage Schema -->
     <script type="application/ld+json">
-      {
+    {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "MedicalWebPage",
       "name": "Weight Loss Calculator",
-      "description": "Project exactly how long it will take to reach your target weight at a sustainable calorie deficit. Adjustable rate and timeline.",
-      "applicationCategory": "HealthApplication",
-      "url": "https://www.weightlosspercentage.com/calculators/weight-loss",
-      "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "1250"
-      }
-}
+      "description": "Free dietitian-reviewed weight loss calculator using Mifflin-St Jeor equation. Calculates calorie deficit, daily calorie targets, timeline to goal, and weight loss percentage.",
+      "url": "https://www.weightlosspercentage.com/calculators/weight-loss/",
+      "lastReviewed": "2026-07-03",
+      "reviewedBy": { "@type": "Person", "name": "Dr. Sarah Jenkins", "jobTitle": "Clinical Dietitian" },
+      "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
+      "citation": ["https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner","https://www.cdc.gov/healthyweight/losing_weight/index.html"]
+    }
     </script>
-    <script type="module" crossorigin src="/assets/index-BNwmqCPp.js"></script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I calculate my weight loss percentage?", "acceptedAnswer": { "@type": "Answer", "text": "Subtract your current weight from your starting weight, divide by your starting weight, then multiply by 100. For example: starting at 200 lbs and now 185 lbs: ((200−185)÷200)×100 = 7.5%." } },
+        { "@type": "Question", "name": "How many calories do I need to cut to lose 1 pound per week?", "acceptedAnswer": { "@type": "Answer", "text": "A deficit of approximately 500 calories per day (3,500 calories/week) produces roughly 1 lb of fat loss per week. Use a personalized weight loss calculator to get your exact number based on your age, height, weight, and activity level." } },
+        { "@type": "Question", "name": "What is a healthy rate of weight loss?", "acceptedAnswer": { "@type": "Answer", "text": "The CDC recommends 0.5 to 2 pounds (0.25–1 kg) per week. Faster loss increases the risk of muscle loss, nutrient deficiencies, and weight regain." } },
+        { "@type": "Question", "name": "How long does it take to lose 20 pounds?", "acceptedAnswer": { "@type": "Answer", "text": "At a safe rate of 1 lb/week, losing 20 pounds takes approximately 20 weeks (5 months). At 1.5 lbs/week, about 13–14 weeks. The exact timeline depends on your starting weight, calorie deficit, and activity level." } },
+        { "@type": "Question", "name": "Why did my weight loss stall?", "acceptedAnswer": { "@type": "Answer", "text": "Plateaus happen because as you lose weight, your TDEE decreases — your body burns fewer calories doing the same activities. Reassess your calorie target every 4–6 weeks using your updated current weight." } },
+        { "@type": "Question", "name": "Is a 1,000 calorie deficit per day safe?", "acceptedAnswer": { "@type": "Answer", "text": "A 1,000 calorie daily deficit is at the upper limit of what is clinically considered safe and should only be pursued under medical supervision. For most people, a 500–750 calorie daily deficit is both effective and sustainable." } },
+        { "@type": "Question", "name": "What is the difference between BMR and TDEE?", "acceptedAnswer": { "@type": "Answer", "text": "BMR (Basal Metabolic Rate) is calories burned at complete rest. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by your activity level — the actual calories you burn each day. Your weight loss target is always calculated from your TDEE, not your BMR." } }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Ctp2HkQJ.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/router-BvPvcSMX.js">
-    <link rel="modulepreload" crossorigin href="/assets/ui-B22R8Aud.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-rQ4VoLna.css">
-    <link rel="canonical" href="https://www.weightlosspercentage.com/calculators/weight-loss" />
+    <link rel="modulepreload" crossorigin href="/assets/ui-BTK8ZW4o.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-43gqMy96.css">
+    <link rel="canonical" href="https://www.weightlosspercentage.com/calculators/weight-loss/" />
+      <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="en-ca" href="https://www.weightlosspercentage.com/ca/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="en-au" href="https://www.weightlosspercentage.com/au/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="en-nz" href="https://www.weightlosspercentage.com/nz/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/calculators/weight-loss/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/calculators/weight-loss/" />
   </head>
-  <body style="background-color: #ffffff; color: #334155;">
+  <body>
     <div id="root">
+      
+      <div id="spa-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: sans-serif;">
+        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite; margin-bottom: 1rem;"></div>
+        <div style="font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: sans-serif; letter-spacing: -0.025em;">Weight Loss Percentage</div>
+        <style>
+          @keyframes spa-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        </style>
+      </div>
+    
       
       <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
@@ -104,58 +175,198 @@
           </a>
           <nav style="display: flex; gap: 1.5rem;">
             <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
+            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
+            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
           </nav>
         </div>
       </header>
     
       <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; color: #334155;">
-        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Weight Loss Calculator</h1>
-        
-        <p><strong>Project exactly how long it will take to reach your target weight at a sustainable calorie deficit. Adjustable rate and timeline.</strong></p>
-        <h2>How Long Will It Take to Reach Your Goal?</h2>
-        <p>Planning a weight loss journey requires realistic timelines. Losing weight too quickly can damage your metabolic rate, lead to muscle loss, and increase the likelihood of weight regain. A safe, clinical rate of loss is 1 to 2 pounds per week.</p>
-<p>This calculator factors in your starting weight, target weight, and daily calorie deficit to map out a precise weekly timeline. Creating a moderate deficit through diet and exercise allows you to shed body fat steadily and sustainably.</p>
-<p>Remember that weight loss is rarely linear. Fluctuations in water retention, muscle soreness, hormonal cycles, and sodium intake can cause your scale weight to stall or jump temporarily. Focus on long-term trends rather than daily scale changes.</p>
-      
-          <h2>Frequently Asked Questions</h2>
-          
-            <div style="margin-bottom: 1.5rem;">
-              <p><strong>Q: What is a healthy weekly weight loss?</strong></p>
-              <p>A rate of 0.5 to 2.0 pounds (0.25 to 1.0 kg) per week is considered safe, sustainable, and optimal for body composition.</p>
-            </div>
-          
 
-            <div style="margin-bottom: 1.5rem;">
-              <p><strong>Q: Why did my weight loss stall?</strong></p>
-              <p>Stalls are normal and usually caused by temporary water retention or a drop in TDEE as you lose weight. Adjust your calorie target if the stall lasts more than 3-4 weeks.</p>
-            </div>
-          
-        
-      
-        <div style="margin-top: 2.5rem; padding: 1.5rem; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 4px; font-family: sans-serif;">
-          <p style="margin: 0; font-size: 0.95rem; color: #1e3a8a;"><strong>Scientific Citation:</strong> This topic is investigated by global clinical entities. Study the biology of Weight loss and public health standards on the <a href="https://en.wikipedia.org/wiki/Weight_loss" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: bold; text-decoration: underline;">Wikipedia Weight loss page</a>.</p>
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" style="font-size:0.875rem; color:#64748b; margin-bottom:1.5rem;">
+          <a href="/" style="color:#4f46e5; text-decoration:none;">Home</a>
+          <span style="margin:0 0.5rem;">›</span>
+          <a href="/calculators/" style="color:#4f46e5; text-decoration:none;">Calculators</a>
+          <span style="margin:0 0.5rem;">›</span>
+          <span>Weight Loss Calculator</span>
+        </nav>
+
+        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.25;">Weight Loss Calculator</h1>
+
+        <p style="color:#64748b; font-size:0.9rem; margin-bottom:1.5rem;">
+          ✅ Dietitian-Reviewed &nbsp;|&nbsp; ✅ Mifflin-St Jeor Equation &nbsp;|&nbsp; ✅ Updated July 2026
+        </p>
+
+        <p style="font-size:1.1rem; margin-bottom:2rem;">Find your <strong>exact daily calorie target</strong>, <strong>calorie deficit</strong>, <strong>weekly weight loss rate</strong>, and <strong>precise timeline</strong> to reach your goal weight — backed by the same science used by the NIH Body Weight Planner. Takes under 60 seconds.</p>
+
+        <!-- ── CALCULATOR WIDGET RENDERED BY REACT ── -->
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">How to Use This Weight Loss Calculator</h2>
+        <p>Getting your personalized weight loss plan takes under 60 seconds:</p>
+        <ol style="padding-left:1.5rem; margin-bottom:1.5rem;">
+          <li style="margin-bottom:0.5rem;"><strong>Enter your current weight</strong> — toggle between lbs and kg.</li>
+          <li style="margin-bottom:0.5rem;"><strong>Enter your goal weight</strong> — a safe starting target is 5–10% of your current body weight.</li>
+          <li style="margin-bottom:0.5rem;"><strong>Add your height and age</strong> — these determine your Basal Metabolic Rate (BMR).</li>
+          <li style="margin-bottom:0.5rem;"><strong>Select your activity level</strong> — when in doubt, go one level lower than you think.</li>
+          <li style="margin-bottom:0.5rem;"><strong>Set a target date or weekly rate</strong> — the calculator works both ways.</li>
+        </ol>
+        <p>Your results instantly show your <strong>daily calorie target</strong>, <strong>weekly projected loss</strong>, <strong>estimated weeks to goal</strong>, and <strong>weight loss percentage</strong>.</p>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">The Science Behind Your Results</h2>
+        <p>This calculator uses the <strong>Mifflin-St Jeor equation</strong> — the most accurate formula for estimating resting energy expenditure, validated in peer-reviewed research and recommended by the Academy of Nutrition and Dietetics.</p>
+
+        <h3 style="color:#0f172a; font-size:1.2rem; font-weight:700; margin-top:2rem; margin-bottom:0.75rem;">How Your Calorie Target Is Calculated</h3>
+        <ol style="padding-left:1.5rem; margin-bottom:1.5rem;">
+          <li style="margin-bottom:0.5rem;"><strong>BMR (Basal Metabolic Rate):</strong> How many calories your body burns at complete rest — just to keep your heart beating, lungs breathing, and organs functioning.</li>
+          <li style="margin-bottom:0.5rem;"><strong>TDEE (Total Daily Energy Expenditure):</strong> Your BMR multiplied by an activity factor — the actual calories you burn each day.</li>
+          <li style="margin-bottom:0.5rem;"><strong>Calorie Deficit:</strong> Eat less than your TDEE. A deficit of 500 cal/day ≈ 1 lb of fat lost per week. A 1,000 cal/day deficit ≈ 2 lbs/week.</li>
+        </ol>
+
+        <h3 style="color:#0f172a; font-size:1.2rem; font-weight:700; margin-top:2rem; margin-bottom:0.75rem;">The 3,500-Calorie Rule — And Its Limits</h3>
+        <p>Cutting 3,500 calories ≈ losing 1 pound is a useful estimate, but the <a href="https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;">NIDDK</a> confirms real-world weight loss is not perfectly linear. As you lose weight, your TDEE decreases — which is why results slow down over time. This calculator accounts for that adaptation.</p>
+
+        <h3 style="color:#0f172a; font-size:1.2rem; font-weight:700; margin-top:2rem; margin-bottom:0.75rem;">Safe Rate of Weight Loss</h3>
+        <p>The <a href="https://www.cdc.gov/healthyweight/losing_weight/index.html" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;">CDC</a> recommends losing <strong>0.5 to 2 pounds (0.25–1 kg) per week</strong>. This range:</p>
+        <ul style="padding-left:1.5rem; margin-bottom:1.5rem;">
+          <li style="margin-bottom:0.25rem;">Preserves muscle mass (critical for long-term metabolism)</li>
+          <li style="margin-bottom:0.25rem;">Is sustainable without extreme hunger</li>
+          <li style="margin-bottom:0.25rem;">Reduces the risk of nutrient deficiencies</li>
+          <li style="margin-bottom:0.25rem;">Produces results that are far more likely to last</li>
+        </ul>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">What Is Weight Loss Percentage — And Why Does It Matter?</h2>
+        <p>Raw pounds lost tells only part of the story. <strong>Weight loss percentage</strong> shows how much of your starting body weight you've lost — and it's the metric doctors and clinical researchers actually use.</p>
+
+        <h3 style="color:#0f172a; font-size:1.2rem; font-weight:700; margin-top:2rem; margin-bottom:0.75rem;">The Formula</h3>
+        <div style="background:#f0fdf4; border-left:4px solid #10b981; padding:1rem 1.5rem; border-radius:4px; margin-bottom:1.5rem;">
+          <strong>Weight Loss % = ((Starting Weight − Current Weight) ÷ Starting Weight) × 100</strong>
         </div>
+
+        <h3 style="color:#0f172a; font-size:1.2rem; font-weight:700; margin-top:2rem; margin-bottom:0.75rem;">Example Calculations</h3>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin-bottom:1.5rem;">
+          <thead>
+            <tr style="background:#f8fafc;">
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Starting Weight</th>
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Current Weight</th>
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Lbs Lost</th>
+              <th style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem; text-align:left;">Weight Loss %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">200 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">190 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">10 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;"><strong>5.0%</strong></td></tr>
+            <tr style="background:#f8fafc;"><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">200 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">180 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">20 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;"><strong>10.0%</strong></td></tr>
+            <tr><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">250 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">212 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;">38 lbs</td><td style="border:1px solid #e2e8f0; padding:0.5rem 0.75rem;"><strong>15.2%</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="color:#0f172a; font-size:1.2rem; font-weight:700; margin-top:2rem; margin-bottom:0.75rem;">Clinical Benchmarks</h3>
+        <ul style="padding-left:1.5rem; margin-bottom:1.5rem;">
+          <li style="margin-bottom:0.5rem;"><strong>5% body weight loss</strong> — Measurable improvements in blood pressure, blood sugar, and cholesterol (CDC-recognized threshold)</li>
+          <li style="margin-bottom:0.5rem;"><strong>10% body weight loss</strong> — Significant reduction in risk for Type 2 diabetes, sleep apnea, and cardiovascular disease</li>
+          <li style="margin-bottom:0.5rem;"><strong>15–20% loss</strong> — Often required for meaningful joint pain relief and sleep apnea resolution</li>
+        </ul>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Related Calculators</h2>
+        <ul style="padding-left:1.5rem; margin-bottom:2rem;">
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/calorie/" style="color:#4f46e5; font-weight:600;">Calorie Calculator</a> — Find your daily maintenance calories</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/tdee/" style="color:#4f46e5; font-weight:600;">TDEE Calculator</a> — Calculate Total Daily Energy Expenditure</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/bmi/" style="color:#4f46e5; font-weight:600;">BMI Calculator</a> — Check your Body Mass Index</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/body-fat/" style="color:#4f46e5; font-weight:600;">Body Fat Calculator</a> — Estimate your body fat percentage</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/protein/" style="color:#4f46e5; font-weight:600;">Protein Calculator</a> — Daily protein target to preserve muscle while losing fat</li>
+        </ul>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Frequently Asked Questions</h2>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">How do I calculate my weight loss percentage?</h3>
+          <p>Subtract your current weight from your starting weight, divide by your starting weight, then multiply by 100. Example: starting at 200 lbs, now 185 lbs → ((200−185)÷200)×100 = <strong>7.5%</strong>. Or use our <a href="/blog/how-to-calculate-weight-loss-percentage/" style="color:#4f46e5;">step-by-step guide</a>.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">How many calories do I need to cut to lose 1 pound per week?</h3>
+          <p>A deficit of approximately <strong>500 calories per day</strong> (3,500 calories/week) produces roughly 1 lb of fat loss per week. Actual results vary based on your starting weight, metabolism, and muscle mass. Use the calculator above for your personalized number.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">What is a healthy rate of weight loss?</h3>
+          <p>The CDC recommends <strong>0.5 to 2 pounds per week</strong>. Faster loss increases the risk of muscle loss, nutrient deficiencies, and weight regain.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">How long does it take to lose 20 pounds?</h3>
+          <p>At 1 lb/week: approximately <strong>20 weeks (5 months)</strong>. At 1.5 lbs/week: about <strong>13–14 weeks</strong>. Enter your stats in the calculator above to get your exact personalized timeline.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Why did my weight loss stall?</h3>
+          <p>As you lose weight, your TDEE decreases — your body burns fewer calories doing the same activities. This is normal. Reassess your calorie target every 4–6 weeks using this calculator with your updated current weight.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Is a 1,000 calorie deficit per day safe?</h3>
+          <p>A 1,000 calorie daily deficit (≈2 lbs/week) is at the upper limit of what is clinically considered safe for most adults and should only be pursued under medical supervision for people with BMI over 30. For most people, 500–750 cal/day deficit is both effective and sustainable.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">What is the difference between BMR and TDEE?</h3>
+          <p><strong>BMR</strong> is the calories your body burns at complete rest. <strong>TDEE</strong> is your BMR multiplied by your activity level — the actual calories you burn each day. Your weight loss target is always calculated from TDEE, not BMR.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">Should I track calories or just eat healthy?</h3>
+          <p>Both approaches work, but research shows that <strong>awareness of calorie intake</strong> significantly improves weight loss outcomes. You don't need to count every calorie forever, but understanding your approximate intake during the initial phase helps calibrate habits for long-term success.</p>
+        </div>
+
+        <!-- Expert Reviewer -->
+        <div style="margin-top:3rem; padding:1.5rem; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">
+          <h3 style="color:#0f172a; font-size:1rem; font-weight:700; margin-bottom:0.75rem;">Medically Reviewed By</h3>
+          <p style="margin:0 0 0.5rem;"><strong>Dr. Sarah Jenkins, RD</strong> — Clinical Dietitian &amp; Weight Management Specialist</p>
+          <p style="margin:0 0 0.5rem; font-size:0.875rem; color:#64748b;">Dr. Jenkins has over 15 years of experience in clinical nutrition and metabolic health, specializing in evidence-based weight loss strategies.</p>
+          <p style="font-size:0.875rem; color:#64748b; margin:0.5rem 0 0;"><strong>Last reviewed:</strong> July 2026 &nbsp;|&nbsp;
+            <strong>Sources:</strong>
+            <a href="https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;">NIDDK Body Weight Planner</a> &nbsp;·&nbsp;
+            <a href="https://www.cdc.gov/healthyweight/losing_weight/index.html" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;">CDC Healthy Weight Guidelines</a>
+          </p>
+        </div>
+
       </main>
       
       <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-          <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
+<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+    <a href="/calculators/weight-loss/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/uk/calculators/weight-loss/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ca/calculators/weight-loss/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/au/calculators/weight-loss/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/nz/calculators/weight-loss/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/zh/calculators/weight-loss/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ru/calculators/weight-loss/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
+  </div>
+</div>
+<p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
-            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/about/" style="color: #64748b; text-decoration: none;">About Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact Us</a>
+            <a href="/contact/" style="color: #64748b; text-decoration: none;">Contact Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/privacy/" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/terms/" style="color: #64748b; text-decoration: none;">Terms of Service</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
+            <a href="/disclaimer/" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/glossary" style="color: #64748b; text-decoration: none;">Glossary</a>
+            <a href="/glossary/" style="color: #64748b; text-decoration: none;">Glossary</a>
           </div>
         </div>
       </footer>

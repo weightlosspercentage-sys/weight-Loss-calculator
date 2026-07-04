@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>window.__ROUTE_BASEPATH__ = "/ca";</script>
+    <script>window.__TRANSLATIONS__ = {};</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VY7X5E6GFN');
+      // Intercept SPA router transitions for GA tracking
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) {
+            window.gtag('config', 'G-VY7X5E6GFN', {
+              page_path: window.location.pathname
+            });
+          }
+        }
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          trackPageView();
+        };
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          trackPageView();
+        };
+        window.addEventListener('popstate', trackPageView);
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-colour" content="#4f46e5" />
+
+    <title>Protein Intake Calculator (Canada) — Daily Grams by Goal</title>
+    <meta name="description" content="Calculate the ideal daily protein intake for fat loss, muscle gain, or maintenance based on your weight, activity, and training goals." />
+
+    <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
+    <meta property="og:site_name" content="Weight Loss Percentage" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://www.weightlosspercentage.com/og-default.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.weightlosspercentage.com/og-default.jpg" />
+
+    <!-- AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-7203223934454111" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preconnect for AdSense -->
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin="anonymous" />
+    <link rel="dns-prefetch" href="https://www.googletagservices.com" />
+
+    <!-- AdSense Auto Ads -->
+    <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7203223934454111" crossorigin="anonymous"></script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Weight Loss Percentage",
+        "url": "https://www.weightlosspercentage.com",
+        "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Ctp2HkQJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/router-BvPvcSMX.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BTK8ZW4o.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-43gqMy96.css">
+    <link rel="canonical" href="https://www.weightlosspercentage.com/ca/calculators/protein/" />
+      <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/calculators/protein/" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/calculators/protein/" />
+    <link rel="alternate" hreflang="en-ca" href="https://www.weightlosspercentage.com/ca/calculators/protein/" />
+    <link rel="alternate" hreflang="en-au" href="https://www.weightlosspercentage.com/au/calculators/protein/" />
+    <link rel="alternate" hreflang="en-nz" href="https://www.weightlosspercentage.com/nz/calculators/protein/" />
+    <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/calculators/protein/" />
+    <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/calculators/protein/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/calculators/protein/" />
+  </head>
+  <body>
+    <div id="root">
+      
+      <div id="spa-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: sans-serif;">
+        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite; margin-bottom: 1rem;"></div>
+        <div style="font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); -webkit-background-clip: text; -webkit-text-fill-colour: transparent; font-family: sans-serif; letter-spacing: -0.025em;">Weight Loss Percentage</div>
+        <style>
+          @keyframes spa-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        </style>
+      </div>
+    
+      
+      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
+          <a href="/ca/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; colour: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); colour: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
+            Weight Loss Percentage
+          </a>
+          <nav style="display: flex; gap: 1.5rem;">
+            <a href="/ca/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
+            <a href="/ca/calculators/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
+            <a href="/ca/nutrition/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
+            <a href="/ca/blog/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+            <a href="/ca/compare/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+          </nav>
+        </div>
+      </header>
+    
+      <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; colour: #334155;">
+        <h1 style="colour: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Protein Intake Calculator (Canada)</h1>
+        
+        <p><strong>Calculate the ideal daily protein intake for fat loss, muscle gain, or maintenance based on your weight, activity, and training goals.</strong></p>
+        <h2>Calculating Daily Protein Requirements</h2>
+        <p>Protein is the primary macronutrient responsible for repairing tissues, building skeletal muscle, and producing hormones. Consuming adequate protein is essential during a weight loss phase because it protects your active muscle tissue from being broken down for energy.</p>
+<p>Dietary protein is also highly satiating. It has a high thermic effect of food (TEF), meaning your body burns roughly 20-30% of the calories consumed from protein just to digest and process it, compared to only 5-15% for carbs and fats.</p>
+<p>Sedentary adults require a minimum of 0.8 grams of protein per kilogram of body weight. However, active individuals, lifters, and those in a calorie deficit should consume 1.6 to 2.2 grams of protein per kilogram (0.7 to 1.0 gram per pound) to optimize muscle preservation.</p>
+      
+          <h2>Frequently Asked Questions</h2>
+          
+            <div style="margin-bottom: 1.5rem;">
+              <p><strong>Q: How much protein do I need to build muscle?</strong></p>
+              <p>Aim for 0.7 to 1.0 gram of protein per pound of body weight (1.6 to 2.2 grams per kg) daily, combined with progressive resistance training.</p>
+            </div>
+          
+
+            <div style="margin-bottom: 1.5rem;">
+              <p><strong>Q: Can you eat too much protein?</strong></p>
+              <p>For healthy individuals, high protein intake is safe. Excess protein is processed by the kidneys and used for energy or stored.</p>
+            </div>
+          
+        
+      </main>
+      
+      <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+    <a href="/calculators/protein/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/uk/calculators/protein/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ca/calculators/protein/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/au/calculators/protein/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/nz/calculators/protein/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/zh/calculators/protein/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ru/calculators/protein/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
+  </div>
+</div>
+<p style="colour: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
+            <a href="/ca/about/" style="colour: #64748b; text-decoration: none;">About Us</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/contact/" style="colour: #64748b; text-decoration: none;">Contact Us</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/privacy/" style="colour: #64748b; text-decoration: none;">Privacy Policy</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/terms/" style="colour: #64748b; text-decoration: none;">Terms of Service</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/disclaimer/" style="colour: #64748b; text-decoration: none;">Medical Disclaimer</a>
+            <span style="colour: #cbd5e1;">|</span>
+            <a href="/ca/glossary/" style="colour: #64748b; text-decoration: none;">Glossary</a>
+          </div>
+        </div>
+      </footer>
+    
+    </div>
+  </body>
+</html>

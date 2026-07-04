@@ -1,6 +1,36 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VY7X5E6GFN');
+      // Intercept SPA router transitions for GA tracking
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) {
+            window.gtag('config', 'G-VY7X5E6GFN', {
+              page_path: window.location.pathname
+            });
+          }
+        }
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          trackPageView();
+        };
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          trackPageView();
+        };
+        window.addEventListener('popstate', trackPageView);
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
@@ -30,7 +60,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" crossorigin href="/assets/index-rQ4VoLna.css" />
-    <link rel="canonical" href="https://www.weightlosspercentage.com/category/specialized" />
+    <link rel="canonical" href="https://www.weightlosspercentage.com/category/specialized/" />
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -48,11 +78,19 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Specialized Diets",
-            "item": "https://www.weightlosspercentage.com/category/specialized"
+            "item": "https://www.weightlosspercentage.com/category/specialized/"
           }
         ]
       }
     </script>
+      <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/category/specialized/" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/category/specialized/" />
+    <link rel="alternate" hreflang="en-ca" href="https://www.weightlosspercentage.com/ca/category/specialized/" />
+    <link rel="alternate" hreflang="en-au" href="https://www.weightlosspercentage.com/au/category/specialized/" />
+    <link rel="alternate" hreflang="en-nz" href="https://www.weightlosspercentage.com/nz/category/specialized/" />
+    <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/category/specialized/" />
+    <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/category/specialized/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/category/specialized/" />
   </head>
   <body style="background-color: #ffffff; color: #334155;">
     <div id="root">
@@ -65,10 +103,10 @@
           </a>
           <nav style="display: flex; gap: 1.5rem;">
             <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
+            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
+            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
           </nav>
         </div>
       </header>
@@ -98,20 +136,20 @@
           <h2 style="color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-top: 0; margin-bottom: 1rem;">Core Specialized Tools</h2>
           <ul style="padding-left: 1.25rem; margin-bottom: 0;">
             <li style="margin-bottom: 0.75rem;">
-              <a href="/calculators/keto" style="font-weight: bold; color: #3b82f6; text-decoration: none;">Keto Calculator</a> - Plan your macronutrients for standard ketogenic targets (70% fat, 25% protein, 5% carbs).
+              <a href="/calculators/keto/" style="font-weight: bold; color: #3b82f6; text-decoration: none;">Keto Calculator</a> - Plan your macronutrients for standard ketogenic targets (70% fat, 25% protein, 5% carbs).
             </li>
             <li style="margin-bottom: 0;">
-              <a href="/calculators/peptide-dosage" style="font-weight: bold; color: #3b82f6; text-decoration: none;">Peptide Dosage Calculator</a> - Calculate reconstitution and mcg-to-mL syringe settings.
+              <a href="/calculators/peptide-dosage/" style="font-weight: bold; color: #3b82f6; text-decoration: none;">Peptide Dosage Calculator</a> - Calculate reconstitution and mcg-to-mL syringe settings.
             </li>
           </ul>
         </div>
 
         <h2 style="color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">Science-Backed Guides</h2>
         <ul style="padding-left: 1.25rem;">
-          <li style="margin-bottom: 0.5rem;"><a href="/blog/keto-diet-weight-loss" style="color: #3b82f6; text-decoration: none;">Keto Diet for Weight Loss: Trajectories, Water Weight, and Safety</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/blog/water-fasting-weight-loss" style="color: #3b82f6; text-decoration: none;">Water Fasting for Weight Loss: What the Clinical Research Says</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/blog/peptide-therapy-weight-loss-guide" style="color: #3b82f6; text-decoration: none;">Peptide Therapy for Weight Loss: Reconstitution, Efficacy, and Side Effects</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/compare/keto-vs-low-carb" style="color: #3b82f6; text-decoration: none;">Keto vs. Low-Carb Diet: Comparing Carb Restrictions and Results</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/blog/keto-diet-weight-loss/" style="color: #3b82f6; text-decoration: none;">Keto Diet for Weight Loss: Trajectories, Water Weight, and Safety</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/blog/water-fasting-weight-loss/" style="color: #3b82f6; text-decoration: none;">Water Fasting for Weight Loss: What the Clinical Research Says</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/blog/peptide-therapy-weight-loss-guide/" style="color: #3b82f6; text-decoration: none;">Peptide Therapy for Weight Loss: Reconstitution, Efficacy, and Side Effects</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/compare/keto-vs-low-carb/" style="color: #3b82f6; text-decoration: none;">Keto vs. Low-Carb Diet: Comparing Carb Restrictions and Results</a></li>
         </ul>
 
         <div style="margin-top: 2.5rem; padding: 1.5rem; background: #fffbeb; border-left: 4px solid #d97706; border-radius: 4px;">
@@ -122,19 +160,37 @@
       
       <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-          <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
+<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+    <a href="/category/specialized/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/uk/category/specialized/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ca/category/specialized/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/au/category/specialized/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/nz/category/specialized/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/zh/category/specialized/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ru/category/specialized/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
+  </div>
+</div>
+<p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
-            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/about/" style="color: #64748b; text-decoration: none;">About Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact Us</a>
+            <a href="/contact/" style="color: #64748b; text-decoration: none;">Contact Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/privacy/" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/terms/" style="color: #64748b; text-decoration: none;">Terms of Service</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
+            <a href="/disclaimer/" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/glossary" style="color: #64748b; text-decoration: none;">Glossary</a>
+            <a href="/glossary/" style="color: #64748b; text-decoration: none;">Glossary</a>
           </div>
         </div>
       </footer>

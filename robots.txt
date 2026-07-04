@@ -1,4 +1,59 @@
 User-agent: *
 Allow: /
 
+# ChatGPT / OpenAI Web Crawler
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# ChatGPT Search / Plugins Crawler
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Anthropic / Claude Crawler
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Perplexity Search AI Crawler
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Google AI Extended (Gemini / AI Overviews training opt-in)
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Gemini User Agent
+User-agent: Gemini
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Cohere AI Crawler
+User-agent: cohere-ai
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# OMgili Crawler
+User-agent: OMgiliBot
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
 Sitemap: https://www.weightlosspercentage.com/sitemap.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-us.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-uk.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-ca.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-au.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-nz.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-zh.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-ru.xml

@@ -1,6 +1,36 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VY7X5E6GFN');
+      // Intercept SPA router transitions for GA tracking
+      (function() {
+        var pushState = history.pushState;
+        var replaceState = history.replaceState;
+        function trackPageView() {
+          if (window.gtag) {
+            window.gtag('config', 'G-VY7X5E6GFN', {
+              page_path: window.location.pathname
+            });
+          }
+        }
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          trackPageView();
+        };
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          trackPageView();
+        };
+        window.addEventListener('popstate', trackPageView);
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
@@ -30,7 +60,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" crossorigin href="/assets/index-rQ4VoLna.css" />
-    <link rel="canonical" href="https://www.weightlosspercentage.com/calculators/walking" />
+    <link rel="canonical" href="https://www.weightlosspercentage.com/calculators/walking/" />
 
     <!-- Schema Structured Data -->
     <script type="application/ld+json">
@@ -40,7 +70,7 @@
         "name": "Walking for Weight Loss Calculator",
         "description": "Calculate calories burned walking based on weight, duration, and speed.",
         "applicationCategory": "HealthApplication",
-        "url": "https://www.weightlosspercentage.com/calculators/walking",
+        "url": "https://www.weightlosspercentage.com/calculators/walking/",
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.7",
@@ -63,59 +93,25 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://www.weightlosspercentage.com/calculators"
+            "item": "https://www.weightlosspercentage.com/calculators/"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Walking Calculator",
-            "item": "https://www.weightlosspercentage.com/calculators/walking"
+            "item": "https://www.weightlosspercentage.com/calculators/walking/"
           }
         ]
       }
     </script>
-  
-    <script type="application/ld+json">
-      {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-            {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.weightlosspercentage.com/"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Calculators",
-                  "item": "https://www.weightlosspercentage.com/calculators"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Walking for Weight Loss Calculator",
-                  "item": "https://www.weightlosspercentage.com/calculators/walking"
-            }
-      ]
-}
-    </script>
-    <script type="application/ld+json">
-      {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Walking for Weight Loss Calculator",
-      "description": "Calculate calories burned from walking. Determine calorie burn based on your weight, duration, and speed to plan your weight loss goals.",
-      "applicationCategory": "HealthApplication",
-      "url": "https://www.weightlosspercentage.com/calculators/walking",
-      "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "1250"
-      }
-}
-    </script>
+      <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/calculators/walking/" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/calculators/walking/" />
+    <link rel="alternate" hreflang="en-ca" href="https://www.weightlosspercentage.com/ca/calculators/walking/" />
+    <link rel="alternate" hreflang="en-au" href="https://www.weightlosspercentage.com/au/calculators/walking/" />
+    <link rel="alternate" hreflang="en-nz" href="https://www.weightlosspercentage.com/nz/calculators/walking/" />
+    <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/calculators/walking/" />
+    <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/calculators/walking/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/calculators/walking/" />
   </head>
   <body style="background-color: #ffffff; color: #334155;">
     <div id="root">
@@ -128,10 +124,10 @@
           </a>
           <nav style="display: flex; gap: 1.5rem;">
             <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
+            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
+            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
           </nav>
         </div>
       </header>
@@ -141,7 +137,7 @@
         <nav class="breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #64748b;">
           <a href="/" style="text-decoration: none; color: #3b82f6;">Home</a>
           <span style="margin: 0 0.5rem; color: #cbd5e1;">/</span>
-          <a href="/calculators" style="text-decoration: none; color: #3b82f6;">Calculators</a>
+          <a href="/calculators/" style="text-decoration: none; color: #3b82f6;">Calculators</a>
           <span style="margin: 0 0.5rem; color: #cbd5e1;">/</span>
           <span>Walking Calculator</span>
         </nav>
@@ -226,7 +222,7 @@
         </div>
 
         <h2>Step and Deficit Strategy</h2>
-        <p>Integrating walking with a dietary deficit is the most sustainable approach to fat loss. For instance, walking 10,000 steps covers roughly 4-5 miles, burning between 300 to 500 calories depending on your body weight. Combining this active expenditure with a moderate deficit established using our <a href="/calculators/calorie" style="color: #3b82f6; text-decoration: none; font-weight: bold;">calorie deficit calculator</a> can double your fat loss speed. For more details on the metabolic impact of walking, check our guide on <a href="/blog/walking-for-weight-loss" style="color: #3b82f6; text-decoration: none; font-weight: bold;">walking for weight loss steps and calorie metrics</a>.</p>
+        <p>Integrating walking with a dietary deficit is the most sustainable approach to fat loss. For instance, walking 10,000 steps covers roughly 4-5 miles, burning between 300 to 500 calories depending on your body weight. Combining this active expenditure with a moderate deficit established using our <a href="/calculators/calorie/" style="color: #3b82f6; text-decoration: none; font-weight: bold;">calorie deficit calculator</a> can double your fat loss speed. For more details on the metabolic impact of walking, check our guide on <a href="/blog/walking-for-weight-loss/" style="color: #3b82f6; text-decoration: none; font-weight: bold;">walking for weight loss steps and calorie metrics</a>.</p>
 
         <div style="margin-top: 2.5rem; padding: 1.5rem; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 4px;">
           <p style="margin: 0; font-size: 0.95rem; color: #1e3a8a;"><strong>Scientific Citation:</strong> The metabolic cost of transport determines active caloric expenditure. Check exercise physiology studies on walking energy costs at <a href="https://en.wikipedia.org/wiki/Intermittent_fasting" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: bold; text-decoration: underline;">Wikipedia's Intermittent Fasting & Exercise Page</a>.</p>
@@ -236,19 +232,37 @@
 
       <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-          <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
+<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+    <a href="/calculators/walking/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/uk/calculators/walking/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ca/calculators/walking/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/au/calculators/walking/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/nz/calculators/walking/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/zh/calculators/walking/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
+    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
+    <a href="/ru/calculators/walking/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
+  </div>
+</div>
+<p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
-            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/about/" style="color: #64748b; text-decoration: none;">About Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact Us</a>
+            <a href="/contact/" style="color: #64748b; text-decoration: none;">Contact Us</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/privacy/" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/terms/" style="color: #64748b; text-decoration: none;">Terms of Service</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
+            <a href="/disclaimer/" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
             <span style="color: #cbd5e1;">|</span>
-            <a href="/glossary" style="color: #64748b; text-decoration: none;">Glossary</a>
+            <a href="/glossary/" style="color: #64748b; text-decoration: none;">Glossary</a>
           </div>
         </div>
       </footer>
