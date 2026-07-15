@@ -1,0 +1,49 @@
+---
+import Navigation from './Navigation.astro';
+import MobileMenu from './MobileMenu.astro';
+import { getLocalizedHref } from '../utils/navigation';
+
+export interface Props {
+  activePath?: string;
+  region: string;
+}
+
+const { region } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href={getLocalizedHref('/', region)} class="flex items-center space-x-2 flex-shrink-0" aria-label="Weight Loss Percentage — Home">
+        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 via-violet-500 to-orange-500 flex items-center justify-center text-white font-bold" aria-hidden="true">%</div>
+        <span class="font-bold text-gray-900 text-base sm:text-lg block">Weight Loss <span class="text-orange-500">Percentage</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <Navigation region={region} />
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus-visible-outline focus-visible-ring">
+        <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <MobileMenu region={region} />
+</header>
+
+<script is:inline>
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    var m = document.getElementById('mobile-menu');
+    if (m) {
+      m.classList.toggle('hidden');
+      this.setAttribute('aria-label', m.classList.contains('hidden') ? 'Open menu' : 'Close menu');
+    }
+  });
+</script>

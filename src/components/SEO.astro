@@ -1,0 +1,158 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  alternates?: Array<{ hreflang: string; href: string }>;
+  metaTags?: Array<{ name?: string; property?: string; content: string }>;
+  schemas?: string[];
+}
+
+const {
+  title = "Weight Loss Percentage Calculator: Free & Accurate Tool",
+  description = "Calculate your weight loss percentage instantly with our free tool. Track body weight trends, set healthy goals and start your weight loss journey safely today.",
+  canonical = "https://www.weightlosspercentage.com/",
+  alternates = [],
+  metaTags = [],
+  schemas = []
+} = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="theme-color" content="#4f46e5" />
+
+<title>{title}</title>
+{description && <meta name="description" content={description} />}
+
+{canonical && <link rel="canonical" href={canonical} />}
+
+{alternates.map((alt) => (
+  <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+))}
+
+{metaTags.map((tag) => (
+  tag.name ? (
+    <meta name={tag.name} content={tag.content} />
+  ) : tag.property ? (
+    <meta property={tag.property} content={tag.content} />
+  ) : null
+))}
+
+{/* Standard OpenGraph & Twitter Defaults if not explicitly defined */}
+{!metaTags.some(t => t.property === 'og:site_name') && (
+  <meta property="og:site_name" content="Weight Loss Percentage" />
+)}
+{!metaTags.some(t => t.property === 'og:type') && (
+  <meta property="og:type" content="website" />
+)}
+{!metaTags.some(t => t.property === 'og:locale') && (
+  <meta property="og:locale" content="en_US" />
+)}
+{!metaTags.some(t => t.property === 'og:image') && (
+  <meta property="og:image" content="https://www.weightlosspercentage.com/og-default.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+)}
+{!metaTags.some(t => t.name === 'twitter:card') && (
+  <meta name="twitter:card" content="summary_large_image" />
+)}
+{!metaTags.some(t => t.name === 'twitter:image') && (
+  <meta name="twitter:image" content="https://www.weightlosspercentage.com/og-default.jpg" />
+)}
+
+{!metaTags.some(t => t.property === 'og:title') && title && (
+  <meta property="og:title" content={title} />
+)}
+{!metaTags.some(t => t.property === 'og:description') && description && (
+  <meta property="og:description" content={description} />
+)}
+{!metaTags.some(t => t.property === 'og:url') && canonical && (
+  <meta property="og:url" content={canonical} />
+)}
+{!metaTags.some(t => t.name === 'twitter:title') && title && (
+  <meta name="twitter:title" content={title} />
+)}
+{!metaTags.some(t => t.name === 'twitter:description') && description && (
+  <meta name="twitter:description" content={description} />
+)}
+
+{/* AdSense Account Verification */}
+<meta name="google-adsense-account" content="ca-pub-7203223934454111" />
+
+{/* Organization & SoftwareApplication Schema (default fallbacks) */}
+{schemas.length === 0 && (
+  <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Weight Loss Percentage",
+          "url": "https://www.weightlosspercentage.com",
+          "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Weight Loss Percentage Calculator",
+          "operatingSystem": "WebBrowser",
+          "applicationCategory": "HealthAndFitnessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+  </script>
+)}
+
+{/* Inject Custom Page JSON-LD Schemas */}
+{schemas.map((schema) => (
+  <script type="application/ld+json" is:inline set:html={schema} />
+))}
+
+{/* Preconnects & AdSense Scripts */}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.json" />
+
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+<link rel="dns-prefetch" href="https://www.googletagservices.com" />
+
+<script async defer is:inline src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7203223934454111" crossorigin="anonymous"></script>
+
+{/* Google Analytics (tag.js) */}
+<script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VY7X5E6GFN');
+
+  // Intercept SPA router transitions for GA tracking (if React is loaded)
+  (function() {
+    var pushState = history.pushState;
+    var replaceState = history.replaceState;
+    function trackPageView() {
+      if (window.gtag) {
+        window.gtag('config', 'G-VY7X5E6GFN', {
+          page_path: window.location.pathname
+        });
+      }
+    }
+    history.pushState = function() {
+      pushState.apply(history, arguments);
+      trackPageView();
+    };
+    history.replaceState = function() {
+      replaceState.apply(history, arguments);
+      trackPageView();
+    };
+    window.addEventListener('popstate', trackPageView);
+  })();
+</script>

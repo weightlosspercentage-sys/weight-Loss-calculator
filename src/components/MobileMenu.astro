@@ -1,0 +1,48 @@
+---
+import { navLinks, getLocalizedHref } from '../utils/navigation';
+
+export interface Props {
+  region: string;
+}
+
+const { region } = Astro.props;
+---
+
+<div id="mobile-menu" class="md:hidden hidden pb-4 px-4 space-y-1">
+  {navLinks.map((link) => {
+    if ('dropdown' in link) {
+      return (
+        <details class="mobile-details">
+          <summary class="px-4 py-3 min-h-11 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md cursor-pointer list-none flex justify-between items-center">
+            {link.label}
+            <svg class="w-4 h-4 mobile-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="pl-4 space-y-1 mt-1">
+            {link.dropdown?.map((subItem) => (
+              <a 
+                href={getLocalizedHref(subItem.href, region)} 
+                class={subItem.isSpecial 
+                  ? "block px-4 py-3 min-h-11 text-sm text-orange-700 font-semibold hover:bg-gray-100 rounded-md"
+                  : "block px-4 py-3 min-h-11 text-sm text-gray-600 hover:bg-gray-100 rounded-md"
+                }
+              >
+                {subItem.label}
+              </a>
+            ))}
+          </div>
+        </details>
+      );
+    } else {
+      return (
+        <a 
+          href={getLocalizedHref(link.href, region)} 
+          class="block px-4 py-3 min-h-11 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+        >
+          {link.label}
+        </a>
+      );
+    }
+  })}
+</div>

@@ -1,0 +1,183 @@
+---
+import { getLocalizedHref } from '../utils/navigation';
+
+export interface Props {
+  relativePath?: string;
+  region: string;
+}
+
+const { relativePath = '', region } = Astro.props;
+
+// Clean active path from any double slashes or leading/trailing issues
+const cleanRelativePath = '/' + relativePath.replace(/^\//, '').replace(/\/$/, '') + '/';
+const normalizedRelativePath = cleanRelativePath === '//' ? '/' : cleanRelativePath;
+
+// Helper to extract the relative path without the region prefix
+function getBasePath(pathStr: string): string {
+  let path = pathStr.replace(/^\//, '');
+  const parts = path.split('/');
+  if (parts.length > 0 && ['uk', 'ca', 'au', 'nz', 'zh', 'ru'].includes(parts[0])) {
+    parts.shift(); // remove region prefix
+  }
+  let base = '/' + parts.join('/');
+  if (base !== '/' && !base.endsWith('/')) {
+    base += '/';
+  }
+  return base;
+}
+
+const basePath = getBasePath(normalizedRelativePath);
+
+const regions = [
+  { code: 'us', label: 'English (US)', href: basePath },
+  { code: 'uk', label: 'English (UK)', href: `/uk${basePath === '/' ? '/' : basePath}` },
+  { code: 'ca', label: 'English (CA)', href: `/ca${basePath === '/' ? '/' : basePath}` },
+  { code: 'au', label: 'English (AU)', href: `/au${basePath === '/' ? '/' : basePath}` },
+  { code: 'nz', label: 'English (NZ)', href: `/nz${basePath === '/' ? '/' : basePath}` },
+  { code: 'zh', label: '简体中文', href: `/zh${basePath === '/' ? '/' : basePath}` },
+  { code: 'ru', label: 'Русский', href: `/ru${basePath === '/' ? '/' : basePath}` }
+];
+
+const footerLinks = [
+  { label: 'About Us', href: '/about/' },
+  { label: 'Contact Us', href: '/contact/' },
+  { label: 'Privacy Policy', href: '/privacy/' },
+  { label: 'Terms of Service', href: '/terms/' },
+  { label: 'Medical Disclaimer', href: '/disclaimer/' },
+  { label: 'Glossary', href: '/glossary/' }
+];
+---
+
+<footer class="static-footer" style="background: #0b1329; border-top: 1px solid #1e293b; padding: 4rem 1.5rem 2rem 1.5rem; margin-top: 5rem; font-family: sans-serif; color: #94a3b8;">
+  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+    
+
+    <!-- Rest of Footer - Aligned Left for desktop grid -->
+    <div style="text-align: left; margin-top: 2rem;">
+      
+      <!-- Top Row: Get in Touch & Newsletter -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 2.5rem; margin-bottom: 3rem;">
+        <div style="flex: 1.5; min-width: 280px;">
+          <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0;">Get In Touch</h3>
+          <p style="margin: 0; font-size: 0.9375rem; line-height: 1.5; color: #94a3b8;">
+            Have questions, feedback, or need help? We'd love to hear from you.
+          </p>
+        </div>
+        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+          <span style="color: #ffffff; font-size: 1rem; font-weight: 700;">Join our newsletter</span>
+          <div style="display: flex; width: 100%; max-width: 400px; gap: 0.5rem;">
+            <input type="email" placeholder="Enter your email" style="flex: 1; padding: 0.625rem 1rem; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: #ffffff; font-size: 0.875rem;" />
+            <button style="padding: 0.625rem 1.25rem; border-radius: 6px; border: none; background: #4f46e5; color: #ffffff; font-weight: 600; font-size: 0.875rem; cursor: pointer;">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Column Content Grid -->
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 3rem;">
+        
+        <!-- Brand Info Column -->
+        <div style="flex: 2; min-width: 260px; margin-bottom: 1rem;">
+          <div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">
+            <a href={getLocalizedHref('/', region)} style="text-decoration: none; color: #ffffff;">
+              Weight Loss <span style="background: linear-gradient(to right, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Percentage</span>
+            </a>
+          </div>
+          <p style="font-size: 0.875rem; line-height: 1.6; margin: 0 0 1.5rem 0; color: #94a3b8;">
+            Free dietitian-reviewed health, nutrition, and fitness calculators designed to scale weight management metrics scientifically.
+          </p>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
+              <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
+              <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
+              <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.27 2.68 7.9 6.49 9.33-.09-.8-.17-2.02.04-2.89.18-.79 1.19-5.06 1.19-5.06s-.3-.61-.3-1.51c0-1.42.82-2.48 1.85-2.48.87 0 1.29.65 1.29 1.44 0 .88-.56 2.19-.85 3.4-.24 1.02.51 1.85 1.51 1.85 1.81 0 3.21-1.9 3.21-4.66 0-2.43-1.75-4.13-4.25-4.13-2.9 0-4.6 2.17-4.6 4.42 0 .88.34 1.82.76 2.32.08.1.1.17.07.28l-.29 1.18c-.05.18-.16.22-.36.13-1.3-.6-2.1-2.49-2.1-4.01 0-3.27 2.37-6.27 6.85-6.27 3.6 0 6.39 2.56 6.39 5.98 0 3.57-2.25 6.45-5.38 6.45-1.05 0-2.04-.55-2.38-1.19l-.65 2.48c-.24.91-.88 2.05-1.31 2.76C10.07 21.75 11.02 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 1: Calculators -->
+        <div style="flex: 1; min-width: 160px;">
+          <h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Calculators</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+            <li><a href={getLocalizedHref('/calculators/weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Weight Loss %</a></li>
+            <li><a href={getLocalizedHref('/calculators/bmi/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">BMI Calculator</a></li>
+            <li><a href={getLocalizedHref('/calculators/tdee/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">TDEE Calculator</a></li>
+            <li><a href={getLocalizedHref('/calculators/bmr/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">BMR Calculator</a></li>
+            <li><a href={getLocalizedHref('/calculators/calorie/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Calorie Calculator</a></li>
+            <li><a href={getLocalizedHref('/calculators/macro/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Macro Calculator</a></li>
+            <li><a href={getLocalizedHref('/calculators/body-fat/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Body Fat Calculator</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Pediatric & Pet -->
+        <div style="flex: 1; min-width: 160px;">
+          <h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">More Tools</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+            <li><a href={getLocalizedHref('/calculators/newborn-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Newborn Weight Loss</a></li>
+            <li><a href={getLocalizedHref('/calculators/infant-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Infant Weight Loss</a></li>
+            <li><a href={getLocalizedHref('/calculators/baby-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Baby Weight Loss</a></li>
+            <li><a href={getLocalizedHref('/calculators/dog-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Dog Weight Loss</a></li>
+            <li><a href={getLocalizedHref('/calculators/peptide-dosage/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Peptide Dosage</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Resources -->
+        <div style="flex: 1; min-width: 160px;">
+          <h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Resources</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+            <li><a href={getLocalizedHref('/about/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">About Us</a></li>
+            <li><a href={getLocalizedHref('/contact/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Contact Us</a></li>
+            <li><a href={getLocalizedHref('/blog/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Blog</a></li>
+            <li><a href={getLocalizedHref('/glossary/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Glossary</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Legal -->
+        <div style="flex: 1; min-width: 160px;">
+          <h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Legal</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+            <li><a href={getLocalizedHref('/privacy/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a></li>
+            <li><a href={getLocalizedHref('/terms/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a></li>
+            <li><a href={getLocalizedHref('/disclaimer/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright Section -->
+      <div style="border-top: 1px solid #1e293b; padding-top: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+        <!-- Region / Language Selector -->
+        <div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+          <span style="color: #94a3b8; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
+          <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
+            {regions.map((reg, index) => {
+              const isActive = reg.code === region;
+              return (
+                <>
+                  {index > 0 && <span style="color: #334155; font-size: 0.75rem;">•</span>}
+                  <a 
+                    href={reg.href} 
+                    style={isActive 
+                      ? "color: #818cf8; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #1e1b4b; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;" 
+                      : "color: #94a3b8; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;"
+                    }
+                  >
+                    {reg.label}
+                  </a>
+                </>
+              );
+            })}
+          </div>
+        </div>
+
+        <p style="color: #64748b; font-size: 0.875rem; margin: 0;">
+          &copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</footer>

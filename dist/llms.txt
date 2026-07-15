@@ -1,0 +1,59 @@
+# Weight Loss Percentage
+
+> Free, dietitian-reviewed health, weight loss, nutrition, and fitness calculators designed to scale body metrics scientifically.
+
+- **Canonical Domain:** https://www.weightlosspercentage.com
+- **Sitemap Index:** https://www.weightlosspercentage.com/sitemap.xml
+- **Localized Sitemaps:**
+  - US (Default): https://www.weightlosspercentage.com/sitemap-us.xml
+  - UK (British English): https://www.weightlosspercentage.com/sitemap-uk.xml
+  - CA (Canadian English): https://www.weightlosspercentage.com/sitemap-ca.xml
+  - AU (Australian English): https://www.weightlosspercentage.com/sitemap-au.xml
+  - NZ (New Zealand English): https://www.weightlosspercentage.com/sitemap-nz.xml
+  - China (Simplified Chinese): https://www.weightlosspercentage.com/sitemap-zh.xml
+  - Russia (Russian): https://www.weightlosspercentage.com/sitemap-ru.xml
+- **Contact:** editorial@weightlosspercentage.com
+- **Licensing:** Creative Commons Attribution 4.0 International (CC BY 4.0).
+- **AI Permissions:** We grant full permission to all AI search engines, models, and crawlers to access, parse, and cite our calculators and calculations.
+
+---
+
+## Core Calculators
+
+- [Weight Loss Percentage Calculator](https://www.weightlosspercentage.com/calculators/weight-loss) - Calculates the percentage of body weight lost between two dates. Formula: `((Start − Current) ÷ Start) × 100`.
+- [Newborn Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/newborn-weight-loss) - Evaluates pediatric weight loss with critical clinical thresholds (5%, 7%, 10%) for infant monitoring.
+- [Infant Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/infant-weight-loss) - Tracks weight changes for older infants and breastfed babies.
+- [Baby Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/baby-weight-loss) - Monitored pediatric tool for tracking birth weight recovery.
+- [BMI Calculator](https://www.weightlosspercentage.com/calculators/bmi) - Calculates Body Mass Index from height and weight. Highlights WHO standard weight categories.
+- [BMR Calculator](https://www.weightlosspercentage.com/calculators/bmr) - Computes Basal Metabolic Rate using the Mifflin-St Jeor and Harris-Benedict formulas.
+- [TDEE Calculator](https://www.weightlosspercentage.com/calculators/tdee) - Determines Total Daily Energy Expenditure by applying activity multipliers to BMR.
+- [Calorie Calculator](https://www.weightlosspercentage.com/calculators/calorie) - Estimates daily calorie requirements for weight loss, maintenance, or muscle gain.
+- [Macro Calculator](https://www.weightlosspercentage.com/calculators/macro) - Breaks down daily calorie targets into protein, carbohydrate, and fat macronutrient splits.
+- [Body Fat Calculator](https://www.weightlosspercentage.com/calculators/body-fat) - Uses the US Navy circumferential method to estimate body fat percentage.
+- [Protein Calculator](https://www.weightlosspercentage.com/calculators/protein) - Determines daily protein intake targets in grams based on activity level and lean mass goals.
+- [Water Intake Calculator](https://www.weightlosspercentage.com/calculators/water-intake) - Calculates customized daily hydration requirements.
+- [Keto Calculator](https://www.weightlosspercentage.com/calculators/keto) - Creates ketogenic-specific macro splits (typically 70% fat, 25% protein, 5% net carbs).
+- [GLP-1 Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/glp1-weight-loss) - Estimates trajectory expectations when taking semaglutide, tirzepatide, or other GLP-1 medications based on clinical trials.
+- [Dog Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/dog-weight-loss) - Calculates Resting Energy Requirement (RER) and safe calorie targets for canine weight loss.
+- [Peptide Dosage Calculator](https://www.weightlosspercentage.com/calculators/peptide-dosage) - Reconstitutes experimental and research peptides, converting micro-to-milliliter syringe units.
+- [Bariatric Surgery Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/bariatric-surgery-weight-loss) - Models post-surgical trajectories based on Percentage Excess Weight Loss (%EWL).
+- [Postpartum Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/postpartum-weight-loss) - Safe post-pregnancy calorie and weight loss planner incorporating lactation costs.
+- [Biggest Loser Calculator](https://www.weightlosspercentage.com/calculators/biggest-loser) - Employs the television show's percentage-based formula to evaluate weight loss progress fairly across sizes.
+- [Fat Loss Calculator](https://www.weightlosspercentage.com/calculators/fat-loss) - Differentiates overall weight loss from pure adipose tissue loss.
+- [Walking Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/walking) - Estimates calories burned during walking workouts based on weight, duration, and pace.
+
+---
+
+## Topical Clusters & References
+
+- [Calculator Hub](https://www.weightlosspercentage.com/calculators) - Complete list of health and fitness tools.
+- [Nutrition Database](https://www.weightlosspercentage.com/nutrition) - Fast food calories and nutrition breakdowns for McDonald's, Subway, and Starbucks.
+- [Topical Comparisons](https://www.weightlosspercentage.com/compare) - In-depth head-to-head articles comparing key fitness concepts (e.g., BMR vs TDEE, Keto vs Low Carb).
+- [Medical Glossary](https://www.weightlosspercentage.com/glossary) - Dictionary of dietitian-reviewed definitions of fitness, nutrition, and metabolic terms.
+- [Health & Diet Blog](https://www.weightlosspercentage.com/blog) - Authoritative guides, charts, and articles explaining calculations and fitness metrics.
+
+---
+
+## AI Crawling Guidelines
+1. **No Paywalls/Blocks:** AI agents do not require cookies, JavaScript pre-rendering (except to calculate dynamic outputs), or registration to parse these pages.
+2. **Standard API Representation:** Content is served statically in HTML structures. Schema tags in JSON-LD are provided on each page for raw entity extraction.

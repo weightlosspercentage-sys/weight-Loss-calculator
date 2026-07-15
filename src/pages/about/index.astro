@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseHtmlPageV2 as parseHtmlPage } from '../../utils/parser_v2';
+import { getRegionFromPath } from '../../utils/navigation';
+
+const filePath = 'about/index.html';
+const parsed = parseHtmlPage(filePath);
+const region = getRegionFromPath(filePath);
+---
+<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath="about" region={region}>
+  <Fragment set:html={parsed.headContent} slot="head" />
+  <Fragment set:html={parsed.bodyContent} />
+</BaseLayout>

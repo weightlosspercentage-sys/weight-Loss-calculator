@@ -1,0 +1,134 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+
+export interface Props {
+  lang?: string;
+  title?: string;
+  description?: string;
+  canonical?: string;
+  alternates?: Array<{ hreflang: string; href: string }>;
+  metaTags?: Array<{ name?: string; property?: string; content: string }>;
+  schemas?: string[];
+  activePath?: string;
+  region: string;
+  loadReact?: boolean;
+}
+
+const { 
+  lang = 'en', 
+  title,
+  description,
+  canonical,
+  alternates,
+  metaTags,
+  schemas,
+  activePath = '', 
+  region,
+  loadReact = false
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class={loadReact ? "has-react" : ""}>
+  <head>
+    <link rel="stylesheet" href="/assets/index-43gqMy96.css" />
+    <SEO 
+      title={title}
+      description={description}
+      canonical={canonical}
+      alternates={alternates}
+      metaTags={metaTags}
+      schemas={schemas}
+    />
+    <script define:vars={{ region }} is:inline>
+      window.__ROUTE_BASEPATH__ = region ? `/${region}` : "/";
+    </script>
+    <slot name="head" />
+    <style is:global>
+      /* Critical styles to prevent Flash of Unstyled Content (FOUC) */
+      .hidden { display: none !important; }
+      /* Responsive overrides — must be !important to beat the .hidden rule above */
+      @media (min-width: 640px) {
+        .sm\:block  { display: block  !important; }
+        .sm\:flex   { display: flex   !important; }
+        .sm\:inline { display: inline !important; }
+      }
+      @media (min-width: 768px) {
+        .md\:flex   { display: flex   !important; }
+        .md\:block  { display: block  !important; }
+        .md\:hidden { display: none   !important; }
+      }
+      /* Interaction-state overrides — dropdowns use hidden + group-hover:block */
+      .group:hover .group-hover\:block,
+      .group:focus-within .group-focus-within\:block { display: block !important; }
+      .group:hover .group-hover\:flex,
+      .group:focus-within .group-focus-within\:flex  { display: flex  !important; }
+
+      /* Hide outer static layout elements when React is loaded */
+      html.has-react .static-header,
+      html.has-react .static-footer,
+      /* Hide all static fallback content inside #root - use direct child selectors (>)
+         so we don't accidentally match React's nested components inside the #root wrapper div */
+      html.has-react #root > header,
+      html.has-react #root > footer,
+      html.has-react #root > nav,
+      html.has-react #root > #mobileMenuScript,
+      html.has-react #root > #main-content {
+        display: none !important;
+      }
+
+      /* Spinner animation for the layout-level loader */
+      @keyframes layout-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+            
+      /* Standard layout styles matching index.html */
+      .focus-visible-outline { outline: none; }
+      .focus-visible-ring:focus-visible { box-shadow: 0 0 0 2px #6366f1; border-radius: 6px; }
+      .dropdown-menu { display: none; position: absolute; z-index: 100; }
+      .group:hover .dropdown-menu { display: block; }
+      .group:focus-within .dropdown-menu { display: block; }
+      .mobile-details summary::-webkit-details-marker { display: none; }
+      .mobile-details[open] .mobile-chevron { transform: rotate(180deg); }
+    </style>
+  </head>
+  <body>
+    <!-- Page loader: covers content while React bundle loads/mounts -->
+    <div id="layout-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; align-items: center; justify-content: center; z-index: 9999; pointer-events: none; transition: opacity 0.25s ease;">
+      <div style="width: 44px; height: 44px; border: 3px solid #e2e8f0; border-top: 3px solid #4f46e5; border-radius: 50%; animation: layout-spin 0.75s linear infinite;"></div>
+    </div>
+    {!loadReact && <Header activePath={activePath} region={region} />}
+    <div id="root">
+      <slot />
+      
+      <!-- Global Medical Disclaimer (EEAT / YMYL) -->
+      <div style="max-width: 800px; margin: 3rem auto 1rem; padding: 1.5rem; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; font-family: sans-serif; text-align: center; color: #92400e;">
+        <p style="margin: 0; font-size: 0.875rem; font-weight: 500;">
+          <strong>Medical Disclaimer:</strong> The calculators and information provided on Weight Loss Percentage are for educational purposes only and are not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider before making significant changes to your diet, exercise routine, or health plan.
+        </p>
+      </div>
+      
+    </div>
+    {!loadReact && <Footer relativePath={activePath} region={region} />}
+    <!-- Dismiss loader once React has fully rendered -->
+    <script is:inline>
+      (function() {
+        function dismissLoader() {
+          var loader = document.getElementById('layout-loader');
+          if (!loader) return;
+          loader.style.opacity = '0';
+          setTimeout(function() {
+            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 250);
+        }
+        // Dismiss when window fully loads (scripts executed, React mounted)
+        window.addEventListener('load', dismissLoader);
+        // Safety fallback: dismiss after 4 seconds no matter what
+        setTimeout(dismissLoader, 4000);
+      })();
+    </script>
+  </body>
+</html>

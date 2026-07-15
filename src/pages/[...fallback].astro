@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { parseHtmlPageV2 as parseHtmlPage } from '../utils/parser_v2';
+import { getRegionFromPath } from '../utils/navigation';
+import fs from 'fs';
+import path from 'path';
+
+export function getStaticPaths() {
+  // In production build, return a minimal dummy path to speed up build
+  // and prevent duplicate generation (since Python scripts generate these)
+  if (!import.meta.env.DEV) {
+    return [
+      { params: { fallback: 'spa-fallback-dummy' } }
+    ];
+  }
+
+  // In development, recursively scan the workspace directories to match
+  // all available static paths, preventing 404s in the dev server.
+  const paths = [];
+  const folders = [
+    'about', 'blog', 'calculators', 'category', 'compare', 
+    'contact', 'disclaimer', 'glossary', 'nutrition', 
+    'privacy', 'restaurants', 'terms',
+    'uk', 'ca', 'au', 'nz', 'zh', 'ru'
+  ];
+  
+  for (const folder of folders) {
+    if (fs.existsSync(folder)) {
+      const getHtmlFiles = (dir) => {
+        let results = [];
+        try {
+          const list = fs.readdirSync(dir);
+          list.forEach((file) => {
+            const filePath = path.join(dir, file);
+            const stat = fs.statSync(filePath);
+            if (stat && stat.isDirectory()) {
+              results = results.concat(getHtmlFiles(filePath));
+            } else if (file.endsWith('.html')) {
+              results.push(filePath);
+            }
+          });
+        } catch (e) {
+          // Silent catch for permission/read errors
+        }
+        return results;
+      };
+      
+      const htmlFiles = getHtmlFiles(folder);
+      for (const file of htmlFiles) {
+        let route = file.replace(/\\/g, '/'); // Normalize Windows paths
+        route = route.replace(/\/index\.html$/, '');
+        route = route.replace(/\.html$/, '');
+        paths.push({ params: { fallback: route } });
+      }
+    }
+  }
+  
+  return paths;
+}
+
+const isBlog = Astro.url.pathname.includes('/blog/');
+const isInfo = ['/about/', '/contact/', '/privacy/', '/terms/', '/disclaimer/', '/glossary/'].some(p => Astro.url.pathname.includes(p));
+const loadReact = !isBlog && !isInfo;
+const filePath = 'index.html';
+const parsed = parseHtmlPage(filePath, loadReact);
+const region = getRegionFromPath(Astro.url.pathname);
+---
+<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath={Astro.url.pathname} region={region} loadReact={loadReact}>
+  <Fragment set:html={parsed.headContent} slot="head" />
+  <Fragment set:html={parsed.bodyContent} />
+</BaseLayout>

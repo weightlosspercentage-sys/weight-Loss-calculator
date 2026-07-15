@@ -1,0 +1,9 @@
+node_modules
+.vscode/
+.astro/
+.wrangler/
+dist_old/
+dist_test/
+*.bak
+check-output.txt
+.agents/

@@ -1,0 +1,15 @@
+---
+import { regions } from '../data/localization.json';
+---
+<footer class="py-6 md:px-8 md:py-0">
+  <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+    <p class="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
+      © {new Date().getFullYear()} Weight Loss Percentage. All rights reserved.
+    </p>
+    <div class="flex items-center gap-4">
+      {Object.entries(regions).map(([code, data]) => (
+        <a href={`/${code}`} class="text-sm font-medium hover:underline">{data.nav_home}</a>
+      ))}
+    </div>
+  </div>
+</footer>

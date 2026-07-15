@@ -76,10 +76,49 @@
         "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
       }
     </script>
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I calculate weight loss percentage?", "acceptedAnswer": { "@type": "Answer", "text": "Weight loss percentage = ((Starting Weight - Current Weight) ÷ Starting Weight) × 100. Example: Starting at 200 lbs, now at 180 lbs: ((200-180) ÷ 200) × 100 = 10%. Use our free weight loss percentage calculator above for instant results." } },
+        { "@type": "Question", "name": "What is a good weight loss percentage per week?", "acceptedAnswer": { "@type": "Answer", "text": "The CDC recommends losing 0.5 to 2 pounds per week. As a percentage, this equals approximately 0.25-1% of body weight per week for a person of average weight. Losing more than 1% of body weight per week increases the risk of muscle loss." } },
+        { "@type": "Question", "name": "What is the 5% weight loss milestone?", "acceptedAnswer": { "@type": "Answer", "text": "Losing 5% of your starting body weight is a clinically recognized milestone. Research shows that 5% weight loss produces measurable improvements in blood pressure, blood sugar, and cholesterol levels." } },
+        { "@type": "Question", "name": "What is a healthy weight loss percentage?", "acceptedAnswer": { "@type": "Answer", "text": "A healthy total weight loss is typically 5-10% of starting body weight. A 5% loss triggers health benefits; 10% loss produces significant improvements in diabetes risk, sleep apnea, and cardiovascular health." } }
+      ]
+    }
+    </script>
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Weight Loss Percentage Calculator",
+      "description": "Free weight loss percentage calculator. Calculate your weight loss percentage, track progress, and understand clinical health milestones.",
+      "url": "https://www.weightlosspercentage.com/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "WeightLossPercentage.com" }
+    }
+    </script>
     <script type="module" crossorigin src="/assets/index-Ctp2HkQJ.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/router-BvPvcSMX.js">
     <link rel="modulepreload" crossorigin href="/assets/ui-BTK8ZW4o.js">
     <link rel="stylesheet" crossorigin href="/assets/index-43gqMy96.css">
+    <style>
+      .static-header, .static-footer, #root > #main-content {
+        display: none !important;
+      }
+    </style>
+    <noscript>
+      <style>
+        .static-header, .static-footer, #root > #main-content {
+          display: block !important;
+        }
+      </style>
+    </noscript>
     <link rel="canonical" href="https://www.weightlosspercentage.com/" />
       <link rel="alternate" hreflang="en-us" href="https://www.weightlosspercentage.com/" />
     <link rel="alternate" hreflang="en-gb" href="https://www.weightlosspercentage.com/uk/" />
@@ -94,8 +133,7 @@
     <div id="root">
       
       <div id="spa-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: sans-serif;">
-        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite; margin-bottom: 1rem;"></div>
-        <div style="font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: sans-serif; letter-spacing: -0.025em;">Weight Loss Percentage</div>
+        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite;"></div>
         <style>
           @keyframes spa-spin {
             0% { transform: rotate(0deg); }
@@ -122,65 +160,88 @@
       </header>
     
       <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; color: #334155;">
-        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Weight Loss Percentage Calculator</h1>
-        
-          <p>Calculate your weight loss progress as a percentage instantly. Our free tool helps you track body weight trends, set healthy goals, and understand key metabolic targets.</p>
-          <h2>Available Calculators</h2>
-          <ul>
-            <li><a href="/calculators/bmi/">BMI Calculator</a> - Calculate your Body Mass Index (BMI).</li>
-            <li><a href="/calculators/tdee/">TDEE Calculator</a> - Calculate your Total Daily Energy Expenditure.</li>
-            <li><a href="/calculators/bmr/">BMR Calculator</a> - Find your Basal Metabolic Rate.</li>
-            <li><a href="/calculators/calorie-deficit/">Calorie Deficit Calculator</a> - Find your exact daily calorie target for weight loss.</li>
-            <li><a href="/calculators/calorie/">Calorie Calculator</a> - Create a sustainable deficit plan.</li>
-            <li><a href="/calculators/body-fat/">Body Fat Calculator</a> - US Navy method body fat estimator.</li>
-            <li><a href="/calculators/protein/">Protein Calculator</a> - Calculate daily protein needs.</li>
-            <li><a href="/calculators/water-intake/">Water Intake Calculator</a> - Get customized hydration targets.</li>
-            <li><a href="/calculators/weight-loss/">Weight Loss Calculator</a> - Forecast your target weight timeline.</li>
-            <li><a href="/calculators/newborn-weight-loss/">Newborn Weight Loss Calculator</a> - Pediatric tracking tool.</li>
-            <li><a href="/calculators/dog-weight-loss/">Dog Weight Loss Calculator</a> - Healthy canine weight planner.</li>
-            <li><a href="/calculators/peptide-dosage/">Peptide Dosage Calculator</a> - Reconstitution guide.</li>
-            <li><a href="/calculators/bariatric-surgery-weight-loss/">Bariatric Surgery Calculator</a> - Trajectory post-VSG/bypass.</li>
-            <li><a href="/calculators/postpartum-weight-loss/">Postpartum Weight Loss Calculator</a> - Safe breastfeeding planner.</li>
-          </ul>
-        
+
+        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25;">Weight Loss Percentage Calculator</h1>
+
+        <p style="font-size:1.1rem; margin-bottom:1rem;">Our free <strong>weight loss percentage calculator</strong> instantly shows how much of your starting body weight you've lost — the same metric used by doctors and clinical researchers. Use our full suite of <strong>free dietitian-reviewed calculators</strong> to track every aspect of your weight loss journey.</p>
+
+        <p style="margin-bottom:2rem;">To <strong>calculate your weight loss percentage</strong>, subtract your current weight from your starting weight, divide by your starting weight, and multiply by 100. Our calculator does this instantly — just enter your numbers above.</p>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:2rem; margin-bottom:1rem;">Free Weight Loss &amp; Health Calculators</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-bottom:2rem;">
+          <a href="/calculators/weight-loss/" style="display:block; padding:1rem; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px; text-decoration:none; color:#0f172a;">
+            <strong style="color:#0369a1;">Weight Loss Calculator</strong>
+            <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#475569;">Calorie deficit &amp; timeline to goal weight</p>
+          </a>
+          <a href="/calculators/body-fat/" style="display:block; padding:1rem; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; text-decoration:none; color:#0f172a;">
+            <strong style="color:#15803d;">Body Fat % Calculator</strong>
+            <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#475569;">US Navy method, men &amp; women</p>
+          </a>
+          <a href="/calculators/bmi/" style="display:block; padding:1rem; background:#faf5ff; border:1px solid #e9d5ff; border-radius:8px; text-decoration:none; color:#0f172a;">
+            <strong style="color:#7e22ce;">BMI Calculator</strong>
+            <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#475569;">For women and men — WHO categories</p>
+          </a>
+          <a href="/calculators/tdee/" style="display:block; padding:1rem; background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; text-decoration:none; color:#0f172a;">
+            <strong style="color:#c2410c;">TDEE Calculator</strong>
+            <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#475569;">Total Daily Energy Expenditure</p>
+          </a>
+          <a href="/calculators/bmr/" style="display:block; padding:1rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; text-decoration:none; color:#0f172a;">
+            <strong style="color:#1e40af;">BMR Calculator</strong>
+            <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#475569;">Basal Metabolic Rate</p>
+          </a>
+          <a href="/calculators/calorie/" style="display:block; padding:1rem; background:#fef2f2; border:1px solid #fecaca; border-radius:8px; text-decoration:none; color:#0f172a;">
+            <strong style="color:#dc2626;">Calorie Calculator</strong>
+            <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#475569;">Daily calorie needs &amp; deficit</p>
+          </a>
+        </div>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:2rem; margin-bottom:1rem;">How to Calculate Weight Loss Percentage</h2>
+        <p>The <strong>percent weight loss formula</strong> is straightforward:</p>
+        <div style="background:#f0fdf4; border-left:4px solid #10b981; padding:1rem 1.5rem; border-radius:4px; margin-bottom:1.5rem;">
+          <strong>Weight Loss % = ((Starting Weight &minus; Current Weight) &divide; Starting Weight) &times; 100</strong>
+        </div>
+        <p><strong>Example:</strong> You started at 200 lbs and now weigh 185 lbs:</p>
+        <p style="padding-left:1rem;">((200 &minus; 185) &divide; 200) &times; 100 = <strong>7.5% weight loss</strong></p>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:2rem; margin-bottom:1rem;">Frequently Asked Questions</h2>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">How do I calculate weight loss percentage?</h3>
+          <p>Subtract your current weight from your starting weight, divide by your starting weight, multiply by 100. Formula: ((Start &minus; Current) &divide; Start) &times; 100. Use our <a href="/calculators/weight-loss/" style="color:#4f46e5;">weight loss calculator</a> for an instant result plus your calorie target and timeline.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">What is a good weight loss percentage per week?</h3>
+          <p>The CDC recommends 0.5 to 2 lbs per week — approximately <strong>0.25–1% of body weight weekly</strong>. Losing more than 1% per week risks muscle loss and nutrient deficiencies.</p>
+        </div>
+
+        <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
+          <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">What is the 5% weight loss milestone?</h3>
+          <p>Losing <strong>5% of starting body weight</strong> is a clinically recognized health milestone. Studies show 5% loss produces measurable improvements in blood pressure, blood sugar, and cholesterol — even before reaching a goal weight.</p>
+        </div>
+
+        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:2rem; margin-bottom:1rem;">All Calculators</h2>
+        <ul style="padding-left:1.5rem; margin-bottom:1.5rem;">
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/bmi/" style="color:#4f46e5; font-weight:600;">BMI Calculator for Women &amp; Men</a> — Body Mass Index with WHO categories</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/tdee/" style="color:#4f46e5; font-weight:600;">TDEE Calculator</a> — Total Daily Energy Expenditure</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/bmr/" style="color:#4f46e5; font-weight:600;">BMR Calculator</a> — Basal Metabolic Rate</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/calorie/" style="color:#4f46e5; font-weight:600;">Calorie Calculator</a> — Daily calorie needs</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/calorie-deficit/" style="color:#4f46e5; font-weight:600;">Calorie Deficit Calculator</a> — Find your exact fat-loss calorie target</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/body-fat/" style="color:#4f46e5; font-weight:600;">Body Fat Percentage Calculator</a> — US Navy method estimator</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/protein/" style="color:#4f46e5; font-weight:600;">Protein Calculator</a> — Daily protein needs to preserve muscle</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/water-intake/" style="color:#4f46e5; font-weight:600;">Water Intake Calculator</a> — Personalized hydration targets</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/weight-loss/" style="color:#4f46e5; font-weight:600;">Weight Loss Calculator</a> — Timeline to reach your goal weight</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/newborn-weight-loss/" style="color:#4f46e5; font-weight:600;">Newborn Weight Loss Calculator</a> — Pediatric weight tracking tool</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/macro/" style="color:#4f46e5; font-weight:600;">Macro Calculator</a> — Optimal protein, fat, and carb split</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/bariatric-surgery-weight-loss/" style="color:#4f46e5; font-weight:600;">Bariatric Surgery Calculator</a> — Excess Weight Loss percentage post-VSG/bypass</li>
+          <li style="margin-bottom:0.5rem;"><a href="/calculators/postpartum-weight-loss/" style="color:#4f46e5; font-weight:600;">Postpartum Weight Loss Calculator</a> — Safe breastfeeding weight loss planner</li>
+        </ul>
+
       </main>
       
-      <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 3rem 1rem; margin-top: 5rem; font-family: sans-serif;">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-<div class="notranslate" translate="no" style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-family: sans-serif;">
-  <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Region / Language</span>
-  <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.875rem;">
-    <a href="/" style="color: #4f46e5; font-weight: 600; text-decoration: none; padding: 0.25rem 0.5rem; background: #e0e7ff; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.25rem;">🇺🇸 English (US)</a>
-    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
-    <a href="/uk/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇬🇧 English (UK)</a>
-    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
-    <a href="/ca/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇦 English (CA)</a>
-    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
-    <a href="/au/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇦🇺 English (AU)</a>
-    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
-    <a href="/nz/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇳🇿 English (NZ)</a>
-    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
-    <a href="/zh/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇨🇳 简体中文</a>
-    <span style="color: #cbd5e1; font-size: 0.75rem;">•</span>
-    <a href="/ru/" style="color: #64748b; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">🇷🇺 Русский</a>
-  </div>
-</div>
-<p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p>
-          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
-            <a href="/about/" style="color: #64748b; text-decoration: none;">About Us</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="/contact/" style="color: #64748b; text-decoration: none;">Contact Us</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="/privacy/" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="/terms/" style="color: #64748b; text-decoration: none;">Terms of Service</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="/disclaimer/" style="color: #64748b; text-decoration: none;">Medical Disclaimer</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="/glossary/" style="color: #64748b; text-decoration: none;">Glossary</a>
-          </div>
-        </div>
-      </footer>
+      <footer class="static-footer" style="background: #0b1329; border-top: 1px solid #1e293b; padding: 4rem 1.5rem 2rem 1.5rem; margin-top: 5rem; font-family: sans-serif; color: #94a3b8;"><div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+
+</div><!-- Region / Language Selector --><!-- Rest of Footer - Aligned Left for desktop grid --><div style="text-align: left; margin-top: 2rem;"><!-- Top Row: Get in Touch & Newsletter --><div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 2.5rem; margin-bottom: 3rem;"><div style="flex: 1.5; min-width: 280px;"><h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0;">Get In Touch</h3><p style="margin: 0; font-size: 0.9375rem; line-height: 1.5; color: #94a3b8;">Have questions, feedback, or need help? We'd love to hear from you.</p></div><div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem;"><span style="color: #ffffff; font-size: 1rem; font-weight: 700;">Join our newsletter</span><div style="display: flex; width: 100%; max-width: 400px; gap: 0.5rem;"><input type="email" placeholder="Enter your email" style="flex: 1; padding: 0.625rem 1rem; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: #ffffff; font-size: 0.875rem;"><button style="padding: 0.625rem 1.25rem; border-radius: 6px; border: none; background: #4f46e5; color: #ffffff; font-weight: 600; font-size: 0.875rem; cursor: pointer;">Subscribe</button></div></div></div><!-- Main Column Content Grid --><div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 3rem;"><!-- Brand Info Column --><div style="flex: 2; min-width: 260px; margin-bottom: 1rem;"><div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;"><a href="/" style="text-decoration: none; color: #ffffff;">Weight Loss <span style="background: linear-gradient(to right, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Percentage</span></a></div><p style="font-size: 0.875rem; line-height: 1.6; margin: 0 0 1.5rem 0; color: #94a3b8;">Free dietitian-reviewed health, nutrition, and fitness calculators designed to scale weight management metrics scientifically.</p><div style="display: flex; gap: 1rem; align-items: center;"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'"><svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"></path></svg></a><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'"><svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a><a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'"><svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.27 2.68 7.9 6.49 9.33-.09-.8-.17-2.02.04-2.89.18-.79 1.19-5.06 1.19-5.06s-.3-.61-.3-1.51c0-1.42.82-2.48 1.85-2.48.87 0 1.29.65 1.29 1.44 0 .88-.56 2.19-.85 3.4-.24 1.02.51 1.85 1.51 1.85 1.81 0 3.21-1.9 3.21-4.66 0-2.43-1.75-4.13-4.25-4.13-2.9 0-4.6 2.17-4.6 4.42 0 .88.34 1.82.76 2.32.08.1.1.17.07.28l-.29 1.18c-.05.18-.16.22-.36.13-1.3-.6-2.1-2.49-2.1-4.01 0-3.27 2.37-6.27 6.85-6.27 3.6 0 6.39 2.56 6.39 5.98 0 3.57-2.25 6.45-5.38 6.45-1.05 0-2.04-.55-2.38-1.19l-.65 2.48c-.24.91-.88 2.05-1.31 2.76C10.07 21.75 11.02 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"></path></svg></a></div></div><!-- Column 1: Calculators --><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Calculators</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/calculators/weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Weight Loss %</a></li><li><a href="/calculators/bmi/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">BMI Calculator</a></li><li><a href="/calculators/tdee/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">TDEE Calculator</a></li><li><a href="/calculators/bmr/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">BMR Calculator</a></li><li><a href="/calculators/calorie/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Calorie Calculator</a></li><li><a href="/calculators/macro/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Macro Calculator</a></li><li><a href="/calculators/body-fat/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Body Fat Calculator</a></li></ul></div><!-- Column 2: Pediatric & Pet --><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">More Tools</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/calculators/newborn-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Newborn Weight Loss</a></li><li><a href="/calculators/infant-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Infant Weight Loss</a></li><li><a href="/calculators/baby-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Baby Weight Loss</a></li><li><a href="/calculators/dog-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Dog Weight Loss</a></li><li><a href="/calculators/peptide-dosage/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Peptide Dosage</a></li></ul></div><!-- Column 3: Resources --><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Resources</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/about/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">About Us</a></li><li><a href="/contact/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Contact Us</a></li><li><a href="/blog/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Blog</a></li><li><a href="/glossary/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Glossary</a></li></ul></div><!-- Column 4: Legal --><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Legal</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/privacy/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a></li><li><a href="/terms/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a></li><li><a href="/disclaimer/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Disclaimer</a></li></ul></div></div><!-- Copyright Section --><div style="border-top: 1px solid #1e293b; padding-top: 2rem; text-align: center;"><p style="color: #64748b; font-size: 0.875rem; margin: 0;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p></div></div></div></footer>
     
     </div>
   </body>

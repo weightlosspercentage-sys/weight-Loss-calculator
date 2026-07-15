@@ -1,0 +1,34 @@
+{
+  "en-us": {
+    "nav_home": "Home",
+    "nav_calculators": "Calculators",
+    "nav_nutrition": "Nutrition",
+    "nav_blog": "Blog",
+    "footer_about": "About Us",
+    "footer_contact": "Contact Us"
+  },
+  "en-gb": {
+    "nav_home": "Home",
+    "nav_calculators": "Calculators",
+    "nav_nutrition": "Nutrition",
+    "nav_blog": "Blog",
+    "footer_about": "About Us",
+    "footer_contact": "Contact Us"
+  },
+  "zh-cn": {
+    "nav_home": "主页",
+    "nav_calculators": "计算器",
+    "nav_nutrition": "营养",
+    "nav_blog": "博客",
+    "footer_about": "关于我们",
+    "footer_contact": "联系我们"
+  },
+  "ru": {
+    "nav_home": "Главная",
+    "nav_calculators": "Калькуляторы",
+    "nav_nutrition": "Питание",
+    "nav_blog": "Блог",
+    "footer_about": "О нас",
+    "footer_contact": "Связаться с нами"
+  }
+}
