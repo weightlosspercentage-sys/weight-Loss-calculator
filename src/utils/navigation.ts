@@ -28,19 +28,17 @@ export const calculatorsDropdown: NavItem[] = [
   { label: 'Keto Calculator', href: '/calculators/keto/' }
 ];
 
-export const nutritionDropdown: NavItem[] = [
-  { label: 'Nutrition Hub', href: '/nutrition/', isSpecial: true },
-  { label: 'Water Intake', href: '/calculators/water-intake/' },
-  { label: 'Keto Diet', href: '/calculators/keto/' },
+export const restaurantsDropdown: NavItem[] = [
+  { label: 'Subway Nutrition', href: '/restaurants/subway/' },
   { label: 'McDonald\'s Nutrition', href: '/restaurants/mcdonalds/' },
-  { label: 'Starbucks Nutrition', href: '/restaurants/starbucks/' },
-  { label: 'Subway Nutrition', href: '/restaurants/subway/' }
+  { label: 'Starbucks Nutrition', href: '/restaurants/starbucks/' }
 ];
 
 export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Calculators', dropdown: calculatorsDropdown },
-  { label: 'Nutrition', dropdown: nutritionDropdown },
+  { label: 'Restaurants', dropdown: restaurantsDropdown },
+  { label: 'Nutrition', href: '/nutrition/' },
   { label: 'Blog', href: '/blog/' },
   { label: 'All Tools', href: '/calculators/' }
 ];
