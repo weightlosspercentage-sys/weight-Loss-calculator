@@ -40,7 +40,7 @@
     <meta name="theme-colour" content="#4f46e5" />
 
     <title>Blog (New Zealand) — Weight Loss, Nutrition & Fitness Science</title>
-    <meta name="description" content="Evidence-based guides on weight loss, calorie tracking, macros, and sustainable fitness habits." />
+    <meta name="description" content="Evidence-based guides on weight loss, calorie tracking, macros, and sustainable fitness habits. Tailored for New Zealand users." />
 
     <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
     <meta property="og:site_name" content="Weight Loss Percentage" />
@@ -118,21 +118,46 @@
       </div>
     
       
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/nz/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; colour: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); colour: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Weight Loss Percentage
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/nz/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/nz/calculators/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nz/nutrition/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/nz/blog/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/nz/compare/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/nz/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Weight Loss Percentage
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/nz/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Home</a>
+      <a href="/nz/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Calculators</a>
+      <a href="/nz/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Nutrition</a>
+      <a href="/nz/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Blog</a>
+      <a href="/nz/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Compare</a>
+    </nav>
+  </div>
+</header>
     
       <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; colour: #334155;">
         <h1 style="colour: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Health, Fitness & Nutrition Blog (New Zealand)</h1>
@@ -155,7 +180,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Calorie Deficit for Weight Loss: Complete Science-Backed Guide" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Calorie Deficit for Weight Loss: Complete Science-Backed Guide" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -172,7 +197,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Best Diet for Weight Loss: Mediterranean vs Keto vs Low-Carb" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Best Diet for Weight Loss: Mediterranean vs Keto vs Low-Carb" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -189,7 +214,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80" alt="Exercise for Weight Loss: Cardio vs Strength Training" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80" alt="Exercise for Weight Loss: Cardio vs Strength Training" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -206,7 +231,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Sleep and Weight Loss: The Science-Backed Connection" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Sleep and Weight Loss: The Science-Backed Connection" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -223,7 +248,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1531180614310-37033e64c090?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Plateau: Science-Backed Strategies to Break Through" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Plateau: Science-Backed Strategies to Break Through" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -240,7 +265,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f1?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 100–130 lbs" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 100–130 lbs" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -257,7 +282,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 130–170 lbs" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 130–170 lbs" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -274,7 +299,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 170–230 lbs" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 170–230 lbs" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -291,7 +316,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1531180614310-37033e64c090?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 230–300 lbs" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 230–300 lbs" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -308,7 +333,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 300–400 lbs" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage at 300–400 lbs" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -325,7 +350,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?auto=format&fit=crop&w=800&q=80" alt="How to Calculate Weight Loss Percentage: The Ultimate Guide" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?auto=format&fit=crop&w=800&q=80" alt="How to Calculate Weight Loss Percentage: The Ultimate Guide" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -342,7 +367,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="How Much Weight Can You Healthily Lose in a Month?" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="How Much Weight Can You Healthily Lose in a Month?" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -359,7 +384,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80" alt="Calories vs Weight Loss: What the Research Actually Shows" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80" alt="Calories vs Weight Loss: What the Research Actually Shows" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -376,7 +401,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Every Weight Loss Formula You'll See Online — Explained" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Every Weight Loss Formula You'll See Online — Explained" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -393,7 +418,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="The Smart Way to Track Your Weight (Without Losing Your Mind)" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="The Smart Way to Track Your Weight (Without Losing Your Mind)" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -410,7 +435,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage Chart: Track Your Monthly Milestones" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Percentage Chart: Track Your Monthly Milestones" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -427,7 +452,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Signs Your Body Is Burning Fat (Beyond the Scale)" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Signs Your Body Is Burning Fat (Beyond the Scale)" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -444,7 +469,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Fat Loss vs. Weight Loss: The Definitive Guide to Body Composition" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Fat Loss vs. Weight Loss: The Definitive Guide to Body Composition" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -461,7 +486,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80" alt="5% Weight Loss: The First Major Health Milestone" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80" alt="5% Weight Loss: The First Major Health Milestone" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -478,7 +503,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="The Biggest Loser Weight Loss Formula: How It Works" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="The Biggest Loser Weight Loss Formula: How It Works" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -495,7 +520,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Newborn Weight Loss: How Much Is Normal in the First Days?" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Newborn Weight Loss: How Much Is Normal in the First Days?" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -512,7 +537,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Water Fasting for Weight Loss: Scientific Truths & Risks" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Water Fasting for Weight Loss: Scientific Truths & Risks" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -529,7 +554,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=800&q=80" alt="Walking for Weight Loss: Steps, Calories, and Consistency" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=800&q=80" alt="Walking for Weight Loss: Steps, Calories, and Consistency" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -546,7 +571,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Keto Diet Weight Loss: Mechanisms and Reality" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Keto Diet Weight Loss: Mechanisms and Reality" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -563,7 +588,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="GLP-1 Medications for Weight Loss: Clinical Guide (Wegovy, Ozempic & Zepbound)" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="GLP-1 Medications for Weight Loss: Clinical Guide (Wegovy, Ozempic & Zepbound)" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -580,7 +605,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="Peptide Therapy for Weight Loss: Science, Safety, and Reconstitution Guide" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="Peptide Therapy for Weight Loss: Science, Safety, and Reconstitution Guide" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -597,7 +622,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1531983412531-1f49a365f698?auto=format&fit=crop&w=800&q=80" alt="Postpartum Weight Loss: Safe Timeline & Lactation Support" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Postpartum Weight Loss: Safe Timeline & Lactation Support" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -614,7 +639,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Bariatric Surgery Weight Loss Timeline and Milestones" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Bariatric Surgery Weight Loss Timeline and Milestones" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -631,7 +656,7 @@
               <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
                 
                 <div style="aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
-                  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Sustainable Lifestyle Changes for Permanent Weight Loss" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Sustainable Lifestyle Changes for Permanent Weight Loss" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
                 </div>
                 
                 <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">

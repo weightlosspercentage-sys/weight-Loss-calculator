@@ -3,46 +3,65 @@ import { navLinks, getLocalizedHref } from '../utils/navigation';
 
 export interface Props {
   region: string;
+  activePath?: string;
 }
 
-const { region } = Astro.props;
+const { region, activePath } = Astro.props;
+
+const isLinkActive = (href: string) => {
+  if (!activePath) return false;
+  const normHref = href.endsWith('/') ? href : href + '/';
+  const normActive = activePath.endsWith('/') ? activePath : activePath + '/';
+  if (normHref === '/' || normHref === '/uk/' || normHref === '/ca/' || normHref === '/au/' || normHref === '/nz/' || normHref === '/zh/' || normHref === '/ru/') {
+    return normActive === normHref;
+  }
+  return normActive.startsWith(normHref);
+};
 ---
 
 <div class="hidden md:flex items-center space-x-1">
   {navLinks.map((link) => {
     if ('dropdown' in link) {
+      const parentHref = getLocalizedHref(link.label === 'Calculators' ? '/calculators/' : '/nutrition/', region);
+      const activeClass = isLinkActive(parentHref) ? 'active' : '';
       return (
       <div class="relative group">
           <a 
-            href={getLocalizedHref(link.label === 'Calculators' ? '/calculators/' : '/nutrition/', region)}
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition flex items-center focus-visible-outline focus-visible-ring"
+            href={parentHref}
+            class={`px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition flex items-center focus-visible-outline focus-visible-ring nav-link ${activeClass}`}
             aria-haspopup="true"
           >
             {link.label}
-            <svg class="w-4 h-4 ml-1" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-4 h-4 ml-1 dropdown-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </a>
           <div class={`absolute left-0 mt-0 ${link.label === 'Calculators' ? 'w-64' : 'w-56'} rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 dropdown-menu`}>
-            {link.dropdown?.map((subItem) => (
-              <a 
-                href={getLocalizedHref(subItem.href, region)} 
-                class={subItem.isSpecial 
-                  ? "block px-4 py-3 text-sm text-orange-700 hover:bg-orange-50 hover:text-orange-800 font-semibold"
-                  : "block px-4 py-3 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 font-medium"
-                }
-              >
-                {subItem.label}
-              </a>
-            ))}
+            {link.dropdown?.map((subItem) => {
+              const subHref = getLocalizedHref(subItem.href, region);
+              const subActive = isLinkActive(subHref) ? 'bg-indigo-50/50 text-indigo-700 font-semibold' : '';
+              return (
+                <a 
+                  href={subHref} 
+                  class={subItem.isSpecial 
+                    ? `block px-4 py-3 text-sm text-orange-700 hover:bg-orange-50 hover:text-orange-800 font-semibold ${subActive}`
+                    : `block px-4 py-3 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 font-medium ${subActive}`
+                  }
+                >
+                  {subItem.label}
+                </a>
+              );
+            })}
           </div>
         </div>
       );
     } else {
+      const linkHref = getLocalizedHref(link.href, region);
+      const activeClass = isLinkActive(linkHref) ? 'active' : '';
       return (
         <a 
-          href={getLocalizedHref(link.href, region)} 
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition focus-visible-outline focus-visible-ring"
+          href={linkHref} 
+          class={`px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition focus-visible-outline focus-visible-ring nav-link ${activeClass}`}
         >
           {link.label}
         </a>

@@ -377,7 +377,7 @@
       "name": "Which diet works fastest for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Keto typically produces the fastest initial weight loss (mostly water weight in weeks 1–2), but low-carb and intermittent fasting produce comparable results by 3 to 6 months. The Mediterranean diet is slower but easier to maintain long-term. Use our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a> to compare timelines."
+        "text": "Keto typically produces the fastest initial weight loss (mostly water weight in weeks 1–2), but low-carb and intermittent fasting produce comparable results by 3 to 6 months. The Mediterranean diet is slower but easier to maintain long-term. Use our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a> to compare timelines."
       }
     },{
       "@type": "Question",
@@ -391,21 +391,21 @@
       "name": "Can I combine intermittent fasting with keto?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Many people combine IF with keto to accelerate results. The ketogenic state suppresses appetite, making fasting periods easier, while IF helps maintain ketosis longer. However, this combination is very restrictive and challenging to sustain. Consult our <a target="_blank" href='/calculators/macro'>macro calculator</a> to ensure you are meeting your nutritional needs."
+        "text": "Yes. Many people combine IF with keto to accelerate results. The ketogenic state suppresses appetite, making fasting periods easier, while IF helps maintain ketosis longer. However, this combination is very restrictive and challenging to sustain. Consult our <a target="_blank" href='/calculators/macro/'>macro calculator</a> to ensure you are meeting your nutritional needs."
       }
     },{
       "@type": "Question",
       "name": "How many calories should I eat on a Mediterranean diet for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Mediterranean diet does not prescribe specific calorie targets, but weight loss still requires a calorie deficit. Calculate your TDEE using our <a target="_blank" href='/calculators/tdee'>TDEE calculator</a> and subtract 15% to 25% to find your target. Our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> can help you set precise targets."
+        "text": "The Mediterranean diet does not prescribe specific calorie targets, but weight loss still requires a calorie deficit. Calculate your TDEE using our <a target="_blank" href='/calculators/tdee/'>TDEE calculator</a> and subtract 15% to 25% to find your target. Our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> can help you set precise targets."
       }
     },{
       "@type": "Question",
       "name": "Do I need to count calories on keto?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Strictly speaking, no — keto's appetite suppression often leads to a natural calorie deficit without counting. However, it is still possible to overeat calories on keto (especially from high-fat foods like nuts, cheese, and oils). If your weight loss stalls, tracking calories for a week using our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> can help identify the issue."
+        "text": "Strictly speaking, no — keto's appetite suppression often leads to a natural calorie deficit without counting. However, it is still possible to overeat calories on keto (especially from high-fat foods like nuts, cheese, and oils). If your weight loss stalls, tracking calories for a week using our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> can help identify the issue."
       }
     }]
     }
@@ -451,21 +451,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/zh/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            减肥百分比
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/zh/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">家</a>
-            <a href="/zh/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">计算器</a>
-            <a href="/zh/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">营养</a>
-            <a href="/zh/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">博客</a>
-            <a href="/zh/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">比较</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/zh/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      减肥百分比
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/zh/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">家</a>
+      <a href="/zh/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">计算器</a>
+      <a href="/zh/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">营养</a>
+      <a href="/zh/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">博客</a>
+      <a href="/zh/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">比较</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -473,7 +498,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Best Diet for Weight Loss: Mediterranean vs Keto vs Low-Carb Comparison" style="width: 100%; height: 100%; object-fit: cover;" /></img>
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Best Diet for Weight Loss: Mediterranean vs Keto vs Low-Carb Comparison" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/></img>
       </div>
 
 
@@ -567,7 +592,7 @@
             <svg class="accordion-icon" viewbox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>生酮饮食通常会产生最快的初始减肥效果（主要是在 1-2 周内减掉水分），但低碳水化合物和间歇性禁食会在 3 至 6 个月内产生类似的结果。地中海饮食速度较慢，但​​更容易长期维持。使用我们的 <a href="/calculators/weight-loss">减肥计算器</a> 来比较时间表。</p>
+            <p>生酮饮食通常会产生最快的初始减肥效果（主要是在 1-2 周内减掉水分），但低碳水化合物和间歇性禁食会在 3 至 6 个月内产生类似的结果。地中海饮食速度较慢，但​​更容易长期维持。使用我们的 <a href="/calculators/weight-loss/">减肥计算器</a> 来比较时间表。</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -585,7 +610,7 @@
             <svg class="accordion-icon" viewbox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>是的。许多人将 IF 与酮结合起来以加速见效。生酮状态会抑制食欲，使禁食期更容易，而间歇性禁食则有助于更长时间地维持酮症。然而，这种组合具有很大的限制性并且难以维持。请咨询我们的 <a href="/calculators/macro">宏计算器</a> 以确保您满足您的营养需求。</p>
+            <p>是的。许多人将 IF 与酮结合起来以加速见效。生酮状态会抑制食欲，使禁食期更容易，而间歇性禁食则有助于更长时间地维持酮症。然而，这种组合具有很大的限制性并且难以维持。请咨询我们的 <a href="/calculators/macro/">宏计算器</a> 以确保您满足您的营养需求。</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -594,7 +619,7 @@
             <svg class="accordion-icon" viewbox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>地中海饮食没有规定具体的热量目标，但减肥仍然需要热量赤字。使用我们的计算您的 TDEE <a href="/calculators/tdee">TDEE计算器</a> 减去 15% 到 25% 即可找到目标。我们的 <a href="/calculators/calorie">卡路里计算器</a> 可以帮助您设定精确的目标。</p>
+            <p>地中海饮食没有规定具体的热量目标，但减肥仍然需要热量赤字。使用我们的计算您的 TDEE <a href="/calculators/tdee/">TDEE计算器</a> 减去 15% 到 25% 即可找到目标。我们的 <a href="/calculators/calorie/">卡路里计算器</a> 可以帮助您设定精确的目标。</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -603,7 +628,7 @@
             <svg class="accordion-icon" viewbox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>严格来说，不——酮的食欲抑制往往会导致自然的卡路里赤字，无需计算。然而，仍然有可能摄入过多的酮类热量（尤其是坚果、奶酪和油等高脂肪食物）。如果您的减肥停滞，请使用我们的追踪卡路里一周 <a href="/calculators/calorie">卡路里计算器</a> 可以帮助识别问题。</p>
+            <p>严格来说，不——酮的食欲抑制往往会导致自然的卡路里赤字，无需计算。然而，仍然有可能摄入过多的酮类热量（尤其是坚果、奶酪和油等高脂肪食物）。如果您的减肥停滞，请使用我们的追踪卡路里一周 <a href="/calculators/calorie/">卡路里计算器</a> 可以帮助识别问题。</p>
           </div>
         </details>
       </div>

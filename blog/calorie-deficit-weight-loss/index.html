@@ -375,21 +375,21 @@
       "name": "What is the best calorie deficit for weight loss without losing muscle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a target="_blank" href='/calculators/macro'>macro calculator</a>."
+        "text": "A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a target="_blank" href='/calculators/macro/'>macro calculator</a>."
       }
     },{
       "@type": "Question",
       "name": "How do I calculate my calorie deficit for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start by calculating your TDEE using our <a target="_blank" href='/calculators/tdee'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> for a precise target."
+        "text": "Start by calculating your TDEE using our <a target="_blank" href='/calculators/tdee/'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> for a precise target."
       }
     },{
       "@type": "Question",
       "name": "Can I lose weight with a 500-calorie deficit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a> to see a custom timeline for your numbers."
+        "text": "Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a> to see a custom timeline for your numbers."
       }
     },{
       "@type": "Question",
@@ -403,7 +403,7 @@
       "name": "Do men and women need different calorie deficit approaches?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a target="_blank" href='/calculators/bmr'>BMR calculator</a> adjusts for sex differences automatically."
+        "text": "Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a target="_blank" href='/calculators/bmr/'>BMR calculator</a> adjusts for sex differences automatically."
       }
     }]
     }
@@ -449,21 +449,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Weight Loss Percentage
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Weight Loss Percentage
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Home</a>
+      <a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Calculators</a>
+      <a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Nutrition</a>
+      <a href="/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Blog</a>
+      <a href="/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Compare</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -471,7 +496,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Calorie Deficit for Weight Loss: Complete Science-Backed Guide" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Calorie Deficit for Weight Loss: Complete Science-Backed Guide" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
       </div>
 
 
@@ -495,7 +520,7 @@
 
 
       <div class="article-content">
-        If you have ever researched weight loss, you have almost certainly encountered the phrase 'calorie deficit.' It is the fundamental thermodynamic principle behind every successful weight loss program, regardless of whether you follow keto, paleo, Mediterranean, intermittent fasting, or any other popular diet. A calorie deficit simply means consuming fewer calories than your body burns in a day. However, knowing this definition and knowing how to create, measure, and sustain a calorie deficit are two entirely different things. Many people start a weight loss journey by radically slashing their food intake, only to find themselves exhausted, hungry, and unable to continue after two weeks. Others create a deficit so small that they become frustrated by slow results and quit. In this comprehensive guide, you will learn exactly how to calculate your personalized calorie deficit, understand the biological limits of fat loss, discover how to protect your muscle mass, and use tools like our <a href="/calculators/weight-loss">weight loss calculator</a> and <a href="/calculators/tdee">TDEE calculator</a> to design a plan you can sustain for the long term.
+        If you have ever researched weight loss, you have almost certainly encountered the phrase 'calorie deficit.' It is the fundamental thermodynamic principle behind every successful weight loss program, regardless of whether you follow keto, paleo, Mediterranean, intermittent fasting, or any other popular diet. A calorie deficit simply means consuming fewer calories than your body burns in a day. However, knowing this definition and knowing how to create, measure, and sustain a calorie deficit are two entirely different things. Many people start a weight loss journey by radically slashing their food intake, only to find themselves exhausted, hungry, and unable to continue after two weeks. Others create a deficit so small that they become frustrated by slow results and quit. In this comprehensive guide, you will learn exactly how to calculate your personalized calorie deficit, understand the biological limits of fat loss, discover how to protect your muscle mass, and use tools like our <a href="/calculators/weight-loss/">weight loss calculator</a> and <a href="/calculators/tdee/">TDEE calculator</a> to design a plan you can sustain for the long term.
 
 
           <h2>What is a Calorie Deficit?</h2>
@@ -505,7 +530,7 @@
 <strong>Weight Maintenance:</strong> Calories In = Calories Out → Your weight stays stable.<br />
 <strong>Weight Gain:</strong> Calories In &gt; Calories Out → Your body stores the excess energy as fat.<br />
 <strong>Weight Loss:</strong> Calories In &lt; Calories Out → Your body pulls energy from fat stores, causing weight loss.<br /><br />
-A calorie deficit does not require starvation. It simply requires eating slightly below your Total Daily Energy Expenditure (TDEE). For most people, a deficit of 300 to 500 calories per day produces steady, sustainable weight loss. However, the exact number depends on your age, sex, weight, height, and activity level. You can calculate your precise TDEE using our <a href="/calculators/tdee">free TDEE calculator</a> to establish your personal baseline before setting a deficit target.</p>
+A calorie deficit does not require starvation. It simply requires eating slightly below your Total Daily Energy Expenditure (TDEE). For most people, a deficit of 300 to 500 calories per day produces steady, sustainable weight loss. However, the exact number depends on your age, sex, weight, height, and activity level. You can calculate your precise TDEE using our <a href="/calculators/tdee/">free TDEE calculator</a> to establish your personal baseline before setting a deficit target.</p>
 
 
           <h2>How to Calculate Your Personalized Calorie Deficit</h2>
@@ -515,7 +540,7 @@ A calorie deficit does not require starvation. It simply requires eating slightl
 Your Basal Metabolic Rate (BMR) is the number of calories your body burns at complete rest. The most accurate formula is the Mifflin-St Jeor equation:<br />
 - <strong>For men:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) + 5<br />
 - <strong>For women:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) − 161<br />
-You can skip the manual math by using our <a href="/calculators/bmr">BMR calculator</a>.<br /><br />
+You can skip the manual math by using our <a href="/calculators/bmr/">BMR calculator</a>.<br /><br />
 <strong>Step 2: Calculate Your TDEE</strong><br />
 Multiply your BMR by an activity factor:<br />
 - Sedentary (little exercise): BMR × 1.2<br />
@@ -523,21 +548,21 @@ Multiply your BMR by an activity factor:<br />
 - Moderately active (3–5 days/week): BMR × 1.55<br />
 - Very active (6–7 days/week): BMR × 1.725<br />
 - Extra active (physical job + training): BMR × 1.9<br />
-Our <a href="/calculators/tdee">TDEE calculator</a> handles this calculation automatically.<br /><br />
+Our <a href="/calculators/tdee/">TDEE calculator</a> handles this calculation automatically.<br /><br />
 <strong>Step 3: Set Your Deficit</strong><br />
 For safe, sustainable weight loss, subtract 15% to 25% from your TDEE:<br />
 - <strong>Mild deficit (15%):</strong> Best for lean individuals who want to minimize muscle loss<br />
 - <strong>Moderate deficit (20%):</strong> The standard recommendation for most people<br />
 - <strong>Aggressive deficit (25%):</strong> Only suitable for individuals with higher body fat under medical supervision<br /><br />
 <strong>Step 4: Track Your Progress</strong><br />
-Once you set your daily calorie target, use our <a href="/calculators/weight-loss">weight loss calculator</a> to project your timeline and adjust as you go. The right diet structure makes hitting your deficit easier — compare options in our <a href="/blog/best-diet-for-weight-loss">best diet for weight loss guide</a>.</p>
+Once you set your daily calorie target, use our <a href="/calculators/weight-loss/">weight loss calculator</a> to project your timeline and adjust as you go. The right diet structure makes hitting your deficit easier — compare options in our <a href="/blog/best-diet-for-weight-loss/">best diet for weight loss guide</a>.</p>
 
 
           <h2>The 3,500-Calorie Rule: Fact or Myth?</h2>
           
 <p>You have probably heard that 'one pound of fat equals 3,500 calories.' This rule, known as the Wishnofsky Equation, has been taught in nutrition textbooks for decades. However, recent research has shown that this rule is a simplification that works well for short-term estimates but becomes inaccurate over longer periods. Here is why:<br /><br />
 <strong>When the rule works:</strong> For the first few weeks of a diet, the simple 3,500-calorie rule provides a reasonable estimate. If you create a daily deficit of 500 calories (3,500 per week), you can expect to lose approximately one pound per week.<br /><br />
-<strong>Why it becomes inaccurate:</strong> As you lose weight, your metabolic rate decreases. A 200 lb person burns more calories at rest than a 180 lb person. Therefore, the same 500-calorie deficit that produced one pound of loss per week at 200 lb may only produce 0.7 pounds of loss per week at 180 lb. This is why you must recalculate your TDEE every 10 to 15 pounds of weight loss. Our <a href="/calculators/calorie">calorie calculator</a> helps you adjust your targets as your weight changes.</p>
+<strong>Why it becomes inaccurate:</strong> As you lose weight, your metabolic rate decreases. A 200 lb person burns more calories at rest than a 180 lb person. Therefore, the same 500-calorie deficit that produced one pound of loss per week at 200 lb may only produce 0.7 pounds of loss per week at 180 lb. This is why you must recalculate your TDEE every 10 to 15 pounds of weight loss. Our <a href="/calculators/calorie/">calorie calculator</a> helps you adjust your targets as your weight changes.</p>
 
 
           <h2>Metabolic Adaptation: Why Your Body Fights the Deficit</h2>
@@ -548,13 +573,13 @@ Once you set your daily calorie target, use our <a href="/calculators/weight-los
 2. <strong>NEAT decreases:</strong> Non-Exercise Activity Thermogenesis — the energy you burn through fidgeting, maintaining posture, and spontaneous movement — decreases unconsciously. You may find yourself sitting more and moving less without realizing it.<br />
 3. <strong>Hormonal changes:</strong> Leptin (the satiety hormone) drops sharply, while ghrelin (the hunger hormone) rises. Your brain actively works to make you feel hungrier.<br />
 4. <strong>Thyroid function slows:</strong> T3 thyroid hormone levels drop, which further reduces your metabolic rate.<br /><br />
-The good news is that metabolic adaptation is reversible. Taking a 'diet break' — 1 to 2 weeks at maintenance calories — can restore your hormone levels and metabolic rate. Learn more about managing plateaus in our guide on <a href="/blog/weight-loss-plateau">how to break a weight loss plateau</a>.</p>
+The good news is that metabolic adaptation is reversible. Taking a 'diet break' — 1 to 2 weeks at maintenance calories — can restore your hormone levels and metabolic rate. Learn more about managing plateaus in our guide on <a href="/blog/weight-loss-plateau/">how to break a weight loss plateau</a>.</p>
 
 
           <h2>Protein: The Master Nutrient for Deficit Success</h2>
           
 <p>When you eat fewer calories than your body needs, it must pull energy from somewhere. Ideally, that energy comes from stored body fat. However, if your deficit is too aggressive or your protein intake is too low, your body will break down its own muscle tissue for energy. This is the last thing you want, because muscle is metabolically active — it burns calories even at rest. Losing muscle lowers your BMR, making long-term weight loss harder.<br /><br />
-To prevent muscle loss during a calorie deficit, you must prioritize protein. Research consistently shows that consuming 0.7 to 1.0 grams of protein per pound of lean body mass (or 1.6 to 2.2 grams per kilogram) is optimal during a cut. Good sources include lean chicken, turkey, fish, eggs, Greek yogurt, tofu, and legumes. Use our <a href="/calculators/protein">protein calculator</a> to find your exact daily target based on your weight and activity level. Pairing adequate protein with resistance training ensures that nearly all the weight you lose comes from body fat rather than lean tissue. Check our guide on <a href="/blog/exercise-for-weight-loss">cardio vs strength training for weight loss</a> to design an optimal workout plan.</p>
+To prevent muscle loss during a calorie deficit, you must prioritize protein. Research consistently shows that consuming 0.7 to 1.0 grams of protein per pound of lean body mass (or 1.6 to 2.2 grams per kilogram) is optimal during a cut. Good sources include lean chicken, turkey, fish, eggs, Greek yogurt, tofu, and legumes. Use our <a href="/calculators/protein/">protein calculator</a> to find your exact daily target based on your weight and activity level. Pairing adequate protein with resistance training ensures that nearly all the weight you lose comes from body fat rather than lean tissue. Check our guide on <a href="/blog/exercise-for-weight-loss/">cardio vs strength training for weight loss</a> to design an optimal workout plan.</p>
 
 
           <h2>Common Calorie Deficit Mistakes to Avoid</h2>
@@ -565,32 +590,32 @@ Fitness trackers notoriously overestimate calorie burn. If your tracker says you
 <strong>Mistake 2: Not accounting for liquid calories.</strong><br />
 A latte, a glass of juice, a sports drink, or even 'healthy' smoothies can add 200 to 500 hidden calories per day. Stick to water, black coffee, and unsweetened tea while in a deficit.<br /><br />
 <strong>Mistake 3: Cutting calories too low.</strong><br />
-Eating fewer than 1,200 calories per day (for women) or 1,500 calories per day (for men) makes it nearly impossible to meet your micronutrient needs and triggers rapid muscle loss. Use our <a href="/calculators/calorie">calorie calculator</a> to find a safe floor for your deficit.<br /><br />
+Eating fewer than 1,200 calories per day (for women) or 1,500 calories per day (for men) makes it nearly impossible to meet your micronutrient needs and triggers rapid muscle loss. Use our <a href="/calculators/calorie/">calorie calculator</a> to find a safe floor for your deficit.<br /><br />
 <strong>Mistake 4: Ignoring your weight loss percentage.</strong><br />
-Tracking absolute pounds lost can be misleading, especially if you retain water or have a larger starting weight. Tracking your weight loss percentage gives you a fair, normalized view of progress. Learn how in our guide on <a href="/blog/how-to-calculate-weight-loss-percentage">how to calculate weight loss percentage</a>.</p>
+Tracking absolute pounds lost can be misleading, especially if you retain water or have a larger starting weight. Tracking your weight loss percentage gives you a fair, normalized view of progress. Learn how in our guide on <a href="/blog/how-to-calculate-weight-loss-percentage/">how to calculate weight loss percentage</a>.</p>
 
 
           <h2>Putting It All Together: Your 30-Day Calorie Deficit Plan</h2>
           
 <p>Ready to start your calorie deficit journey? Here is a simple 30-day framework:<br /><br />
 <strong>Week 1 — Assess and Plan:</strong><br />
-- Calculate your TDEE using our <a href="/calculators/tdee">TDEE calculator</a><br />
+- Calculate your TDEE using our <a href="/calculators/tdee/">TDEE calculator</a><br />
 - Set a 20% deficit and get your daily calorie target<br />
 - Start tracking everything you eat using a food scale<br />
 - Begin a simple resistance training program (3 days/week)<br /><br />
 <strong>Week 2 — Adjust and Refine:</strong><br />
-- Check your weekly weight trend using our <a href="/calculators/weight-loss">weight loss calculator</a><br />
-- Adjust protein intake if needed using the <a href="/calculators/protein">protein calculator</a><br />
+- Check your weekly weight trend using our <a href="/calculators/weight-loss/">weight loss calculator</a><br />
+- Adjust protein intake if needed using the <a href="/calculators/protein/">protein calculator</a><br />
 - Add 2 to 3 days of light cardio (walking, cycling)<br /><br />
 <strong>Week 3 — Overcome the Hump:</strong><br />
 - If energy is low, consider a 2-day 'refeed' at maintenance<br />
-- Check your body composition with our <a href="/calculators/body-fat">body fat calculator</a><br />
-- Read about <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weight loss</a> to understand the difference<br /><br />
+- Check your body composition with our <a href="/calculators/body-fat/">body fat calculator</a><br />
+- Read about <a href="/blog/fat-loss-vs-weight-loss/">fat loss vs weight loss</a> to understand the difference<br /><br />
 <strong>Week 4 — Evaluate and Plan Next Month:</strong><br />
 - Recalculate your TDEE based on your new weight<br />
-- Adjust your deficit if you have hit a <a href="/blog/weight-loss-plateau">plateau</a><br />
+- Adjust your deficit if you have hit a <a href="/blog/weight-loss-plateau/">plateau</a><br />
 - Celebrate your progress — you have built a sustainable habit!</p>
-<p>Not sure which eating pattern fits your lifestyle? Read our <a href="/blog/best-diet-for-weight-loss">Mediterranean vs keto vs low-carb comparison</a> to find the best diet for weight loss that matches your preferences.</p>
+<p>Not sure which eating pattern fits your lifestyle? Read our <a href="/blog/best-diet-for-weight-loss/">Mediterranean vs keto vs low-carb comparison</a> to find the best diet for weight loss that matches your preferences.</p>
 
 
 
@@ -602,7 +627,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a href='/calculators/macro'>macro calculator</a>.</p>
+            <p>A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a href='/calculators/macro/'>macro calculator</a>.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -611,7 +636,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Start by calculating your TDEE using our <a href='/calculators/tdee'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a href='/calculators/calorie'>calorie calculator</a> for a precise target.</p>
+            <p>Start by calculating your TDEE using our <a href='/calculators/tdee/'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a href='/calculators/calorie/'>calorie calculator</a> for a precise target.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -620,7 +645,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a href='/calculators/weight-loss'>weight loss calculator</a> to see a custom timeline for your numbers.</p>
+            <p>Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a href='/calculators/weight-loss/'>weight loss calculator</a> to see a custom timeline for your numbers.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -638,7 +663,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a href='/calculators/bmr'>BMR calculator</a> adjusts for sex differences automatically.</p>
+            <p>Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a href='/calculators/bmr/'>BMR calculator</a> adjusts for sex differences automatically.</p>
           </div>
         </details>
       </div>

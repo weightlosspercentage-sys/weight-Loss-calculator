@@ -375,35 +375,35 @@
       "name": "Is cardio or strength training better for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Both are essential. Cardio burns more calories during the workout, while strength training builds muscle that raises your resting metabolism. The most effective approach combines both: 3 days of strength training and 3 days of cardio per week. Track your results with our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a>."
+        "text": "Both are essential. Cardio burns more calories during the workout, while strength training builds muscle that raises your resting metabolism. The most effective approach combines both: 3 days of strength training and 3 days of cardio per week. Track your results with our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a>."
       }
     },{
       "@type": "Question",
       "name": "How much exercise do I need to lose weight?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For significant weight loss, aim for 200 to 300 minutes of moderate-intensity exercise per week (about 30 to 45 minutes per day). However, diet plays a larger role than exercise. Without a calorie deficit, exercise alone rarely produces substantial weight loss. Use our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> to set your nutrition targets."
+        "text": "For significant weight loss, aim for 200 to 300 minutes of moderate-intensity exercise per week (about 30 to 45 minutes per day). However, diet plays a larger role than exercise. Without a calorie deficit, exercise alone rarely produces substantial weight loss. Use our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> to set your nutrition targets."
       }
     },{
       "@type": "Question",
       "name": "Does HIIT burn more fat than steady-state cardio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HIIT burns more calories per minute and produces a greater EPOC afterburn effect. However, steady-state cardio is easier to sustain for longer durations and is more accessible for beginners. The best approach includes both. Read our <a target="_blank" href='/blog/signs-body-burning-fat'>signs your body is burning fat</a> to understand the physiological signals."
+        "text": "HIIT burns more calories per minute and produces a greater EPOC afterburn effect. However, steady-state cardio is easier to sustain for longer durations and is more accessible for beginners. The best approach includes both. Read our <a target="_blank" href='/blog/signs-body-burning-fat/'>signs your body is burning fat</a> to understand the physiological signals."
       }
     },{
       "@type": "Question",
       "name": "Can I build muscle and lose fat at the same time through exercise?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — this is called body recomposition. It is achievable if you maintain a mild calorie deficit (15% to 20% below maintenance), consume adequate protein (use our <a target="_blank" href='/calculators/protein'>protein calculator</a>), and engage in progressive resistance training. Beginners and those returning from a break see the best results."
+        "text": "Yes — this is called body recomposition. It is achievable if you maintain a mild calorie deficit (15% to 20% below maintenance), consume adequate protein (use our <a target="_blank" href='/calculators/protein/'>protein calculator</a>), and engage in progressive resistance training. Beginners and those returning from a break see the best results."
       }
     },{
       "@type": "Question",
       "name": "How long does it take to see weight loss results from exercise?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most people see measurable changes in 3 to 4 weeks from the combination of exercise and calorie deficit. However, non-scale victories (better sleep, more energy, looser clothing) often appear within the first 2 weeks. Use our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a> to set realistic expectations for your timeline."
+        "text": "Most people see measurable changes in 3 to 4 weeks from the combination of exercise and calorie deficit. However, non-scale victories (better sleep, more energy, looser clothing) often appear within the first 2 weeks. Use our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a> to set realistic expectations for your timeline."
       }
     }]
     }
@@ -449,21 +449,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Weight Loss Percentage
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Weight Loss Percentage
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Home</a>
+      <a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Calculators</a>
+      <a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Nutrition</a>
+      <a href="/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Blog</a>
+      <a href="/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Compare</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -471,7 +496,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80" alt="Exercise for Weight Loss: Cardio vs Strength Training Best Workout Plan" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80" alt="Exercise for Weight Loss: Cardio vs Strength Training Best Workout Plan" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
       </div>
 
 
@@ -495,7 +520,7 @@
 
 
       <div class="article-content">
-        When it comes to exercise for weight loss, one debate dominates fitness forums: is cardio or strength training better? The跑步机 advocates argue that running burns more calories per minute. The weightlifters counter that muscle increases your resting metabolism, burning calories 24/7. Both are correct — and both are incomplete. The most effective weight loss exercise program intentionally combines both modalities. In this guide, you will learn the unique weight loss benefits of cardio and strength training, discover the science of excess post-exercise oxygen consumption (EPOC), understand why NEAT (Non-Exercise Activity Thermogenesis) may matter more than your workouts, and get a customizable weekly training plan. Track your progress throughout with our <a href="/calculators/weight-loss">weight loss calculator</a> to ensure your exercise program is producing real results on the scale.
+        When it comes to exercise for weight loss, one debate dominates fitness forums: is cardio or strength training better? The跑步机 advocates argue that running burns more calories per minute. The weightlifters counter that muscle increases your resting metabolism, burning calories 24/7. Both are correct — and both are incomplete. The most effective weight loss exercise program intentionally combines both modalities. In this guide, you will learn the unique weight loss benefits of cardio and strength training, discover the science of excess post-exercise oxygen consumption (EPOC), understand why NEAT (Non-Exercise Activity Thermogenesis) may matter more than your workouts, and get a customizable weekly training plan. Track your progress throughout with our <a href="/calculators/weight-loss/">weight loss calculator</a> to ensure your exercise program is producing real results on the scale.
 
 
           <h2>Cardio for Weight Loss: The Calorie Burner</h2>
@@ -508,13 +533,13 @@
 - Swimming: 230 calories<br />
 - Jumping rope: 340 calories<br /><br />
 <strong>Steady-State vs HIIT Cardio:</strong><br />
-Steady-state cardio (jogging at a consistent pace for 30–60 minutes) burns more calories during the workout itself. High-Intensity Interval Training (HIIT) — short bursts of all-out effort followed by recovery — burns fewer calories during the workout but triggers a higher EPOC effect, meaning your body continues burning extra calories for hours after you finish. For most people, a combination of both types yields the best results. Use our <a href="/calculators/tdee">TDEE calculator</a> to factor your exercise frequency into your total daily energy expenditure.</p>
+Steady-state cardio (jogging at a consistent pace for 30–60 minutes) burns more calories during the workout itself. High-Intensity Interval Training (HIIT) — short bursts of all-out effort followed by recovery — burns fewer calories during the workout but triggers a higher EPOC effect, meaning your body continues burning extra calories for hours after you finish. For most people, a combination of both types yields the best results. Use our <a href="/calculators/tdee/">TDEE calculator</a> to factor your exercise frequency into your total daily energy expenditure.</p>
 
 
           <h2>Strength Training for Weight Loss: The Metabolism Builder</h2>
           
 <p>Strength training (also called resistance training) uses weights, bands, or body weight to build and maintain muscle mass. Here is the critical insight: muscle tissue is metabolically active. Each pound of muscle burns approximately 6 to 7 calories per day at rest, while each pound of fat burns only about 2 calories per day. Over time, building 5 to 10 pounds of muscle can increase your resting metabolic rate by 30 to 70 calories per day — the equivalent of a small snack's worth of calories burned automatically.<br /><br />
-<strong>The EPOC effect of strength training:</strong> Heavy resistance training creates micro-tears in your muscle fibers. Your body must expend significant energy to repair and rebuild these fibers over the next 24 to 48 hours. This post-exercise calorie burn can add 100 to 200 extra calories per day. Additionally, strength training prevents the muscle loss that often accompanies calorie restriction, ensuring that the majority of your weight loss comes from body fat rather than lean tissue. Our <a href="/calculators/body-fat">body fat calculator</a> can help you track your changing body composition as you build muscle and lose fat simultaneously — a state known as body recomposition.</p>
+<strong>The EPOC effect of strength training:</strong> Heavy resistance training creates micro-tears in your muscle fibers. Your body must expend significant energy to repair and rebuild these fibers over the next 24 to 48 hours. This post-exercise calorie burn can add 100 to 200 extra calories per day. Additionally, strength training prevents the muscle loss that often accompanies calorie restriction, ensuring that the majority of your weight loss comes from body fat rather than lean tissue. Our <a href="/calculators/body-fat/">body fat calculator</a> can help you track your changing body composition as you build muscle and lose fat simultaneously — a state known as body recomposition.</p>
 
 
           <h2>HIIT: Maximum Efficiency for Fat Loss</h2>
@@ -526,7 +551,7 @@ Steady-state cardio (jogging at a consistent pace for 30–60 minutes) burns mor
 - 90 seconds of active recovery (walking or very light jogging)<br />
 - Repeat 6 to 10 rounds<br />
 - Cool down: 3 minutes of stretching<br /><br />
-HIIT is not recommended for complete beginners due to the high joint impact and cardiovascular demand. If you are new to exercise, start with steady-state walking or cycling and gradually introduce intervals. For more guidance on starting an exercise routine, read our <a href="/blog/walking-for-weight-loss">walking for weight loss guide</a>.</p>
+HIIT is not recommended for complete beginners due to the high joint impact and cardiovascular demand. If you are new to exercise, start with steady-state walking or cycling and gradually introduce intervals. For more guidance on starting an exercise routine, read our <a href="/blog/walking-for-weight-loss/">walking for weight loss guide</a>.</p>
 
 
           <h2>NEAT: The Hidden Weight Loss Lever</h2>
@@ -541,7 +566,7 @@ HIIT is not recommended for complete beginners due to the high joint impact and 
 5. Walk your dog for an extra 10 minutes<br />
 6. Pace while reading or thinking<br />
 7. Do household chores like vacuuming and gardening<br /><br />
-These small changes, accumulated across an entire day, can add 300 to 500 extra calories burned without requiring any additional workout time. Track the cumulative impact using our <a href="/calculators/weight-loss">weight loss calculator</a>.</p>
+These small changes, accumulated across an entire day, can add 300 to 500 extra calories burned without requiring any additional workout time. Track the cumulative impact using our <a href="/calculators/weight-loss/">weight loss calculator</a>.</p>
 
 
           <h2>The Perfect Weekly Workout Schedule for Weight Loss</h2>
@@ -560,19 +585,19 @@ This schedule provides:<br />
 - 1 day of steady-state cardio for direct calorie burn<br />
 - 1 day of active recovery to increase NEAT without taxing the nervous system<br />
 - 1 rest day for full recovery and hormone regulation<br /><br />
-Adjust the intensity based on your fitness level. Remember that as you build muscle, your metabolic needs change. Recalculate your calorie targets every 4 to 6 weeks using our <a href="/calculators/tdee">TDEE calculator</a>. Learn more about <a href="/blog/weight-tracking-guide">how to track your weight effectively</a> alongside your exercise program.</p>
+Adjust the intensity based on your fitness level. Remember that as you build muscle, your metabolic needs change. Recalculate your calorie targets every 4 to 6 weeks using our <a href="/calculators/tdee/">TDEE calculator</a>. Learn more about <a href="/blog/weight-tracking-guide/">how to track your weight effectively</a> alongside your exercise program.</p>
 
 
           <h2>Tracking Progress Beyond the Scale</h2>
           
 <p>When you start exercising for weight loss, the scale can be deceptive. Strength training causes micro-tears in muscle fibers, which leads to temporary water retention as your body repairs them. You may see the scale stay flat or even go up slightly during the first 2 to 3 weeks of a new strength program — even though you are losing body fat. This is why tracking multiple metrics is essential:<br /><br />
-1. <strong>Weight loss percentage:</strong> Use our <a href="/calculators/weight-loss">weight loss calculator</a> and track your percentage rather than absolute pounds. This normalizes progress across body sizes.<br />
-2. <strong>Body fat percentage:</strong> Our <a href="/calculators/body-fat">body fat calculator</a> (US Navy method) gives you a more accurate picture of body composition changes.<br />
+1. <strong>Weight loss percentage:</strong> Use our <a href="/calculators/weight-loss/">weight loss calculator</a> and track your percentage rather than absolute pounds. This normalizes progress across body sizes.<br />
+2. <strong>Body fat percentage:</strong> Our <a href="/calculators/body-fat/">body fat calculator</a> (US Navy method) gives you a more accurate picture of body composition changes.<br />
 3. <strong>Progress photos:</strong> Take photos every 2 to 4 weeks in consistent lighting and clothing.<br />
 4. <strong>Waist and hip measurements:</strong> Measure with a tape measure every 2 weeks.<br />
 5. <strong>Performance metrics:</strong> Are you lifting heavier weights? Running longer? These are powerful indicators of positive body composition changes.<br /><br />
-Recovery is just as important as training — quality <a href="/blog/sleep-and-weight-loss">sleep supports weight loss</a> by regulating the hormones that control hunger and fat burning.<br /><br />
-Read our comparison of <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weight loss</a> to understand why the scale does not tell the whole story.</p>
+Recovery is just as important as training — quality <a href="/blog/sleep-and-weight-loss/">sleep supports weight loss</a> by regulating the hormones that control hunger and fat burning.<br /><br />
+Read our comparison of <a href="/blog/fat-loss-vs-weight-loss/">fat loss vs weight loss</a> to understand why the scale does not tell the whole story.</p>
 
 
 
@@ -584,7 +609,7 @@ Read our comparison of <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weigh
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Both are essential. Cardio burns more calories during the workout, while strength training builds muscle that raises your resting metabolism. The most effective approach combines both: 3 days of strength training and 3 days of cardio per week. Track your results with our <a href='/calculators/weight-loss'>weight loss calculator</a>.</p>
+            <p>Both are essential. Cardio burns more calories during the workout, while strength training builds muscle that raises your resting metabolism. The most effective approach combines both: 3 days of strength training and 3 days of cardio per week. Track your results with our <a href='/calculators/weight-loss/'>weight loss calculator</a>.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -593,7 +618,7 @@ Read our comparison of <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weigh
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>For significant weight loss, aim for 200 to 300 minutes of moderate-intensity exercise per week (about 30 to 45 minutes per day). However, diet plays a larger role than exercise. Without a calorie deficit, exercise alone rarely produces substantial weight loss. Use our <a href='/calculators/calorie'>calorie calculator</a> to set your nutrition targets.</p>
+            <p>For significant weight loss, aim for 200 to 300 minutes of moderate-intensity exercise per week (about 30 to 45 minutes per day). However, diet plays a larger role than exercise. Without a calorie deficit, exercise alone rarely produces substantial weight loss. Use our <a href='/calculators/calorie/'>calorie calculator</a> to set your nutrition targets.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -602,7 +627,7 @@ Read our comparison of <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weigh
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>HIIT burns more calories per minute and produces a greater EPOC afterburn effect. However, steady-state cardio is easier to sustain for longer durations and is more accessible for beginners. The best approach includes both. Read our <a href='/blog/signs-body-burning-fat'>signs your body is burning fat</a> to understand the physiological signals.</p>
+            <p>HIIT burns more calories per minute and produces a greater EPOC afterburn effect. However, steady-state cardio is easier to sustain for longer durations and is more accessible for beginners. The best approach includes both. Read our <a href='/blog/signs-body-burning-fat/'>signs your body is burning fat</a> to understand the physiological signals.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -611,7 +636,7 @@ Read our comparison of <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weigh
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes — this is called body recomposition. It is achievable if you maintain a mild calorie deficit (15% to 20% below maintenance), consume adequate protein (use our <a href='/calculators/protein'>protein calculator</a>), and engage in progressive resistance training. Beginners and those returning from a break see the best results.</p>
+            <p>Yes — this is called body recomposition. It is achievable if you maintain a mild calorie deficit (15% to 20% below maintenance), consume adequate protein (use our <a href='/calculators/protein/'>protein calculator</a>), and engage in progressive resistance training. Beginners and those returning from a break see the best results.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -620,7 +645,7 @@ Read our comparison of <a href="/blog/fat-loss-vs-weight-loss">fat loss vs weigh
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Most people see measurable changes in 3 to 4 weeks from the combination of exercise and calorie deficit. However, non-scale victories (better sleep, more energy, looser clothing) often appear within the first 2 weeks. Use our <a href='/calculators/weight-loss'>weight loss calculator</a> to set realistic expectations for your timeline.</p>
+            <p>Most people see measurable changes in 3 to 4 weeks from the combination of exercise and calorie deficit. However, non-scale victories (better sleep, more energy, looser clothing) often appear within the first 2 weeks. Use our <a href='/calculators/weight-loss/'>weight loss calculator</a> to set realistic expectations for your timeline.</p>
           </div>
         </details>
       </div>

@@ -375,7 +375,7 @@
       "name": "Which diet works fastest for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Keto typically produces the fastest initial weight loss (mostly water weight in weeks 1–2), but low-carb and intermittent fasting produce comparable results by 3 to 6 months. The Mediterranean diet is slower but easier to maintain long-term. Use our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a> to compare timelines."
+        "text": "Keto typically produces the fastest initial weight loss (mostly water weight in weeks 1–2), but low-carb and intermittent fasting produce comparable results by 3 to 6 months. The Mediterranean diet is slower but easier to maintain long-term. Use our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a> to compare timelines."
       }
     },{
       "@type": "Question",
@@ -389,21 +389,21 @@
       "name": "Can I combine intermittent fasting with keto?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Many people combine IF with keto to accelerate results. The ketogenic state suppresses appetite, making fasting periods easier, while IF helps maintain ketosis longer. However, this combination is very restrictive and challenging to sustain. Consult our <a target="_blank" href='/calculators/macro'>macro calculator</a> to ensure you are meeting your nutritional needs."
+        "text": "Yes. Many people combine IF with keto to accelerate results. The ketogenic state suppresses appetite, making fasting periods easier, while IF helps maintain ketosis longer. However, this combination is very restrictive and challenging to sustain. Consult our <a target="_blank" href='/calculators/macro/'>macro calculator</a> to ensure you are meeting your nutritional needs."
       }
     },{
       "@type": "Question",
       "name": "How many calories should I eat on a Mediterranean diet for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Mediterranean diet does not prescribe specific calorie targets, but weight loss still requires a calorie deficit. Calculate your TDEE using our <a target="_blank" href='/calculators/tdee'>TDEE calculator</a> and subtract 15% to 25% to find your target. Our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> can help you set precise targets."
+        "text": "The Mediterranean diet does not prescribe specific calorie targets, but weight loss still requires a calorie deficit. Calculate your TDEE using our <a target="_blank" href='/calculators/tdee/'>TDEE calculator</a> and subtract 15% to 25% to find your target. Our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> can help you set precise targets."
       }
     },{
       "@type": "Question",
       "name": "Do I need to count calories on keto?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Strictly speaking, no — keto's appetite suppression often leads to a natural calorie deficit without counting. However, it is still possible to overeat calories on keto (especially from high-fat foods like nuts, cheese, and oils). If your weight loss stalls, tracking calories for a week using our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> can help identify the issue."
+        "text": "Strictly speaking, no — keto's appetite suppression often leads to a natural calorie deficit without counting. However, it is still possible to overeat calories on keto (especially from high-fat foods like nuts, cheese, and oils). If your weight loss stalls, tracking calories for a week using our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> can help identify the issue."
       }
     }]
     }
@@ -449,21 +449,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Weight Loss Percentage
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Weight Loss Percentage
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Home</a>
+      <a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Calculators</a>
+      <a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Nutrition</a>
+      <a href="/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Blog</a>
+      <a href="/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Compare</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -471,7 +496,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Best Diet for Weight Loss: Mediterranean vs Keto vs Low-Carb Comparison" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Best Diet for Weight Loss: Mediterranean vs Keto vs Low-Carb Comparison" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
       </div>
 
 
@@ -495,7 +520,7 @@
 
 
       <div class="article-content">
-        With hundreds of diet plans available online, choosing the right approach for weight loss can feel overwhelming. Keto promises rapid fat loss. Mediterranean boasts heart health benefits and longevity. Low-carb offers a middle ground. Intermittent fasting provides structure without counting every calorie. The DASH diet is clinically proven to lower blood pressure. So which one actually works for weight loss? The honest answer is that all of them work — but only if you can maintain a calorie deficit. The best diet for weight loss is the one you can stick with consistently over months and years, not just weeks. In this comprehensive comparison, we evaluate the five most popular diets using clinical research, real-world adherence data, and practical sustainability scores. Use our <a href="/calculators/weight-loss">weight loss calculator</a> to project your timeline regardless of which diet you choose, and our <a href="/calculators/calorie">calorie calculator</a> to find your daily target within any dietary framework.
+        With hundreds of diet plans available online, choosing the right approach for weight loss can feel overwhelming. Keto promises rapid fat loss. Mediterranean boasts heart health benefits and longevity. Low-carb offers a middle ground. Intermittent fasting provides structure without counting every calorie. The DASH diet is clinically proven to lower blood pressure. So which one actually works for weight loss? The honest answer is that all of them work — but only if you can maintain a calorie deficit. The best diet for weight loss is the one you can stick with consistently over months and years, not just weeks. In this comprehensive comparison, we evaluate the five most popular diets using clinical research, real-world adherence data, and practical sustainability scores. Use our <a href="/calculators/weight-loss/">weight loss calculator</a> to project your timeline regardless of which diet you choose, and our <a href="/calculators/calorie/">calorie calculator</a> to find your daily target within any dietary framework.
 
 
           <h2>The Mediterranean Diet: Heart-Healthy and Sustainable</h2>
@@ -505,7 +530,7 @@
 <strong>Pros:</strong> Highly sustainable for long-term health; reduces cardiovascular disease risk; rich in fiber and antioxidants; no food groups eliminated; clinically proven to reduce inflammation.<br /><br />
 <strong>Cons:</strong> Weight loss is relatively slow; can be challenging for those accustomed to a Western diet; requires cooking from scratch; healthy olive oil, fish, and nuts can be expensive.<br /><br />
 <strong>Sustainability score: 9/10</strong> — the most sustainable diet for long-term adherence.<br /><br />
-Learn more about how the Mediterranean approach compares in our article on <a href="/blog/lifestyle-changes-weight-loss-guide">lifestyle changes for weight loss</a>.</p>
+Learn more about how the Mediterranean approach compares in our article on <a href="/blog/lifestyle-changes-weight-loss-guide/">lifestyle changes for weight loss</a>.</p>
 
 
           <h2>The Keto Diet: Rapid Results, High Demands</h2>
@@ -514,7 +539,7 @@ Learn more about how the Mediterranean approach compares in our article on <a hr
 <strong>Weight loss evidence:</strong> A systematic review of 13 randomized trials found that keto dieters lost 2 to 5 pounds more than low-fat dieters at 6 months. However, by 12 months, the difference was no longer statistically significant — ketosis is hard to maintain long-term.<br /><br />
 <strong>Pros:</strong> Rapid initial weight loss (mostly water weight in the first 2 weeks); significant appetite suppression; effective for blood sugar and insulin management; clear rules make it easy to know what to eat.<br /><br />
 <strong>Cons:</strong> Extremely difficult to maintain; 'keto flu' during adaptation (fatigue, brain fog, irritability); restricts fruit, legumes, and whole grains; can elevate LDL cholesterol in some individuals; social eating becomes challenging.<br /><br />
-<strong>Sustainability score: 4/10</strong> — highly effective short-term, but most people revert to their previous eating habits within 6 months. Read more in our dedicated <a href="/blog/keto-diet-weight-loss">keto diet weight loss guide</a>.</p>
+<strong>Sustainability score: 4/10</strong> — highly effective short-term, but most people revert to their previous eating habits within 6 months. Read more in our dedicated <a href="/blog/keto-diet-weight-loss/">keto diet weight loss guide</a>.</p>
 
 
           <h2>Low-Carb Diet: The Practical Compromise</h2>
@@ -523,7 +548,7 @@ Learn more about how the Mediterranean approach compares in our article on <a hr
 <strong>Weight loss evidence:</strong> The DIRECT trial, a landmark 2-year study, found that a low-carb Mediterranean diet produced greater weight loss than a standard low-fat diet (average 5.5 kg vs 1.8 kg at 2 years). Low-carb diets consistently outperform low-fat diets in head-to-head comparisons, likely because the higher protein and fat content improves satiety and reduces spontaneous calorie intake.<br /><br />
 <strong>Pros:</strong> More flexible than keto; includes vegetables, fruit, and some whole grains; improves satiety and reduces cravings; better long-term adherence than keto; does not require measuring blood ketones.<br /><br />
 <strong>Cons:</strong> Still restricts many staple foods; may reduce fiber intake if not planned carefully; initial weight loss is slower than keto; can be confusing about exactly how many carbs to eat.<br /><br />
-<strong>Sustainability score: 7/10</strong> — a practical middle ground that works well for many people. Use our <a href="/calculators/macro">macro calculator</a> to set your specific carb target.</p>
+<strong>Sustainability score: 7/10</strong> — a practical middle ground that works well for many people. Use our <a href="/calculators/macro/">macro calculator</a> to set your specific carb target.</p>
 
 
           <h2>Intermittent Fasting: Timing Over Restriction</h2>
@@ -541,7 +566,7 @@ Learn more about how the Mediterranean approach compares in our article on <a hr
 <strong>Weight loss evidence:</strong> When combined with a calorie deficit, the DASH diet produces weight loss comparable to standard low-fat approaches (4 to 10 pounds over 6 months). Its real strength is its robust clinical evidence for improving cardiovascular health markers.<br /><br />
 <strong>Pros:</strong> Strongest clinical evidence for overall health improvement; includes all food groups; easy to follow with clear guidelines; low risk of nutrient deficiencies.<br /><br />
 <strong>Cons:</strong> Weight loss is relatively slow; requires significant dietary changes for those accustomed to processed foods; lower in fat than some people find satisfying; not specifically optimized for rapid weight loss.<br /><br />
-<strong>Sustainability score: 8/10</strong> — excellent for those prioritizing overall health alongside weight loss. Track your progress with our <a href="/calculators/weight-loss">weight loss calculator</a> regardless of which approach you choose.</p>
+<strong>Sustainability score: 8/10</strong> — excellent for those prioritizing overall health alongside weight loss. Track your progress with our <a href="/calculators/weight-loss/">weight loss calculator</a> regardless of which approach you choose.</p>
 
 
           <h2>Which Diet Actually Loses the Most Weight?</h2>
@@ -553,7 +578,7 @@ Here is a practical decision guide:<br />
 - <strong>Choose Low-Carb if:</strong> You want a flexible approach that improves satiety without the extreme restrictions of keto.<br />
 - <strong>Choose Intermittent Fasting if:</strong> You prefer eating larger meals and dislike constant snacking throughout the day.<br />
 - <strong>Choose DASH if:</strong> You have or are at risk for high blood pressure and want a balanced, all-foods-allowed approach.<br /><br />
-Whichever diet you select, the fundamental principles remain the same: eat in a calorie deficit, prioritize protein and fiber, and track your progress using our <a href="/calculators/weight-loss">free weight loss calculator</a> to stay on course. Read our comparison of <a href="/blog/calories-vs-weight-loss">calories versus weight loss</a> for more on the science of energy balance, and our <a href="/blog/calorie-deficit-weight-loss">calorie deficit guide</a> for a step-by-step setup plan.</p>
+Whichever diet you select, the fundamental principles remain the same: eat in a calorie deficit, prioritize protein and fiber, and track your progress using our <a href="/calculators/weight-loss/">free weight loss calculator</a> to stay on course. Read our comparison of <a href="/blog/calories-vs-weight-loss/">calories versus weight loss</a> for more on the science of energy balance, and our <a href="/blog/calorie-deficit-weight-loss/">calorie deficit guide</a> for a step-by-step setup plan.</p>
 
 
 
@@ -565,7 +590,7 @@ Whichever diet you select, the fundamental principles remain the same: eat in a 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Keto typically produces the fastest initial weight loss (mostly water weight in weeks 1–2), but low-carb and intermittent fasting produce comparable results by 3 to 6 months. The Mediterranean diet is slower but easier to maintain long-term. Use our <a href='/calculators/weight-loss'>weight loss calculator</a> to compare timelines.</p>
+            <p>Keto typically produces the fastest initial weight loss (mostly water weight in weeks 1–2), but low-carb and intermittent fasting produce comparable results by 3 to 6 months. The Mediterranean diet is slower but easier to maintain long-term. Use our <a href='/calculators/weight-loss/'>weight loss calculator</a> to compare timelines.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -583,7 +608,7 @@ Whichever diet you select, the fundamental principles remain the same: eat in a 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes. Many people combine IF with keto to accelerate results. The ketogenic state suppresses appetite, making fasting periods easier, while IF helps maintain ketosis longer. However, this combination is very restrictive and challenging to sustain. Consult our <a href='/calculators/macro'>macro calculator</a> to ensure you are meeting your nutritional needs.</p>
+            <p>Yes. Many people combine IF with keto to accelerate results. The ketogenic state suppresses appetite, making fasting periods easier, while IF helps maintain ketosis longer. However, this combination is very restrictive and challenging to sustain. Consult our <a href='/calculators/macro/'>macro calculator</a> to ensure you are meeting your nutritional needs.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -592,7 +617,7 @@ Whichever diet you select, the fundamental principles remain the same: eat in a 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>The Mediterranean diet does not prescribe specific calorie targets, but weight loss still requires a calorie deficit. Calculate your TDEE using our <a href='/calculators/tdee'>TDEE calculator</a> and subtract 15% to 25% to find your target. Our <a href='/calculators/calorie'>calorie calculator</a> can help you set precise targets.</p>
+            <p>The Mediterranean diet does not prescribe specific calorie targets, but weight loss still requires a calorie deficit. Calculate your TDEE using our <a href='/calculators/tdee/'>TDEE calculator</a> and subtract 15% to 25% to find your target. Our <a href='/calculators/calorie/'>calorie calculator</a> can help you set precise targets.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -601,7 +626,7 @@ Whichever diet you select, the fundamental principles remain the same: eat in a 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Strictly speaking, no — keto's appetite suppression often leads to a natural calorie deficit without counting. However, it is still possible to overeat calories on keto (especially from high-fat foods like nuts, cheese, and oils). If your weight loss stalls, tracking calories for a week using our <a href='/calculators/calorie'>calorie calculator</a> can help identify the issue.</p>
+            <p>Strictly speaking, no — keto's appetite suppression often leads to a natural calorie deficit without counting. However, it is still possible to overeat calories on keto (especially from high-fat foods like nuts, cheese, and oils). If your weight loss stalls, tracking calories for a week using our <a href='/calculators/calorie/'>calorie calculator</a> can help identify the issue.</p>
           </div>
         </details>
       </div>

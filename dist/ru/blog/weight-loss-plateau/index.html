@@ -364,7 +364,7 @@
         "logo": { "@type": "ImageObject", "url": "https://www.weightlosspercentage.com/favicon.svg" }
       },
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.weightlosspercentage.com/blog/weight-loss-plateau/" },
-      "image": "https://images.unsplash.com/photo-1531180614310-37033e64c090?auto=format&fit=crop&w=800&q=80"
+      "image": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80"
     }
     </script>
     <!-- FAQPage Schema -->
@@ -384,7 +384,7 @@
       "name": "Should I eat fewer calories when I hit a plateau?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Usually, no. If you have already been dieting for 12+ weeks, eating fewer calories can worsen metabolic adaptation and accelerate muscle loss. A diet break (eating at maintenance for 1 to 2 weeks) is usually more effective than further restriction. Use our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> to find your maintenance level."
+        "text": "Usually, no. If you have already been dieting for 12+ weeks, eating fewer calories can worsen metabolic adaptation and accelerate muscle loss. A diet break (eating at maintenance for 1 to 2 weeks) is usually more effective than further restriction. Use our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> to find your maintenance level."
       }
     },{
       "@type": "Question",
@@ -405,7 +405,7 @@
       "name": "How often should I adjust my calorie deficit as I lose weight?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every 10 to 15 pounds of weight loss. As you get smaller, your TDEE decreases. Recalculate your TDEE using our <a target="_blank" href='/calculators/tdee'>TDEE calculator</a> every 10 to 15 pounds and adjust your calorie target accordingly. This prevents your deficit from shrinking to zero without you noticing."
+        "text": "Every 10 to 15 pounds of weight loss. As you get smaller, your TDEE decreases. Recalculate your TDEE using our <a target="_blank" href='/calculators/tdee/'>TDEE calculator</a> every 10 to 15 pounds and adjust your calorie target accordingly. This prevents your deficit from shrinking to zero without you noticing."
       }
     }]
     }
@@ -451,21 +451,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/ru/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Процент потери веса
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/ru/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Дом</a>
-            <a href="/ru/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Калькуляторы</a>
-            <a href="/ru/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Питание</a>
-            <a href="/ru/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Блог</a>
-            <a href="/ru/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Сравнивать</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/ru/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Процент потери веса
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/ru/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Дом</a>
+      <a href="/ru/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Калькуляторы</a>
+      <a href="/ru/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Питание</a>
+      <a href="/ru/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Блог</a>
+      <a href="/ru/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Сравнивать</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -473,7 +498,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1531180614310-37033e64c090?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Plateau: Science-Backed Strategies to Break Through" style="width: 100%; height: 100%; object-fit: cover;" /></img>
+        <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80" alt="Weight Loss Plateau: Science-Backed Strategies to Break Through" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/></img>
       </div>
 
 
@@ -595,7 +620,7 @@
             <svg class="accordion-icon" viewbox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Обычно нет. Если вы уже сидите на диете более 12 недель, употребление меньшего количества калорий может ухудшить метаболическую адаптацию и ускорить потерю мышечной массы. Перерыв в диете (прием пищи в течение 1–2 недель) обычно более эффективен, чем дальнейшее ограничение. Используйте наш <a href="/calculators/calorie">калькулятор калорий</a> чтобы найти свой уровень обслуживания.</p>
+            <p>Обычно нет. Если вы уже сидите на диете более 12 недель, употребление меньшего количества калорий может ухудшить метаболическую адаптацию и ускорить потерю мышечной массы. Перерыв в диете (прием пищи в течение 1–2 недель) обычно более эффективен, чем дальнейшее ограничение. Используйте наш <a href="/calculators/calorie/">калькулятор калорий</a> чтобы найти свой уровень обслуживания.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -622,7 +647,7 @@
             <svg class="accordion-icon" viewbox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Каждые 10-15 фунтов потери веса. По мере того, как вы становитесь меньше, ваш TDEE уменьшается. Пересчитайте свой TDEE с помощью нашего <a href="/calculators/tdee">Калькулятор TDEE</a> каждые 10–15 фунтов и соответствующим образом корректируйте свою целевую калорийность. Это не позволит вашему дефициту сжаться до нуля незаметно для вас.</p>
+            <p>Каждые 10-15 фунтов потери веса. По мере того, как вы становитесь меньше, ваш TDEE уменьшается. Пересчитайте свой TDEE с помощью нашего <a href="/calculators/tdee/">Калькулятор TDEE</a> каждые 10–15 фунтов и соответствующим образом корректируйте свою целевую калорийность. Это не позволит вашему дефициту сжаться до нуля незаметно для вас.</p>
           </div>
         </details>
       </div>

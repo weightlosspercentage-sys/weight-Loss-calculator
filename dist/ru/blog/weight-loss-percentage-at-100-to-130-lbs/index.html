@@ -412,21 +412,46 @@
         </style>
       </div>
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/ru/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Процент потери веса
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/ru/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Дом</a>
-            <a href="/ru/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Калькуляторы</a>
-            <a href="/ru/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Питание</a>
-            <a href="/ru/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Блог</a>
-            <a href="/ru/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Сравнивать</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/ru/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Процент потери веса
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/ru/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Дом</a>
+      <a href="/ru/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Калькуляторы</a>
+      <a href="/ru/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Питание</a>
+      <a href="/ru/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Блог</a>
+      <a href="/ru/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Сравнивать</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -454,7 +479,7 @@
         <p>Давайте посмотрим, что означают разные проценты потери веса при типичном стартовом весе <strong>120 фунтов</strong>:</p><ul><li><strong>5% потеря (6 фунтов):</strong> Ваш вес падает до 114 фунтов. Это клинически значимо — улучшение липидов в крови, уменьшение воспаления, улучшение чувствительности к инсулину. Это примерно <a href="/calculators/weight-loss/from-120-to-114/">6 недель по 1 фунту в неделю</a>.</li><li><strong>10% потеря (12 фунтов):</strong> Ваш вес падает до 108 фунтов. Значительное улучшение метаболизма. Это примерно <a href="/calculators/weight-loss/from-120-to-110/">10–12 недель</a> в зависимости от вашего дефицита.</li><li><strong>Потеря 15% (18 фунтов):</strong> Ваш вес падает до 102 фунтов. Это существенная трансформация при таком размере тела. Примерно <a href="/calculators/weight-loss/from-120-to-100/">14–16 недель</a>.</li></ul><p>Используйте наш <a href="/calculators/weight-loss/">калькулятор похудения</a> чтобы увидеть точные сроки, основанные на вашем конкретном стартовом и целевом весе.</p>
 
         <h2>Почему процентное соотношение имеет большее значение при меньшем весе</h2>
-        <p>При более низкой стартовой массе тела вероятность ошибки меньше. Ежедневный дефицит в 500 калорий представляет собой больший процент ваших общих энергетических потребностей по сравнению с человеком с весом 250 фунтов. Это означает:</p><ul><li><strong>Ваш дефицит калорий должен быть умеренным:</strong> 15% ниже TDEE, а не 25%. А <a href="/calculators/calorie/">калькулятор калорий</a> поправка на ваш размер имеет важное значение.</li><li><strong>Сохранение мышц имеет решающее значение:</strong> При меньшем весе потеря мышечной массы оказывает непропорциональное влияние на скорость метаболизма. Расставьте приоритеты в белке, используя нашу <a href="/calculators/protein/">белковый калькулятор</a>.</li><li><strong>Потеря веса замедляется по мере того, как вы становитесь меньше:</strong> Это ожидаемая метаболическая адаптация. Узнайте больше в нашем <a href="/blog/weight-loss-plateau">Путеводитель по плато</a>.</li></ul>
+        <p>При более низкой стартовой массе тела вероятность ошибки меньше. Ежедневный дефицит в 500 калорий представляет собой больший процент ваших общих энергетических потребностей по сравнению с человеком с весом 250 фунтов. Это означает:</p><ul><li><strong>Ваш дефицит калорий должен быть умеренным:</strong> 15% ниже TDEE, а не 25%. А <a href="/calculators/calorie/">калькулятор калорий</a> поправка на ваш размер имеет важное значение.</li><li><strong>Сохранение мышц имеет решающее значение:</strong> При меньшем весе потеря мышечной массы оказывает непропорциональное влияние на скорость метаболизма. Расставьте приоритеты в белке, используя нашу <a href="/calculators/protein/">белковый калькулятор</a>.</li><li><strong>Потеря веса замедляется по мере того, как вы становитесь меньше:</strong> Это ожидаемая метаболическая адаптация. Узнайте больше в нашем <a href="/blog/weight-loss-plateau/">Путеводитель по плато</a>.</li></ul>
 
         <h2>Диапазон здорового веса для отправной точки 100–130 фунтов</h2>
         <p>Для людей весом от 100 до 130 фунтов диапазон здорового целевого веса зависит от вашего роста. Проверьте свой ИМТ с помощью нашего <a href="/calculators/bmi/">Калькулятор ИМТ</a> чтобы определить свой идеальный диапазон. Как правило, потеря от 5% до 10% вашего начального веса — это безопасная и достижимая цель, которая обеспечивает значительную пользу для здоровья без риска возникновения статуса недостаточного веса.</p><p>Наш <a href="/blog/how-to-calculate-weight-loss-percentage/">Полное руководство по расчету процента потери веса</a> проходит по точной формуле с проработанными примерами.</p>

@@ -8,10 +8,10 @@ export interface Props {
   region: string;
 }
 
-const { region } = Astro.props;
+const { region, activePath } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80 shadow-sm transition-all duration-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
@@ -21,7 +21,7 @@ const { region } = Astro.props;
       </a>
 
       <!-- Desktop Navigation -->
-      <Navigation region={region} />
+      <Navigation region={region} activePath={activePath} />
 
       <!-- Mobile Hamburger -->
       <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus-visible-outline focus-visible-ring">
@@ -42,8 +42,25 @@ const { region } = Astro.props;
   document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
     var m = document.getElementById('mobile-menu');
     if (m) {
-      m.classList.toggle('hidden');
-      this.setAttribute('aria-label', m.classList.contains('hidden') ? 'Open menu' : 'Close menu');
+      if (m.classList.contains('hidden')) {
+        m.classList.remove('hidden');
+        // Allow a frame for browser layout and then transition properties
+        requestAnimationFrame(function() {
+          m.style.maxHeight = m.scrollHeight + 'px';
+          m.style.opacity = '1';
+        });
+      } else {
+        m.style.maxHeight = '0px';
+        m.style.opacity = '0';
+        m.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'max-height') {
+            m.classList.add('hidden');
+            m.removeEventListener('transitionend', handler);
+          }
+        });
+      }
+      var isHidden = m.classList.contains('hidden');
+      this.setAttribute('aria-label', isHidden ? 'Open menu' : 'Close menu');
     }
   });
 </script>

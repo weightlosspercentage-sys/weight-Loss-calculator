@@ -412,21 +412,46 @@
         </style>
       </div>
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/zh/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            减肥百分比
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/zh/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">家</a>
-            <a href="/zh/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">计算器</a>
-            <a href="/zh/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">营养</a>
-            <a href="/zh/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">博客</a>
-            <a href="/zh/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">比较</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/zh/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      减肥百分比
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/zh/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">家</a>
+      <a href="/zh/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">计算器</a>
+      <a href="/zh/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">营养</a>
+      <a href="/zh/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">博客</a>
+      <a href="/zh/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">比较</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -454,7 +479,7 @@
         <p>让我们看看不同的减肥百分比对于代表性起始体重意味着什么 <strong>120 磅</strong>:</p><ul><li><strong>5% 损失（6 磅）：</strong> 您的体重下降至 114 磅。这具有临床意义——改善血脂、减少炎症、提高胰岛素敏感性。这大约是 <a href="/calculators/weight-loss/from-120-to-114/">6 周，每周 1 磅</a>.</li><li><strong>10% 损失（12 磅）：</strong> 您的体重下降至 108 磅。主要代谢改善。这大约是 <a href="/calculators/weight-loss/from-120-to-110/">10–12 周</a> 取决于你的赤字。</li><li><strong>损失 15%（18 磅）：</strong> 您的体重下降至 102 磅。对于这个体型来说，这是一个实质性的转变。大约 <a href="/calculators/weight-loss/from-120-to-100/">14–16 周</a>.</li></ul><p>使用我们的 <a href="/calculators/weight-loss/">减肥计算器</a> 根据您的具体起始体重和目标体重查看确切的时间表。</p>
 
         <h2>为什么重量越轻百分比越重要</h2>
-        <p>起始体重较低时，误差幅度较小。与体重 250 磅的人相比，每天 500 卡路里的赤字占总能量需求的比例更大。这意味着：</p><ul><li><strong>你的卡路里赤字应该比较温和：</strong> 比 TDEE 低 15%，而不是 25%。一个 <a href="/calculators/calorie/">卡路里计算器</a> 根据您的尺寸进行调整至关重要。</li><li><strong>保存肌肉至关重要：</strong> 在体重较低的情况下，失去肌肉会对新陈代谢率产生不成比例的影响。使用我们的优先考虑蛋白质 <a href="/calculators/protein/">蛋白质计算器</a>.</li><li><strong>当你变小时，体重减轻会减慢：</strong> 这是预期的代谢适应。在我们的网站中了解更多信息 <a href="/blog/weight-loss-plateau">高原指南</a>.</li></ul>
+        <p>起始体重较低时，误差幅度较小。与体重 250 磅的人相比，每天 500 卡路里的赤字占总能量需求的比例更大。这意味着：</p><ul><li><strong>你的卡路里赤字应该比较温和：</strong> 比 TDEE 低 15%，而不是 25%。一个 <a href="/calculators/calorie/">卡路里计算器</a> 根据您的尺寸进行调整至关重要。</li><li><strong>保存肌肉至关重要：</strong> 在体重较低的情况下，失去肌肉会对新陈代谢率产生不成比例的影响。使用我们的优先考虑蛋白质 <a href="/calculators/protein/">蛋白质计算器</a>.</li><li><strong>当你变小时，体重减轻会减慢：</strong> 这是预期的代谢适应。在我们的网站中了解更多信息 <a href="/blog/weight-loss-plateau/">高原指南</a>.</li></ul>
 
         <h2>100–130 磅起始点的健康体重范围</h2>
         <p>对于体重为 100 至 130 磅的个人，健康目标体重范围取决于您的身高。使用我们的 BMI 检查您的体重指数 <a href="/calculators/bmi/">体重指数计算器</a> 以确定您的理想范围。一般来说，减掉起始体重的 5% 到 10% 是一个安全且可实现的目标，它可以带来有意义的健康益处，而且不会带来体重不足的风险。</p><p>我们的 <a href="/blog/how-to-calculate-weight-loss-percentage/">计算减肥百分比的完整指南</a> 通过实例演练精确的公式。</p>

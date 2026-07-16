@@ -375,7 +375,7 @@
       "name": "Can poor sleep really prevent weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Clinical studies show that sleep deprivation reduces fat loss by up to 55% even when diet and exercise are identical. Poor sleep disrupts leptin, ghrelin, cortisol, and growth hormone — all of which regulate appetite and fat burning. Use our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a> to see if improving your sleep accelerates your results."
+        "text": "Yes. Clinical studies show that sleep deprivation reduces fat loss by up to 55% even when diet and exercise are identical. Poor sleep disrupts leptin, ghrelin, cortisol, and growth hormone — all of which regulate appetite and fat burning. Use our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a> to see if improving your sleep accelerates your results."
       }
     },{
       "@type": "Question",
@@ -449,21 +449,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Weight Loss Percentage
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Weight Loss Percentage
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Home</a>
+      <a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Calculators</a>
+      <a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Nutrition</a>
+      <a href="/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Blog</a>
+      <a href="/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Compare</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -471,7 +496,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Sleep and Weight Loss: The Science-Backed Connection" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Sleep and Weight Loss: The Science-Backed Connection" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
       </div>
 
 
@@ -495,7 +520,7 @@
 
 
       <div class="article-content">
-        When people think about weight loss, they typically focus on diet and exercise. Sleep rarely enters the conversation. Yet a growing body of research suggests that sleep may be the missing third pillar of effective weight management. In fact, studies show that poor sleep quality can reduce fat loss by up to 55% — even when calorie intake and exercise levels are kept identical. How can something as passive as sleep have such a powerful effect on weight loss? The answer lies in the complex hormonal and metabolic changes that occur when you are sleep-deprived. In this guide, we will explore the direct biological mechanisms linking sleep and weight loss, including the effects on hunger hormones (leptin and ghrelin), stress hormones (cortisol), and growth hormone. You will also find actionable strategies to improve your sleep quality and maximize your fat loss results. Use our <a href="/calculators/weight-loss">weight loss calculator</a> to track how improving your sleep affects your overall progress.
+        When people think about weight loss, they typically focus on diet and exercise. Sleep rarely enters the conversation. Yet a growing body of research suggests that sleep may be the missing third pillar of effective weight management. In fact, studies show that poor sleep quality can reduce fat loss by up to 55% — even when calorie intake and exercise levels are kept identical. How can something as passive as sleep have such a powerful effect on weight loss? The answer lies in the complex hormonal and metabolic changes that occur when you are sleep-deprived. In this guide, we will explore the direct biological mechanisms linking sleep and weight loss, including the effects on hunger hormones (leptin and ghrelin), stress hormones (cortisol), and growth hormone. You will also find actionable strategies to improve your sleep quality and maximize your fat loss results. Use our <a href="/calculators/weight-loss/">weight loss calculator</a> to track how improving your sleep affects your overall progress.
 
 
           <h2>The Leptin-Ghrelin Tango: Why Poor Sleep Makes You Hungrier</h2>
@@ -503,7 +528,7 @@
 <p>Your appetite is regulated by two primary hormones: leptin and ghrelin. Understanding how sleep affects these two hormones is crucial for weight management.<br /><br />
 <strong>Leptin</strong> is the satiety hormone. It is produced by your fat cells and signals your brain that you have enough energy stored and do not need to eat. When leptin levels are high, your appetite is suppressed. When leptin levels drop, your brain receives the signal that energy stores are low and you need to eat.<br /><br />
 <strong>Ghrelin</strong> is the hunger hormone. It is produced primarily in your stomach and signals your brain that it is time to eat. Ghrelin levels rise before meals and drop after you eat.<br /><br />
-<strong>What happens when you are sleep-deprived:</strong> A landmark study published in the Annals of Internal Medicine found that healthy adults who slept only 4 hours per night for two nights experienced a 18% decrease in leptin (meaning less satiety) and a 28% increase in ghrelin (meaning more hunger). Combined, these hormonal changes led to a 23% increase in self-reported hunger and a 30% increase in cravings for calorie-dense, high-carbohydrate foods. If you have ever wondered why you crave pizza, cookies, and chips after a bad night's sleep, this is the biological reason. The hormonal disruption from sleep deprivation actively works against your weight loss efforts, making it harder to maintain a calorie deficit. Our <a href="/calculators/calorie">calorie calculator</a> can help you stay on track even when your hormones are working against you.</p>
+<strong>What happens when you are sleep-deprived:</strong> A landmark study published in the Annals of Internal Medicine found that healthy adults who slept only 4 hours per night for two nights experienced a 18% decrease in leptin (meaning less satiety) and a 28% increase in ghrelin (meaning more hunger). Combined, these hormonal changes led to a 23% increase in self-reported hunger and a 30% increase in cravings for calorie-dense, high-carbohydrate foods. If you have ever wondered why you crave pizza, cookies, and chips after a bad night's sleep, this is the biological reason. The hormonal disruption from sleep deprivation actively works against your weight loss efforts, making it harder to maintain a calorie deficit. Our <a href="/calculators/calorie/">calorie calculator</a> can help you stay on track even when your hormones are working against you.</p>
 
 
           <h2>Cortisol: The Stress-Sleep-Weight Triangle</h2>
@@ -514,7 +539,7 @@
 2. <strong>Increases insulin resistance:</strong> Cortisol makes your cells less responsive to insulin, causing your pancreas to produce more insulin. High insulin levels promote fat storage and inhibit fat burning.<br />
 3. <strong>Encourages cravings:</strong> Cortisol increases cravings for high-sugar, high-fat 'comfort foods' as your brain seeks quick energy to cope with the perceived stress.<br />
 4. <strong>Reduces growth hormone:</strong> Growth hormone, which is primarily secreted during deep sleep, is essential for fat metabolism and muscle preservation. Sleep deprivation suppresses growth hormone release by up to 70%.<br /><br />
-The combination of high cortisol and low growth hormone creates a metabolic environment that actively inhibits fat loss. This is why managing sleep quality is not optional for weight loss — it is a fundamental requirement. Read more about the hormonal aspects of weight loss in our <a href="/blog/weight-loss-formulas-explained">weight loss formulas explained</a> guide.</p>
+The combination of high cortisol and low growth hormone creates a metabolic environment that actively inhibits fat loss. This is why managing sleep quality is not optional for weight loss — it is a fundamental requirement. Read more about the hormonal aspects of weight loss in our <a href="/blog/weight-loss-formulas-explained/">weight loss formulas explained</a> guide.</p>
 
 
           <h2>The Clinical Evidence: Sleep Restriction Reduces Fat Loss</h2>
@@ -525,7 +550,7 @@ The combination of high cortisol and low growth hormone creates a metabolic envi
 After 2 weeks, both groups lost the same amount of total weight. However, the composition of weight loss was dramatically different:<br />
 - <strong>Adequate sleep group:</strong> 80% of weight lost was body fat, 20% was lean mass<br />
 - <strong>Sleep restricted group:</strong> Only 45% of weight lost was body fat, 55% was lean mass!<br /><br />
-This means the sleep-deprived group lost more than twice as much muscle mass despite identical calories and exercise. Losing muscle lowers your BMR, making future weight loss harder and weight regain more likely. This study powerfully demonstrates that sleep quality directly determines whether you burn fat or muscle when in a calorie deficit. Use our <a href="/calculators/body-fat">body fat calculator</a> to monitor your body composition changes and ensure you are losing fat, not muscle.</p>
+This means the sleep-deprived group lost more than twice as much muscle mass despite identical calories and exercise. Losing muscle lowers your BMR, making future weight loss harder and weight regain more likely. This study powerfully demonstrates that sleep quality directly determines whether you burn fat or muscle when in a calorie deficit. Use our <a href="/calculators/body-fat/">body fat calculator</a> to monitor your body composition changes and ensure you are losing fat, not muscle.</p>
 
 
           <h2>Practical Sleep Optimization for Weight Loss</h2>
@@ -543,7 +568,7 @@ Alcohol may help you fall asleep faster, but it severely disrupts REM sleep and 
 Your body's core temperature needs to drop by 1 to 2 degrees to initiate sleep. Keep your bedroom at 65 to 68°F (18 to 20°C) and use blackout curtains.<br /><br />
 <strong>6. Stop eating 3 hours before bed.</strong><br />
 Late-night eating disrupts sleep quality and reduces fat burning overnight. Your body cannot efficiently digest food and burn fat simultaneously.<br /><br />
-Track how sleep improvements affect your weekly weight trend using our <a href="/calculators/weight-loss">weight loss calculator</a>.</p>
+Track how sleep improvements affect your weekly weight trend using our <a href="/calculators/weight-loss/">weight loss calculator</a>.</p>
 
 
           <h2>The Gut Microbiome-Sleep-Weight Connection</h2>
@@ -551,7 +576,7 @@ Track how sleep improvements affect your weekly weight trend using our <a href="
 <p>Emerging research has revealed a fascinating three-way connection between your gut microbiome, your sleep quality, and your body weight. Your gut microbiome — the trillions of bacteria living in your digestive tract — plays a crucial role in regulating metabolism, inflammation, and even brain function.<br /><br />
 <strong>How sleep affects your gut:</strong> Poor sleep alters the composition of your gut microbiome, increasing the ratio of Firmicutes bacteria (associated with obesity) to Bacteroidetes bacteria (associated with leanness). This bacterial imbalance has been shown to increase calorie extraction from food and promote fat storage.<br /><br />
 <strong>How your gut affects sleep:</strong> Your gut produces the majority of your body's serotonin (95%), which is a precursor to melatonin, the sleep hormone. An unhealthy gut microbiome can disrupt serotonin production, making it harder to fall asleep and achieve deep sleep cycles.<br /><br />
-Supporting your gut health through fiber-rich foods, fermented foods (yogurt, kefir, sauerkraut, kimchi), and adequate hydration can improve both your sleep and your weight loss efforts. For nutrition guidance that supports gut health, explore our <a href="/calculators/water-intake">water intake calculator</a> and <a href="/calculators/macro">macro calculator</a>.</p>
+Supporting your gut health through fiber-rich foods, fermented foods (yogurt, kefir, sauerkraut, kimchi), and adequate hydration can improve both your sleep and your weight loss efforts. For nutrition guidance that supports gut health, explore our <a href="/calculators/water-intake/">water intake calculator</a> and <a href="/calculators/macro/">macro calculator</a>.</p>
 
 
           <h2>Putting It Together: A Sleep-First Weight Loss Protocol</h2>
@@ -567,8 +592,8 @@ Supporting your gut health through fiber-rich foods, fermented foods (yogurt, ke
 - Implement all the strategies above<br />
 - Create a wind-down routine (no screens 1 hour before bed)<br />
 - Keep your room cool (65–68°F)<br />
-- Measure your progress using our <a href="/calculators/weight-loss">weight loss calculator</a><br /><br />
-Most people notice significant improvements in hunger levels and cravings within the first week of optimized sleep. Many also report that their usual morning coffee becomes optional because they wake up feeling naturally rested. Pair better sleep with a structured <a href="/blog/exercise-for-weight-loss">exercise plan for weight loss</a> and a <a href="/blog/calorie-deficit-weight-loss">calorie deficit plan</a> for maximum results. Read our <a href="/blog/lifestyle-changes-weight-loss-guide">lifestyle changes weight loss guide</a> for more holistic strategies to support your journey.</p>
+- Measure your progress using our <a href="/calculators/weight-loss/">weight loss calculator</a><br /><br />
+Most people notice significant improvements in hunger levels and cravings within the first week of optimized sleep. Many also report that their usual morning coffee becomes optional because they wake up feeling naturally rested. Pair better sleep with a structured <a href="/blog/exercise-for-weight-loss/">exercise plan for weight loss</a> and a <a href="/blog/calorie-deficit-weight-loss/">calorie deficit plan</a> for maximum results. Read our <a href="/blog/lifestyle-changes-weight-loss-guide/">lifestyle changes weight loss guide</a> for more holistic strategies to support your journey.</p>
 
 
 
@@ -580,7 +605,7 @@ Most people notice significant improvements in hunger levels and cravings within
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes. Clinical studies show that sleep deprivation reduces fat loss by up to 55% even when diet and exercise are identical. Poor sleep disrupts leptin, ghrelin, cortisol, and growth hormone — all of which regulate appetite and fat burning. Use our <a href='/calculators/weight-loss'>weight loss calculator</a> to see if improving your sleep accelerates your results.</p>
+            <p>Yes. Clinical studies show that sleep deprivation reduces fat loss by up to 55% even when diet and exercise are identical. Poor sleep disrupts leptin, ghrelin, cortisol, and growth hormone — all of which regulate appetite and fat burning. Use our <a href='/calculators/weight-loss/'>weight loss calculator</a> to see if improving your sleep accelerates your results.</p>
           </div>
         </details>
         <details class="faq-accordion">

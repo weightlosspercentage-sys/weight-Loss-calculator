@@ -377,21 +377,21 @@
       "name": "What is the best calorie deficit for weight loss without losing muscle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a target="_blank" href='/calculators/macro'>macro calculator</a>."
+        "text": "A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a target="_blank" href='/calculators/macro/'>macro calculator</a>."
       }
     },{
       "@type": "Question",
       "name": "How do I calculate my calorie deficit for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start by calculating your TDEE using our <a target="_blank" href='/calculators/tdee'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a target="_blank" href='/calculators/calorie'>calorie calculator</a> for a precise target."
+        "text": "Start by calculating your TDEE using our <a target="_blank" href='/calculators/tdee/'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a target="_blank" href='/calculators/calorie/'>calorie calculator</a> for a precise target."
       }
     },{
       "@type": "Question",
       "name": "Can I lose weight with a 500-calorie deficit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a target="_blank" href='/calculators/weight-loss'>weight loss calculator</a> to see a custom timeline for your numbers."
+        "text": "Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a target="_blank" href='/calculators/weight-loss/'>weight loss calculator</a> to see a custom timeline for your numbers."
       }
     },{
       "@type": "Question",
@@ -405,7 +405,7 @@
       "name": "Do men and women need different calorie deficit approaches?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a target="_blank" href='/calculators/bmr'>BMR calculator</a> adjusts for sex differences automatically."
+        "text": "Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a target="_blank" href='/calculators/bmr/'>BMR calculator</a> adjusts for sex differences automatically."
       }
     }]
     }
@@ -451,21 +451,46 @@
       </div>
 
 
-      <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-          <a href="/uk/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; colour: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); colour: white; border-radius: 6px; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">%</span>
-            Weight Loss Percentage
-          </a>
-          <nav style="display: flex; gap: 1.5rem;">
-            <a href="/uk/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
-            <a href="/uk/calculators/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>
-            <a href="/uk/nutrition/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
-            <a href="/uk/blog/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-            <a href="/uk/compare/" style="text-decoration: none; colour: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-          </nav>
-        </div>
-      </header>
+      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
+  <style>
+  .static-nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .static-nav-link:hover {
+    color: #4f46e5 !important;
+  }
+  .static-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .static-nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/uk/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
+      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
+      Weight Loss Percentage
+    </a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="/uk/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Home</a>
+      <a href="/uk/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Calculators</a>
+      <a href="/uk/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Nutrition</a>
+      <a href="/uk/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Blog</a>
+      <a href="/uk/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Compare</a>
+    </nav>
+  </div>
+</header>
 
 
       <main id="main-content" class="blog-container">
@@ -473,7 +498,7 @@
 
 
       <div class="featured-image">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Calorie Deficit for Weight Loss: Complete Science-Backed Guide" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Calorie Deficit for Weight Loss: Complete Science-Backed Guide" style="width: 100%; height: 100%; object-fit: cover;"  width="800" height="533"/>
       </div>
 
 
@@ -604,7 +629,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a href='/calculators/macro'>macro calculator</a>.</p>
+            <p>A moderate deficit of 15% to 20% below your TDEE is ideal for preserving muscle. Combine this with a high protein intake (0.7 to 1.0 grams per pound of body weight) and regular resistance training. Learn more about macronutrient splits using our <a href='/calculators/macro/'>macro calculator</a>.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -613,7 +638,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Start by calculating your TDEE using our <a href='/calculators/tdee'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a href='/calculators/calorie'>calorie calculator</a> for a precise target.</p>
+            <p>Start by calculating your TDEE using our <a href='/calculators/tdee/'>free TDEE calculator</a>. Then subtract 15% to 25% to create your deficit. For example, if your TDEE is 2,200 calories, a 20% deficit means eating 1,760 calories per day. Use our <a href='/calculators/calorie/'>calorie calculator</a> for a precise target.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -622,7 +647,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a href='/calculators/weight-loss'>weight loss calculator</a> to see a custom timeline for your numbers.</p>
+            <p>Yes. A 500-calorie daily deficit typically produces about 1 pound of weight loss per week, which is within the safe range recommended by the CDC. However, the exact amount depends on your starting weight. Use our <a href='/calculators/weight-loss/'>weight loss calculator</a> to see a custom timeline for your numbers.</p>
           </div>
         </details>
         <details class="faq-accordion">
@@ -640,7 +665,7 @@ Tracking absolute pounds lost can be misleading, especially if you retain water 
             <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </summary>
           <div class="faq-content">
-            <p>Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a href='/calculators/bmr'>BMR calculator</a> adjusts for sex differences automatically.</p>
+            <p>Yes. Women generally have lower BMR and TDEE values than men of the same weight and height due to differences in muscle mass and hormonal profiles. Women also need to be more cautious about going too low in calories, as extreme deficits can disrupt menstrual cycles and thyroid function. Our <a href='/calculators/bmr/'>BMR calculator</a> adjusts for sex differences automatically.</p>
           </div>
         </details>
       </div>
