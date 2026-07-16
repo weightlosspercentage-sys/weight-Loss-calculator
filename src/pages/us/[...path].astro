@@ -50,7 +50,8 @@ export function getStaticPaths() {
 }
 
 const { path: paramPath } = Astro.params;
-const targetPath = paramPath ? `/${paramPath}/` : '/';
+const cleanPath = paramPath ? paramPath.replace(/^\/+|\/+$/g, '') : '';
+const targetPath = cleanPath ? `/${cleanPath}/` : '/';
 ---
 
 <!DOCTYPE html>

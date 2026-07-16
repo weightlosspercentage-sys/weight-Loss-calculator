@@ -61,7 +61,10 @@ export function getStaticPaths() {
 const isBlog = Astro.url.pathname.includes('/blog/');
 const isInfo = ['/about/', '/contact/', '/privacy/', '/terms/', '/disclaimer/', '/glossary/'].some(p => Astro.url.pathname.includes(p));
 const loadReact = !isBlog && !isInfo;
-const filePath = 'index.html';
+
+const fallbackPath = Astro.params.fallback || '';
+const filePath = fallbackPath ? `${fallbackPath}/index.html` : 'index.html';
+
 const parsed = parseHtmlPage(filePath, loadReact);
 const region = getRegionFromPath(Astro.url.pathname);
 ---

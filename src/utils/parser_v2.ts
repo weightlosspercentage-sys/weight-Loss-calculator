@@ -57,7 +57,8 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     };
   }
 
-  const headContentWithTags = html.substring(headStart, headEnd + 7);
+  // Some legacy python scripts inject styles before <head> or <html>, so we capture from the beginning
+  const headContentWithTags = html.substring(0, headEnd + 7);
 
   // Extract lang from <html> tag
   const langMatch = html.match(/<html[^>]*lang=["']([^"']+)["']/i);
@@ -99,7 +100,11 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     schemas.push(schemaMatch[1]);
   }
 
-  let headInner = html.substring(headStart + 6, headEnd);
+  let headInner = html.substring(0, headEnd);
+  // Strip out structural tags so we only inject the inner content/styles
+  headInner = headInner.replace(/<!doctype[^>]*>/i, '');
+  headInner = headInner.replace(/<html[^>]*>/i, '');
+  headInner = headInner.replace(/<head>/i, '');
   // Remove the FOUC-prevention style blocks (both old and new selectors)
   headInner = headInner.replace(/<style>\s*\.static-header,\s*(?:#main-content,\s*\.static-footer|\.static-footer,\s*#root\s*>\s*#main-content)\s*\{\s*display:\s*none\s*!important;\s*\}\s*<\/style>/gi, '');
   // Remove the noscript fallback style block (BaseLayout handles this)
