@@ -180,13 +180,62 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     bodyInner = html.substring(bodyTagEnd + 1, bodyEnd);
   }
 
+  // Helper to optimize page titles to stay under 60 characters
+  const optimizeTitle = (rawTitle: string): string => {
+    const cleanTitle = rawTitle.trim();
+    if (cleanTitle.length <= 60) return cleanTitle;
+
+    // Try splitting by colon (e.g. "Weight Loss Percentage from X to Y lbs: Safe Deficit Plan")
+    if (cleanTitle.includes(':')) {
+      const parts = cleanTitle.split(':');
+      const firstPart = parts[0].trim();
+      const localeMatch = cleanTitle.match(/\s*\([^)]+\)\s*$/); // Extract (UK), (Canada), etc.
+      const suffix = localeMatch ? localeMatch[0] : '';
+      const candidate = firstPart + suffix;
+      if (candidate.length <= 60) {
+        return candidate;
+      }
+    }
+
+    // Clean word boundary truncation fallback
+    const truncated = cleanTitle.substring(0, 57);
+    const lastSpace = truncated.lastIndexOf(' ');
+    return (lastSpace > 30 ? truncated.substring(0, lastSpace) : truncated) + '...';
+  };
+
+  // Helper to optimize descriptions to be between 70 and 155 characters
+  const optimizeDescription = (rawDesc: string): string => {
+    const cleanDesc = rawDesc.trim();
+    if (!cleanDesc) return '';
+    
+    if (cleanDesc.length > 155) {
+      const truncated = cleanDesc.substring(0, 152);
+      const lastSpace = truncated.lastIndexOf(' ');
+      return (lastSpace > 80 ? truncated.substring(0, lastSpace) : truncated) + '...';
+    }
+
+    if (cleanDesc.length < 70) {
+      const suffix = " Track body weight trends, calculate healthy deficit goals, and start your weight loss journey safely today.";
+      if (cleanDesc.length + suffix.length <= 155) {
+        return cleanDesc + suffix;
+      }
+      return (cleanDesc + suffix).substring(0, 152) + '...';
+    }
+
+    return cleanDesc;
+  };
+
+  const finalTitle = optimizeTitle(title);
+  const rawDescription = metaTags.find(t => t.name === 'description')?.content || '';
+  const finalDescription = optimizeDescription(rawDescription);
+
   return {
     lang,
     headContent: headInner,
     bodyContent: bodyInner,
     seoProps: {
-      title,
-      description: metaTags.find(t => t.name === 'description')?.content || '',
+      title: finalTitle,
+      description: finalDescription,
       canonical,
       alternates,
       // Only pass through meta tags that SEO.astro doesn't handle natively
