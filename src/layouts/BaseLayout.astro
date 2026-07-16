@@ -37,11 +37,16 @@ const {
     <SEO 
       title={title}
       description={description}
-      canonical={canonical}
+      canonical={canonical || Astro.url.href}
       alternates={alternates}
       metaTags={metaTags}
       schemas={schemas}
     />
+    <!-- Security Headers (client-side equivalents) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
     <script define:vars={{ region }} is:inline>
       window.__ROUTE_BASEPATH__ = region ? `/${region}` : "/";
     </script>
