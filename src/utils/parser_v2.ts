@@ -76,16 +76,37 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     title = segment.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()) + ' | Weight Loss Percentage';
   }
 
-  let canonical = '';
-  const canonicalMatch = headContentWithTags.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
-  if (canonicalMatch) canonical = canonicalMatch[1];
+  // Dynamically generate canonical and hreflang to fix SEO architecture (Hreflang Multiple Entries & Missing Return Links)
+  let canonical = ''; // Let BaseLayout compute canonical from Astro.url.href to fix Canonicalised errors
+  
+  let cleanRoute = relativeFilePath.replace(/\\/g, '/').replace(/\/index\.html$/, '').replace(/index\.html$/, '').replace(/^\/+/, '');
+  const regionPrefixes = ['uk', 'ca', 'au', 'nz', 'zh', 'ru', 'us'];
+  let baseRoute = cleanRoute;
+  for (const prefix of regionPrefixes) {
+    if (cleanRoute === prefix || cleanRoute.startsWith(prefix + '/')) {
+      baseRoute = cleanRoute.substring(prefix.length).replace(/^\/+/, '');
+      break;
+    }
+  }
 
   const alternates: Array<{ hreflang: string; href: string }> = [];
-  const alternateRegex = /<link\s+rel=["']alternate["']\s+hreflang=["']([^"']+)["']\s+href=["']([^"']+)["']/gi;
-  let altMatch;
-  while ((altMatch = alternateRegex.exec(headContentWithTags)) !== null) {
-    alternates.push({ hreflang: altMatch[1], href: altMatch[2] });
-  }
+  const addAlt = (lang: string, pathSegment: string) => {
+    let target = `https://www.weightlosspercentage.com/${pathSegment}${baseRoute}`;
+    target = target.replace(/([^:])\/\//g, '$1/').replace(/\/$/, '');
+    if (!target.match(/\.[a-z]+$/i) && target !== 'https://www.weightlosspercentage.com') {
+      target += '/';
+    } else if (target === 'https://www.weightlosspercentage.com') {
+      target += '/';
+    }
+    alternates.push({ hreflang: lang, href: target });
+  };
+
+  addAlt('x-default', '');
+  addAlt('en-us', '');
+  addAlt('en-gb', 'uk/');
+  addAlt('en-ca', 'ca/');
+  addAlt('en-au', 'au/');
+  addAlt('en-nz', 'nz/');
 
   const metaTags: Array<{ name?: string; property?: string; content: string }> = [];
   const metaRegex = /<meta\s+([^>]*)\/?\s*>/gi;
