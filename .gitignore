@@ -2,8 +2,14 @@ node_modules
 .vscode/
 .astro/
 .wrangler/
+dist/
+dist2/
+dist3/
 dist_old/
 dist_test/
+playwright-report/
+test-results/
 *.bak
 check-output.txt
 .agents/
+

@@ -64,7 +64,7 @@ const copyAssetsIntegration = {
           file === 'node_modules' ||
           file === 'src' ||
           file === 'public' ||
-          file === 'dist' ||
+          file.startsWith('dist') ||
           file === 'generators' ||
           file === 'scripts' ||
           file === 'docs' ||
@@ -96,6 +96,8 @@ const copyAssetsIntegration = {
 
 // https://astro.build/config
 export default defineConfig({
+  server: { host: '127.0.0.1', port: 4321 },
+  outDir: './dist3',
   integrations: [copyAssetsIntegration]
 });
 

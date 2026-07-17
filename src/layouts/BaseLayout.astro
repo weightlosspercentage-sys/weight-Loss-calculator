@@ -34,6 +34,8 @@ const {
 <html lang={lang} class={loadReact ? "has-react" : ""}>
   <head>
     <link rel="stylesheet" href="/assets/index-43gqMy96.css" />
+    <link rel="stylesheet" href="/assets/vercel-overrides.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <SEO 
       title={title}
       description={description}
@@ -52,6 +54,35 @@ const {
     </script>
     <slot name="head" />
     <style is:global>
+      :root {
+        --vercel-primary: #171717;
+        --vercel-on-primary: #ffffff;
+        --vercel-ink: #171717;
+        --vercel-body: #4d4d4d;
+        --vercel-mute: #888888;
+        --vercel-hairline: #ebebeb;
+        --vercel-canvas: #ffffff;
+        --vercel-canvas-soft: #fafafa;
+        --vercel-link: #0070f3;
+        --vercel-success: #0070f3;
+        --vercel-error: #ee0000;
+        --vercel-radius: 6px;
+        --vercel-radius-md: 8px;
+        --vercel-radius-pill: 100px;
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      }
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--vercel-canvas-soft);
+        color: var(--vercel-ink);
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        letter-spacing: -0.03em;
+        font-weight: 600;
+      }
+      
       /* Critical styles to prevent Flash of Unstyled Content (FOUC) */
       .hidden { display: none !important; }
       /* Responsive overrides — must be !important to beat the .hidden rule above */
