@@ -21,3 +21,8 @@ div:has(> ins.adsbygoogle[data-ad-status="unfilled"]) {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* Fix: Override display: none !important for #main-content inside React container */
+#root #main-content {
+  display: block !important;
+}

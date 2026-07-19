@@ -58,9 +58,9 @@ const copyAssetsIntegration = {
       for (const file of files) {
         const fullPath = path.join(srcDir, file);
         
-        // Exclude system directories and files
+        // Exclude system directories and files (allow .htaccess)
         if (
-          file.startsWith('.') ||
+          (file.startsWith('.') && file !== '.htaccess') ||
           file === 'node_modules' ||
           file === 'src' ||
           file === 'public' ||
@@ -89,6 +89,42 @@ const copyAssetsIntegration = {
           }
         }
       }
+
+      // Generate _redirects file for Cloudflare Pages from .htaccess redirects
+      const htaccessPath = path.join(srcDir, '.htaccess');
+      if (fs.existsSync(htaccessPath)) {
+        console.log('[copy-assets] Compiling Cloudflare Pages _redirects from .htaccess...');
+        const htaccessContent = fs.readFileSync(htaccessPath, 'utf8');
+        const redirectLines = [];
+        const lines = htaccessContent.split('\n');
+        
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (trimmed.startsWith('Redirect 301 ') || trimmed.startsWith('Redirect permanent ')) {
+            const parts = trimmed.split(/\s+/);
+            if (parts.length >= 4) {
+              const fromPath = parts[2];
+              let toUrl = parts[3];
+              // Convert absolute URL to domain-relative path if targeting this website
+              toUrl = toUrl.replace('https://www.weightlosspercentage.com', '');
+              redirectLines.push(`${fromPath} ${toUrl} 301`);
+            }
+          }
+        }
+        
+        // Add SPA Fallback Redirects (Cloudflare Pages format)
+        redirectLines.push('/uk/* /uk/index.html 200');
+        redirectLines.push('/ca/* /ca/index.html 200');
+        redirectLines.push('/au/* /au/index.html 200');
+        redirectLines.push('/nz/* /nz/index.html 200');
+        redirectLines.push('/zh/* /zh/index.html 200');
+        redirectLines.push('/ru/* /ru/index.html 200');
+        redirectLines.push('/* /index.html 200');
+        
+        fs.writeFileSync(path.join(outDir, '_redirects'), redirectLines.join('\n'));
+        console.log(`[copy-assets] Generated ${redirectLines.length} redirects in _redirects file successfully!`);
+      }
+      
       console.log('[copy-assets] Static assets copied successfully!\n');
     }
   }
@@ -98,7 +134,14 @@ const copyAssetsIntegration = {
 export default defineConfig({
   server: { host: '127.0.0.1', port: 4321 },
   outDir: './dist3',
-  integrations: [copyAssetsIntegration]
+  integrations: [copyAssetsIntegration],
+  vite: {
+    server: {
+      watch: {
+        ignored: ['**/dist3/**', '**/dist2/**', '**/dist/**', '**/.astro/**']
+      }
+    }
+  }
 });
 
 

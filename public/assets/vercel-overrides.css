@@ -1,0 +1,142 @@
+/* Vercel Theme Overrides for React bundle */
+
+/* Typography */
+#root, #root * {
+  font-family: var(--font-sans) !important;
+}
+
+/* Allow native dark mode components (like footer) to display correctly */
+
+/* Cards (excluding footers to maintain dark background and readable text) */
+.bg-slate-800:not(footer):not(footer *), .bg-gray-800:not(footer):not(footer *) {
+  background-color: var(--vercel-canvas) !important;
+  box-shadow: 0px 1px 1px #00000005, 0px 8px 16px -4px #0000000a, 0px 24px 32px -8px #0000000f !important;
+  border: 1px solid var(--vercel-hairline) !important;
+  border-radius: var(--vercel-radius-md) !important;
+}
+
+/* Text (Overrides removed to allow light text on dark footers) */
+
+/* Buttons (Primary Black) */
+.bg-indigo-600, .bg-blue-600 {
+  background-color: var(--vercel-primary) !important;
+  color: var(--vercel-on-primary) !important;
+  border-radius: var(--vercel-radius-pill) !important;
+  transition: background-color 0.2s ease !important;
+}
+.bg-indigo-600:hover, .bg-blue-600:hover {
+  background-color: #333333 !important;
+}
+
+/* Retain pill shape for orange CTA without overriding its color */
+.bg-orange-600 {
+  border-radius: var(--vercel-radius-pill) !important;
+}
+
+/* Borders */
+.border-gray-700:not(footer):not(footer *), .border-gray-800:not(footer):not(footer *), .border-slate-700:not(footer):not(footer *), .border-slate-800:not(footer):not(footer *) {
+  border-color: var(--vercel-hairline) !important;
+}
+
+/* Gradients */
+/* Restored original gradients for visual aesthetics */
+
+/* Inputs (excluding footer inputs to maintain dark background) */
+input:not(footer *), select:not(footer *) {
+  background-color: var(--vercel-canvas) !important;
+  border: 1px solid var(--vercel-hairline) !important;
+  color: var(--vercel-ink) !important;
+  border-radius: var(--vercel-radius) !important;
+}
+input:focus:not(footer *), select:focus:not(footer *) {
+  outline: none !important;
+  border-color: var(--vercel-primary) !important;
+  box-shadow: 0 0 0 1px var(--vercel-primary) !important;
+}
+
+/* Chart Tooltips */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: var(--vercel-primary) !important;
+  border: none !important;
+  border-radius: var(--vercel-radius) !important;
+  color: var(--vercel-on-primary) !important;
+  font-family: var(--font-mono) !important;
+}
+.recharts-tooltip-wrapper .recharts-default-tooltip * {
+  color: var(--vercel-on-primary) !important;
+}
+
+/* Bold Hero Heading */
+#root h1 {
+  font-weight: 900 !important;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #f97316) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  letter-spacing: -0.05em !important;
+}
+
+/* Core Tailwind overrides to fix the React hydrated footer background and text colors */
+footer.bg-slate-900, .bg-slate-900 {
+  background-color: #0b1329 !important; /* Matches the dark blue of the static footer */
+}
+.text-slate-100 {
+  color: #f1f5f9 !important;
+}
+.text-slate-300 {
+  color: #cbd5e1 !important;
+}
+.text-slate-400 {
+  color: #94a3b8 !important;
+}
+.border-slate-800 {
+  border-color: #1e293b !important;
+}
+.border-slate-700 {
+  border-color: #334155 !important;
+}
+.bg-slate-800\/60 {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+}
+.text-gray-900 {
+  color: #111827 !important;
+}
+.text-gray-700 {
+  color: #374151 !important;
+}
+.hover\:bg-indigo-50:hover {
+  background-color: #e0e7ff !important;
+}
+.hover\:text-indigo-600:hover {
+  color: #4f46e5 !important;
+}
+.hover\:bg-gray-50:hover {
+  background-color: #f9fafb !important;
+}
+.hover\:bg-gray-100:hover {
+  background-color: #f3f4f6 !important;
+}
+.hover\:text-white:hover {
+  color: #ffffff !important;
+}
+
+/* Force both footers (static and React hydrated) to look identical */
+footer a {
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+footer a:hover {
+  color: #ffffff !important;
+}
+footer h3, footer h4, footer span, footer span strong {
+  color: #ffffff !important;
+}
+footer input {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid #334155 !important;
+}
+footer button {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}

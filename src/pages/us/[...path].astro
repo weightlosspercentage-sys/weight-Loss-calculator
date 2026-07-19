@@ -29,6 +29,14 @@ export function getStaticPaths() {
     // Exclude programmatic height-weight pages to prevent bloated builds
     if (dir.includes('height-weight')) return;
     
+    // Dev performance optimization: Skip scanning massive weight progression folders
+    if (import.meta.env.DEV) {
+      const baseName = path.basename(dir);
+      if (baseName.startsWith('from-') || baseName.includes('-to-')) {
+        return;
+      }
+    }
+    
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
