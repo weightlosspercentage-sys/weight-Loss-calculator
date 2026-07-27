@@ -16,6 +16,9 @@ RewriteRule ^index\.html$ https://www.weightlosspercentage.com/ [R=301,L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+/)*index\.html\ HTTP/ [NC]
 RewriteRule ^(([^/]+/)*)index\.html$ https://www.weightlosspercentage.com/$1 [R=301,L]
 
+# ─── Ezoic Ads.txt Redirect ───
+Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/weightlosspercentage.com
+
 # ─── 301 Redirects from Old/Legacy Paths to New Active Paths ───
 # Legacy HTML pages
 Redirect 301 /weight-loss-percentage-calculator-newborn.html https://www.weightlosspercentage.com/calculators/newborn-weight-loss
