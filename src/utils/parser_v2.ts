@@ -166,6 +166,10 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
   headInner = headInner.replace(/<script[^>]*googletagmanager\.com[^>]*>[\s\S]*?<\/script>/gi, '');
   headInner = headInner.replace(/<script[^>]*>\s*window\.dataLayer[\s\S]*?<\/script>/gi, '');
 
+  // 7b. Remove Microsoft Clarity scripts — SEO.astro emits them
+  headInner = headInner.replace(/<script[^>]*clarity\.ms[^>]*>[\s\S]*?<\/script>/gi, '');
+  headInner = headInner.replace(/<script[^>]*>\s*\(function\(c,l,a,r,i,t,y\)[\s\S]*?clarity[\s\S]*?<\/script>/gi, '');
+
   // 8. Remove AdSense scripts — SEO.astro emits them
   headInner = headInner.replace(/<script[^>]*pagead2\.googlesyndication\.com[^>]*>[\s\S]*?<\/script>/gi, '');
 
