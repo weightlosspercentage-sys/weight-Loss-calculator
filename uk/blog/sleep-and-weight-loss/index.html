@@ -264,6 +264,37 @@
         colour: #64748b !important;
         margin-bottom: 0.5rem !important;
       }
+    
+      /* Desktop Global Sidebar Ads (Left & Right margins) */
+      .article-outer-wrapper {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 32px !important;
+        align-items: flex-start !important;
+        padding: 0 16px !important;
+      }
+      .article-sidebar-ad {
+        width: 220px !important;
+        position: sticky !important;
+        top: 90px !important;
+        flex-shrink: 0 !important;
+        z-index: 10 !important;
+      }
+      @media (max-width: 1279px) {
+        .article-sidebar-ad {
+          display: none !important;
+        }
+        .article-outer-wrapper {
+          display: block !important;
+          padding: 0 !important;
+        }
+        .blog-container {
+          margin: 2rem auto !important;
+        }
+      }
+
     </style>
 
 <html lang="en-gb">
@@ -501,7 +532,19 @@
 </header>
 
 
-      <main id="main-content" class="blog-container">
+      <div class="article-outer-wrapper">
+
+      <aside class="article-sidebar-ad article-ad-left" aria-label="Advertisement">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:600px;"
+             data-ad-client="ca-pub-7203223934454111"
+             data-ad-slot="8714170901"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </aside>
+
+        <main id="main-content" class="blog-container">
         <h1 style="colour: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.25;">Sleep and Weight Loss: The Science of How Sleep Affects Your Body Weight (UK)</h1>
 
 
@@ -668,6 +711,18 @@ Most people notice significant improvements in hunger levels and cravings within
 
 
       </main>
+
+      <aside class="article-sidebar-ad article-ad-right" aria-label="Advertisement">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:600px;"
+             data-ad-client="ca-pub-7203223934454111"
+             data-ad-slot="9720699039"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </aside>
+
+    </div>
 
       <footer class="static-footer" style="background: #0b1329; border-top: 1px solid #1e293b; padding: 4rem 1.5rem 2rem 1.5rem; margin-top: 5rem; font-family: sans-serif; colour: #94a3b8;">
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
