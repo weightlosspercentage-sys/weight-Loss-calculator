@@ -121,6 +121,11 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     }
   }
 
+  const isThinLocale = lang === 'zh' || lang === 'ru' || relativeFilePath.startsWith('zh') || relativeFilePath.startsWith('ru');
+  if (isThinLocale && !metaTags.some(t => t.name === 'robots')) {
+    metaTags.push({ name: 'robots', content: 'noindex, follow' });
+  }
+
   const schemas: string[] = [];
   const schemaRegex = /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let schemaMatch;
@@ -149,6 +154,11 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
 
   // 3. Remove <link rel="canonical"> — SEO.astro emits it
   headInner = headInner.replace(/<link\s+rel=["']canonical["'][^>]*\/?>/gi, '');
+
+  // 3b. Remove JSON-LD schema scripts from the head — they are captured into
+  // `schemas` above and SEO.astro re-injects them, so leaving them here produces
+  // duplicate Organization/FAQPage/WebApplication blocks (SEO audit: Duplicate JSON-LD).
+  headInner = headInner.replace(/<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '');
 
   // 4. Remove all hreflang alternates — SEO.astro emits them
   headInner = headInner.replace(/<link\s+rel=["']alternate["'][^>]*hreflang[^>]*\/?>/gi, '');

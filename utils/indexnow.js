@@ -1,18 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const HOST = 'www.weightlosspercentage.com';
-const KEY = '3a5d9e1f2c4b7a6d8e0f1c3a5b7d9e2f';
+const KEY = '00dfa8f0386944318ce70588075062c0';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const INDEXNOW_API = 'api.indexnow.org';
-const INDEXNOW_PATH = '/IndexNow';
+const INDEXNOW_PATH = '/indexnow';
 
 /**
  * Sends a list of URLs to the IndexNow API.
  * @param {string[]} urls 
  */
-function submitToIndexNow(urls) {
+export function submitToIndexNow(urls) {
   if (!urls || urls.length === 0) {
     console.error('No URLs provided for submission.');
     return;
@@ -64,11 +68,14 @@ function submitToIndexNow(urls) {
 }
 
 /**
- * Extracts URLs from sitemap.xml
+ * Extracts URLs from public/sitemap.xml or root sitemap.xml
  * @returns {string[]}
  */
-function getUrlsFromSitemap() {
-  const sitemapPath = path.join(__dirname, '..', 'sitemap.xml');
+export function getUrlsFromSitemap() {
+  const sitemapPath = fs.existsSync(path.join(__dirname, '..', 'public', 'sitemap.xml'))
+    ? path.join(__dirname, '..', 'public', 'sitemap.xml')
+    : path.join(__dirname, '..', 'sitemap.xml');
+
   if (!fs.existsSync(sitemapPath)) {
     console.error(`Sitemap not found at ${sitemapPath}`);
     return [];
@@ -100,13 +107,4 @@ if (args.length > 0) {
     });
     submitToIndexNow(urls);
   }
-} else {
-  console.log('Usage:');
-  console.log('  node utils/indexnow.js --sitemap                 Submit all URLs from sitemap.xml');
-  console.log('  node utils/indexnow.js /calculator/bmi/ /guide/  Submit specific URL paths');
 }
-
-module.exports = {
-  submitToIndexNow,
-  getUrlsFromSitemap
-};

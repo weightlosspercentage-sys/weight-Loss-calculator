@@ -1,0 +1,44 @@
+{
+ "homepage-mobile": {
+  "load_ms": 43785,
+  "lcp_ms": 4732,
+  "cls": 0.078,
+  "resources": 92,
+  "transfer_bytes": 714294
+ },
+ "homepage-desktop": {
+  "load_ms": 22096,
+  "lcp_ms": 884,
+  "cls": 0.036,
+  "resources": 95,
+  "transfer_bytes": 876853
+ },
+ "blog-post-mobile": {
+  "load_ms": 4693,
+  "lcp_ms": 1620,
+  "cls": 0.019,
+  "resources": 50,
+  "transfer_bytes": 694965
+ },
+ "blog-post-desktop": {
+  "load_ms": 4980,
+  "lcp_ms": 1248,
+  "cls": 0.0,
+  "resources": 52,
+  "transfer_bytes": 766240
+ },
+ "calculator-mobile": {
+  "load_ms": 4614,
+  "lcp_ms": 1144,
+  "cls": 0.058,
+  "resources": 42,
+  "transfer_bytes": 639266
+ },
+ "calculator-desktop": {
+  "load_ms": 4468,
+  "lcp_ms": 1048,
+  "cls": 0.022,
+  "resources": 49,
+  "transfer_bytes": 627305
+ }
+}

@@ -1,9 +1,3 @@
-User-agent: *
-Allow: /
-Disallow: /api/
-Disallow: /*?
-Disallow: /cdn-cgi/
-
 # ChatGPT / OpenAI Web Crawler
 User-agent: GPTBot
 Allow: /
@@ -52,4 +46,50 @@ Allow: /
 Allow: /llms.txt
 Allow: /ai.txt
 
+# Amazon AI Crawler
+User-agent: Amazonbot
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Apple AI Crawler
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# CCBot (Common Crawl)
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Meta AI Crawler
+User-agent: meta-externalagent
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Bytedance AI Crawler
+User-agent: Bytespider
+Allow: /
+Allow: /llms.txt
+Allow: /ai.txt
+
+# Default crawler rules
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*?
+Disallow: /cdn-cgi/
+
 Sitemap: https://www.weightlosspercentage.com/sitemap.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-us.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-uk.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-ca.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-au.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-nz.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-zh.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-ru.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-bmi.xml
+Sitemap: https://www.weightlosspercentage.com/sitemap-from-to-weight.xml

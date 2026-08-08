@@ -82,6 +82,21 @@ const {
 {/* AdSense Account Verification */}
 <meta name="google-adsense-account" content="ca-pub-7203223934454111" />
 
+{/* WebSite entity — emitted sitewide so Google can resolve the site name/entity.
+    No SearchAction: the site has no on-site search endpoint, and Google requires
+    the sitelinks search box target to be a working search URL. */}
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Weight Loss Percentage",
+  "url": "https://www.weightlosspercentage.com/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Weight Loss Percentage",
+    "url": "https://www.weightlosspercentage.com/"
+  }
+})} />
+
 {/* Organization & SoftwareApplication Schema (default fallbacks) */}
 {schemas.length === 0 && (
   <script type="application/ld+json" is:inline>

@@ -1,0 +1,295 @@
+{
+  "summary": {
+    "health_score": 57,
+    "business_type": "Health & Fitness Calculator / Publisher (YMYL) — free calculators + dietitian-reviewed blog",
+    "top_findings": [
+      "CRITICAL: Live site serves stale build — homepage and 22 other pages emit canonical http://localhost:4321 (homepage, /about/, /contact/, /blog/, /calculators/, /nutrition/, /compare/, 3 blog posts + locale variants). dist/dist2 built with wrong site config; dist3 is correct.",
+      "CRITICAL: Soft-404s — Cloudflare SPA fallback '/* /index.html 200' returns HTTP 200 with homepage content for any missing URL; /calculators/weight-loss/from-120-to-114/ is a phantom page.",
+      "HIGH: robots.txt Cloudflare-managed block disallows GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent before the site's Allow groups — AI crawlers remain blocked, contradicting ai.txt.",
+      "HIGH: Index bloat — 13,832 of 14,350 sitemap URLs are programmatic BMI/from-to-weight pages with no quality gate.",
+      "HIGH: Homepage duplicate JSON-LD (2x Organization, 2x FAQPage, 2x WebApplication) risks rich-result suppression.",
+      "HIGH: Weak visible E-E-A-T — no author byline, no last-updated, only 2 references in flagship blog article.",
+      "HIGH: Mobile homepage LCP 4.7s (lab) fails Core Web Vitals; 92-95 resources, 22-44s networkidle from Ezoic/AdSense/GA/Clarity/Ahrefs.",
+      "MEDIUM: OG tags missing on 475/500 pages; 328 titles >60 chars; sitemap lastmod static (2026-07-30).",
+      "HIGH: /zh/ pages avg ~70 words; en-gb/ca/au/nz homepages ~80% duplicate of US."
+    ],
+    "quick_wins": [
+      "Rebuild with current config and redeploy dist3; purge Cloudflare cache; verify homepage canonical is https://www.weightlosspercentage.com/.",
+      "Move AI-crawler Allow groups above the Cloudflare-managed robots block to unblock GPTBot/ClaudeBot/Google-Extended.",
+      "Replace '/* /index.html 200' with '/* /index.html 404' to stop soft-404s.",
+      "Add visible author byline, review date, and references section to blog articles.",
+      "Emit default OG/Twitter tags on every template (missing on 475/500 pages)."
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 45,
+      "what_works": [
+        "Clean single-host redirection (http 301, non-www 301, trailing slash 308)",
+        "All 120 sampled sitemap URLs return 200",
+        "HSTS preload, nosniff, frame-options, referrer-policy headers",
+        "HTTP/3 + Brotli via Cloudflare"
+      ],
+      "findings": [
+        {
+          "title": "Localhost canonical on 23 pages incl. homepage (stale deploy)",
+          "severity": "Critical",
+          "description": "Live curl of / and /about/ shows rel=canonical http://localhost:4321/... and og:url localhost. dist/ and dist2/ were built with site http://localhost:4321; dist3 (current source) is correct. Homepage, /about/, /contact/, /blog/, /calculators/, /nutrition/, /compare/, /blog/postpartum-weight-loss-safe-guide/, /blog/water-fasting-weight-loss/, /blog/weight-loss-plateau/, /calculators/weight-loss/from-120-to-114/ and locale variants affected.",
+          "recommendation": "Rebuild (npm run build -> dist3), redeploy from dist3, purge CDN cache. Verify homepage canonical is https://www.weightlosspercentage.com/."
+        },
+        {
+          "title": "Soft-404s from SPA fallback",
+          "severity": "Critical",
+          "description": "Nonexistent URL returns HTTP 200 with homepage content via '/* /index.html 200' in _redirects. /calculators/weight-loss/from-120-to-114/ is a phantom page serving the homepage template.",
+          "recommendation": "Change catch-all to '/* /index.html 404' or a real 404 page; keep 200 fallbacks only for locale SPA entry points."
+        },
+        {
+          "title": "No Content-Security-Policy; Access-Control-Allow-Origin: *",
+          "severity": "High",
+          "description": "Security headers otherwise strong but no CSP and a wildcard CORS header on HTML responses.",
+          "recommendation": "Add CSP for known third parties (Ezoic, AdSense, GTM/GA4, Clarity, Ahrefs, fonts, Unsplash); remove wildcard ACAO."
+        },
+        {
+          "title": "Sitemap lastmod static; coverage gaps",
+          "severity": "Medium",
+          "description": "All 9 sitemaps report lastmod 2026-07-30 regardless of content. /blog/anti-gravity-exercises-weight-loss/ not in sitemaps; phantom from-120-to-114 listed.",
+          "recommendation": "Regenerate lastmod from file mtime on each deploy; add missing article; drop phantom URLs."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 55,
+      "what_works": [
+        "Blog avg ~1,012 words; calculator pages avg ~816 words",
+        "Global Medical Disclaimer block on every page",
+        "Article schema declares clinical author (Dr. Sarah Jenkins)",
+        "Unique titles across crawled pages"
+      ],
+      "findings": [
+        {
+          "title": "Weak visible E-E-A-T signals (YMYL health)",
+          "severity": "High",
+          "description": "Flagship article /blog/how-to-calculate-weight-loss-percentage/ has no meta author, no visible byline, no last-updated date, only 2 external references, no in-article disclaimer.",
+          "recommendation": "Add author byline + bio link, reviewed/last-updated line, and a Sources section with primary citations (CDC/WHO/NIH)."
+        },
+        {
+          "title": "Thin localized pages (zh avg 70 words)",
+          "severity": "High",
+          "description": "/zh/privacy/ 47w, /zh/terms/ 47w, /zh/about/ 49w, /zh/calculators/ 59w. /ru/ avg 299w, /uk/ avg 288w.",
+          "recommendation": "Translate fully or noindex thin locale stubs."
+        },
+        {
+          "title": "Near-duplicate English locales",
+          "severity": "High",
+          "description": "UK/CA/AU/NZ homepages are 80.3-80.6% similar to US (sequence ratio); only re-spelling, not local content.",
+          "recommendation": "Add genuinely localized content (NHS/Health Canada guidance, local units) to differentiate."
+        },
+        {
+          "title": "123/500 pages under 300 words",
+          "severity": "Medium",
+          "description": "24.6% of crawled pages are thin (legal pages excluded, but locale + some calculator/category pages affected).",
+          "recommendation": "Expand or merge; prioritize zh/ru stubs."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 52,
+      "what_works": [
+        "0 missing H1, 0 multiple H1, 0 missing meta descriptions, 0 noindex",
+        "Hreflang tags with return links present on all sampled pages",
+        "Meta descriptions on all 500 pages"
+      ],
+      "findings": [
+        {
+          "title": "23 broken canonicals (localhost)",
+          "severity": "High",
+          "description": "Inherits Technical critical finding; canonical correctness is an on-page factor.",
+          "recommendation": "Resolve via redeploy (Technical C1)."
+        },
+        {
+          "title": "Title length issues",
+          "severity": "Medium",
+          "description": "328 pages >60 chars (truncation), 78 pages <30 chars. Examples: 'Calorie Deficit Calculator - Find Your Exact Daily Target (Free 2026)'.",
+          "recommendation": "Target 50-60 chars, keyword front-loaded, remove dated promo strings."
+        },
+        {
+          "title": "OG tags missing on 475/500 pages",
+          "severity": "Medium",
+          "description": "og:title/og:description/og:url present only on homepage and /about/; blog, calculators and locale pages lack them.",
+          "recommendation": "Emit SEO.astro OG/Twitter defaults on every template."
+        },
+        {
+          "title": "25 meta descriptions under 50 chars",
+          "severity": "Low",
+          "description": "Mostly legal pages; verify no truncation artifacts.",
+          "recommendation": "Expand where warranted."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 75,
+      "what_works": [
+        "Organization (462), BreadcrumbList (229), FAQPage (154), WebApplication (137), Article (83), MedicalWebPage (83), HowTo (73), Person (92)",
+        "Detailed Article blocks (author, publisher+logo, dates, mainEntityOfPage)",
+        "All blocks valid JSON-LD"
+      ],
+      "findings": [
+        {
+          "title": "Duplicated JSON-LD on homepage",
+          "severity": "High",
+          "description": "Homepage emits 2x Organization, 2x FAQPage, 2x WebApplication (identical). 90 pages emit >=6 schema blocks. Cause: parser_v2.ts does not strip JSON-LD from parsed head.",
+          "recommendation": "Strip JSON-LD in parser_v2.ts (like canonical) or stop double-injecting; emit a single @graph."
+        },
+        {
+          "title": "Missing WebSite/SearchAction; brand inconsistency",
+          "severity": "Medium",
+          "description": "No WebSite schema; author Person never linked via worksFor; 'WeightLossPercentage.com' vs 'Weight Loss Percentage' naming mismatch.",
+          "recommendation": "Add WebSite+SearchAction; unify brand; add Person.worksFor/url."
+        },
+        {
+          "title": "Schema opportunities unused",
+          "severity": "Low",
+          "description": "Glossary (DefinedTermSet), compare pages (FAQPage/Article), nutrition (NutritionInformation) missing.",
+          "recommendation": "Add as content ships."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 55,
+      "what_works": [
+        "Blog post mobile LCP 1.6s, desktop 1.2s (good)",
+        "BMI calculator mobile LCP 1.1s (good)",
+        "Desktop homepage LCP 884ms"
+      ],
+      "findings": [
+        {
+          "title": "Homepage mobile LCP 4.7s (fails threshold)",
+          "severity": "High",
+          "description": "Playwright lab: mobile LCP 4,732ms vs 2,500ms threshold; CLS 0.078 'needs improvement'; 43.8s networkidle.",
+          "recommendation": "Preload LCP, gate layout spinner, lazy-load ads/consent, defer/self-host fonts, inline critical CSS."
+        },
+        {
+          "title": "Third-party script bloat",
+          "severity": "High",
+          "description": "92-95 resources and up to 877KB transfer on homepage (Ezoic, AdSense, GTM/GA4, Clarity, Ahrefs, fonts).",
+          "recommendation": "Restrict ads to content pages; lazy-load third-party; remove unused analytics."
+        },
+        {
+          "title": "Render-blocking CSS/fonts; no LCP preload",
+          "severity": "Medium",
+          "description": "Synchronous Google Fonts stylesheet in head; full-viewport white loader on every visit.",
+          "recommendation": "Inline critical CSS; font-display swap; remove/gate the loader."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 70,
+      "what_works": [
+        "High-quality llms.txt (manifest, licensing, formulas, AI permission)",
+        "Excellent ai.txt (citation rules, per-calculator accuracy references)",
+        "Static JS-free content; no paywall; strong schema",
+        "PerplexityBot/ChatGPT-User/Gemini/cohere/OMgili allowed"
+      ],
+      "findings": [
+        {
+          "title": "robots.txt blocks major AI crawlers",
+          "severity": "High",
+          "description": "Cloudflare-managed block (GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent) precedes custom Allow groups; first-match wins so they stay blocked despite ai.txt claiming permission.",
+          "recommendation": "Move AI crawler Allow groups above the Cloudflare block or remove them from the managed list."
+        },
+        {
+          "title": "Localhost canonical poisons citations",
+          "severity": "High",
+          "description": "Citable URLs resolve to http://localhost:4321 until redeploy.",
+          "recommendation": "Redeploy (Technical C1)."
+        },
+        {
+          "title": "Thin locales not citable; placeholder contact",
+          "severity": "Medium",
+          "description": "zh/ru pages too thin for AI grounding; en locales near-duplicate. ai.txt contact is a placeholder.",
+          "recommendation": "Improve locale content; use a real contact email."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 85,
+      "what_works": [
+        "0 missing alt text across 500 pages",
+        "og:image 1200x630 + twitter card on homepage",
+        "Complete favicon set + manifest"
+      ],
+      "findings": [
+        {
+          "title": "OG image/tags missing on 475/500 pages",
+          "severity": "Medium",
+          "description": "Social cards on blog/calculators/locales are bare.",
+          "recommendation": "Emit default OG/Twitter tags sitewide."
+        },
+        {
+          "title": "No WebP/AVIF strategy; some imgs lack dimensions",
+          "severity": "Medium",
+          "description": "Unsplash images via URL params; add width/height and lazy loading.",
+          "recommendation": "Serve WebP/AVIF with explicit dimensions."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Rebuild with current config and redeploy dist3; purge Cloudflare cache; verify homepage canonical (C1)",
+          "Fix soft-404s: change SPA fallback to return 404 for unknown routes (C2)",
+          "Move AI-crawler Allow groups above Cloudflare-managed robots block (C3)"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Add visible E-E-A-T: author byline, review date, references section on blog (H1)",
+          "De-duplicate homepage JSON-LD and unify brand in schema (H2)",
+          "Emit OG/Twitter tags sitewide (H3)",
+          "Add WebSite + SearchAction schema (H4)",
+          "Trim 328 over-long titles to 50-60 chars (H5)",
+          "Differentiate en-gb/ca/au/nz locale content; decide zh/ru strategy (H6)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Quality-gate 13,832 programmatic BMI/from-to-weight pages (M1)",
+          "Regenerate sitemap lastmod; fix coverage gaps (M2)",
+          "Homepage mobile LCP under 2.5s (M3)",
+          "Add CSP; remove wildcard CORS (M4)",
+          "Own the head term: pick homepage vs /calculators/weight-loss/, align links/canonical (M5)"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Verify field CWV in GSC/CrUX after deploy",
+          "Track indexing of the 23 previously-broken pages; request re-indexing",
+          "Monitor AI citations after robots fix",
+          "Monthly sitemap/canonical/hreflang drift check",
+          "Add glossary/compare/nutrition schema as content ships"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
