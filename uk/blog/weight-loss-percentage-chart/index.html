@@ -91,9 +91,7 @@
     
     <link rel="stylesheet" crossorigin href="/assets/index-43gqMy96.css">
     <style>
-      .static-header, #main-content, .static-footer {
-        display: none !important;
-      }
+      
     
       /* Desktop Global Sidebar Ads (Left & Right margins) */
       .article-outer-wrapper {
@@ -402,7 +400,42 @@
     <link rel="alternate" hreflang="zh" href="https://www.weightlosspercentage.com/zh/blog/weight-loss-percentage-chart/" />
     <link rel="alternate" hreflang="ru" href="https://www.weightlosspercentage.com/ru/blog/weight-loss-percentage-chart/" />
     <link rel="alternate" hreflang="x-default" href="https://www.weightlosspercentage.com/blog/weight-loss-percentage-chart/" />
-  </head>
+  
+<style id="blog-image-layout-fix">
+  /* Constrain blog featured images and inline article images */
+  .featured-image {
+    max-height: 400px !important;
+    overflow: hidden !important;
+    border-radius: 16px !important;
+    margin-bottom: 2rem !important;
+  }
+  .featured-image img {
+    width: 100% !important;
+    max-height: 400px !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .article-content img {
+    max-width: 100% !important;
+    max-height: 400px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    margin: 1.5rem auto !important;
+    display: block !important;
+  }
+  .blog-card-img {
+    height: 200px !important;
+    overflow: hidden !important;
+  }
+  .blog-card-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+</style>
+
+</head>
   <body>
     <div id="root">
       
@@ -523,75 +556,7 @@
 
     </div>
       
-      <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #ebebeb; padding: 64px 24px; font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #4d4d4d; margin-top: 4rem;">
-  <div style="max-width: 1400px; margin: 0 auto; text-align: left;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; border-bottom: 1px solid #ebebeb; padding-bottom: 40px; margin-bottom: 48px;">
-      <div style="flex: 1.5; min-width: 280px;">
-        <div style="color: #171717; font-size: 12px; font-weight: 400; font-family: 'JetBrains Mono', monospace; margin: 0 0 8px 0; text-transform: uppercase;">Get In Touch</div>
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4d4d4d;">Have questions, feedback, or need help? We'd love to hear from you.</p>
-      </div>
-      <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">
-        <span style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;">Join our newsletter</span>
-        <div style="display: flex; width: 100%; max-width: 400px; gap: 8px;">
-          <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px 16px; border-radius: 6px; border: 1px solid #ebebeb; background: #ffffff; color: #171717; font-size: 14px;" />
-          <button style="padding: 10px 16px; border-radius: 6px; border: none; background: #171717; color: #ffffff; font-weight: 500; font-size: 14px; cursor: pointer;">Subscribe</button>
-        </div>
-      </div>
-    </div>
-    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 3rem;">
-      <div style="flex: 2; min-width: 260px;">
-        <div style="font-size: 16px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.03em;">
-          <a href="/" style="text-decoration: none; color: #171717;">Weight Loss Percentage</a>
-        </div>
-        <p style="font-size: 14px; line-height: 1.6; margin: 0 0 24px 0; color: #4d4d4d;">Free dietitian-reviewed health, nutrition, and fitness calculators designed to scale weight management metrics scientifically.</p>
-      </div>
-      <div style="flex: 1; min-width: 160px;">
-        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">Calculators</div>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
-          <li><a href="/calculators/weight-loss/" style="color: #4d4d4d; text-decoration: none;">Weight Loss %</a></li>
-          <li><a href="/calculators/bmi/" style="color: #4d4d4d; text-decoration: none;">BMI Calculator</a></li>
-          <li><a href="/calculators/tdee/" style="color: #4d4d4d; text-decoration: none;">TDEE Calculator</a></li>
-          <li><a href="/calculators/bmr/" style="color: #4d4d4d; text-decoration: none;">BMR Calculator</a></li>
-          <li><a href="/calculators/calorie/" style="color: #4d4d4d; text-decoration: none;">Calorie Calculator</a></li>
-          <li><a href="/calculators/macro/" style="color: #4d4d4d; text-decoration: none;">Macro Calculator</a></li>
-          <li><a href="/calculators/body-fat/" style="color: #4d4d4d; text-decoration: none;">Body Fat Calculator</a></li>
-        </ul>
-      </div>
-      <div style="flex: 1; min-width: 160px;">
-        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">More Tools</div>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
-          <li><a href="/calculators/newborn-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Newborn Weight Loss</a></li>
-          <li><a href="/calculators/infant-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Infant Weight Loss</a></li>
-          <li><a href="/calculators/baby-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Baby Weight Loss</a></li>
-          <li><a href="/calculators/dog-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Dog Weight Loss</a></li>
-          <li><a href="/calculators/peptide-dosage/" style="color: #4d4d4d; text-decoration: none;">Peptide Dosage</a></li>
-        </ul>
-      </div>
-      <div style="flex: 1; min-width: 160px;">
-        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">Resources</div>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
-          <li><a href="/about/" style="color: #4d4d4d; text-decoration: none;">About Us</a></li>
-          <li><a href="/contact/" style="color: #4d4d4d; text-decoration: none;">Contact Us</a></li>
-          <li><a href="/blog/" style="color: #4d4d4d; text-decoration: none;">Blog</a></li>
-          <li><a href="/glossary/" style="color: #4d4d4d; text-decoration: none;">Glossary</a></li>
-        </ul>
-      </div>
-      <div style="flex: 1; min-width: 160px;">
-        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">Legal</div>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
-          <li><a href="/privacy/" style="color: #4d4d4d; text-decoration: none;">Privacy Policy</a></li>
-          <li><a href="/terms/" style="color: #4d4d4d; text-decoration: none;">Terms of Service</a></li>
-          <li><a href="/disclaimer/" style="color: #4d4d4d; text-decoration: none;">Disclaimer</a></li>
-        </ul>
-      </div>
-    </div>
-    <div style="border-top: 1px solid #ebebeb; padding-top: 32px; text-align: center;">
-      <p style="color: #888888; font-size: 12px; margin: 0; font-family: 'JetBrains Mono', monospace;">
-        &copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.
-      </p>
-    </div>
-  </div>
-</footer>
+      <footer class="static-footer" style="background: #0b1329; border-top: 1px solid #1e293b; padding: 4rem 1.5rem 2rem 1.5rem; margin-top: 5rem; font-family: sans-serif; color: #94a3b8;"><div style="max-width: 1200px; margin: 0 auto; text-align: center;"><div style="text-align: left; margin-top: 2rem;"><div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 2.5rem; margin-bottom: 3rem;"><div style="flex: 1.5; min-width: 280px;"><h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0;">Get In Touch</h3><p style="margin: 0; font-size: 0.9375rem; line-height: 1.5; color: #94a3b8;">Have questions, feedback, or need help? We'd love to hear from you.</p></div><div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem;"><span style="color: #ffffff; font-size: 1rem; font-weight: 700;">Join our newsletter</span><div style="display: flex; width: 100%; max-width: 400px; gap: 0.5rem;"><input type="email" placeholder="Enter your email" style="flex: 1; padding: 0.625rem 1rem; border-radius: 0.375rem; border: 1px solid #334155; background: #1e293b; color: #ffffff; font-size: 0.875rem;" /><button style="padding: 0.625rem 1rem; border-radius: 0.375rem; border: none; background: linear-gradient(to right, #6366f1, #a855f7); color: #ffffff; font-weight: 600; font-size: 0.875rem; cursor: pointer;">Subscribe</button></div></div></div><div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 3rem;"><div style="flex: 2; min-width: 260px; margin-bottom: 1rem;"><div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;"><a href="/" style="text-decoration: none; color: #ffffff;">Weight Loss <span style="background: linear-gradient(to right, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Percentage</span></a></div><p style="font-size: 0.875rem; line-height: 1.6; margin: 0 0 1.5rem 0; color: #94a3b8;">Free dietitian-reviewed health, nutrition, and fitness calculators designed to scale weight management metrics scientifically.</p></div><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Calculators</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/calculators/weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Weight Loss %</a></li><li><a href="/calculators/bmi/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">BMI Calculator</a></li><li><a href="/calculators/tdee/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">TDEE Calculator</a></li><li><a href="/calculators/bmr/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">BMR Calculator</a></li><li><a href="/calculators/calorie/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Calorie Calculator</a></li><li><a href="/calculators/macro/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Macro Calculator</a></li><li><a href="/calculators/body-fat/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Body Fat Calculator</a></li></ul></div><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">More Tools</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/calculators/newborn-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Newborn Weight Loss</a></li><li><a href="/calculators/infant-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Infant Weight Loss</a></li><li><a href="/calculators/baby-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Baby Weight Loss</a></li><li><a href="/calculators/dog-weight-loss/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Dog Weight Loss</a></li><li><a href="/calculators/peptide-dosage/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Peptide Dosage</a></li></ul></div><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Resources</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/about/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">About Us</a></li><li><a href="/contact/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Contact Us</a></li><li><a href="/blog/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Blog</a></li><li><a href="/glossary/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Glossary</a></li></ul></div><div style="flex: 1; min-width: 160px;"><h4 style="color: #ffffff; font-size: 0.9375rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Legal</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;"><li><a href="/privacy/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a></li><li><a href="/terms/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a></li><li><a href="/disclaimer/" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Disclaimer</a></li></ul></div></div><div style="border-top: 1px solid #1e293b; padding-top: 2rem; text-align: center;"><p style="color: #64748b; font-size: 0.875rem; margin: 0;">&copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.</p></div></div></div></footer>
     
     </div>
   </body>
