@@ -140,55 +140,7 @@
   <body>
     <div id="root">
 
-      <div id="spa-loader" style="position: fixed; inset: 0; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: sans-serif;">
-        <div style="width: 48px; height: 48px; border: 4px solid #e2e8f0; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spa-spin 1s linear infinite;"></div>
-        <style>
-          @keyframes spa-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        </style>
-      </div>
-
-      <header class="static-header" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
-  <style>
-  .static-nav-link {
-    position: relative;
-    padding: 0.25rem 0;
-  }
-  .static-nav-link:hover {
-    color: #4f46e5 !important;
-  }
-  .static-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f97316);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .static-nav-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-</style>
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-    <a href="/ru/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;">
-      <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);">%</span>
-      Процент потери веса
-    </a>
-    <nav style="display: flex; gap: 1.5rem; align-items: center;">
-      <a href="/ru/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Дом</a>
-      <a href="/ru/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Калькуляторы</a>
-      <a href="/ru/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Питание</a>
-      <a href="/ru/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Блог</a>
-      <a href="/ru/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; transition: color 0.2s;">Сравнивать</a>
-    </nav>
-  </div>
+      
 </header>
 
       <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; color: #334155;">
@@ -384,15 +336,75 @@
 
       </main>
 
-      <footer class="static-footer" style="background: #0b1329; border-top: 1px solid #1e293b; padding: 4rem 1.5rem 2rem 1.5rem; margin-top: 5rem; font-family: sans-serif; color: #94a3b8;">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-          <div style="text-align: left; margin-top: 2rem;">
-            <div style="border-top: 1px solid #1e293b; padding-top: 2rem; text-align: center;">
-              <p style="color: #64748b; font-size: 0.875rem; margin: 0;">© 2026 Процент снижения веса. Все права защищены.</p>
-            </div>
-          </div>
+      <footer class="static-footer" style="background: #ffffff; border-top: 1px solid #ebebeb; padding: 64px 24px; font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #4d4d4d; margin-top: 4rem;">
+  <div style="max-width: 1400px; margin: 0 auto; text-align: left;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; border-bottom: 1px solid #ebebeb; padding-bottom: 40px; margin-bottom: 48px;">
+      <div style="flex: 1.5; min-width: 280px;">
+        <div style="color: #171717; font-size: 12px; font-weight: 400; font-family: 'JetBrains Mono', monospace; margin: 0 0 8px 0; text-transform: uppercase;">Get In Touch</div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4d4d4d;">Have questions, feedback, or need help? We'd love to hear from you.</p>
+      </div>
+      <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">
+        <span style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;">Join our newsletter</span>
+        <div style="display: flex; width: 100%; max-width: 400px; gap: 8px;">
+          <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px 16px; border-radius: 6px; border: 1px solid #ebebeb; background: #ffffff; color: #171717; font-size: 14px;" />
+          <button style="padding: 10px 16px; border-radius: 6px; border: none; background: #171717; color: #ffffff; font-weight: 500; font-size: 14px; cursor: pointer;">Subscribe</button>
         </div>
-      </footer>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 3rem;">
+      <div style="flex: 2; min-width: 260px;">
+        <div style="font-size: 16px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.03em;">
+          <a href="/" style="text-decoration: none; color: #171717;">Weight Loss Percentage</a>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; margin: 0 0 24px 0; color: #4d4d4d;">Free dietitian-reviewed health, nutrition, and fitness calculators designed to scale weight management metrics scientifically.</p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">Calculators</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
+          <li><a href="/calculators/weight-loss/" style="color: #4d4d4d; text-decoration: none;">Weight Loss %</a></li>
+          <li><a href="/calculators/bmi/" style="color: #4d4d4d; text-decoration: none;">BMI Calculator</a></li>
+          <li><a href="/calculators/tdee/" style="color: #4d4d4d; text-decoration: none;">TDEE Calculator</a></li>
+          <li><a href="/calculators/bmr/" style="color: #4d4d4d; text-decoration: none;">BMR Calculator</a></li>
+          <li><a href="/calculators/calorie/" style="color: #4d4d4d; text-decoration: none;">Calorie Calculator</a></li>
+          <li><a href="/calculators/macro/" style="color: #4d4d4d; text-decoration: none;">Macro Calculator</a></li>
+          <li><a href="/calculators/body-fat/" style="color: #4d4d4d; text-decoration: none;">Body Fat Calculator</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">More Tools</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
+          <li><a href="/calculators/newborn-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Newborn Weight Loss</a></li>
+          <li><a href="/calculators/infant-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Infant Weight Loss</a></li>
+          <li><a href="/calculators/baby-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Baby Weight Loss</a></li>
+          <li><a href="/calculators/dog-weight-loss/" style="color: #4d4d4d; text-decoration: none;">Dog Weight Loss</a></li>
+          <li><a href="/calculators/peptide-dosage/" style="color: #4d4d4d; text-decoration: none;">Peptide Dosage</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">Resources</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
+          <li><a href="/about/" style="color: #4d4d4d; text-decoration: none;">About Us</a></li>
+          <li><a href="/contact/" style="color: #4d4d4d; text-decoration: none;">Contact Us</a></li>
+          <li><a href="/blog/" style="color: #4d4d4d; text-decoration: none;">Blog</a></li>
+          <li><a href="/glossary/" style="color: #4d4d4d; text-decoration: none;">Glossary</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <div style="color: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">Legal</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
+          <li><a href="/privacy/" style="color: #4d4d4d; text-decoration: none;">Privacy Policy</a></li>
+          <li><a href="/terms/" style="color: #4d4d4d; text-decoration: none;">Terms of Service</a></li>
+          <li><a href="/disclaimer/" style="color: #4d4d4d; text-decoration: none;">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #ebebeb; padding-top: 32px; text-align: center;">
+      <p style="color: #888888; font-size: 12px; margin: 0; font-family: 'JetBrains Mono', monospace;">
+        &copy; 2026 Weight Loss Percentage. All rights reserved. Free dietitian-reviewed health and fitness tools.
+      </p>
+    </div>
+  </div>
+</footer>
 
     </div>
   </body>
