@@ -233,6 +233,14 @@ function postProcessHtml(outDir) {
       }
     }
 
+    // --- 7. Enforce Astro static rendering for all blog pages (strip React bundle scripts) ---
+    if (relPath.includes('blog/')) {
+      html = html.replace(/<script[^>]*type=["']module["'][^>]*src=["'][^"']*\/(?:assets|us\/assets)\/[^"']+\.js["'][^>]*><\/script>/gi, '');
+      html = html.replace(/<link[^>]*rel=["']modulepreload["'][^>]*href=["']\/(?:assets|us\/assets)\/[^"']+\.js["'][^>]*\/?>/gi, '');
+      html = html.replace(/(<html[^>]*)\bhas-react\b([^>]*>)/gi, '$1$2');
+      modified = true;
+    }
+
     // --- 3. Noindex thin locale pages (zh, ru) ---
     if ((relPath.startsWith('zh/') || relPath.startsWith('ru/')) && !html.includes('noindex')) {
       const noindexTag = '<meta name="robots" content="noindex, follow" />';
@@ -328,7 +336,7 @@ const copyAssetsIntegration = {
               const fromPath = parts[2];
               let toUrl = parts[3];
               // Convert absolute URL to domain-relative path if targeting this website
-              toUrl = toUrl.replace('https://www.weightlosspercentage.com', '');
+              toUrl = toUrl.replace(/^https?:\/\/(www\.)?weightlosspercentage\.com/i, '');
               redirectLines.push(`${fromPath} ${toUrl} 301`);
             }
           }
