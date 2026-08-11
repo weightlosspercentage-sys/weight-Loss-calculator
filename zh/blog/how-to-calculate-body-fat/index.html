@@ -171,6 +171,39 @@
   }
 </style>
 
+<style id="centered-layout-override">
+  .article-outer-wrapper {
+    max-width: 1400px !important;
+    margin: 2rem auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+    padding: 0 16px !important;
+  }
+  .article-sidebar-ad {
+    width: 220px !important;
+    position: sticky !important;
+    top: 90px !important;
+    flex-shrink: 0 !important;
+    z-index: 10 !important;
+  }
+  .blog-container {
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  @media (max-width: 1279px) {
+    .article-sidebar-ad {
+      display: none !important;
+    }
+    .article-outer-wrapper {
+      display: block !important;
+      padding: 0 16px !important;
+    }
+  }
+</style>
 </head>
   <body>
     <div id="root">
@@ -236,7 +269,7 @@
       Written &amp; Clinically Reviewed By <a href="/authors/dr-sarah-jenkins/" style="color: #4f46e5; text-decoration: none; font-weight: 700;">Dr. Sarah Jenkins, PhD, RD, CPT</a>
     </div>
     <div style="font-size: 0.85rem; color: #64748b; line-height: 1.4;">
-      Lead Clinical Dietitian &amp; Exercise Physiologist • Harvard Medical School Alum • <a href="/authors/dr-sarah-jenkins/" style="color: #4f46e5; text-decoration: underline;">View Full Medical E-E-A-T Bio &amp; Publications ›</a>
+      Lead Clinical Dietitian &amp; Exercise Physiologist • Harvard Medical School Alum • <a href="/authors/dr-sarah-jenkins/" style="color: #4f46e5; text-decoration: underline;">View Full Medical Medical & Clinical Review Bio &amp; Publications ›</a>
     </div>
   </div>
 </div>
