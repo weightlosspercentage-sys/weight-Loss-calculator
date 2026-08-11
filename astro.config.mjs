@@ -117,7 +117,8 @@ function postProcessHtml(outDir) {
     const relPath = path.relative(outDir, filePath).replace(/\\/g, '/');
 
     // --- 1. OG / Twitter tag injection ---
-    if (!html.includes('og:title')) {
+    // Fix 6: Only guard the OG tag injection itself, not canonical/hreflang processing
+    if (!html.includes('og:title') && !html.includes('twitter:title')) {
       // Extract existing title
       const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
       const title = titleMatch ? titleMatch[1].trim() : '';
@@ -167,6 +168,61 @@ function postProcessHtml(outDir) {
       }
     }
 
+    // --- 5. Fix regional canonicals: point to US version (Fix 2) ---
+    // Regional pages (au/, uk/, ca/, nz/, zh/, ru/) should canonical to the
+    // US version so Google doesn't override with its own canonical choice.
+    const REGION_PREFIXES = ['au/', 'uk/', 'ca/', 'nz/', 'zh/', 'ru/'];
+    const regionMatch = REGION_PREFIXES.find(p => relPath.startsWith(p));
+    if (regionMatch) {
+      const usPath = relPath.replace(new RegExp('^' + regionMatch), '');
+      let usUrlPath = '/' + usPath.replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
+      if (usUrlPath === '//') usUrlPath = '/';
+      const usCanonical = SITE_ORIGIN + usUrlPath;
+      const canonRegex = /<link\s+rel=["']canonical["']\s+href=["'][^"']+["']\s*\/?>/i;
+      if (canonRegex.test(html)) {
+        html = html.replace(canonRegex, `<link rel="canonical" href="${usCanonical}" />`);
+        modified = true;
+      } else {
+        // Insert canonical if missing entirely
+        html = insertTagIntoHead(html, `<link rel="canonical" href="${usCanonical}" />`);
+        modified = true;
+      }
+    }
+
+    // --- 6. Fix broken hreflang on regional programmatic pages (Fix 3) ---
+    // Regional pages have double-prefixed hreflang URLs like /uk/au/calculators/...
+    // This corrects them to the proper single-prefixed URLs.
+    if (regionMatch) {
+      const basePath = '/' + relPath.replace(new RegExp('^' + regionMatch), '').replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
+      const correctedBasePath = basePath === '//' ? '/' : basePath;
+
+      const hreflangMap = {
+        'en-us': correctedBasePath,
+        'en-gb': '/uk' + correctedBasePath,
+        'en-ca': '/ca' + correctedBasePath,
+        'en-au': '/au' + correctedBasePath,
+        'en-nz': '/nz' + correctedBasePath,
+        'x-default': correctedBasePath
+      };
+      // Only fix zh/ru hreflang if they exist (some pages may not have them)
+      const zhHreflang = html.match(/hreflang=["']zh["']/i);
+      const ruHreflang = html.match(/hreflang=["']ru["']/i);
+      if (zhHreflang) hreflangMap['zh'] = '/zh' + correctedBasePath;
+      if (ruHreflang) hreflangMap['ru'] = '/ru' + correctedBasePath;
+
+      for (const [lang, correctPath] of Object.entries(hreflangMap)) {
+        const hreflangRegex = new RegExp(
+          `<link\\s+rel=["']alternate["']\\s+hreflang=["']${lang}["']\\s+href=["'][^"']+["']\\s*/?>`, 'i'
+        );
+        const correctUrl = SITE_ORIGIN + correctPath;
+        if (hreflangRegex.test(html)) {
+          html = html.replace(hreflangRegex,
+            `<link rel="alternate" hreflang="${lang}" href="${correctUrl}" />`);
+        }
+      }
+      modified = true;
+    }
+
     // --- 2. Meta author for blog articles ---
     if (relPath.startsWith('blog/') && !relPath.endsWith('blog/index.html')) {
       if (!html.includes('name="author"') && !html.includes("name='author'")) {
@@ -206,6 +262,7 @@ function postProcessHtml(outDir) {
   console.log(`[seo-inject] Meta author injected: ${authorInjected} blog articles`);
   console.log(`[seo-inject] Noindex added: ${noindexInjected} thin locale pages`);
   console.log(`[seo-inject] Titles optimized: ${titlesOptimized} pages`);
+  console.log(`[seo-inject] Regional canonical/hreflang fixes applied to all regional pages.`);
 }
 
 const copyAssetsIntegration = {
@@ -277,16 +334,17 @@ const copyAssetsIntegration = {
           }
         }
         
-        // Add SPA Fallback Redirects (Cloudflare Pages format)
-        redirectLines.push('/uk/* /uk/index.html 200');
-        redirectLines.push('/ca/* /ca/index.html 200');
-        redirectLines.push('/au/* /au/index.html 200');
-        redirectLines.push('/nz/* /nz/index.html 200');
-        redirectLines.push('/zh/* /zh/index.html 200');
-        redirectLines.push('/ru/* /ru/index.html 200');
-        // Catch-all: serve the SPA shell but with a 404 status so search engines
-        // treat unknown URLs as not-found (fixes soft-404s). Real pages are static
-        // files and are served with 200 before this rule is ever reached.
+        // Regional catch-alls: return 404 for non-existent regional URLs (Fix 1)
+        // Real pages are pre-rendered static files served with 200 before these
+        // rules are ever reached. Non-existent URLs now properly return 404,
+        // fixing 295+ Soft 404 errors in Google Search Console.
+        redirectLines.push('/uk/* /uk/index.html 404');
+        redirectLines.push('/ca/* /ca/index.html 404');
+        redirectLines.push('/au/* /au/index.html 404');
+        redirectLines.push('/nz/* /nz/index.html 404');
+        redirectLines.push('/zh/* /zh/index.html 404');
+        redirectLines.push('/ru/* /ru/index.html 404');
+        // Global catch-all: 404 for any other unknown path
         redirectLines.push('/* /index.html 404');
         
         fs.writeFileSync(path.join(outDir, '_redirects'), redirectLines.join('\n'));

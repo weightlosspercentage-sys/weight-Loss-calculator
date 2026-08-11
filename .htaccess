@@ -83,34 +83,11 @@ Redirect 301 /nutrition/subway/ https://www.weightlosspercentage.com/restaurants
 Redirect 301 /nutrition/starbucks https://www.weightlosspercentage.com/restaurants/starbucks
 Redirect 301 /nutrition/starbucks/ https://www.weightlosspercentage.com/restaurants/starbucks
 
-# ─── SPA Fallback: serve index.html for all non-file routes ───
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^uk/ /uk/index.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ca/ /ca/index.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^au/ /au/index.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^nz/ /nz/index.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^zh/ /zh/index.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ru/ /ru/index.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ /index.html [L]
+# ─── Custom 404: return proper HTTP 404 status for non-existent URLs ───
+# All real pages are pre-rendered static HTML files served automatically.
+# Non-existent URLs now return 404 instead of the old SPA fallback (HTTP 200),
+# which was causing Google to flag 295+ pages as Soft 404s.
+ErrorDocument 404 /index.html
 
 # ─── Security Headers ───
 <IfModule mod_headers.c>

@@ -85,11 +85,5 @@ Disallow: /cdn-cgi/
 
 Sitemap: https://www.weightlosspercentage.com/sitemap.xml
 Sitemap: https://www.weightlosspercentage.com/sitemap-us.xml
-Sitemap: https://www.weightlosspercentage.com/sitemap-uk.xml
-Sitemap: https://www.weightlosspercentage.com/sitemap-ca.xml
-Sitemap: https://www.weightlosspercentage.com/sitemap-au.xml
-Sitemap: https://www.weightlosspercentage.com/sitemap-nz.xml
-Sitemap: https://www.weightlosspercentage.com/sitemap-zh.xml
-Sitemap: https://www.weightlosspercentage.com/sitemap-ru.xml
 Sitemap: https://www.weightlosspercentage.com/sitemap-bmi.xml
 Sitemap: https://www.weightlosspercentage.com/sitemap-from-to-weight.xml
