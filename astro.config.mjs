@@ -261,6 +261,21 @@ function postProcessHtml(outDir) {
       }
     }
 
+    // --- Inject Google WebSite Schema for Site Name recognition ---
+    if (!html.includes('"@type":"WebSite"') && !html.includes('"@type": "WebSite"')) {
+      const websiteSchema = `<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Weight Loss Percentage Calculator",
+        "alternateName": ["Weight Loss Percentage", "WeightLossPercentage"],
+        "url": "https://www.weightlosspercentage.com/"
+      }
+      </script>`;
+      html = insertTagIntoHead(html, websiteSchema);
+      modified = true;
+    }
+
     if (modified) {
       fs.writeFileSync(filePath, html);
     }
