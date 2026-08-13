@@ -45,8 +45,8 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#4f46e5" />
 
-    <title>Body Fat Percentage Calculator — Free & Accurate (Men & Women)</title>
-    <meta name="description" content="Calculate your body fat percentage free with the accurate US Navy method. Compare against healthy ranges for men and women. Takes 30 seconds — no equipment needed." />
+    <title>Body Fat Percentage Calculator (US Navy Method &amp; Chart)</title>
+    <meta name="description" content="Calculate your body fat percentage free with the accurate US Navy method. Compare 10%, 15%, 20% male &amp; female ranges against DEXA scans in 30 seconds." />
 
     <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
     <meta property="og:site_name" content="Weight Loss Percentage" />
@@ -226,7 +226,21 @@
           ✅ US Navy Circumference Method &nbsp;|&nbsp; ✅ Accurate to ±3-4% of DEXA &nbsp;|&nbsp; ✅ Dietitian-Reviewed 2026
         </p>
 
-        <p style="font-size:1.1rem; margin-bottom:2rem;">Use our free <strong>body fat percentage calculator</strong> to instantly estimate how much of your body weight is fat tissue. Based on the <strong>US Navy circumference method</strong> — accurate to within 3-4% of a DEXA scan, no equipment required.</p>
+        <p style="font-size:1.1rem; margin-bottom:1.5rem;">Use our free <strong>body fat percentage calculator</strong> to instantly estimate how much of your body weight is fat tissue. Based on the <strong>US Navy circumference method</strong> — accurate to within 3-4% of a DEXA scan, no equipment required.</p>
+
+        <!-- AI Overview / Featured Snippet Callout Box -->
+        <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1px solid #86efac; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0 1.75rem 0;">
+          <div style="font-weight: 700; color: #166534; font-size: 1.05rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📐</span> <strong>US Navy Body Fat Percentage Formula</strong>
+          </div>
+          <div style="background: #ffffff; padding: 0.875rem 1rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem; color: #14532d; border: 1px solid #bbf7d0; margin-bottom: 0.75rem; line-height: 1.6;">
+            <strong>Men:</strong> % Fat = 86.010 &times; log10(Abdomen &minus; Neck) &minus; 70.041 &times; log10(Height) + 36.76<br />
+            <strong>Women:</strong> % Fat = 163.205 &times; log10(Waist + Hip &minus; Neck) &minus; 97.684 &times; log10(Height) &minus; 78.387
+          </div>
+          <div style="font-size: 0.875rem; color: #166534; line-height: 1.5;">
+            <strong>Male Body Composition Milestones:</strong> <strong>10% body fat male</strong> = visible abs &amp; vascularity. <strong>15% body fat</strong> = lean athletic shape. <strong>20% body fat male</strong> = average soft athletic shape.
+          </div>
+        </div>
 
         <!-- CALCULATOR WIDGET RENDERED BY REACT -->
 
