@@ -168,30 +168,26 @@ function postProcessHtml(outDir) {
       }
     }
 
-    // --- 5. Fix regional canonicals: point to US version (Fix 2) ---
-    // Regional pages (au/, uk/, ca/, nz/, zh/, ru/) should canonical to the
-    // US version so Google doesn't override with its own canonical choice.
+    // --- 5. Fix regional canonicals: self-referential canonicals for localized URLs ---
+    // Localized pages (au/, uk/, ca/, nz/, zh/, ru/) must canonicalize to themselves
+    // so hreflang and canonical tags agree 100% per Google guidelines.
     const REGION_PREFIXES = ['au/', 'uk/', 'ca/', 'nz/', 'zh/', 'ru/'];
     const regionMatch = REGION_PREFIXES.find(p => relPath.startsWith(p));
     if (regionMatch) {
-      const usPath = relPath.replace(new RegExp('^' + regionMatch), '');
-      let usUrlPath = '/' + usPath.replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
-      if (usUrlPath === '//') usUrlPath = '/';
-      const usCanonical = SITE_ORIGIN + usUrlPath;
+      let regUrlPath = '/' + relPath.replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
+      if (regUrlPath === '//') regUrlPath = '/';
+      const regCanonical = SITE_ORIGIN + regUrlPath;
       const canonRegex = /<link\s+rel=["']canonical["']\s+href=["'][^"']+["']\s*\/?>/i;
       if (canonRegex.test(html)) {
-        html = html.replace(canonRegex, `<link rel="canonical" href="${usCanonical}" />`);
+        html = html.replace(canonRegex, `<link rel="canonical" href="${regCanonical}" />`);
         modified = true;
       } else {
-        // Insert canonical if missing entirely
-        html = insertTagIntoHead(html, `<link rel="canonical" href="${usCanonical}" />`);
+        html = insertTagIntoHead(html, `<link rel="canonical" href="${regCanonical}" />`);
         modified = true;
       }
     }
 
-    // --- 6. Fix broken hreflang on regional programmatic pages (Fix 3) ---
-    // Regional pages have double-prefixed hreflang URLs like /uk/au/calculators/...
-    // This corrects them to the proper single-prefixed URLs.
+    // --- 6. Fix broken hreflang on regional programmatic pages ---
     if (regionMatch) {
       const basePath = '/' + relPath.replace(new RegExp('^' + regionMatch), '').replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
       const correctedBasePath = basePath === '//' ? '/' : basePath;
@@ -204,7 +200,6 @@ function postProcessHtml(outDir) {
         'en-nz': '/nz' + correctedBasePath,
         'x-default': correctedBasePath
       };
-      // Only fix zh/ru hreflang if they exist (some pages may not have them)
       const zhHreflang = html.match(/hreflang=["']zh["']/i);
       const ruHreflang = html.match(/hreflang=["']ru["']/i);
       if (zhHreflang) hreflangMap['zh'] = '/zh' + correctedBasePath;
@@ -226,7 +221,7 @@ function postProcessHtml(outDir) {
     // --- 2. Meta author for blog articles ---
     if (relPath.startsWith('blog/') && !relPath.endsWith('blog/index.html')) {
       if (!html.includes('name="author"') && !html.includes("name='author'")) {
-        const authorTag = '<meta name="author" content="James Peterson, RD" />';
+        const authorTag = '<meta name="author" content="Dr. Sarah Jenkins, PhD, RD, CPT" />';
         html = insertTagIntoHead(html, authorTag);
         modified = true;
         authorInjected++;
@@ -241,8 +236,9 @@ function postProcessHtml(outDir) {
       modified = true;
     }
 
-    // --- 3. Noindex thin locale pages (zh, ru) ---
-    if ((relPath.startsWith('zh/') || relPath.startsWith('ru/')) && !html.includes('noindex')) {
+    // --- 3. Noindex thin locale pages (zh, ru) and thin programmatic calculator pages ---
+    const isThinProgrammatic = relPath.includes('calculators/bmi/height-weight/') || relPath.includes('calculators/weight-loss/from-');
+    if ((relPath.startsWith('zh/') || relPath.startsWith('ru/') || isThinProgrammatic) && !html.includes('noindex')) {
       const noindexTag = '<meta name="robots" content="noindex, follow" />';
       html = insertTagIntoHead(html, noindexTag);
       modified = true;

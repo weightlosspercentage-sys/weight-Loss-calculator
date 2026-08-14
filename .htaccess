@@ -20,6 +20,30 @@ RewriteRule ^(([^/]+/)*)index\.html$ https://www.weightlosspercentage.com/$1 [R=
 
 
 # ─── 301 Redirects from Old/Legacy Paths to New Active Paths ───
+# Author profile consolidation
+Redirect 301 /author/sarah-jenkins https://www.weightlosspercentage.com/authors/dr-sarah-jenkins
+Redirect 301 /author/sarah-jenkins/ https://www.weightlosspercentage.com/authors/dr-sarah-jenkins
+
+# Calculator consolidation
+Redirect 301 /calculators/baby-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/baby-weight-loss/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/infant-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/infant-weight-loss/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/fat-loss https://www.weightlosspercentage.com/calculators/body-fat
+Redirect 301 /calculators/fat-loss/ https://www.weightlosspercentage.com/calculators/body-fat
+
+# Weight range articles consolidation into Master Guide
+Redirect 301 /blog/weight-loss-percentage-at-100-to-130-lbs https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-100-to-130-lbs/ https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-130-to-170-lbs https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-130-to-170-lbs/ https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-170-to-230-lbs https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-170-to-230-lbs/ https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-230-to-300-lbs https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-230-to-300-lbs/ https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-300-to-400-lbs https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+Redirect 301 /blog/weight-loss-percentage-at-300-to-400-lbs/ https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight
+
 # Legacy HTML pages
 Redirect 301 /weight-loss-percentage-calculator-newborn.html https://www.weightlosspercentage.com/calculators/newborn-weight-loss
 Redirect 301 /weight-loss-percentage-newborn.html https://www.weightlosspercentage.com/calculators/newborn-weight-loss
