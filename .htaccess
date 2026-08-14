@@ -20,6 +20,18 @@ RewriteRule ^(([^/]+/)*)index\.html$ https://www.weightlosspercentage.com/$1 [R=
 
 
 # ─── 301 Redirects from Old/Legacy Paths to New Active Paths ───
+# Remove /category/ taxonomy prefix in favor of clean /calculators/ hierarchy
+Redirect 301 /category/fitness https://www.weightlosspercentage.com/calculators/fitness
+Redirect 301 /category/fitness/ https://www.weightlosspercentage.com/calculators/fitness
+Redirect 301 /category/nutrition https://www.weightlosspercentage.com/calculators/nutrition
+Redirect 301 /category/nutrition/ https://www.weightlosspercentage.com/calculators/nutrition
+Redirect 301 /category/pregnancy https://www.weightlosspercentage.com/calculators/pregnancy
+Redirect 301 /category/pregnancy/ https://www.weightlosspercentage.com/calculators/pregnancy
+Redirect 301 /category/specialized https://www.weightlosspercentage.com/calculators/specialized
+Redirect 301 /category/specialized/ https://www.weightlosspercentage.com/calculators/specialized
+Redirect 301 /category/weight-loss https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /category/weight-loss/ https://www.weightlosspercentage.com/calculators/weight-loss
+
 # Author profile consolidation
 Redirect 301 /author/sarah-jenkins https://www.weightlosspercentage.com/authors/dr-sarah-jenkins
 Redirect 301 /author/sarah-jenkins/ https://www.weightlosspercentage.com/authors/dr-sarah-jenkins
