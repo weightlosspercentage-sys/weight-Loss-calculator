@@ -257,15 +257,46 @@ function postProcessHtml(outDir) {
       }
     }
 
-    // --- Inject Google WebSite Schema for Site Name recognition ---
+    // --- Inject Google WebSite & Organization Schema for Site Name & Brand Entity recognition ---
     if (!html.includes('"@type":"WebSite"') && !html.includes('"@type": "WebSite"')) {
       const websiteSchema = `<script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Weight Loss Percentage Calculator",
-        "alternateName": ["Weight Loss Percentage", "WeightLossPercentage"],
-        "url": "https://www.weightlosspercentage.com/"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.weightlosspercentage.com/#website",
+            "name": "Weight Loss Percentage Calculator",
+            "alternateName": ["Weight Loss Percentage", "WeightLossPercentage"],
+            "url": "https://www.weightlosspercentage.com/"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.weightlosspercentage.com/#organization",
+            "name": "Weight Loss Percentage",
+            "url": "https://www.weightlosspercentage.com/",
+            "logo": "https://www.weightlosspercentage.com/apple-touch-icon.png",
+            "sameAs": [
+              "https://www.facebook.com/weightlossnewborn/",
+              "https://x.com/weightlossperce",
+              "https://www.linkedin.com/in/weightloss-percentage/",
+              "https://www.instagram.com/weightlosspercentage/"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.weightlosspercentage.com/#author",
+            "name": "Dr. Sarah Jenkins, PhD, RD, CPT",
+            "jobTitle": "Lead Clinical Dietitian & Exercise Physiologist",
+            "url": "https://www.weightlosspercentage.com/authors/dr-sarah-jenkins/",
+            "sameAs": [
+              "https://www.facebook.com/weightlossnewborn/",
+              "https://x.com/weightlossperce",
+              "https://www.linkedin.com/in/weightloss-percentage/",
+              "https://www.instagram.com/weightlosspercentage/"
+            ]
+          }
+        ]
       }
       </script>`;
       html = insertTagIntoHead(html, websiteSchema);
