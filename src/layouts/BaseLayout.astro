@@ -228,7 +228,7 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
       </div>
       
     </div>
-    {!loadReact && <Footer relativePath={activePath} region={region} />}
+    <Footer relativePath={activePath} region={region} />
     <!-- Dismiss loader once React has fully rendered -->
     <script is:inline>
       (function() {
