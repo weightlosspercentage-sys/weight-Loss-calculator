@@ -209,7 +209,7 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
         <div style="width: 44px; height: 44px; border: 3px solid #e2e8f0; border-top: 3px solid #4f46e5; border-radius: 50%; animation: layout-spin 0.75s linear infinite;"></div>
       </div>
     )}
-    {!loadReact && <Header activePath={activePath} region={region} />}
+    <Header activePath={activePath} region={region} />
     <div id="root">
       <slot />
       
