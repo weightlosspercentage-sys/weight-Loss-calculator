@@ -11,20 +11,25 @@ export interface Props {
 const { region, activePath } = Astro.props;
 ---
 
-<header class="static-header" style="position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--vercel-hairline); height: 64px; display: flex; align-items: center; justify-content: center; padding: 0 16px;">
-  <div style="max-width: 1400px; width: 100%; display: flex; justify-content: space-between; align-items: center; height: 100%;">
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+<header class="static-header" style="position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--vercel-hairline); min-height: 64px; display: flex; align-items: center; justify-content: center; padding: 0 16px;">
+  <div style="max-width: 1400px; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 1rem;">
       <!-- Logo -->
       <a href={getLocalizedHref('/', region)} style="display: flex; align-items: center; gap: 8px; text-decoration: none;" aria-label="Weight Loss Percentage — Home">
-        <div style="height: 28px; width: 28px; background-color: var(--vercel-primary); border-radius: var(--vercel-radius); display: flex; align-items: center; justify-content: center; color: var(--vercel-on-primary); font-weight: 600; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0;" aria-hidden="true">%</div>
+        <div style="height: 28px; width: 28px; background-color: var(--vercel-primary); border-radius: var(--vercel-radius); display: flex; align-items: center; justify-content: center; color: var(--vercel-on-primary); font-weight: 600; font-family: var(--font-mono); font-size: 14px;" aria-hidden="true">%</div>
         <span style="font-weight: 600; color: var(--vercel-ink); font-size: 16px; letter-spacing: -0.03em;">Weight Loss Percentage</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <Navigation region={region} activePath={activePath} />
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Desktop Navigation -->
+        <Navigation region={region} activePath={activePath} />
+
+        <!-- Google Translate Widget Container for Tier 1 & Global Users -->
+        <div id="google_translate_element" style="display: inline-flex; align-items: center;"></div>
+      </div>
 
       <!-- Mobile Hamburger -->
-      <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden" style="display: flex; align-items: center; justify-center; height: 44px; width: 44px; border: none; background: transparent; cursor: pointer; color: var(--vercel-ink);">
+      <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden" style="display: flex; align-items: center; justify-content: center; height: 44px; width: 44px; border: none; background: transparent; cursor: pointer; color: var(--vercel-ink);">
         <svg style="height: 24px; width: 24px;" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -38,13 +43,59 @@ const { region, activePath } = Astro.props;
   <MobileMenu region={region} />
 </header>
 
+<style is:global>
+  /* Google Translate custom widget styling */
+  .goog-te-gadget-simple {
+    background-color: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 20px !important;
+    padding: 3px 10px !important;
+    font-size: 13px !important;
+    font-family: inherit !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+  }
+  .goog-te-gadget-simple .goog-te-menu-value span {
+    color: #334155 !important;
+    font-weight: 500 !important;
+  }
+  .goog-te-gadget-icon {
+    display: inline-block !important;
+    margin-right: 4px !important;
+  }
+  body {
+    top: 0px !important;
+  }
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+</style>
+
 <script is:inline>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: true
+    }, 'google_translate_element');
+  }
+
+  // Load Google Translate script dynamically if not present
+  if (!document.getElementById('google-translate-script')) {
+    var gtScript = document.createElement('script');
+    gtScript.id = 'google-translate-script';
+    gtScript.type = 'text/javascript';
+    gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(gtScript);
+  }
+
   document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
     var m = document.getElementById('mobile-menu');
     if (m) {
       if (m.classList.contains('hidden')) {
         m.classList.remove('hidden');
-        // Allow a frame for browser layout and then transition properties
         requestAnimationFrame(function() {
           m.style.maxHeight = m.scrollHeight + 'px';
           m.style.opacity = '1';
