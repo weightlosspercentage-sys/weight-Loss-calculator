@@ -31,6 +31,37 @@
   <body>
     <div id="root">
       
+      
+        <style>
+          .goog-te-gadget-simple {
+            background-color: #f8fafc !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 20px !important;
+            padding: 3px 8px !important;
+            font-size: 13px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            cursor: pointer !important;
+          }
+          .goog-te-gadget-simple .goog-te-menu-value span {
+            color: #334155 !important;
+            font-weight: 500 !important;
+          }
+          body { top: 0px !important; }
+          .goog-te-banner-frame { display: none !important; }
+        </style>
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: true
+            }, 'google_translate_element');
+          }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
       <header class="static-header" style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 50;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
           <a href="/" style="font-weight: bold; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
@@ -43,6 +74,7 @@
             <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>
             <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
           </nav>
+            <div id="google_translate_element" style="display: inline-flex; align-items: center; margin-left: 0.75rem;"></div>
         </div>
       </header>
     
