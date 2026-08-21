@@ -245,15 +245,15 @@
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
             <div>
               <label for="calc-weight" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Body Weight (lbs or kg)</label>
-              <input type="number" id="calc-weight" value="160" placeholder="e.g. 160" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
+              <input type="number" id="calc-weight" value="160" placeholder="e.g. 160" oninput="runCalculation()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
             </div>
             <div>
               <label for="calc-duration" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Duration / Serving Size</label>
-              <input type="number" id="calc-duration" value="30" placeholder="e.g. 30" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
+              <input type="number" id="calc-duration" value="30" placeholder="e.g. 30" oninput="runCalculation()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
             </div>
             <div>
               <label for="calc-intensity" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Intensity / Level</label>
-              <select id="calc-intensity" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
+              <select id="calc-intensity" onchange="runCalculation()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
                 <option value="light">Light Effort</option>
                 <option value="moderate" selected>Moderate Effort</option>
                 <option value="vigorous">Vigorous / High Effort</option>
