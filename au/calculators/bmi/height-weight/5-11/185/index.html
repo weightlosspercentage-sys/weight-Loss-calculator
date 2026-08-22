@@ -254,6 +254,8 @@
 
       <header class="static-header" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; padding: 0.75rem 1.5rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
         <style>
+          .static-nav-link { position: relative; padding: 0.25rem 0; }
+          .static-nav-link:hover { color: #4f46e5 !important; }
           .goog-te-gadget-simple {
             background-color: #f8fafc !important;
             border: 1px solid #cbd5e1 !important;
@@ -265,10 +267,7 @@
             cursor: pointer !important;
             font-family: inherit !important;
           }
-          .goog-te-gadget-simple .goog-te-menu-value span {
-            color: #334155 !important;
-            font-weight: 500 !important;
-          }
+          .goog-te-gadget-simple .goog-te-menu-value span { color: #334155 !important; font-weight: 500 !important; }
           .goog-te-gadget-icon { display: inline-block !important; margin-right: 4px !important; }
           body { top: 0px !important; }
           .goog-te-banner-frame { display: none !important; }
@@ -303,22 +302,21 @@
           }
         </style>
 
-        <div style="max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-          
+        <div style="max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
           <!-- Logo -->
           <a href="/" style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: #171717; color: white; border-radius: 6px; width: 1.75rem; height: 1.75rem; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">%</span>
+            <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800;">%</span>
             <span style="font-weight: 700; color: #0f172a; font-size: 1.125rem;">Weight Loss Percentage</span>
           </a>
 
           <!-- Desktop Navigation -->
           <div style="display: flex; align-items: center; gap: 1.5rem;">
             <nav style="display: flex; gap: 1.25rem; align-items: center;">
-              <a href="/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
+              <a href="/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Home</a>
               
               <!-- Calculators Dropdown -->
               <div class="nav-item-dropdown">
-                <a href="/calculators/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; display: flex; align-items: center; gap: 4px;">
+                <a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; display: flex; align-items: center; gap: 4px;">
                   Calculators <span style="font-size: 10px;">▼</span>
                 </a>
                 <div class="nav-dropdown-content">
@@ -344,7 +342,7 @@
 
               <!-- Nutrition Dropdown -->
               <div class="nav-item-dropdown">
-                <a href="/nutrition/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; display: flex; align-items: center; gap: 4px;">
+                <a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem; display: flex; align-items: center; gap: 4px;">
                   Nutrition <span style="font-size: 10px;">▼</span>
                 </a>
                 <div class="nav-dropdown-content">
@@ -371,16 +369,30 @@
                 </div>
               </div>
 
-              <a href="/compare/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
-              <a href="/blog/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
-              <a href="/glossary/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Glossary</a>
-              <a href="/about/" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">About</a>
+              <a href="/compare/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Compare</a>
+              <a href="/blog/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Blog</a>
+              <a href="/glossary/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Glossary</a>
+              <a href="/about/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">About</a>
             </nav>
 
             <!-- Google Translate Element Container -->
             <div id="google_translate_element" style="display: inline-flex; align-items: center;"></div>
           </div>
         </div>
+
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+            if (document.getElementById('google_translate_element')) {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: true
+              }, 'google_translate_element');
+            }
+          }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
       </header>
 
       <!-- Google Translate Init Script AFTER #google_translate_element in DOM -->
