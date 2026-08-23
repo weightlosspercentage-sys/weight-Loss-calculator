@@ -21,11 +21,9 @@
         }
         history.pushState = function() {
           pushState.apply(history, arguments);
-          trackPageView();
         };
         history.replaceState = function() {
           replaceState.apply(history, arguments);
-          trackPageView();
         };
         window.addEventListener('popstate', trackPageView);
       })();
@@ -158,33 +156,7 @@
   <body>
     <div>
 
-      <header class="static-header" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding: 0.75rem 1rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
-        <style>
-          .static-nav-link {
-            position: relative;
-            padding: 0.25rem 0;
-          }
-          .static-nav-link:hover {
-            color: #4f46e5 !important;
-          }
-          .goog-te-gadget-simple {
-            background-color: #f8fafc !important;
-            border: 1px solid #cbd5e1 !important;
-            border-radius: 20px !important;
-            padding: 3px 8px !important;
-            font-size: 13px !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            cursor: pointer !important;
-          }
-          .goog-te-gadget-simple .goog-te-menu-value span {
-            color: #334155 !important;
-            font-weight: 500 !important;
-          }
-          body { top: 0px !important; }
-          .goog-te-banner-frame { display: none !important; }
-        </style>
-        <script type="text/javascript">
+      <!-- Unified Header with Google Translate & All Calculators Dropdown -->
       <header class="static-header" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; padding: 0.75rem 1.5rem; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); font-family: sans-serif;">
         <style>
           .static-nav-link { position: relative; padding: 0.25rem 0; }
@@ -212,7 +184,9 @@
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 250px;
+            min-width: 260px;
+            max-height: 480px;
+            overflow-y: auto;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
@@ -223,7 +197,7 @@
           .nav-item-dropdown:hover .nav-dropdown-content { display: block; }
           .nav-dropdown-content a {
             display: block;
-            padding: 0.5rem 1rem;
+            padding: 0.45rem 1rem;
             color: #334155;
             text-decoration: none;
             font-size: 0.875rem;
@@ -253,7 +227,7 @@
                   Calculators <span style="font-size: 10px;">▼</span>
                 </a>
                 <div class="nav-dropdown-content">
-                  <a href="/calculators/">All Calculators Hub</a>
+                  <a href="/calculators/" style="font-weight: 700; color: #4f46e5; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 4px;">All Calculators Hub (35+)</a>
                   <a href="/calculators/weight-loss/">Weight Loss Calculator</a>
                   <a href="/calculators/body-fat/">Body Fat % Calculator</a>
                   <a href="/calculators/bmi/">BMI Calculator</a>
@@ -261,15 +235,34 @@
                   <a href="/calculators/bmr/">BMR Calculator</a>
                   <a href="/calculators/macro/">Macro Calculator</a>
                   <a href="/calculators/calorie-deficit/">Calorie Deficit Calculator</a>
-                  <a href="/calculators/rucking/">Rucking Calorie Calculator</a>
-                  <a href="/calculators/stairmaster/">StairMaster Calorie Calculator</a>
-                  <a href="/calculators/elliptical/">Elliptical Calorie Calculator</a>
-                  <a href="/calculators/rowing/">Rowing Calorie Calculator</a>
+                  <a href="/calculators/calorie/">Calorie Calculator</a>
+                  <a href="/calculators/fat-loss/">Fat Loss Calculator</a>
+                  <a href="/calculators/protein/">Protein Calculator</a>
+                  <a href="/calculators/water-intake/">Water Intake Calculator</a>
+                  <a href="/calculators/walking/">Walking Calorie Calculator</a>
                   <a href="/calculators/cycling/">Cycling Calorie Calculator</a>
+                  <a href="/calculators/rowing/">Rowing Calorie Calculator</a>
+                  <a href="/calculators/elliptical/">Elliptical Calorie Calculator</a>
+                  <a href="/calculators/stairmaster/">StairMaster Calorie Calculator</a>
+                  <a href="/calculators/rucking/">Rucking Calorie Calculator</a>
                   <a href="/calculators/hiit-bodyweight/">HIIT & Bodyweight Calorie</a>
-                  <a href="/calculators/pcos-calorie/">PCOS Calorie Calculator</a>
+                  <a href="/calculators/fitness/">Fitness & Cardio Calculator</a>
                   <a href="/calculators/body-recomposition/">Body Recomposition Calculator</a>
+                  <a href="/calculators/pcos-calorie/">PCOS Calorie Calculator</a>
+                  <a href="/calculators/intermittent-fasting/">Intermittent Fasting Calculator</a>
+                  <a href="/calculators/carnivore-diet/">Carnivore Diet Calculator</a>
+                  <a href="/calculators/keto/">Keto Calculator</a>
                   <a href="/calculators/unit-converters/">Unit Converters (g to kcal)</a>
+                  <a href="/calculators/glp1-weight-loss/">GLP-1 Weight Loss</a>
+                  <a href="/calculators/bariatric-surgery-weight-loss/">Bariatric Surgery Weight Loss</a>
+                  <a href="/calculators/postpartum-weight-loss/">Postpartum Weight Loss</a>
+                  <a href="/calculators/newborn-weight-loss/">Newborn Weight Loss</a>
+                  <a href="/calculators/infant-weight-loss/">Infant Weight Loss</a>
+                  <a href="/calculators/baby-weight-loss/">Baby Weight Loss</a>
+                  <a href="/calculators/pregnancy/">Pregnancy Weight Gain</a>
+                  <a href="/calculators/dog-weight-loss/">Dog Weight Loss</a>
+                  <a href="/calculators/peptide-dosage/">Peptide Dosage</a>
+                  <a href="/calculators/biggest-loser/">Biggest Loser Calculator</a>
                 </div>
               </div>
 
@@ -279,7 +272,7 @@
                   Nutrition <span style="font-size: 10px;">▼</span>
                 </a>
                 <div class="nav-dropdown-content">
-                  <a href="/nutrition/">Nutrition & Fast Food Hub</a>
+                  <a href="/nutrition/" style="font-weight: 700; color: #4f46e5; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 4px;">Nutrition & Fast Food Hub</a>
                   <a href="/restaurants/fast-food-hub/">All Fast Food Restaurants</a>
                   <a href="/restaurants/taco-bell/">Taco Bell Calorie Calculator</a>
                   <a href="/restaurants/dutch-bros/">Dutch Bros Calorie Calculator</a>
@@ -308,7 +301,7 @@
               <a href="/about/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">About</a>
             </nav>
 
-            <!-- Google Translate Element Container -->
+            <!-- Google Translate Element Container in Nav Bar -->
             <div id="google_translate_element" style="display: inline-flex; align-items: center;"></div>
           </div>
         </div>
@@ -320,15 +313,14 @@
                 pageLanguage: 'en',
                 includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: true
+                autoDisplay: false
               }, 'google_translate_element');
             }
           }
         </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
       </header>
-
-      <main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; color: #334155;">
+<main id="main-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; line-height: 1.6; color: #334155;">
         
         <!-- Breadcrumb -->
         <nav aria-label="Breadcrumb" style="font-size:0.875rem; color:#64748b; margin-bottom:1.5rem;">
@@ -336,102 +328,78 @@
           <span style="margin:0 0.5rem;">›</span>
           <a href="/calculators/" style="color:#4f46e5; text-decoration:none;">Calculators</a>
           <span style="margin:0 0.5rem;">›</span>
-          <span>Domino's Calorie Calculator</span>
+          <span style="color:#0f172a; font-weight:600;">Domino's Calorie Calculator</span>
         </nav>
 
-        <h1 style="color:#0f172a; font-size:2.25rem; font-weight:800; margin-bottom:0.5rem; line-height:1.25;">Domino's Pizza Calorie Calculator</h1>
+        <h1 style="color: #0f172a; font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25;">Domino's Pizza Calorie Calculator</h1>
         
-        <p style="color:#64748b; font-size:0.9rem; margin-bottom:1.5rem;">
-          ✅ Verified MET Calculations &nbsp;|&nbsp; ✅ Custom Goal Adjustments &nbsp;|&nbsp; ✅ Dietitian &amp; CSCS Reviewed 2026
-        </p>
+        <p style="font-size: 1.1rem; color: #475569; margin-bottom: 1.5rem;">Calculate calories and macros for Domino's pizza slices based on crust type (Thin, Hand Tossed, Pan), cheese level, meat, and veggie toppings.</p>
 
-        <p style="font-size:1.1rem; margin-bottom:2rem;">Calculate calories and macros for Domino's pizza slices based on crust type (Thin, Hand Tossed, Pan), cheese level, meat, and veggie toppings.</p>
-
-
-        <!-- INTERACTIVE CALCULATOR WIDGET CONTAINER -->
-        <div style="background: linear-gradient(135deg, #ffffff, #f8fafc); border: 1px solid #cbd5e1; border-radius: 16px; padding: 2rem; margin: 2rem 0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);">
-          <h2 style="color: #0f172a; font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background: #4f46e5; color: white; border-radius: 8px; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem;">🧮</span>
+        
+        <!-- FAST FOOD & RESTAURANT NUTRITION CALCULATOR -->
+        <div style="background: linear-gradient(135deg, #ffffff, #fffbeb); border: 1px solid #fef3c7; border-radius: 16px; padding: 2rem; margin: 2rem 0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);">
+          <h2 style="color: #92400e; font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: #d97706; color: white; border-radius: 8px; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem;">🍔</span>
             Interactive Domino's Pizza Calorie Calculator
           </h2>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
             <div>
-              <label for="calc-weight" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Body Weight (lbs or kg)</label>
-              <input type="number" id="calc-weight" value="160" placeholder="e.g. 160" oninput="runCalculation()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
-            </div>
-            <div>
-              <label for="calc-duration" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Duration / Serving Size</label>
-              <input type="number" id="calc-duration" value="30" placeholder="e.g. 30" oninput="runCalculation()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
-            </div>
-            <div>
-              <label for="calc-intensity" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Intensity / Level</label>
-              <select id="calc-intensity" onchange="runCalculation()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
-                <option value="light">Light Effort</option>
-                <option value="moderate" selected>Moderate Effort</option>
-                <option value="vigorous">Vigorous / High Effort</option>
+              <label for="rest-item" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Menu Item / Size</label>
+              <select id="rest-item" onchange="runRestCalc()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
+                <option value="380,24,35,14">Standard Entree / Sandwich (380 kcal / 24g P)</option>
+                <option value="540,32,52,22" selected>Deluxe Specialty / Combo (540 kcal / 32g P)</option>
+                <option value="780,42,68,36">Double / Large Meal (780 kcal / 42g P)</option>
+                <option value="260,18,24,8">Fresco / Low-Calorie Light Option (260 kcal / 18g P)</option>
               </select>
+            </div>
+            <div>
+              <label for="rest-custom" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Customization / Modification</label>
+              <select id="rest-custom" onchange="runRestCalc()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
+                <option value="0,0,0,0">Standard Preparation (0 change)</option>
+                <option value="-120,0,-24,-2">Light / No Mayo / Unwich (-120 kcal)</option>
+                <option value="150,4,8,12">Extra Cheese &amp; Creamy Sauce (+150 kcal)</option>
+                <option value="280,3,34,15">Add Side French Fries (+280 kcal)</option>
+              </select>
+            </div>
+            <div>
+              <label for="rest-qty" style="display: block; font-weight: 600; font-size: 0.875rem; color: #334155; margin-bottom: 0.35rem;">Quantity</label>
+              <input type="number" id="rest-qty" value="1" min="1" max="10" oninput="runRestCalc()" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #0f172a; background: #ffffff;">
             </div>
           </div>
 
-          <button id="calc-btn" onclick="runCalculation()" style="width: 100%; background: linear-gradient(135deg, #4f46e5, #3b82f6); color: white; font-size: 1rem; font-weight: 700; padding: 0.85rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);">
-            Calculate Energy Expenditure &amp; Macro Impact
+          <button id="calc-btn" onclick="runRestCalc()" style="width: 100%; background: linear-gradient(135deg, #d97706, #b45309); color: white; font-size: 1rem; font-weight: 700; padding: 0.85rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);">
+            Calculate Fast Food Calories &amp; Protein
           </button>
 
-          <div id="calc-result" style="margin-top: 1.5rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 1.25rem; display: none;">
-            <div style="font-size: 0.875rem; color: #166534; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Estimated Caloric Impact</div>
-            <div id="result-val" style="font-size: 2.25rem; font-weight: 800; color: #15803d; margin: 0.25rem 0;">0 kcal</div>
-            <p id="result-desc" style="margin: 0; font-size: 0.925rem; color: #166534; line-height: 1.5;"></p>
+          <div id="calc-result" style="margin-top: 1.5rem; background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 1.25rem; display: none;">
+            <div style="font-size: 0.875rem; color: #92400e; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Total Order Nutrition Profile</div>
+            <div id="result-val" style="font-size: 2.25rem; font-weight: 800; color: #b45309; margin: 0.25rem 0;">0 kcal</div>
+            <p id="result-desc" style="margin: 0; font-size: 0.925rem; color: #78350f; line-height: 1.5;"></p>
           </div>
         </div>
 
         <script>
-          function runCalculation() {
-            var wt = parseFloat(document.getElementById('calc-weight').value) || 160;
-            var dur = parseFloat(document.getElementById('calc-duration').value) || 30;
-            var intensity = document.getElementById('calc-intensity').value;
-            
-            var mult = 1.0;
-            if (intensity === 'light') mult = 0.8;
-            if (intensity === 'vigorous') mult = 1.35;
-            
-            var baseKcal = (wt * 0.045) * dur * mult;
-            var rounded = Math.round(baseKcal);
-            
+          function runRestCalc() {
+            var mainParts = document.getElementById('rest-item').value.split(',');
+            var custParts = document.getElementById('rest-custom').value.split(',');
+            var qty = parseInt(document.getElementById('rest-qty').value) || 1;
+
+            var kcal = (parseFloat(mainParts[0]) + parseFloat(custParts[0])) * qty;
+            var p = (parseFloat(mainParts[1]) + parseFloat(custParts[1])) * qty;
+            var c = (parseFloat(mainParts[2]) + parseFloat(custParts[2])) * qty;
+            var f = (parseFloat(mainParts[3]) + parseFloat(custParts[3])) * qty;
+
             document.getElementById('calc-result').style.display = 'block';
-            document.getElementById('result-val').innerText = rounded + ' kcal';
-            document.getElementById('result-desc').innerText = 'Based on a ' + wt + ' lb body weight over ' + dur + ' minutes of ' + intensity + ' exertion. This equals approximately ' + (rounded / 3500 * 16).toFixed(2) + ' ounces of body fat energy equivalent.';
+            document.getElementById('result-val').innerText = Math.round(kcal) + ' kcal';
+            document.getElementById('result-desc').innerHTML = '<strong>Order Breakdown:</strong> ' + Math.round(p) + 'g Protein | ' + Math.round(c) + 'g Total Carbs | ' + Math.round(f) + 'g Fat across ' + qty + ' item(s).';
           }
+          window.addEventListener('DOMContentLoaded', runRestCalc);
         </script>
-    
+        
 
-        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Science &amp; Formula Behind Domino's Pizza Calorie Calculator</h2>
-        <p>Calculating accurate energy expenditure or macronutrient distribution requires understanding how physical activity, body mass, and metabolic rate interact. Our tool utilizes standardized <strong>Metabolic Equivalent of Task (MET)</strong> multipliers and verified nutritional guidelines.</p>
-
-        <div style="background:#f8fafc; border-left:4px solid #3b82f6; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
-          <div style="font-weight:700; color:#1e40af; margin-bottom:0.5rem;">📊 Core Calculation Equation:</div>
-          <p style="margin:0; font-size:0.95rem; color:#1e293b;">
-            <strong>Calories Burned (kcal) = MET × Weight in kg × Duration in hours</strong><br>
-            <em>Where 1 MET = 1 kcal/kg/hour (the energy expended while sitting quietly at rest).</em>
-          </p>
-        </div>
-
-        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Covered Search Keywords &amp; Intent Breakdown</h2>
-        <p>This calculator addresses key search queries and metrics, including:</p>
-        <ul style="padding-left:1.5rem; margin-bottom:1.5rem;">
-          <li style="margin-bottom:0.4rem;"><strong>Dominos Calorie Calculator</strong> — Precise estimation of caloric burn and dietary deficit impact.</li><li style="margin-bottom:0.4rem;"><strong>Domino'S Nutrition Calculator</strong> — Precise estimation of caloric burn and dietary deficit impact.</li>
-        </ul>
-
-        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Related Health &amp; Fitness Calculators</h2>
-        <ul style="padding-left:1.5rem; margin-bottom:2rem;">
-          <li style="margin-bottom:0.5rem;"><a href="/calculators/calorie/" style="color:#4f46e5; font-weight:600;">Daily Calorie Calculator</a> — Total daily energy expenditure &amp; deficit planning</li>
-          <li style="margin-bottom:0.5rem;"><a href="/calculators/calorie-deficit/" style="color:#4f46e5; font-weight:600;">Calorie Deficit Calculator</a> — Safe fat loss rate &amp; timeline targets</li>
-          <li style="margin-bottom:0.5rem;"><a href="/calculators/macro/" style="color:#4f46e5; font-weight:600;">Macro Calculator</a> — Optimize protein, carb, and fat ratios</li>
-          <li style="margin-bottom:0.5rem;"><a href="/calculators/weight-loss/" style="color:#4f46e5; font-weight:600;">Weight Loss Percentage Calculator</a> — Track total body weight reduction %</li>
-        </ul>
-
-        <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Frequently Asked Questions</h2>
-
+        <h2 style="color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+        
         <div style="margin-bottom:1.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:1.5rem;">
           <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;">How many calories are in a medium Domino's pepperoni slice?</h3>
           <p>A slice of medium Hand-Tossed Pepperoni Pizza contains 210 calories. On Thin Crust, it drops to 145 calories per slice.</p>
@@ -445,19 +413,10 @@
           <p>Veggie toppings (peppers, onions, spinach, mushrooms) add only 5–15 calories per slice while supplying dietary fiber.</p>
         </div>
 
-        <!-- Medical Reviewer -->
-        <div style="margin-top:3rem; padding:1.5rem; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">
-          <h3 style="color:#0f172a; font-size:1rem; font-weight:700; margin-bottom:0.75rem;">Medically &amp; Expertly Reviewed By</h3>
-          <p style="margin:0 0 0.5rem;"><strong>Sarah Jenkins, MS, RD, CDCES</strong> — Lead Nutrition Specialist &amp; <strong>Marcus Vance, CSCS</strong> — Strength &amp; Conditioning Specialist</p>
-          <p style="font-size:0.875rem; color:#64748b; margin:0.5rem 0 0;"><strong>Last reviewed:</strong> August 2026 &nbsp;|&nbsp;
-            <strong>Sources:</strong>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;">Compendium of Physical Activities (NCBI)</a> &nbsp;·&nbsp;
-            <a href="https://www.usda.gov/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;">USDA FoodData Central</a>
-          </p>
-        </div>
-
       </main>
 
+      <!-- Unified 4-Column Footer matching Home Page -->
+            <!-- Unified 4-Column Footer matching Home Page -->
       <footer class="static-footer" style="background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem 2rem; margin-top: 4rem; font-family: sans-serif;">
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
           <div>
