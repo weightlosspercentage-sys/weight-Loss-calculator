@@ -76,8 +76,7 @@ export const navLinks = [
   { label: 'Nutrition & Restaurants', dropdown: restaurantsDropdown },
   { label: 'Compare', href: '/compare/' },
   { label: 'Blog', href: '/blog/' },
-  { label: 'Glossary', href: '/glossary/' },
-  { label: 'About', href: '/about/' }
+  { label: 'Glossary', href: '/glossary/' }
 ];
 
 export function getRegionFromPath(path: string): string {

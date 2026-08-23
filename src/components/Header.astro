@@ -15,9 +15,9 @@ const { region, activePath } = Astro.props;
   <div style="max-width: 1400px; width: 100%; display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 1rem;">
       <!-- Logo -->
-      <a href={getLocalizedHref('/', region)} style="display: flex; align-items: center; gap: 8px; text-decoration: none;" aria-label="Weight Loss Percentage — Home">
-        <div style="height: 28px; width: 28px; background-color: var(--vercel-primary); border-radius: var(--vercel-radius); display: flex; align-items: center; justify-content: center; color: var(--vercel-on-primary); font-weight: 600; font-family: var(--font-mono); font-size: 14px;" aria-hidden="true">%</div>
-        <span style="font-weight: 600; color: var(--vercel-ink); font-size: 16px; letter-spacing: -0.03em;">Weight Loss Percentage</span>
+      <a href={getLocalizedHref('/', region)} style="font-weight: 700; font-size: 1.25rem; text-decoration: none; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;" aria-label="Weight Loss Percentage - Home">
+        <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316); color: white; border-radius: 8px; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; font-weight: 800;">%</span>
+        <span style="font-weight: 700; color: #0f172a; font-size: 1.125rem;">Weight Loss Percentage</span>
       </a>
 
       <div style="display: flex; align-items: center; gap: 1rem;">
@@ -25,7 +25,7 @@ const { region, activePath } = Astro.props;
         <Navigation region={region} activePath={activePath} />
 
         <!-- Google Translate Widget Container for Tier 1 & Global Users -->
-        <div id="google_translate_element" style="display: inline-flex; align-items: center;"></div>
+        <div class="notranslate" id="google_translate_element" style="display: inline-flex; align-items: center;"></div>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -82,14 +82,44 @@ const { region, activePath } = Astro.props;
     }, 'google_translate_element');
   }
 
-  // Load Google Translate script dynamically if not present
-  if (!document.getElementById('google-translate-script')) {
-    var gtScript = document.createElement('script');
-    gtScript.id = 'google-translate-script';
-    gtScript.type = 'text/javascript';
-    gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    document.head.appendChild(gtScript);
-  }
+  // On React-mounted (SPA) pages the visible nav is rendered by the bundle and
+  // exposes a translate container with the "_spa" suffix. Wait for React to
+  // mount (poll up to ~5s); otherwise fall back to the static header container.
+  (function () {
+    function loadScript(targetId) {
+      window.__gtTargetId__ = targetId;
+      window.googleTranslateElementInit = function () {
+        try {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: true
+          }, targetId);
+        } catch (e) {}
+      };
+      if (!document.getElementById('google-translate-script')) {
+        var gtScript = document.createElement('script');
+        gtScript.id = 'google-translate-script';
+        gtScript.type = 'text/javascript';
+        gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(gtScript);
+      }
+    }
+
+    var attempts = 0;
+    var timer = setInterval(function () {
+      attempts++;
+      var spaEl = document.getElementById('google_translate_element_spa');
+      if (spaEl) { clearInterval(timer); loadScript('google_translate_element_spa'); return; }
+      if (attempts >= 25) {
+        clearInterval(timer);
+        var staticEl = document.getElementById('google_translate_element');
+        if (staticEl) loadScript('google_translate_element');
+      }
+    }, 200);
+  })();
+
 
   document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
     var m = document.getElementById('mobile-menu');
@@ -115,3 +145,4 @@ const { region, activePath } = Astro.props;
     }
   });
 </script>
+

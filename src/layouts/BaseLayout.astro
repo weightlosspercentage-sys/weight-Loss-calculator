@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import { SPA_NAV_GUARD_SCRIPT } from '../utils/spaNavGuard.mjs';
 
 export interface Props {
   lang?: string;
@@ -229,6 +230,7 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
       
     </div>
     <Footer relativePath={activePath} region={region} />
+    {loadReact && <Fragment set:html={SPA_NAV_GUARD_SCRIPT} />}
     <!-- Dismiss loader once React has fully rendered -->
     <script is:inline>
       (function() {

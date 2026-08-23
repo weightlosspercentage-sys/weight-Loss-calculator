@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SPA_NAV_GUARD_SCRIPT, SPA_NAV_GUARD_MARKER } from './src/utils/spaNavGuard.mjs';
 
 // Helper to recursively copy files, excluding only Astro-built HTML and markdown files
 /**
@@ -110,6 +111,8 @@ function postProcessHtml(outDir) {
   let authorInjected = 0;
   let noindexInjected = 0;
   let titlesOptimized = 0;
+  let guardInjected = 0;
+  let aboutNavRemoved = 0;
 
   for (const filePath of htmlFiles) {
     let html = fs.readFileSync(filePath, 'utf-8');
@@ -301,6 +304,27 @@ function postProcessHtml(outDir) {
       </script>`;
       html = insertTagIntoHead(html, websiteSchema);
       modified = true;
+    }
+
+    // --- 8. SPA nav guard: fix client-side 404s when navigating from a React
+    //    SPA page to static routes the client router does not know ---
+    if (html.includes('has-react') && !html.includes(SPA_NAV_GUARD_MARKER)) {
+      const bodyClose = html.lastIndexOf('</body>');
+      if (bodyClose !== -1) {
+        html = html.slice(0, bodyClose) + SPA_NAV_GUARD_SCRIPT + html.slice(bodyClose);
+        modified = true;
+        guardInjected++;
+      }
+    }
+
+    // --- 9. Remove "About" from header navigation (moved to footer; Google
+    //    Translate occupies the nav spot instead). Idempotent across all pages. ---
+    const aboutNavRegex = /\s*<a\s+href="\/(?:uk|ca|au|nz|zh|ru|us)?\/?about\/"[^>]*>\s*About\s*<\/a>/gi;
+    const withoutAboutNav = html.replace(aboutNavRegex, '');
+    if (withoutAboutNav !== html) {
+      html = withoutAboutNav;
+      modified = true;
+      aboutNavRemoved++;
     }
 
     if (modified) {
