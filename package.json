@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "python scripts/update_sitemaps_lastmod.py && astro build",
+    "build": "python scripts/rebuild_sitemaps.py && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

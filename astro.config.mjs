@@ -327,6 +327,12 @@ function postProcessHtml(outDir) {
       aboutNavRemoved++;
     }
 
+    // --- 10. Sitemap discovery: <link rel="sitemap"> in page heads ---
+    if (!html.includes('rel="sitemap"')) {
+      html = insertTagIntoHead(html, '<link rel="sitemap" href="/sitemap.xml" />');
+      modified = true;
+    }
+
     if (modified) {
       fs.writeFileSync(filePath, html);
     }
