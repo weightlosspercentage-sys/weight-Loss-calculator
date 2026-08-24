@@ -13,3 +13,7 @@ test-results/
 check-output.txt
 .agents/
 
+dist3_backup_patched/
+dist3/
+dist2/
+dist/
