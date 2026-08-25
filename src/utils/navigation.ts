@@ -17,7 +17,7 @@ export const calculatorsDropdown: NavItem[] = [
   { label: 'TDEE Calculator', href: '/calculators/tdee/' },
   { label: 'BMR Calculator', href: '/calculators/bmr/' },
   { label: 'Macro Calculator', href: '/calculators/macro/' },
-  { label: 'Calorie Deficit Calculator', href: '/calculators/calorie-deficit/' },
+  { label: 'Calorie Deficit Calculator', href: '/calculators/calorie/' },
   { label: 'Calorie Calculator', href: '/calculators/calorie/' },
   { label: 'Fat Loss Calculator', href: '/calculators/fat-loss/' },
   { label: 'Protein Calculator', href: '/calculators/protein/' },

@@ -112,6 +112,12 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
       
       /* Critical styles to prevent Flash of Unstyled Content (FOUC) */
       .hidden { display: none !important; }
+      
+      /* Base mobile-first display utilities */
+      .block { display: block !important; }
+      .flex { display: flex !important; }
+      .inline-flex { display: inline-flex !important; }
+      
       /* Responsive overrides — must be !important to beat the .hidden rule above */
       @media (min-width: 640px) {
         .sm\:block  { display: block  !important; }
@@ -122,6 +128,11 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
         .md\:flex   { display: flex   !important; }
         .md\:block  { display: block  !important; }
         .md\:hidden { display: none   !important; }
+      }
+      
+      /* Mobile-first: hide desktop nav on small screens, show on md+ */
+      @media (max-width: 767px) {
+        .md\:flex.hidden { display: none !important; }
       }
       /* Interaction-state overrides — dropdowns use hidden + group-hover:block */
       .group:hover .group-hover\:block,
@@ -201,6 +212,57 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
 
       .mobile-details summary::-webkit-details-marker { display: none; }
       .mobile-details[open] .mobile-chevron { transform: rotate(180deg); }
+      
+      /* Additional utility classes used by components */
+      .w-4 { width: 16px; }
+      .h-4 { height: 16px; }
+      .ml-1 { margin-left: 4px; }
+      .space-y-1 > * + * { margin-top: 4px; }
+      .px-4 { padding-left: 16px; padding-right: 16px; }
+      .py-3 { padding-top: 12px; padding-bottom: 12px; }
+      .pb-4 { padding-bottom: 16px; }
+      .pl-4 { padding-left: 16px; }
+      .mt-1 { margin-top: 4px; }
+      .ml-4 { margin-left: 16px; }
+      .min-h-11 { min-height: 44px; }
+      .text-sm { font-size: 14px; line-height: 20px; }
+      .font-medium { font-weight: 500; }
+      .font-semibold { font-weight: 600; }
+      .rounded-md { border-radius: 6px; }
+      .cursor-pointer { cursor: pointer; }
+      .list-none { list-style: none; }
+      .overflow-hidden { overflow: hidden; }
+      .transition-all { transition: all 0.15s ease; }
+      .transition-transform { transition: transform 0.2s ease; }
+      .duration-300 { transition-duration: 300ms; }
+      .duration-200 { transition-duration: 200ms; }
+      .ease-in-out { transition-timing-function: ease-in-out; }
+      
+      /* Color utilities */
+      .text-gray-700 { color: #374151; }
+      .text-gray-600 { color: #4b5563; }
+      .text-indigo-700 { color: #4338ca; }
+      .text-orange-700 { color: #c2410c; }
+      .text-orange-800 { color: #9a3412; }
+      .bg-gray-50 { background-color: #f9fafb; }
+      .bg-indigo-50 { background-color: #eef2ff; }
+      .bg-orange-50 { background-color: #fff7ed; }
+      .hover\:bg-gray-50:hover { background-color: #f9fafb; }
+      .hover\:bg-orange-50\/50:hover { background-color: rgba(255, 247, 237, 0.5); }
+      .bg-indigo-50\/50 { background-color: rgba(238, 242, 255, 0.5); }
+      .border-l-2 { border-left-width: 2px; border-left-style: solid; }
+      .border-indigo-100 { border-color: #e0e7ff; }
+      
+      /* Flexbox utilities */
+      .justify-between { justify-content: space-between; }
+      .items-center { align-items: center; }
+      
+      /* Position utilities */
+      .relative { position: relative; }
+      .absolute { position: absolute; }
+      
+      /* Group hover behavior for dropdowns */
+      .group { position: relative; }
     </style>
   </head>
   <body>

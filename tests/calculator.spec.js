@@ -16,11 +16,11 @@ test.describe('Weight Loss Percentage Calculator', () => {
     const fontWeight = await h1.evaluate((el) => window.getComputedStyle(el).fontWeight);
     expect(fontWeight).toBe('900');
 
-    // 3. Check Footer flags
-    const usLink = page.locator('footer a', { hasText: '🇺🇸 English (US)' });
+    // 3. Check Footer flags (use .first() since both Astro Footer and React SPA render language links)
+    const usLink = page.locator('footer a', { hasText: '🇺🇸 English (US)' }).first();
     await expect(usLink).toBeVisible();
 
-    const ukLink = page.locator('footer a', { hasText: '🇬🇧 English (UK)' });
+    const ukLink = page.locator('footer a', { hasText: '🇬🇧 English (UK)' }).first();
     await expect(ukLink).toBeVisible();
     
     console.log("All UI tests passed! The bold hero and footer flags are rendering correctly.");
