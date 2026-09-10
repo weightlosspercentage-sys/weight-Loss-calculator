@@ -1,0 +1,44 @@
+---
+import { getRelatedCalculators } from '../utils/relatedCalculators';
+import { getLocalizedHref } from '../utils/navigation';
+
+export interface Props {
+  currentSlug: string;
+  region: string;
+}
+
+const { currentSlug, region } = Astro.props;
+const relatedList = getRelatedCalculators(currentSlug);
+---
+
+<section class="related-calculators-section" aria-labelledby="related-calculators-title">
+  <div class="related-calculators-header">
+    <h2 id="related-calculators-title" class="related-calculators-title">
+      <svg style="width: 20px; height: 20px; color: #4f46e5;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+      </svg>
+      Related Calculators
+    </h2>
+    <a href={getLocalizedHref('/calculators/', region)} class="related-calculators-hub-link">
+      Browse All 35+ Calculators &rarr;
+    </a>
+  </div>
+  <div class="related-calc-grid">
+    {relatedList.map((calc) => (
+      <a href={getLocalizedHref(calc.href, region)} class="related-calc-card">
+        <div class="related-calc-card-top">
+          <h3 class="related-calc-card-title">{calc.title}</h3>
+          {calc.badge && (
+            <span class={`related-calc-badge badge-${calc.badgeColor || 'indigo'}`}>
+              {calc.badge}
+            </span>
+          )}
+        </div>
+        <p class="related-calc-card-desc">{calc.description}</p>
+        <div class="related-calc-card-action">
+          Calculate &rarr;
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

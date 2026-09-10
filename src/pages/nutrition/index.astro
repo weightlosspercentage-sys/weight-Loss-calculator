@@ -4,10 +4,10 @@ import { parseHtmlPageV2 as parseHtmlPage } from '../../utils/parser_v2';
 import { getRegionFromPath } from '../../utils/navigation';
 
 const filePath = 'nutrition/index.html';
-const parsed = parseHtmlPage(filePath, true);
+const parsed = parseHtmlPage(filePath, false);
 const region = getRegionFromPath(filePath);
 ---
-<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath="nutrition" region={region} loadReact={true}>
+<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath="nutrition" region={region} loadReact={false}>
   <Fragment set:html={parsed.headContent} slot="head" />
   <Fragment set:html={parsed.bodyContent} />
 </BaseLayout>

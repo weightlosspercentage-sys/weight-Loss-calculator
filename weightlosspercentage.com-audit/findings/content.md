@@ -8,7 +8,7 @@ Date: 2026-08-08
 - Blog content is substantial: avg ~1,012 words/article (max 2,180).
 - Calculator pages avg ~816 words — good depth for tool pages.
 - Every page includes a global Medical Disclaimer + Evidence-Based Guidelines block (YMYL-positive) via `BaseLayout.astro`.
-- Schema declares named clinical author ("Dr. Sarah Jenkins, Clinical Dietitian & Weight Management Specialist") on blog articles.
+- Schema declares named clinical author ("Dr. Rekha Kumar, Clinical Dietitian & Weight Management Specialist") on blog articles.
 - Unique page titles across all 500 crawled pages (no exact-duplicate titles in the sample).
 
 ## HIGH

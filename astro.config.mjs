@@ -225,7 +225,7 @@ function postProcessHtml(outDir) {
     // --- 2. Meta author for blog articles ---
     if (relPath.startsWith('blog/') && !relPath.endsWith('blog/index.html')) {
       if (!html.includes('name="author"') && !html.includes("name='author'")) {
-        const authorTag = '<meta name="author" content="Dr. Sarah Jenkins, PhD, RD, CPT" />';
+        const authorTag = '<meta name="author" content="Dr. Rekha Kumar, PhD, RD, CPT" />';
         html = insertTagIntoHead(html, authorTag);
         modified = true;
         authorInjected++;
@@ -290,9 +290,9 @@ function postProcessHtml(outDir) {
           {
             "@type": "Person",
             "@id": "https://www.weightlosspercentage.com/#author",
-            "name": "Dr. Sarah Jenkins, PhD, RD, CPT",
+            "name": "Dr. Rekha Kumar, PhD, RD, CPT",
             "jobTitle": "Lead Clinical Dietitian & Exercise Physiologist",
-            "url": "https://www.weightlosspercentage.com/authors/dr-sarah-jenkins/",
+            "url": "https://www.weightlosspercentage.com/authors/dr-rekha-kumar/",
             "sameAs": [
               "https://www.facebook.com/weightlossnewborn/",
               "https://x.com/weightlossperce",
@@ -328,9 +328,37 @@ function postProcessHtml(outDir) {
       aboutNavRemoved++;
     }
 
+    // --- 11. Remove dropdowns from all static headers ---
+    const cleanNoDropdowns = html
+      .replace(/\.nav-item-dropdown:hover\s+\.nav-dropdown-content\s*\{\s*display:\s*block;?\s*\}/gi, '.nav-item-dropdown:hover .nav-dropdown-content { display: none !important; }')
+      .replace(/<!--\s*Calculators Dropdown\s*-->\s*<div class="nav-item-dropdown">[\s\S]*?Calculators[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>')
+      .replace(/<!--\s*Nutrition Dropdown\s*-->\s*<div class="nav-item-dropdown">[\s\S]*?Nutrition[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>')
+      .replace(/<div class="nav-item-dropdown">\s*<a href="([^"]*\/calculators\/[^"]*)"[^>]*>[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="$1" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>')
+      .replace(/<div class="nav-item-dropdown">\s*<a href="([^"]*\/nutrition\/[^"]*)"[^>]*>[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="$1" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>');
+    if (cleanNoDropdowns !== html) {
+      html = cleanNoDropdowns;
+      modified = true;
+    }
+
+    // --- 12. Ensure static footer exists on all pages ---
+    if (!html.includes('<footer')) {
+      const footerHtmlPath = path.join(process.cwd(), 'scratch', 'extracted_footer.html');
+      if (fs.existsSync(footerHtmlPath)) {
+        const footerHtml = fs.readFileSync(footerHtmlPath, 'utf-8');
+        if (html.includes('</body>')) {
+          html = html.replace('</body>', `${footerHtml}\n</body>`);
+        } else if (html.includes('</html>')) {
+          html = html.replace('</html>', `${footerHtml}\n</html>`);
+        } else {
+          html += `\n${footerHtml}`;
+        }
+        modified = true;
+      }
+    }
+
     // --- 10. Sitemap discovery: <link rel="sitemap"> in page heads ---
     if (!html.includes('rel="sitemap"')) {
-      html = insertTagIntoHead(html, '<link rel="sitemap" href="/sitemap.xml" />');
+      html = insertTagIntoHead(html, '<link rel="sitemap" href="/sitemap-index.xml" />');
       modified = true;
     }
 
@@ -361,9 +389,9 @@ const copyAssetsIntegration = {
       for (const file of files) {
         const fullPath = path.join(srcDir, file);
         
-        // Exclude system directories and files (allow .htaccess)
+        // Exclude system directories and files (allow .htaccess and .well-known)
         if (
-          (file.startsWith('.') && file !== '.htaccess') ||
+          (file.startsWith('.') && file !== '.htaccess' && file !== '.well-known') ||
           file === 'node_modules' ||
           file === 'src' ||
           file === 'public' ||
@@ -436,6 +464,20 @@ const copyAssetsIntegration = {
       // noindex for thin locales, and optimize long titles
       console.log('[seo-inject] Post-processing HTML files for SEO fixes...');
       postProcessHtml(outDir);
+
+      // Sanitize XML sitemaps to use domain-relative XSL stylesheet path (/sitemap.xsl)
+      const xmlFiles = ['sitemap-index.xml', 'sitemap-0.xml', 'sitemap.xml'];
+      for (const xmlFile of xmlFiles) {
+        const xmlPath = path.join(outDir, xmlFile);
+        if (fs.existsSync(xmlPath)) {
+          let xmlContent = fs.readFileSync(xmlPath, 'utf8');
+          xmlContent = xmlContent.replace(/href=["']https?:\/\/[^\/]+\/sitemap\.xsl["']/gi, 'href="/sitemap.xsl"');
+          if (!xmlContent.includes('xml-stylesheet')) {
+            xmlContent = xmlContent.replace(/(<\?xml[^>]*\?>)/i, '$1\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>');
+          }
+          fs.writeFileSync(xmlPath, xmlContent);
+        }
+      }
       
       console.log('[copy-assets] Static assets copied successfully!\n');
     }
@@ -449,9 +491,11 @@ export default defineConfig({
   outDir: './dist3',
   integrations: [
     sitemap({
+      xslURL: '/sitemap.xsl',
       filter: (page) => {
-        // Exclude zh/, ru/, and thin programmatic pages
+        // Exclude zh/, ru/, blog, and thin programmatic pages
         if (page.includes('/zh/') || page.includes('/ru/')) return false;
+        if (page.includes('/blog/')) return false;
         if (page.includes('/calculators/bmi/height-weight/')) return false;
         if (page.includes('/calculators/weight-loss/from-')) return false;
         return true;
@@ -460,7 +504,6 @@ export default defineConfig({
         // US pages
         'https://www.weightlosspercentage.com/about/',
         'https://www.weightlosspercentage.com/accessibility/',
-        'https://www.weightlosspercentage.com/blog/',
         'https://www.weightlosspercentage.com/contact/',
         'https://www.weightlosspercentage.com/cookie-policy/',
         'https://www.weightlosspercentage.com/disclaimer/',
@@ -469,8 +512,8 @@ export default defineConfig({
         'https://www.weightlosspercentage.com/nutrition/',
         'https://www.weightlosspercentage.com/privacy/',
         'https://www.weightlosspercentage.com/terms/',
-        'https://www.weightlosspercentage.com/author/sarah-jenkins/',
-        'https://www.weightlosspercentage.com/authors/dr-sarah-jenkins/',
+        'https://www.weightlosspercentage.com/authors/dr-rekha-kumar/',
+        'https://www.weightlosspercentage.com/authors/dr-rekha-kumar/',
         // US calculators
         'https://www.weightlosspercentage.com/calculators/',
         'https://www.weightlosspercentage.com/calculators/baby-weight-loss/',
@@ -543,46 +586,9 @@ export default defineConfig({
         'https://www.weightlosspercentage.com/restaurants/subway/',
         'https://www.weightlosspercentage.com/restaurants/taco-bell/',
         'https://www.weightlosspercentage.com/restaurants/wendys/',
-        // US blog articles
-        'https://www.weightlosspercentage.com/blog/10-percent-weight-loss-benefits/',
-        'https://www.weightlosspercentage.com/blog/5-percent-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/almonds-and-nuts-nutrition-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/anti-gravity-exercises-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/bariatric-surgery-weight-loss-timeline/',
-        'https://www.weightlosspercentage.com/blog/best-diet-for-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/biggest-loser-formula/',
-        'https://www.weightlosspercentage.com/blog/calculate-bmr-to-lose-weight/',
-        'https://www.weightlosspercentage.com/blog/calorie-deficit-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/calories-vs-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/exercise-for-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/fat-loss-vs-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/glp1-for-women-hormones/',
-        'https://www.weightlosspercentage.com/blog/glp1-medications-weight-loss-guide/',
-        'https://www.weightlosspercentage.com/blog/glp1-vs-natural-weight-loss-2026/',
-        'https://www.weightlosspercentage.com/blog/healthy-weight-loss-per-month/',
-        'https://www.weightlosspercentage.com/blog/healthy-weight-loss-per-month-realistic/',
-        'https://www.weightlosspercentage.com/blog/how-to-calculate-body-fat/',
-        'https://www.weightlosspercentage.com/blog/how-to-calculate-weight-loss-percentage/',
-        'https://www.weightlosspercentage.com/blog/keto-diet-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/lifestyle-changes-weight-loss-guide/',
-        'https://www.weightlosspercentage.com/blog/newborn-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/peptide-therapy-weight-loss-guide/',
-        'https://www.weightlosspercentage.com/blog/signs-body-burning-fat/',
-        'https://www.weightlosspercentage.com/blog/sleep-and-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/walking-for-weight-loss/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-formulas-explained/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-at-100-to-130-lbs/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-at-130-to-170-lbs/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-at-170-to-230-lbs/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-at-230-to-300-lbs/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-at-300-to-400-lbs/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-by-starting-weight/',
-        'https://www.weightlosspercentage.com/blog/weight-loss-percentage-chart/',
-        'https://www.weightlosspercentage.com/blog/weight-tracking-guide/',
         // UK pages
         'https://www.weightlosspercentage.com/uk/',
         'https://www.weightlosspercentage.com/uk/about/',
-        'https://www.weightlosspercentage.com/uk/blog/',
         'https://www.weightlosspercentage.com/uk/calculators/',
         'https://www.weightlosspercentage.com/uk/contact/',
         'https://www.weightlosspercentage.com/uk/disclaimer/',
@@ -593,7 +599,6 @@ export default defineConfig({
         // CA pages
         'https://www.weightlosspercentage.com/ca/',
         'https://www.weightlosspercentage.com/ca/about/',
-        'https://www.weightlosspercentage.com/ca/blog/',
         'https://www.weightlosspercentage.com/ca/calculators/',
         'https://www.weightlosspercentage.com/ca/contact/',
         'https://www.weightlosspercentage.com/ca/disclaimer/',

@@ -1,0 +1,938 @@
+{
+  "pagesTested": [
+    {
+      "path": "/",
+      "name": "Homepage",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Weight Loss Percentage Calculator: Free & Accurate Tool",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/calculators/index.html",
+      "name": "Calculators Hub",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "All Health, Fitness & Nutrition Calculators",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787331534&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376170632&bpp=8&bdt=272&idt=341&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=6261543983345&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399158%2C122880537&oid=2&pvsid=6693470048663483&tmod=1669307799&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=452x505_l%7C452x505_r&bz=1&pgls=CAk.&ifi=1&uci=a!1&fsb=1&dtd=382"
+      ],
+      "optionsTested": 0
+    },
+    {
+      "path": "/nutrition/index.html",
+      "name": "Nutrition Hub",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Nutrition Calculator — Calories & Macros for Any Food",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787331535&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fnutrition%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376172000&bpp=6&bdt=289&idt=445&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=7817610295026&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880397%2C122880502%2C122880587&oid=2&pvsid=2502608345350883&tmod=1347842&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=452x505_l%7C452x505_r&bz=1&pgls=CAk.&ifi=1&uci=a!1&fsb=1&dtd=487"
+      ],
+      "optionsTested": 0
+    },
+    {
+      "path": "/blog/index.html",
+      "name": "Blog Hub",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Blog — Weight Loss, Nutrition & Fitness Science",
+      "hasHeader": true,
+      "hasTranslate": true,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/compare/index.html",
+      "name": "Compare Hub",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Side-by-Side Comparisons — Diets, Metrics & Methods",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/about/index.html",
+      "name": "About Us",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "About Us — Weight Loss Percentage",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/contact/index.html",
+      "name": "Contact",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Contact Us — Weight Loss Percentage",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/privacy/index.html",
+      "name": "Privacy Policy",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Privacy Policy",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/terms/index.html",
+      "name": "Terms of Service",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Terms of Service",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/disclaimer/index.html",
+      "name": "Disclaimer",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Medical Disclaimer",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/glossary/index.html",
+      "name": "Glossary",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Health & Fitness Glossary — BMI, BMR, TDEE & More",
+      "hasHeader": false,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": false,
+      "calculatorInteractive": false,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 0
+    },
+    {
+      "path": "/calculators/rucking/index.html",
+      "name": "Rucking Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Rucking Calorie Calculator — Calories Burned Rucking & Backpacking",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Frucking%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376184521&bpp=7&bdt=287&idt=237&shv=r20260820&mjsv=m202608200101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2106538374946&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399756%2C122880588&oid=2&pvsid=6837218188572656&tmod=404994309&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=283"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/stairmaster/index.html",
+      "name": "StairMaster Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "StairMaster Calorie Calculator — Stair Climbing Calories Burned",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fstairmaster%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376185946&bpp=12&bdt=502&idt=364&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=8708861081946&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95395999%2C95397679%2C122880397%2C95390277%2C122880564&oid=2&pvsid=8759934413094288&tmod=222574248&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=416"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/elliptical/index.html",
+      "name": "Elliptical Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Elliptical Calorie Calculator — Calories Burned on Elliptical Machine",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Felliptical%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376187327&bpp=7&bdt=322&idt=349&shv=r20260820&mjsv=m202608200101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3559473911287&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880398%2C122880588&oid=2&pvsid=6229755393012598&tmod=450163836&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=394"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/rowing/index.html",
+      "name": "Rowing Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Rowing Machine Calorie Calculator — Calories Burned Rowing",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Frowing%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376188849&bpp=8&bdt=365&idt=355&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3223840147698&rume=1&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=31084128%2C95397678%2C95399757%2C122880398%2C31061691%2C31061692&oid=2&pvsid=6162329450135684&tmod=1710193673&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=405"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/cycling/index.html",
+      "name": "Cycling Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Cycling & Stationary Bike Calorie Calculator — Outdoor & Indoor Biking",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fcycling%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376190278&bpp=7&bdt=303&idt=511&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4609531137331&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678&oid=2&pvsid=7783717259620595&tmod=1883030028&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=567"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/hiit-bodyweight/index.html",
+      "name": "HIIT & Bodyweight Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "HIIT & Bodyweight Exercise Calorie Calculator — Push-ups, Jump Rope, Yoga & Sauna",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fhiit-bodyweight%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376191838&bpp=6&bdt=313&idt=383&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=7591927647877&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880398%2C122880563&oid=2&pvsid=1486236737626116&tmod=267770238&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=419"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/dutch-bros/index.html",
+      "name": "Dutch Bros Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Dutch Bros Calorie & Nutrition Calculator — Custom Coffee & Drinks",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fdutch-bros%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376192885&bpp=7&bdt=280&idt=360&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4615940678091&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399755%2C122880501%2C122880564&oid=2&pvsid=3511656889050180&tmod=1492390239&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=405"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/taco-bell/index.html",
+      "name": "Taco Bell Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Taco Bell Nutrition & Calorie Calculator — Custom Tacos & Burritos",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Ftaco-bell%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376194171&bpp=21&bdt=437&idt=454&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3556716697692&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95396000%2C95397678%2C95399757&oid=2&pvsid=2892784723360433&tmod=609889095&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=522"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/dominos/index.html",
+      "name": "Dominos Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Domino's Pizza Calorie Calculator — Crust, Sauce & Toppings",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fdominos%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376195664&bpp=5&bdt=256&idt=333&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3802685526513&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95388157%2C95397678%2C95399757&oid=2&pvsid=3021641731985483&tmod=905965058&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=373"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/five-guys/index.html",
+      "name": "Five Guys Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Five Guys Calorie Calculator — Burgers, Little Burgers & Fries",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Ffive-guys%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376197250&bpp=11&bdt=487&idt=255&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=8579634747100&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399756%2C95400151&oid=2&pvsid=4992816311309918&tmod=768216452&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=293"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/pizza-hut/index.html",
+      "name": "Pizza Hut Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Pizza Hut Calorie Calculator — Thin 'N Crispy, Original Pan & Wings",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fpizza-hut%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376198631&bpp=6&bdt=289&idt=374&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5442148667199&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C42533293%2C122880563&oid=2&pvsid=8004727963875493&tmod=487397249&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=412"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/jimmy-johns/index.html",
+      "name": "Jimmy Johns Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Jimmy John's Calorie Calculator — Sub Sandwiches & Unwich Wraps",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fjimmy-johns%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376200224&bpp=11&bdt=504&idt=352&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2378057390136&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=31084128%2C95397678%2C95399755%2C122880398%2C122880537&oid=2&pvsid=455309247910411&tmod=1339927473&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=408"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/wendys/index.html",
+      "name": "Wendys Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Wendy's Calorie Calculator — Dave's Single, Frosty & Salads",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fwendys%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376201936&bpp=11&bdt=392&idt=246&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5682465351546&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C122880397%2C122880598%2C95340252%2C95340254&oid=2&pvsid=7969989127171264&tmod=1105848218&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=282"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/chipotle/index.html",
+      "name": "Chipotle Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Chipotle Calorie Calculator — Burrito Bowls, Tacos & Guacamole",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 3
+    },
+    {
+      "path": "/restaurants/fast-food-hub/index.html",
+      "name": "Fast Food Hub",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Fast Food & Chain Restaurant Calorie Calculator Hub — 35+ Restaurants",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Ffast-food-hub%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376204471&bpp=8&bdt=375&idt=275&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=7970244767327&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C122880587&oid=2&pvsid=2788437812807557&tmod=1256509281&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=315"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/boba-tea/index.html",
+      "name": "Boba Tea Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Boba & Bubble Tea Calorie Calculator — Milk Tea, Pearls & Sugar Levels",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/poke-bowl/index.html",
+      "name": "Poke Bowl Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Poke Bowl & Acai Bowl Calorie Calculator",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fpoke-bowl%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376206877&bpp=6&bdt=280&idt=324&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=1835950727932&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C95399755%2C42533293%2C95390277%2C122880538&oid=2&pvsid=3542150537844367&tmod=1318043920&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=358"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/salad-calories/index.html",
+      "name": "Salad Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Salad & Dressing Calorie Calculator — Greens, Proteins & Dressings",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fsalad-calories%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376208707&bpp=10&bdt=703&idt=211&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=6513391706488&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880501&oid=2&pvsid=3490791105231828&tmod=1335643849&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=259"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/sushi-calories/index.html",
+      "name": "Sushi Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Sushi & Sushi Roll Calorie Calculator — Nigiri, Sashimi & Specialty Rolls",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fsushi-calories%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376209904&bpp=6&bdt=260&idt=420&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4937920795034&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399756%2C122880563&oid=2&pvsid=7234413989921047&tmod=970772251&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=457"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/beer-calories/index.html",
+      "name": "Beer Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Beer & Alcohol Calorie Calculator — ABV %, IPA, Light Beer & Wine",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fbeer-calories%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376211312&bpp=10&bdt=394&idt=317&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2503187713378&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C95399754&oid=2&pvsid=1375645230653867&tmod=1177708651&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=359"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/indian-food/index.html",
+      "name": "Indian Food Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Indian Food Calorie Calculator — Curries, Naan, Rice & Paneer",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Findian-food%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376212562&bpp=5&bdt=267&idt=332&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5784204402884&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399757%2C122880537&oid=2&pvsid=8165530486342447&tmod=1450077718&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=368"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/smoothie/index.html",
+      "name": "Smoothie Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Smoothie & Protein Shake Calorie Calculator — Fruits, Whey & Nut Butters",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fsmoothie%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376213866&bpp=9&bdt=338&idt=449&shv=r20260820&mjsv=m202608200101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4129635645374&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C42533294%2C122880588&oid=2&pvsid=2215991008148151&tmod=1280450631&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=478"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/body-recomposition/index.html",
+      "name": "Body Recomposition Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Body Recomposition Calorie Calculator — Lose Fat & Gain Muscle Simultaneously",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fbody-recomposition%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376215149&bpp=5&bdt=260&idt=348&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5130533092750&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95395999%2C95397679%2C95399755%2C122880502%2C122880538&oid=2&pvsid=4705379764343700&tmod=869828634&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=385"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/pcos-calorie/index.html",
+      "name": "PCOS Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "PCOS Calorie & Deficit Calculator — Insulin Resistance Adjustment",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fpcos-calorie%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376216435&bpp=23&bdt=467&idt=521&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3691148893548&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679&oid=2&pvsid=900380455137256&tmod=1059132020&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=562"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/intermittent-fasting/index.html",
+      "name": "Intermittent Fasting Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Intermittent Fasting Calorie Calculator — 16:8, 18:6 & OMAD Eating Windows",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/carnivore-diet/index.html",
+      "name": "Carnivore Diet Calorie Calculator",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Carnivore Diet Calorie Calculator — Zero-Carb Protein & Fat Targets",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fcarnivore-diet%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376219782&bpp=6&bdt=394&idt=478&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2383518312471&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C95399158%2C95399757%2C122880398%2C122880587&oid=2&pvsid=1178128589658656&tmod=325531949&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=532"
+      ],
+      "optionsTested": 3
+    },
+    {
+      "path": "/calculators/unit-converters/index.html",
+      "name": "Unit Converters",
+      "status": "Passed",
+      "httpStatus": 200,
+      "title": "Grams to Calories & Calories to Pounds Calculator",
+      "hasHeader": true,
+      "hasTranslate": false,
+      "hasFooter": true,
+      "hasCalculator": true,
+      "calculatorInteractive": true,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "networkErrors": [
+        "403 https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Funit-converters%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376221404&bpp=10&bdt=356&idt=309&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4222428209163&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95396000%2C95397678%2C95399755&oid=2&pvsid=3932983118918945&tmod=425573394&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=381"
+      ],
+      "optionsTested": 3
+    }
+  ],
+  "featuresTested": [
+    {
+      "feature": "Responsive Layout (Desktop - 1440x900)",
+      "tested": true,
+      "working": true,
+      "issue": "None"
+    },
+    {
+      "feature": "Responsive Layout (Tablet - 768x1024)",
+      "tested": true,
+      "working": true,
+      "issue": "None"
+    },
+    {
+      "feature": "Responsive Layout (Mobile - 375x812)",
+      "tested": true,
+      "working": true,
+      "issue": "None"
+    }
+  ],
+  "optionsTested": [],
+  "bugsFound": [],
+  "consoleErrors": [
+    {
+      "page": "/calculators/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/nutrition/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/rucking/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/stairmaster/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/elliptical/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/rowing/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/cycling/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/hiit-bodyweight/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/dutch-bros/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/taco-bell/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/dominos/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/five-guys/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/pizza-hut/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/jimmy-johns/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/wendys/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/restaurants/fast-food-hub/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/poke-bowl/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/salad-calories/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/sushi-calories/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/beer-calories/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/indian-food/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/smoothie/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/body-recomposition/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/pcos-calorie/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/carnivore-diet/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "page": "/calculators/unit-converters/index.html",
+      "error": "Failed to load resource: the server responded with a status of 403 ()"
+    }
+  ],
+  "networkErrors": [
+    {
+      "page": "/calculators/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787331534&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376170632&bpp=8&bdt=272&idt=341&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=6261543983345&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399158%2C122880537&oid=2&pvsid=6693470048663483&tmod=1669307799&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=452x505_l%7C452x505_r&bz=1&pgls=CAk.&ifi=1&uci=a!1&fsb=1&dtd=382",
+      "status": 403
+    },
+    {
+      "page": "/nutrition/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787331535&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fnutrition%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376172000&bpp=6&bdt=289&idt=445&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=7817610295026&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880397%2C122880502%2C122880587&oid=2&pvsid=2502608345350883&tmod=1347842&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=452x505_l%7C452x505_r&bz=1&pgls=CAk.&ifi=1&uci=a!1&fsb=1&dtd=487",
+      "status": 403
+    },
+    {
+      "page": "/calculators/rucking/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Frucking%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376184521&bpp=7&bdt=287&idt=237&shv=r20260820&mjsv=m202608200101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2106538374946&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399756%2C122880588&oid=2&pvsid=6837218188572656&tmod=404994309&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=283",
+      "status": 403
+    },
+    {
+      "page": "/calculators/stairmaster/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fstairmaster%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376185946&bpp=12&bdt=502&idt=364&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=8708861081946&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95395999%2C95397679%2C122880397%2C95390277%2C122880564&oid=2&pvsid=8759934413094288&tmod=222574248&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=416",
+      "status": 403
+    },
+    {
+      "page": "/calculators/elliptical/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Felliptical%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376187327&bpp=7&bdt=322&idt=349&shv=r20260820&mjsv=m202608200101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3559473911287&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880398%2C122880588&oid=2&pvsid=6229755393012598&tmod=450163836&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=394",
+      "status": 403
+    },
+    {
+      "page": "/calculators/rowing/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Frowing%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376188849&bpp=8&bdt=365&idt=355&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3223840147698&rume=1&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=31084128%2C95397678%2C95399757%2C122880398%2C31061691%2C31061692&oid=2&pvsid=6162329450135684&tmod=1710193673&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=405",
+      "status": 403
+    },
+    {
+      "page": "/calculators/cycling/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fcycling%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376190278&bpp=7&bdt=303&idt=511&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4609531137331&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678&oid=2&pvsid=7783717259620595&tmod=1883030028&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=567",
+      "status": 403
+    },
+    {
+      "page": "/calculators/hiit-bodyweight/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fhiit-bodyweight%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376191838&bpp=6&bdt=313&idt=383&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=7591927647877&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880398%2C122880563&oid=2&pvsid=1486236737626116&tmod=267770238&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=419",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/dutch-bros/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fdutch-bros%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376192885&bpp=7&bdt=280&idt=360&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4615940678091&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399755%2C122880501%2C122880564&oid=2&pvsid=3511656889050180&tmod=1492390239&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=405",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/taco-bell/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Ftaco-bell%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376194171&bpp=21&bdt=437&idt=454&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3556716697692&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95396000%2C95397678%2C95399757&oid=2&pvsid=2892784723360433&tmod=609889095&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=522",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/dominos/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fdominos%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376195664&bpp=5&bdt=256&idt=333&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3802685526513&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95388157%2C95397678%2C95399757&oid=2&pvsid=3021641731985483&tmod=905965058&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=373",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/five-guys/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Ffive-guys%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376197250&bpp=11&bdt=487&idt=255&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=8579634747100&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399756%2C95400151&oid=2&pvsid=4992816311309918&tmod=768216452&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=293",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/pizza-hut/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fpizza-hut%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376198631&bpp=6&bdt=289&idt=374&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5442148667199&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C42533293%2C122880563&oid=2&pvsid=8004727963875493&tmod=487397249&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=412",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/jimmy-johns/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fjimmy-johns%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376200224&bpp=11&bdt=504&idt=352&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2378057390136&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=31084128%2C95397678%2C95399755%2C122880398%2C122880537&oid=2&pvsid=455309247910411&tmod=1339927473&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=408",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/wendys/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374667&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Fwendys%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376201936&bpp=11&bdt=392&idt=246&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5682465351546&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C122880397%2C122880598%2C95340252%2C95340254&oid=2&pvsid=7969989127171264&tmod=1105848218&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=282",
+      "status": 403
+    },
+    {
+      "page": "/restaurants/fast-food-hub/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Frestaurants%2Ffast-food-hub%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376204471&bpp=8&bdt=375&idt=275&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=7970244767327&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C122880587&oid=2&pvsid=2788437812807557&tmod=1256509281&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=315",
+      "status": 403
+    },
+    {
+      "page": "/calculators/poke-bowl/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fpoke-bowl%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376206877&bpp=6&bdt=280&idt=324&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=1835950727932&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C95399755%2C42533293%2C95390277%2C122880538&oid=2&pvsid=3542150537844367&tmod=1318043920&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=358",
+      "status": 403
+    },
+    {
+      "page": "/calculators/salad-calories/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fsalad-calories%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376208707&bpp=10&bdt=703&idt=211&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=6513391706488&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C122880501&oid=2&pvsid=3490791105231828&tmod=1335643849&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=259",
+      "status": 403
+    },
+    {
+      "page": "/calculators/sushi-calories/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fsushi-calories%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376209904&bpp=6&bdt=260&idt=420&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4937920795034&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399756%2C122880563&oid=2&pvsid=7234413989921047&tmod=970772251&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=457",
+      "status": 403
+    },
+    {
+      "page": "/calculators/beer-calories/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fbeer-calories%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376211312&bpp=10&bdt=394&idt=317&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2503187713378&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C95399754&oid=2&pvsid=1375645230653867&tmod=1177708651&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=359",
+      "status": 403
+    },
+    {
+      "page": "/calculators/indian-food/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Findian-food%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376212562&bpp=5&bdt=267&idt=332&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5784204402884&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C95399757%2C122880537&oid=2&pvsid=8165530486342447&tmod=1450077718&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=368",
+      "status": 403
+    },
+    {
+      "page": "/calculators/smoothie/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fsmoothie%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376213866&bpp=9&bdt=338&idt=449&shv=r20260820&mjsv=m202608200101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4129635645374&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397678%2C42533294%2C122880588&oid=2&pvsid=2215991008148151&tmod=1280450631&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=478",
+      "status": 403
+    },
+    {
+      "page": "/calculators/body-recomposition/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fbody-recomposition%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376215149&bpp=5&bdt=260&idt=348&shv=r20260820&mjsv=m202608180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=5130533092750&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95395999%2C95397679%2C95399755%2C122880502%2C122880538&oid=2&pvsid=4705379764343700&tmod=869828634&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=385",
+      "status": 403
+    },
+    {
+      "page": "/calculators/pcos-calorie/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fpcos-calorie%2Findex.html&pra=5&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376216435&bpp=23&bdt=467&idt=521&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3691148893548&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679&oid=2&pvsid=900380455137256&tmod=1059132020&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=562",
+      "status": 403
+    },
+    {
+      "page": "/calculators/carnivore-diet/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Fcarnivore-diet%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376219782&bpp=6&bdt=394&idt=478&shv=r20260820&mjsv=m202608190101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2383518312471&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95397679%2C95399158%2C95399757%2C122880398%2C122880587&oid=2&pvsid=1178128589658656&tmod=325531949&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=532",
+      "status": 403
+    },
+    {
+      "page": "/calculators/unit-converters/index.html",
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7203223934454111&output=html&adk=1812271804&adf=3025194257&abgtt=6&lmt=1787374668&plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=http%3A%2F%2Flocalhost%3A8085%2Fcalculators%2Funit-converters%2Findex.html&pra=5&aiof=13&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQ5LjAuNzgyNy41NSIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE0OS4wLjc4MjcuNTUiXSxbIkNocm9taXVtIiwiMTQ5LjAuNzgyNy41NSJdLFsiTm90KUE7QnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1787376221404&bpp=10&bdt=356&idt=309&shv=r20260820&mjsv=m202608170101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=4222428209163&frm=20&pv=2&u_tz=330&u_his=2&u_h=900&u_w=1440&u_ah=900&u_aw=1440&u_cd=24&u_sd=1&dmc=4&adx=-12245933&ady=-12245933&biw=1440&bih=900&scr_x=0&scr_y=0&eid=95396000%2C95397678%2C95399755&oid=2&pvsid=3932983118918945&tmod=425573394&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&plas=279x808_l%7C279x808_r&bz=1&ifi=1&uci=a!1&fsb=1&dtd=381",
+      "status": 403
+    }
+  ]
+}

@@ -1,11 +1,353 @@
 {
   "version": 1,
   "skills": {
-    "astro": {
-      "source": "astrolicious/agent-skills",
+    "Brainstorming Ideas Into Designs": {
+      "source": "obra/superpowers-skills",
       "sourceType": "github",
-      "skillPath": "skills/astro/SKILL.md",
-      "computedHash": "3a70f9666e7b6a03efb939b7e62938f4d3a6a5d956b2cc3c10011fda6ba27e9b"
+      "skillPath": "skills/collaboration/brainstorming/SKILL.md",
+      "computedHash": "92ecf69344ad926971a1b8552e97274059fd02659248e518df2d1aa756661a38"
+    },
+    "Code Review Reception": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/receiving-code-review/SKILL.md",
+      "computedHash": "cec536dc6ccf4d14026b3d578a751de5eb90cd8c74d68b8c6955cc8661fa9058"
+    },
+    "Collision-Zone Thinking": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/problem-solving/collision-zone-thinking/SKILL.md",
+      "computedHash": "6f53a18e52f110892f15a401cfe1991745d3f1d61c4a93abf3cc3f8ae4cc7986"
+    },
+    "Condition-Based Waiting": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/testing/condition-based-waiting/SKILL.md",
+      "computedHash": "255eba71025060d88753766bb19046bbc33f51621c96cfd832efb2b54c737596"
+    },
+    "Defense-in-Depth Validation": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/debugging/defense-in-depth/SKILL.md",
+      "computedHash": "8e3c256f828fc81f4434cbd60fd121417f6084f377a7c7a6fa2150c1f644ead9"
+    },
+    "Dispatching Parallel Agents": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/dispatching-parallel-agents/SKILL.md",
+      "computedHash": "4c7c59079caefdbf1166ba0985af6c48c7bd5b9da6b218189bccf897cdb7e18a"
+    },
+    "Executing Plans": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/executing-plans/SKILL.md",
+      "computedHash": "86f75db6d7e4fd2fc6ad26dea788c0ac9ccf07f0d9abac49022e6cf5b0c1e0d4"
+    },
+    "Finishing a Development Branch": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/finishing-a-development-branch/SKILL.md",
+      "computedHash": "5482c6b626f84793bd68cfb2f8a52a2c8ba4c7de465f151e946ae1221277c5f2"
+    },
+    "Gardening Skills Wiki": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/meta/gardening-skills-wiki/SKILL.md",
+      "computedHash": "809c13e88c822157f0a713bfebef3b3096443edcfb4240455bc3c4c8df3e70be"
+    },
+    "Getting Started with Skills": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/using-skills/SKILL.md",
+      "computedHash": "335a6c6144dfc61ef2d5e972258fd4b45a5373b12de0d48884d48d53262e3ff0"
+    },
+    "Inversion Exercise": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/problem-solving/inversion-exercise/SKILL.md",
+      "computedHash": "8455dbec499cb40f913cfd63a87b10b50c9d1ee84d82f82ddabc9cf53ae40748"
+    },
+    "Meta-Pattern Recognition": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/problem-solving/meta-pattern-recognition/SKILL.md",
+      "computedHash": "bf8de562e9f6daf41fac8589a667ea11b823110ffd43b74397a68814a13e42b3"
+    },
+    "Preserving Productive Tensions": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/architecture/preserving-productive-tensions/SKILL.md",
+      "computedHash": "02353dd9e6298827b5c45a3c40c07e58bfd5238ca22126007bdbe64cfe813792"
+    },
+    "Pulling Updates from Skills Repository": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/meta/pulling-updates-from-skills-repository/SKILL.md",
+      "computedHash": "4319cb541ea498c70f93c46b0865d0d5fee73abd060d9a0b1f36a0cf26e89614"
+    },
+    "Remembering Conversations": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/remembering-conversations/SKILL.md",
+      "computedHash": "3b34053c38df413b696bbf136c626a866730cefbac4df98a7385107608b3a3fc"
+    },
+    "Requesting Code Review": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/requesting-code-review/SKILL.md",
+      "computedHash": "d8e609b8c70c988e3f4545aab70c4423a93a07ad7cc06199b8a7e3bdb07f9f0c"
+    },
+    "Root Cause Tracing": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/debugging/root-cause-tracing/SKILL.md",
+      "computedHash": "f74eb43ed52767e6c6ee362df926e42b77bb280fb9fa9f67288671bbe4ef90a7"
+    },
+    "Scale Game": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/problem-solving/scale-game/SKILL.md",
+      "computedHash": "2f7560c4a123e5040957d9d1f170934cd4dd7297219001582f1fb1bc4d6178ee"
+    },
+    "Sharing Skills": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/meta/sharing-skills/SKILL.md",
+      "computedHash": "905d5643271cf10a8f9bdedda8393b1a979d0d78e721f3b22bfe39d3070ef466"
+    },
+    "Simplification Cascades": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/problem-solving/simplification-cascades/SKILL.md",
+      "computedHash": "6bde57c399fff67b72d615a9f686d300e504bdeabd5df266206181d1b5240665"
+    },
+    "Subagent-Driven Development": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/subagent-driven-development/SKILL.md",
+      "computedHash": "3d7ea10912d4dbf958ca75982fcdf9a329877464bdeae384c694f0089534c0ad"
+    },
+    "Systematic Debugging": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/debugging/systematic-debugging/SKILL.md",
+      "computedHash": "db12788e5266c64cd4d3b10a58f6b38cdc2a8a892e68fee632dfe36cbdf372da"
+    },
+    "Test-Driven Development (TDD)": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/testing/test-driven-development/SKILL.md",
+      "computedHash": "187e4f2d3c0810b4c2dc8dc6014cd4fc9ecea3863d7bc4036f42c6ffe002d249"
+    },
+    "Testing Anti-Patterns": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/testing/testing-anti-patterns/SKILL.md",
+      "computedHash": "ea6d7d8be30c966065968a048f3e8e92f478ca9461fed029b87a643648e519a7"
+    },
+    "Testing Skills With Subagents": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/meta/testing-skills-with-subagents/SKILL.md",
+      "computedHash": "760d264475daf479baff063e59a791b5ab8bf06c283e9a8d7596d980d1d90071"
+    },
+    "Tracing Knowledge Lineages": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/tracing-knowledge-lineages/SKILL.md",
+      "computedHash": "2d2a23df97c6d5deda23dc41b9f9c1f720c8a128ca642e977574db23a8f51c83"
+    },
+    "Using Git Worktrees": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/using-git-worktrees/SKILL.md",
+      "computedHash": "4694edaf69a95c56c0c4d8848cd92a5ac8b9a2059fd7deef3ef160ce26122084"
+    },
+    "Verification Before Completion": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/debugging/verification-before-completion/SKILL.md",
+      "computedHash": "fda010bb166de5bf3f95dc4408abaab8c118e752fcdda70db100f6dca3238d44"
+    },
+    "When Stuck - Problem-Solving Dispatch": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/problem-solving/when-stuck/SKILL.md",
+      "computedHash": "50e05210dc056744163a84a31846dabda513398dcc43137af1d1cd02b99723ed"
+    },
+    "Writing Plans": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/collaboration/writing-plans/SKILL.md",
+      "computedHash": "0db18fc8872e7e4369ca5330f9ba1ca0bb54fda226611577c9339cc8be944494"
+    },
+    "Writing Skills": {
+      "source": "obra/superpowers-skills",
+      "sourceType": "github",
+      "skillPath": "skills/meta/writing-skills/SKILL.md",
+      "computedHash": "9668704ff04943a54507e7154aecde525688209b7ece89d30cb5c128e3180c83"
+    },
+    "add-integration": {
+      "source": "incluud/astro-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/add-integration/SKILL.md",
+      "computedHash": "48a510e1f2ca78289162a824b1a981c30a16373e6c36c09f9835284ec6d78337"
+    },
+    "add-new-skills-to-workflow": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/add-new-skills-to-workflow/SKILL.md",
+      "computedHash": "bb00092fa77f0842f7143b930a2274f7950d1c84892eff37c287d74c774e17de"
+    },
+    "airflow": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/airflow/SKILL.md",
+      "computedHash": "85dd7e759a44f6cb0b49bafa3942a623824f924b0e6a8b0b4852c302bf16023d"
+    },
+    "airflow-hitl": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/airflow-hitl/SKILL.md",
+      "computedHash": "5cdc73780e841de9e490fde1c895ce315035e362a1c7859a4d308cbd6e3488f6"
+    },
+    "airflow-plugins": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/airflow-plugins/SKILL.md",
+      "computedHash": "c9df1a03afdcad1e7aa508e71f48661b4d885812160bbd3859513a7ffe6f0642"
+    },
+    "airflow-state-store": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/airflow-state-store/SKILL.md",
+      "computedHash": "28729c4363367b1dad4e17736660f54283cbc1039d989a80f7bc10d0ab176cd5"
+    },
+    "analyze-github-action-logs": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/analyze-github-action-logs/SKILL.md",
+      "computedHash": "7ed1b18ffedc2759d15862f8305bc4469221e0b1b99ef5ee2dfc1db4d76dca6e"
+    },
+    "analyzing-data": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/analyzing-data/SKILL.md",
+      "computedHash": "972a2f367ea83e37bdf1834b187adaca1e819e15d82bd953aaf5b4607183b6e0"
+    },
+    "annotating-task-lineage": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/annotating-task-lineage/SKILL.md",
+      "computedHash": "28e5ac5bf8715a1d75c198115c623b72e24e7fc280dea61e21b06e17dc4cdd8f"
+    },
+    "astro": {
+      "source": "claude-dev-suite/claude-dev-suite",
+      "sourceType": "github",
+      "skillPath": "skills/meta-frameworks/astro/SKILL.md",
+      "computedHash": "4e525df59892e318e872c086416fd23f24999525b3139b7d1f203c19aed6a416"
+    },
+    "astro-best-practices": {
+      "source": "incluud/astro-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/astro-best-practices/SKILL.md",
+      "computedHash": "896a30270363d3bfcfa611e501cf5b7cd6e386d5f86a3ae8ddae0b94479647d2"
+    },
+    "astro-code-review": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/astro-code-review/SKILL.md",
+      "computedHash": "71dda5c8f73d716e98dadee2457adcae4271e47d85fc1bc814afa084898344ff"
+    },
+    "astro-developer": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/astro-developer/SKILL.md",
+      "computedHash": "d4f085a9cf52e5f1d375ab7633db0490d7ed83db4ab4e33d562e11d8434493fc"
+    },
+    "astro-expert": {
+      "source": "oimiragieo/agent-studio",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/astro-expert/SKILL.md",
+      "computedHash": "cd73bb072595efb67b20c237bec2c339023505b6c6af77908feae553939901e3"
+    },
+    "astro-framework": {
+      "source": "delineas/astro-framework-agents",
+      "sourceType": "github",
+      "skillPath": "skills/astro-framework/SKILL.md",
+      "computedHash": "5df5da162f22dd6be7390a759aad8d01e52c23418e6f6e6322f9b4c8ebec0283"
+    },
+    "astro-github-actions": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "astro-github-actions/SKILL.md",
+      "computedHash": "e307382a24a14f927aa939fcbf48b77810754e6828c344416e31d8db41b7b0e3"
+    },
+    "astro-pr-writer": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/astro-pr-writer/SKILL.md",
+      "computedHash": "90533a6473b584e0b2bc3b330a83667fd4be0103f86d333a88dfb77ad55dc65d"
+    },
+    "astro-seo": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "astro-seo/SKILL.md",
+      "computedHash": "fc448d43509b78c62c95e0dd9cee051a02917b050b4affe061739c160a2ba4de"
+    },
+    "astrology": {
+      "source": "aryaminus/astro",
+      "sourceType": "github",
+      "skillPath": "skills/astrology/SKILL.md",
+      "computedHash": "ed53571810f01de35a1d19cec56e3155f0c551cd06e62707f0fd4196b0b96493"
+    },
+    "astronaut": {
+      "source": "membranedev/application-skills",
+      "sourceType": "github",
+      "skillPath": "skills/astronaut/SKILL.md",
+      "computedHash": "9749933df127b191abcd48cba2385cddd204798ee6071601e13219cdff096bc9"
+    },
+    "astronomer": {
+      "source": "membranedev/application-skills",
+      "sourceType": "github",
+      "skillPath": "skills/astronomer/SKILL.md",
+      "computedHash": "3ad83337e6ef1e11723d40ddeb85fdacd715d1395ee9e6253d107ab492b7fc44"
+    },
+    "astropy-astronomy": {
+      "source": "jaechang-hits/sciagent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/scientific-computing/astropy-astronomy/SKILL.md",
+      "computedHash": "b72aa4d7af459b3645f93748fbe4b0ac3a96ab64879a18bc657fc043c006cc81"
+    },
+    "authoring-dags": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/authoring-dags/SKILL.md",
+      "computedHash": "fc0442faf1ab253eb2248181adb0328e0dcfaed7aa75306c1ea92ce914604c49"
+    },
+    "authoring-go-sdk-tasks": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/authoring-go-sdk-tasks/SKILL.md",
+      "computedHash": "e13cff5d65551f3ccf5fadbe6bbee5a5f5756dc9f3086a29e532e5ae6935d446"
+    },
+    "authoring-java-sdk-tasks": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/authoring-java-sdk-tasks/SKILL.md",
+      "computedHash": "49f7f73598b54cceea72e989a8f51d348d22ad20ec2d49614bd51a8beb6d8b13"
+    },
+    "authoring-language-sdk-tasks": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/authoring-language-sdk-tasks/SKILL.md",
+      "computedHash": "77deba6c80e042760c050825e317b8da0fbbe3975f433bb55c6019a302f9c889"
+    },
+    "backend-engineer": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/backend-engineer/SKILL.md",
+      "computedHash": "7fb25764272b305f875e879edf17232a4949930d23ad5223de1f54537fe2cece"
     },
     "blog-writing-guide": {
       "source": "getsentry/skills",
@@ -13,11 +355,335 @@
       "skillPath": "skills/blog-writing-guide/SKILL.md",
       "computedHash": "b9a6d5585a901191cd159575eea1a192285055fef17294975fbe42019cf060d3"
     },
+    "blueprint": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/blueprint/SKILL.md",
+      "computedHash": "e001f12d6f88e7d505d0b3e27c4e337ab3da8ec3c4615d67f4dc6468ad4d70bd"
+    },
+    "brainstorming": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/brainstorming/SKILL.md",
+      "computedHash": "0eb8e9ba100985eb4da20c46807268cafd72ec1c4ea58132edf9be6c469867fe"
+    },
+    "browsing": {
+      "source": "obra/superpowers-chrome",
+      "sourceType": "github",
+      "skillPath": "skills/browsing/SKILL.md",
+      "computedHash": "f60d9045be5dc71f1d105e872c1666384bcf0d041b1ddc2687b2d2c1347b666b"
+    },
+    "changeset": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/changeset/SKILL.md",
+      "computedHash": "dbb7464468265d9e0477f32d7bee926ce125f6fab2b10583a8fbc2356eaee12a"
+    },
+    "checking-freshness": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/checking-freshness/SKILL.md",
+      "computedHash": "14277a8117b32cd351dfbf4d29f711a222feb6c233f1dac818241f3b168e454e"
+    },
+    "clerk": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/core/clerk/SKILL.md",
+      "computedHash": "31dde2e1c88bfc2af5a1c783eec6d64aaf554ed3bc71ad463b812f6b58c9de41"
+    },
+    "clerk-android": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/mobile/clerk-android/SKILL.md",
+      "computedHash": "89bbd90683b00472ba781d293b34520a7891bf9ff3b7724bb9a5fbde8dce1ae9"
+    },
     "clerk-astro-patterns": {
       "source": "clerk/skills",
       "sourceType": "github",
       "skillPath": "skills/frameworks/clerk-astro-patterns/SKILL.md",
       "computedHash": "efffd214dd3e4f5aaa41b000b2d62b784edc2c3d5d4aa1f9f4c54ea7cde92a29"
+    },
+    "clerk-backend-api": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/core/clerk-backend-api/SKILL.md",
+      "computedHash": "cbcad1341a7d32fed789abe864c829f27a2858dc8ba68b92254e9beb53467148"
+    },
+    "clerk-billing": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/features/clerk-billing/SKILL.md",
+      "computedHash": "7e862109e64dfa69d7f4b4236ef6720047130953b4b8f46efd235b1ff170dc90"
+    },
+    "clerk-chrome-extension-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-chrome-extension-patterns/SKILL.md",
+      "computedHash": "279882f1d02be55a5edb8715328e5e6e2059e8ad16ea1ab3bb2c01275fe12f96"
+    },
+    "clerk-cli": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/core/clerk-cli/SKILL.md",
+      "computedHash": "bdcd357135e1539c156527ed62dfc5a5471972b1b94717cecfb8464ab6f6afcf"
+    },
+    "clerk-custom-ui": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/core/clerk-custom-ui/SKILL.md",
+      "computedHash": "fe5014e5155b83e074202cc9c97044e7b5cdc07e8116f7de2c93fcb4f8c4f787"
+    },
+    "clerk-expo": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/mobile/clerk-expo/SKILL.md",
+      "computedHash": "268e6d6ea293c440d9a2fa4fd2a97828e9cbda1c66e2cc2cd7c4379a840f21cc"
+    },
+    "clerk-nextjs-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-nextjs-patterns/SKILL.md",
+      "computedHash": "cdcb9f08d567058fca7563ad8c67a4a2a2f3b9f286294e1caeb1ea5407dfebc6"
+    },
+    "clerk-nuxt-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-nuxt-patterns/SKILL.md",
+      "computedHash": "25c785bbf5174a654daa7aa8d04b9f22a0cab9eb667f1e04ed071f49a528dad6"
+    },
+    "clerk-orgs": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/features/clerk-orgs/SKILL.md",
+      "computedHash": "d93dc8368d7cc4e4b628f5876d4960be927250bff60d18861e8b61d888b7142f"
+    },
+    "clerk-react-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-react-patterns/SKILL.md",
+      "computedHash": "e6b7e52013ca836db3a8d901b3c116370da83970398b6f9d7d1e1138ba442be8"
+    },
+    "clerk-react-router-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-react-router-patterns/SKILL.md",
+      "computedHash": "767a21fd76f6cf186293cf027c7f7815c7bee8544ed788ef66cb23841b263948"
+    },
+    "clerk-setup": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/core/clerk-setup/SKILL.md",
+      "computedHash": "790d70ab1586dc693123a128ce86c8db37fe6ffd992a84d1bdd3d056d5b8a839"
+    },
+    "clerk-swift": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/mobile/clerk-swift/SKILL.md",
+      "computedHash": "f818efacdbddc5398fb569f1ebc0ff98b33d4456fb406ce8da70b359fad80ac9"
+    },
+    "clerk-tanstack-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-tanstack-patterns/SKILL.md",
+      "computedHash": "70566866acbf48b4a982c2ee700c2b94d7c6aa4b47a4f6870fccc3b2e80cfd59"
+    },
+    "clerk-testing": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/features/clerk-testing/SKILL.md",
+      "computedHash": "7502df29d90ea1f14ecbd16bf91c10717bb765eafde3d247499bc60c91d1ff91"
+    },
+    "clerk-vue-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frameworks/clerk-vue-patterns/SKILL.md",
+      "computedHash": "39422e2655a33860fd37bd2ece88417e2662cd172b896ebd1f12dcc9c367aeee"
+    },
+    "clerk-webhooks": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "skillPath": "skills/features/clerk-webhooks/SKILL.md",
+      "computedHash": "6acecf8a6a4a77294c87874bce189d311bce39ea28786a010d2769b922fbb8cc"
+    },
+    "cli-building": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/cli-building/SKILL.md",
+      "computedHash": "6200082047fce6d664eee0f2ec553be352884a23450200ad10e73ff38343eac4"
+    },
+    "code-review": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/code-review/SKILL.md",
+      "computedHash": "e367863ce612dfb74e583f9344733f7e803d992cb762d8558fa0ccda95fd5f98"
+    },
+    "command-line-chic": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/command-line-chic/SKILL.md",
+      "computedHash": "29181cc6968442bd3b85f0f0f8f6adada0e3c533c3794730ed65bb95ae93cf7c"
+    },
+    "configuring-airflow-language-sdks": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/configuring-airflow-language-sdks/SKILL.md",
+      "computedHash": "71b05ba71c16a194b87daf97bd3b0f0a16300b9e99bfdd3393fd761cafd05e66"
+    },
+    "content-collection": {
+      "source": "incluud/astro-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/content-collection/SKILL.md",
+      "computedHash": "738539cc0032c1c414dd04934843f1e9bb55100224cf35ef003b441fd418b574"
+    },
+    "content-seo": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "content-seo/SKILL.md",
+      "computedHash": "bf71b1dfef3b45c76a430a649256457c7887bf4ec31259ce0afe1f9d0fdf1920"
+    },
+    "context-engineering": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/context-engineering/SKILL.md",
+      "computedHash": "35aeae909502fdfd26c19d59412698e49abd9d82751ce77dba1d356ddd880197"
+    },
+    "cosmos-dbt-core": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/cosmos-dbt-core/SKILL.md",
+      "computedHash": "b6837be69fcaf37916112f8c5eaa6216969b3f2d37a2e75e223a9aae24971a9b"
+    },
+    "cosmos-dbt-fusion": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/cosmos-dbt-fusion/SKILL.md",
+      "computedHash": "7b3ec48b2bb17302d3c0586da3272bef915d0967e32851cdb115f8840fc977e7"
+    },
+    "create-agents-md": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/create-agents-md/SKILL.md",
+      "computedHash": "fbd2757107dec6825bd98696815edfe29c4db320e443a1f0bcaadb7bd7bfd452"
+    },
+    "create-component": {
+      "source": "incluud/astro-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-component/SKILL.md",
+      "computedHash": "c9b023760ef2189dd3af06fa6bcc184e56da08a5114e0a309e677637e30c21b6"
+    },
+    "create-game": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/create-game/SKILL.md",
+      "computedHash": "2de7201debb5474fb680c15678df75d66fa2805011a923e5ccf5b5282e50a341"
+    },
+    "create-skill": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/create-skill/SKILL.md",
+      "computedHash": "bf243df18661e667efc259681398709f2cea8672ba4ffada02e144b5e3fb0ec0"
+    },
+    "creating-openlineage-extractors": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/creating-openlineage-extractors/SKILL.md",
+      "computedHash": "03d5694592b9341517c8402a1485782415219392bdd17bb744225da0deabc35a"
+    },
+    "curriculum-studio": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/curriculum-studio/SKILL.md",
+      "computedHash": "b4ce4118ca3df1a2478f6fcb259087e32f9f0ff23b39cc7a56027f8fa4bee6a3"
+    },
+    "cursor-best-practices": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/cursor-best-practices/SKILL.md",
+      "computedHash": "19e7a563585a7f314cf6ed382143296fc0861209eeb9741ebc12838091547463"
+    },
+    "dag-factory": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/dag-factory/SKILL.md",
+      "computedHash": "806b74b7979e022b330ee2a7ba74b976b136db6458099dbde7ffafdb0752e3a7"
+    },
+    "debugging": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/debugging/SKILL.md",
+      "computedHash": "5fd72432315f2452f799b21356b655413755caf2d5c6b89ed3fad37b410f4239"
+    },
+    "debugging-dags": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/debugging-dags/SKILL.md",
+      "computedHash": "36876755674ada144df91cd3b0c4d2b35b014e0530b6e30d92437ed3435a4368"
+    },
+    "delegating-to-otto": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/delegating-to-otto/SKILL.md",
+      "computedHash": "085c96aba1346aeaadcb60b9c331dd9901faec87bcba2f44705e0d235bc43920"
+    },
+    "deploying-airflow": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/deploying-airflow/SKILL.md",
+      "computedHash": "65d6ccd4db3171162a73f6fb7c39339cae8c6ce69435dfe86c6b33baaf608dcf"
+    },
+    "deploying-go-sdk-bundles": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/deploying-go-sdk-bundles/SKILL.md",
+      "computedHash": "cf78f92da879cd5159de860a8cb6b3f6aaa0c1e19cb5c540cfb4552347357945"
+    },
+    "deploying-java-sdk-bundles": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/deploying-java-sdk-bundles/SKILL.md",
+      "computedHash": "95b0230a65d252d15f61203c391433fa80b427b40e8881e6dbcee46aa2c70190"
+    },
+    "design": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/design/SKILL.md",
+      "computedHash": "bdbc770c4e47d0d09895c955e1c8734cadadf7e070307bac0c685efff17c60d9"
+    },
+    "dispatching-parallel-agents": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/dispatching-parallel-agents/SKILL.md",
+      "computedHash": "b011107f17188e0b2898bb1856b5bac8b49537cc86e737c82126558a235bd62a"
+    },
+    "docs-lookup": {
+      "source": "incluud/astro-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/docs-lookup/SKILL.md",
+      "computedHash": "94f2deb8dc4fcc256b7163ef6c9c8219714264e6da7c0c4f92b8849f45af5c55"
+    },
+    "emdash-github-actions": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "emdash-github-actions/SKILL.md",
+      "computedHash": "c30421e6953cfc2d61b703450064293e685c8c6d19ecdd477d5f3908405a3a7f"
+    },
+    "executing-plans": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/executing-plans/SKILL.md",
+      "computedHash": "78a07800ee99a5861ae10be59d79fad085fdca10444e8aaeb2691597e357cff8"
+    },
+    "fcc-refine-idea": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/fcc-refine-idea/SKILL.md",
+      "computedHash": "031a41fe29ba34490edba534ed713308a65641a033d103f56742da6fc721db0c"
+    },
+    "fcc-to-prd": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/fcc-to-prd/SKILL.md",
+      "computedHash": "940cd7a0a0d42787a582afe2f38e39a3003a526fa7d850d9f9283c5cb66a95c3"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
@@ -25,17 +691,365 @@
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "b146008599c31057cef1c145774cea5d5afb30e8f43fa802e47a4b461419aaaf"
     },
+    "finding-duplicate-functions": {
+      "source": "obra/superpowers-lab",
+      "sourceType": "github",
+      "skillPath": "skills/finding-duplicate-functions/SKILL.md",
+      "computedHash": "1a4b8322c630677c1e3c934aba450ba5703fc1545769936ac1ddf6d828251fbc"
+    },
+    "finishing-a-development-branch": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/finishing-a-development-branch/SKILL.md",
+      "computedHash": "4f571e7befb8b0946d9d7770232c818812412e9ab1dfb811f847edfba1fc6275"
+    },
+    "frontend-engineer": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-engineer/SKILL.md",
+      "computedHash": "358d04a0397446940d48ff3132c32ed8407b818d3c7a85b1cd130abb62ed66f2"
+    },
+    "github-profile": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "github-profile/SKILL.md",
+      "computedHash": "fa1ec76aa021a0272714482348e28f9684f235db5cfbd16d378eca2b69b71ce3"
+    },
+    "github-repo": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "github-repo/SKILL.md",
+      "computedHash": "bb3de071d8fce74e4b5f1a8864177080d794d4ccff7615eeb292f52205ace3d4"
+    },
+    "greet": {
+      "source": "withastro/flue",
+      "sourceType": "github",
+      "skillPath": "examples/hello-world/.agents/skills/greet/SKILL.md",
+      "computedHash": "08df8df13ee895abd95daf795cc3acc85c3e7859d87b0bf805528754cff0c34a"
+    },
+    "hello-world": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/hello-world/SKILL.md",
+      "computedHash": "396c3566a79100e826ab33fa732d9264392ad6d060ce22a873c23a3259995b7b"
+    },
+    "karpathy-llm-wiki": {
+      "source": "astro-han/karpathy-llm-wiki",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "b1ca2bb728a4dfb2d16988a287126fb231dfdf3cd0386e3269a96695c9627c00"
+    },
+    "learning-astro": {
+      "source": "delineas/astro-framework-agents",
+      "sourceType": "github",
+      "skillPath": "skills/learning-astro/SKILL.md",
+      "computedHash": "f78c2f7d05dbd69f2a45a703c54ab8531c39f9e413293dfcfc42ee69f4ac7e96"
+    },
+    "legacy-to-ai-ready": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/legacy-to-ai-ready/SKILL.md",
+      "computedHash": "6380b47b00d14559dc5e031430554cfa661b790188538cd4696f5577e6850d83"
+    },
+    "managing-astro-deployments": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/managing-astro-deployments/SKILL.md",
+      "computedHash": "efae67ea3869d9d59ea24ef52d5e8b089d8e8b8e3dd6b537015b56a182573ff5"
+    },
+    "managing-astro-local-env": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/managing-astro-local-env/SKILL.md",
+      "computedHash": "375540b8d042b093b95617c7b53aaf38ab6ff4d47d0688f181111f94a7ddfa46"
+    },
+    "mcp-cli": {
+      "source": "obra/superpowers-lab",
+      "sourceType": "github",
+      "skillPath": "skills/mcp-cli/SKILL.md",
+      "computedHash": "a92f716edec4c642dd517b5c5d4d857525a33f5eacd7f568de09b0549dc9ff86"
+    },
+    "media-processing": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/media-processing/SKILL.md",
+      "computedHash": "6760ae5125d6ebb15a48e61158637ea21c0a7de3e91af22b7de43dfb244524b1"
+    },
+    "merge": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/merge/SKILL.md",
+      "computedHash": "40337942d26dc7fc06ba4f2097998f3105cb007afc0383a189065af9b6a2b390"
+    },
+    "metadata-check": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "metadata-check/SKILL.md",
+      "computedHash": "fca5dc31c5e4895698ccfc604ecb472f55258d590549b8b29c96b716517795bc"
+    },
+    "migrate": {
+      "source": "incluud/astro-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/migrate/SKILL.md",
+      "computedHash": "53b8765c7f96c535a3bd884b0342813e675c97e4eee103e8c54c1609141d0ccb"
+    },
+    "migrating-ai-sdk-to-common-ai": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/migrating-ai-sdk-to-common-ai/SKILL.md",
+      "computedHash": "793d79b1ca98b95eac63eb1e9400feeb443a5d21b67ddb248c57889ce70bbcfd"
+    },
+    "migrating-airflow-2-to-3": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/migrating-airflow-2-to-3/SKILL.md",
+      "computedHash": "60b97483f08046886e7391133384a8df2aa3651fe461cf041c649bbda32a34d0"
+    },
+    "migrating-dagster-to-airflow": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/migrating-dagster-to-airflow/SKILL.md",
+      "computedHash": "cf5418309c4cf66641af264bc49afee41597b1bf3f825be251c5d817bb9c19e0"
+    },
+    "perf-astro": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": "packages/skills-catalog/skills/(performance)/perf-astro/SKILL.md",
+      "computedHash": "299bd21ff10f2affb117b873b4d4d667dc63cdfbb4bba9e2dba093aee752358b"
+    },
+    "profiling-tables": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/profiling-tables/SKILL.md",
+      "computedHash": "a999e9c1c5d16267372ffe216229839ae9ebaef3cae37ce673a8c0a8af796ea3"
+    },
+    "psi": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/psi/SKILL.md",
+      "computedHash": "8693a5df80edd92b7472595031f0db221ee4fa3bd4dc2a12bd7eb7f1c4736900"
+    },
+    "publishing-astro-websites": {
+      "source": "spillwavesolutions/publishing-astro-websites-agentic-skill",
+      "sourceType": "github",
+      "skillPath": "publishing-astro-websites/SKILL.md",
+      "computedHash": "9cc80be8d897db52c1a03a1ef34f9d635afdc2eb2c174c3bd302af088b5df6ff"
+    },
+    "python": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/python/SKILL.md",
+      "computedHash": "49a3428fc00bbff8b7afb0f70a67c7035ba1d5eb25c9361f756653fbb9192fe9"
+    },
+    "react-testing-library": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/react-testing-library/SKILL.md",
+      "computedHash": "9f54adbf68fe5070b763e759a6f8500f044287944f55e49bb217266df470deec"
+    },
+    "readability-check": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "readability-check/SKILL.md",
+      "computedHash": "78e8831c4d4b96b3af630be5020c660d7d6f2280ecc0983ebc303e634c072f03"
+    },
+    "receiving-code-review": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/receiving-code-review/SKILL.md",
+      "computedHash": "59361179fc9225173e0c145ffd9bafbf9fdbf8b43ce3dc308497a0b4f83a6063"
+    },
+    "remembering-conversations": {
+      "source": "obra/episodic-memory",
+      "sourceType": "github",
+      "skillPath": "skills/remembering-conversations/SKILL.md",
+      "computedHash": "bdd6d8518ef29a6b9af2914270441a964571fee87d3023221177ac7c02bc8d83"
+    },
+    "remove-old-skills-from-workflow": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/remove-old-skills-from-workflow/SKILL.md",
+      "computedHash": "1e0186dad4ded519e404e97f87d22a65445647fd43ee51ae67422ce1ce1ea70f"
+    },
+    "requesting-code-review": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/requesting-code-review/SKILL.md",
+      "computedHash": "004f340ae65811095d6a9bb0a759c87d0a8085c5e705dbb019b011626293d2e9"
+    },
+    "resource-scout": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/resource-scout/SKILL.md",
+      "computedHash": "f7a3c37032e16a308d9304ba824d826fdc2f63acbca0f21aeb9cc0a06dc610bd"
+    },
+    "review": {
+      "source": "withastro/flue",
+      "sourceType": "github",
+      "skillPath": "examples/imported-skill/src/skills/review/SKILL.md",
+      "computedHash": "fd75fc8c72f22124a30efa37c932b88e496a9c3a3df6b1d13a44b0d89902300a"
+    },
+    "semantic-git": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/semantic-git/SKILL.md",
+      "computedHash": "a6ce93927fb13bfb6af175dc721d3e8e4da55e0bd2e95065579a32c662459ed4"
+    },
     "seo-aeo-best-practices": {
       "source": "sanity-io/agent-toolkit",
       "sourceType": "github",
       "skillPath": "skills/seo-aeo-best-practices/SKILL.md",
       "computedHash": "b6b2dd3af3c92f82f04b830dab2cc323f299d7c2e57f7d3619a5886caa7eeb08"
     },
+    "setting-up-astro-project": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/setting-up-astro-project/SKILL.md",
+      "computedHash": "4ce68f6000ff18df3e1d005fb376d90bf3eb93db6aaf0f0c815d55e087525c61"
+    },
+    "skill-creator": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/skill-creator/SKILL.md",
+      "computedHash": "1fd8ae01fe521879db230d916ccdc1385b5c75de7a9bbfa8f60cfee239ba0e50"
+    },
+    "skill-downloader": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/skill-downloader/SKILL.md",
+      "computedHash": "dc6f36bf0440a808540ea119ca7ca7a815973248670daf438171ee0e025481c8"
+    },
+    "software-engineer": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/software-engineer/SKILL.md",
+      "computedHash": "b40477f5579cb9639d3ef6f06b99c5b336ab73f4c1662b161efcbcc3512a6bab"
+    },
+    "static-seo": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "static-seo/SKILL.md",
+      "computedHash": "40277f1a2f4fa826639f71999ef700af5dd8f957d3d2eb6108673a009840c00d"
+    },
+    "subagent-driven-development": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/subagent-driven-development/SKILL.md",
+      "computedHash": "988e6ae6fa0e6a3ab7cba613662d75e80f193259576f2ede379461bfc40aa7d7"
+    },
+    "sync-issue-templates": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/sync-issue-templates/SKILL.md",
+      "computedHash": "ca05796eaacb8506974238b03188dbab64d8366a6bcd6c85c5662f33183543a4"
+    },
+    "sync-small-superblocks": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/sync-small-superblocks/SKILL.md",
+      "computedHash": "d09bef2c3635c8554588252d9da14175aac27dee9065a706473942ec320fc2d5"
+    },
+    "systematic-debugging": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/systematic-debugging/SKILL.md",
+      "computedHash": "a2750dfbaed1690da73b120254892c4f926b4576cb82eb16fc877783941fe39b"
+    },
     "tailwind-4-docs": {
       "source": "Lombiq/Tailwind-Agent-Skills",
       "sourceType": "github",
       "skillPath": "skills/tailwind-4-docs/SKILL.md",
       "computedHash": "4900f575f24641b1af459cda37cbb8438ecf3f8f1a63148384197cb730895093"
+    },
+    "test-driven-development": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/test-driven-development/SKILL.md",
+      "computedHash": "a4126a9c5f17be3c228aa9e5755898ade283448b86099f56f40852e8c14532be"
+    },
+    "testing": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/testing/SKILL.md",
+      "computedHash": "d2dd2730b2685d9c53c3f264ecbb389528bef63bda161ad514af099b7a3a054a"
+    },
+    "testing-dags": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/testing-dags/SKILL.md",
+      "computedHash": "2ff0806048ec771e5ae99046e7be4d6d237c8dc2e93f5d86705e34a6b9c48a90"
+    },
+    "tracing-downstream-lineage": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/tracing-downstream-lineage/SKILL.md",
+      "computedHash": "cf1fd005c0f326dccaa748b2a6d313c4c69ab33405f5d114621d03a9708603b4"
+    },
+    "tracing-upstream-lineage": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/tracing-upstream-lineage/SKILL.md",
+      "computedHash": "c63bf600ffe3606f49a022e296c945e4902577f5dd8b6fa564d1f13c69ab1695"
+    },
+    "triage": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/triage/SKILL.md",
+      "computedHash": "c9152a24955b2a3e55d57ed6c88269e55bd778b6eafb59963576b42902ad60a7"
+    },
+    "troubleshooting-astro-deployments": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/troubleshooting-astro-deployments/SKILL.md",
+      "computedHash": "a4e12073625f0f01f312aaea9b099a7a8f35a814e55c0a8d7b3efb6e2b5e203e"
+    },
+    "typescript": {
+      "source": "siviter-xyz/dot-agent",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/SKILL.md",
+      "computedHash": "5867e06d30c3432967f6910e13a0b124cc54ff17b7e11377d4168fc1188993bb"
+    },
+    "unfluff": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/unfluff/SKILL.md",
+      "computedHash": "9862b7a68c884151fc51fb00b067264e512bb848ebdded9a8bb4d0fa07a4e924"
+    },
+    "using-git-worktrees": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/using-git-worktrees/SKILL.md",
+      "computedHash": "48c8a1040e378e0cb7208107294e3afa9067b9370c3f33b49a443eb6b7528b0d"
+    },
+    "using-superpowers": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/using-superpowers/SKILL.md",
+      "computedHash": "c7abe8bdc2099bbe4f245454d32c7563ccd2bb41dcc218b02b461c2acc3c6ae6"
+    },
+    "using-tmux-for-interactive-commands": {
+      "source": "obra/superpowers-lab",
+      "sourceType": "github",
+      "skillPath": "skills/using-tmux-for-interactive-commands/SKILL.md",
+      "computedHash": "5fff040de2f247150f550b5653ec98f4300cbeaa80dba1627d468d081e19bd4b"
+    },
+    "verification-before-completion": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/verification-before-completion/SKILL.md",
+      "computedHash": "b529822bdac4b197b180fe12225cff86b930b65910435103c10622df7f041651"
+    },
+    "warehouse-init": {
+      "source": "astronomer/agents",
+      "sourceType": "github",
+      "skillPath": "skills/warehouse-init/SKILL.md",
+      "computedHash": "17f36407fa9500901580d496f5eeb52a8da8db3bf29fd7da3288383ed7d65f3d"
+    },
+    "web-accessibility": {
+      "source": "freecodecamp-universe/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/web-accessibility/SKILL.md",
+      "computedHash": "f5f5330146fc1c7937450cb0802139a87b18524550f65cbb82c62a884f1b6eb8"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
@@ -48,6 +1062,60 @@
       "sourceType": "github",
       "skillPath": "skills/webapp-testing/SKILL.md",
       "computedHash": "3f14af7f5690695209c22fbf8c8d133769a86d64892602c09bb13f135e14e857"
+    },
+    "windows-vm": {
+      "source": "obra/superpowers-lab",
+      "sourceType": "github",
+      "skillPath": "skills/windows-vm/SKILL.md",
+      "computedHash": "a8bbc2b2881d3f4122f2ae2618bb602c10bd2ad826a85e54d584731e778c20f9"
+    },
+    "workflow-creator": {
+      "source": "nicepkg/ai-workflow",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/workflow-creator/SKILL.md",
+      "computedHash": "ea01b00fb21f7fc1c8e8159ebcab3a0ce8c046ccf419bcc2b4a8343863a28154"
+    },
+    "wp-github-actions": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "wp-github-actions/SKILL.md",
+      "computedHash": "172e9f35910d780eb20438d66d237bcc6850bfd8a5c50d6a3d88beaeb6aee645"
+    },
+    "wp-readme-optimizer": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "wp-readme-optimizer/SKILL.md",
+      "computedHash": "b61bd080e9382a48e3e2907a47983fd05506f32adfee7cc75375d014c7e6fb2f"
+    },
+    "wp-static-clone": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "wp-static-clone/SKILL.md",
+      "computedHash": "c81dbe5c2f418f018b92a347541d3ab20ec971ac7f0f194315ed947b975a5421"
+    },
+    "writing-clearly-and-concisely": {
+      "source": "obra/the-elements-of-style",
+      "sourceType": "github",
+      "skillPath": "skills/writing-clearly-and-concisely/SKILL.md",
+      "computedHash": "0368bdb94d4b769724da4b7eb054fa7fbbd7f3ea3bb00db6ea75f34a066b10d0"
+    },
+    "writing-comments": {
+      "source": "withastro/astro",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/writing-comments/SKILL.md",
+      "computedHash": "a281160a930de6895fa207d403e1829607f12ae76eaaf519fc249977729397a3"
+    },
+    "writing-plans": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/writing-plans/SKILL.md",
+      "computedHash": "27c75044e444a4fc68798c3f799dc23eaff3a6bfabff32e6ad75bb20f881c094"
+    },
+    "writing-skills": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/writing-skills/SKILL.md",
+      "computedHash": "5f255b9c0d50d6d7eafa41b245b9308799321c5222bc68b1be2499f50ed82713"
     }
   }
 }

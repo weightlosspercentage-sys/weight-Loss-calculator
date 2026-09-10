@@ -1,0 +1,63 @@
+=== HOMEPAGE OPTIONS / NAV ===
+  nav/header links: 79
+  footer region/language links: 7
+  mobile menu button: opens
+  console/page errors on home: none
+
+=== CALCULATOR OPTIONS CHECK (44 pages) ===
+  /calculators/baby-weight-loss/     HTTP 200  inputs:3 sel:0 calcBtn:true -> OK  
+  /calculators/bariatric-surgery-weight-loss/ HTTP 200  inputs:1 sel:0 calcBtn:false -> OK  
+  /calculators/beer-calories/        HTTP 200  inputs:2 sel:2 calcBtn:true -> OK  
+  /calculators/biggest-loser/        HTTP 200  inputs:3 sel:0 calcBtn:true -> OK  
+  /calculators/bmi/                  HTTP 200  inputs:2 sel:0 calcBtn:true -> OK  
+  /calculators/bmr/                  HTTP 200  inputs:3 sel:1 calcBtn:true -> OK  
+  /calculators/boba-tea/             HTTP 200  inputs:0 sel:3 calcBtn:true -> OK  
+  /calculators/body-fat/             HTTP 200  inputs:5 sel:1 calcBtn:true -> OK  
+  /calculators/body-recomposition/   HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/calorie/              HTTP 200  inputs:3 sel:2 calcBtn:true -> OK  
+  /calculators/calorie-deficit/      HTTP 200  inputs:0 sel:0 calcBtn:false -> OK  
+  /calculators/carnivore-diet/       HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/cycling/              HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/dog-weight-loss/      HTTP 200  inputs:3 sel:1 calcBtn:true -> NO RESULT  
+       result sample: (no numeric output detected)
+  /calculators/elliptical/           HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/fat-loss/             HTTP 200  inputs:3 sel:0 calcBtn:true -> NO RESULT  
+       result sample: (no numeric output detected)
+  /calculators/fitness/              HTTP 200  inputs:0 sel:0 calcBtn:false -> OK  
+  /calculators/glp1-weight-loss/     HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/hiit-bodyweight/      HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/indian-food/          HTTP 200  inputs:0 sel:3 calcBtn:true -> OK  
+  /calculators/infant-weight-loss/   HTTP 200  inputs:3 sel:0 calcBtn:true -> OK  
+  /calculators/intermittent-fasting/ HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/keto/                 HTTP 200  inputs:1 sel:0 calcBtn:true -> OK  
+  /calculators/macro/                HTTP 200  inputs:6 sel:0 calcBtn:true -> NO RESULT  
+       result sample: (no numeric output detected)
+  /calculators/newborn-weight-loss/  HTTP 200  inputs:3 sel:0 calcBtn:true -> OK  
+  /calculators/nutrition/            HTTP 200  inputs:0 sel:0 calcBtn:false -> OK  
+  /calculators/pcos-calorie/         HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/peptide-dosage/       HTTP 200  inputs:3 sel:0 calcBtn:true -> NO RESULT  
+       result sample: (no numeric output detected)
+  /calculators/poke-bowl/            HTTP 200  inputs:0 sel:3 calcBtn:true -> OK  
+  /calculators/postpartum-weight-loss/ HTTP 200  inputs:4 sel:2 calcBtn:false -> OK  
+  /calculators/pregnancy/            HTTP 200  inputs:0 sel:0 calcBtn:false -> OK  
+  /calculators/protein/              HTTP 200  inputs:1 sel:1 calcBtn:true -> NO RESULT  
+       result sample: (no numeric output detected)
+  /calculators/rowing/               HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/rucking/              HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/salad-calories/       HTTP 200  inputs:0 sel:3 calcBtn:true -> OK  
+  /calculators/smoothie/             HTTP 200  inputs:0 sel:3 calcBtn:true -> OK  
+  /calculators/specialized/          HTTP 200  inputs:0 sel:0 calcBtn:false -> OK  
+  /calculators/stairmaster/          HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/sushi-calories/       HTTP 200  inputs:0 sel:3 calcBtn:true -> OK  
+  /calculators/tdee/                 HTTP 200  inputs:8 sel:1 calcBtn:true -> OK  
+  /calculators/unit-converters/      HTTP 200  inputs:4 sel:0 calcBtn:false -> OK  
+  /calculators/walking/              HTTP 200  inputs:2 sel:1 calcBtn:true -> OK  
+  /calculators/water-intake/         HTTP 200  inputs:1 sel:1 calcBtn:true -> NO RESULT  
+       result sample: (no numeric output detected)
+  /calculators/weight-loss/          HTTP 200  inputs:3 sel:0 calcBtn:true -> OK  
+
+=== SUMMARY ===
+  Calculators checked: 44
+  Calculators with a Calculate button: 36
+  Calculators that produced a result: 30
+  Pages with console/page errors (non-ad): 0

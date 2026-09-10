@@ -49,18 +49,8 @@ const footerLinks = [
 ---
 
 
-    <!-- AdSense Dharma 2 Pre-Footer Ad Unit -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8 text-center">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-7203223934454111"
-           data-ad-slot="9720699039"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script is:inline>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+    <!-- Ad placements are handled automatically by AdSense Auto Ads (page-level),
+         which avoids the "ins already has ads" double-push conflict. -->
 
 <footer class="static-footer" style="background: #0f172a; border-top: 1px solid #1e293b; padding: 64px 24px; font-family: var(--font-sans); color: #94a3b8;">
   <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
@@ -69,7 +59,7 @@ const footerLinks = [
     <!-- Rest of Footer - Aligned Left for desktop grid -->
     <div style="text-align: left; margin-top: 2rem;">
       
-      <!-- Top Row: Get in Touch & Newsletter -->
+      <!-- Top Row: Get in Touch -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; border-bottom: 1px solid #1e293b; padding-bottom: 40px; margin-bottom: 48px;">
         <div style="flex: 1.5; min-width: 280px;">
           <div style="color: #ffffff; font-size: 12px; font-weight: 400; font-family: var(--font-mono); margin: 0 0 8px 0; text-transform: uppercase;">Get In Touch</div>
@@ -77,12 +67,10 @@ const footerLinks = [
             Have questions, feedback, or need help? We'd love to hear from you.
           </p>
         </div>
-        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">
-          <span style="color: #ffffff; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">Join our newsletter</span>
-          <div style="display: flex; width: 100%; max-width: 400px; gap: 8px;">
-            <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px 16px; border-radius: var(--vercel-radius); border: 1px solid #1e293b; background: #0f172a; color: #ffffff; font-size: 14px;" />
-            <button style="padding: 10px 16px; border-radius: var(--vercel-radius); border: none; background: #3b82f6; color: #ffffff; font-weight: 500; font-size: 14px; cursor: pointer;">Subscribe</button>
-          </div>
+        <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">
+          <a href="/contact/" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--vercel-radius); border: 1px solid #334155; background: transparent; color: #94a3b8; font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s, border-color 0.2s;" onmouseover="this.style.color='#ffffff'; this.style.borderColor='#ffffff';" onmouseout="this.style.color='#94a3b8'; this.style.borderColor='#334155';">
+            Contact Us →
+          </a>
         </div>
       </div>
 
@@ -147,8 +135,8 @@ const footerLinks = [
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
             <li><a href={getLocalizedHref('/about/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">About Us</a></li>
             <li><a href={getLocalizedHref('/contact/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Contact Us</a></li>
-            <li><a href={getLocalizedHref('/blog/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Blog</a></li>
             <li><a href={getLocalizedHref('/glossary/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Glossary</a></li>
+            <li><a href={getLocalizedHref('/compare/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Compare Tools</a></li>
           </ul>
         </div>
 

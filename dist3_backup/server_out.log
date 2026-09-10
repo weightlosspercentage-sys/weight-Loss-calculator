@@ -1,0 +1,12 @@
+
+> lunar-luminosity@0.0.1 dev
+> astro dev
+
+[2m10:18:53[22m [34m[vite][39m connected.
+transport invoke timed out after 60000ms (data: {"type":"custom","event":"vite:invoke","data":{"name":"fetchModule","id":"send:cEbwaThkDdbmzKrTTbrXC","data":["/node_modules/astro/dist/core/app/entrypoints/index.js","\u0000virtual:astro:manifest",{"cached":false,"startOffset":3}]}})
+  [1mStack trace:[22m
+[2m    at reviveInvokeError (file:///D:/projects/Weight%20Loss%20Percentage/Live/Weight%20Loss%20Percentage-%20Upload%201/node_modules/vite/dist/node/module-runner.js:549:14)
+    at async ModuleRunner.getModuleInformation (file:///D:/projects/Weight%20Loss%20Percentage/Live/Weight%20Loss%20Percentage-%20Upload%201/node_modules/vite/dist/node/module-runner.js:1198:7)
+    at async eval (virtual:astro:manifest:2:6)
+    at async ModuleRunner.directRequest (file:///D:/projects/Weight%20Loss%20Percentage/Live/Weight%20Loss%20Percentage-%20Upload%201/node_modules/vite/dist/node/module-runner.js:1258:59)
+    at async eval (eval at runInlinedModule (file:///D:/projects/Weight%20Loss%20Percentage/Live/Weight%20Loss%20Percentage-%20Upload%201/node_modules/vite/dist/node/module-runner.js:1005:9), <anonymous>:5:31)[22m

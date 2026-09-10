@@ -13,7 +13,7 @@ export const SPA_NAV_GUARD_MARKER = '__SPA_NAV_GUARD__';
 // are handled by the SPA router; every other same-origin link gets a full
 // page load. Dynamic routes use a "$" suffix (prefix match).
 const SPA_ROUTES = [
-  '/', '/about', '/blog/', '/calculators/',
+  '/', '/about', '/calculators/',
   '/calculators/baby-weight-loss', '/calculators/bariatric-surgery-weight-loss',
   '/calculators/bmi', '/calculators/bmr', '/calculators/body-fat',
   '/calculators/calorie', '/calculators/dog-weight-loss', '/calculators/glp1-weight-loss',
@@ -21,9 +21,9 @@ const SPA_ROUTES = [
   '/calculators/newborn-weight-loss', '/calculators/peptide-dosage',
   '/calculators/postpartum-weight-loss', '/calculators/protein', '/calculators/tdee',
   '/calculators/water-intake', '/calculators/weight-loss',
-  '/compare/', '/contact', '/disclaimer', '/glossary', '/nutrition', '/privacy',
+  '/compare/', '/contact', '/disclaimer', '/glossary', '/privacy',
   '/restaurants/mcdonalds', '/restaurants/starbucks', '/restaurants/subway',
-  '/terms', '/compare/$', '/blog/$',
+  '/terms', '/compare/$',
 ];
 
 export const SPA_NAV_GUARD_SCRIPT = `

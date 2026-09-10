@@ -10,7 +10,7 @@ if (fs.existsSync(targetPath)) {
   const keywords = [
     "Infant Weight Percentiles & Baby Weight Charts",
     "how many ounces in a pound baby weight",
-    "Dr. Sarah Jenkins",
+    "Dr. Rekha Kumar",
     "Peer-Reviewed Clinical References",
     "Postpartum Weight Loss Calculator"
   ];

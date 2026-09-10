@@ -30,7 +30,7 @@ BLOG_TEMPLATES = [
         'slug': "weight-loss-percentage-at-100-to-130-lbs",
         'meta_desc': "Calculate weight loss percentage at 100 to 130 lbs starting weight. Learn why each pound counts more at lower body weights and what 5%, 10%, and 15% loss look like.",
         'h1': "Weight Loss Percentage at 100–130 lbs: Every Pound Counts",
-        'author': "Dr. Sarah Jenkins",
+        'author': "Dr. Rekha Kumar, M.D., M.S.",
         'author_cred': "Clinical Dietitian & Weight Management Specialist",
         'content': {
             'intro': (
@@ -95,7 +95,7 @@ BLOG_TEMPLATES = [
         'title': "Weight Loss Percentage at 130–170 lbs: The Sweet Spot for Progress",
         'meta_desc': "Calculate weight loss percentage at 130 to 170 lbs. Discover what 5%, 10%, and 15% weight loss looks like, with safe deficit targets and timelines.",
         'h1': "Weight Loss Percentage at 130–170 lbs: Balanced and Achievable",
-        'author': "Dr. Sarah Jenkins",
+        'author': "Dr. Rekha Kumar, M.D., M.S.",
         'author_cred': "Clinical Dietitian & Weight Management Specialist",
         'content': {
             'intro': (
@@ -218,7 +218,7 @@ BLOG_TEMPLATES = [
         'title': "Weight Loss Percentage at 230–300 lbs: Rapid, Safe, Life-Saving Progress",
         'meta_desc': "Calculate weight loss percentage at 230 to 300 lbs. At these starting weights, 5% loss is 12–15 lbs bringing massive health improvements. Safe calorie deficit and timeline.",
         'h1': "Weight Loss Percentage at 230–300 lbs: Your Health Transformation Starts Here",
-        'author': "Dr. Sarah Jenkins",
+        'author': "Dr. Rekha Kumar, M.D., M.S.",
         'author_cred': "Clinical Dietitian & Weight Management Specialist",
         'content': {
             'intro': (
@@ -288,7 +288,7 @@ BLOG_TEMPLATES = [
         'title': "Weight Loss Percentage at 300–400 lbs: Major Impact Weight Loss",
         'meta_desc': "Calculate weight loss percentage at 300 to 400 lbs. At this weight range, losing 5% is 15–20 lbs. Find safe deficit plans, weekly targets, and medical guidance.",
         'h1': "Weight Loss Percentage at 300–400 lbs: Your Journey to Better Health",
-        'author': "Dr. Sarah Jenkins",
+        'author': "Dr. Rekha Kumar, M.D., M.S.",
         'author_cred': "Clinical Dietitian & Weight Management Specialist",
         'content': {
             'intro': (

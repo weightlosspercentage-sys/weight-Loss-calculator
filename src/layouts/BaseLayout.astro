@@ -79,6 +79,18 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
     <script define:vars={{ region }} is:inline>
       window.__ROUTE_BASEPATH__ = region ? `/${region}` : "/";
     </script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const resultElements = document.querySelectorAll('.result-card, #result, [class*="result-card"], [id*="result-"], [class*="calculator-result"]');
+        resultElements.forEach(el => {
+          if (!el.hasAttribute('aria-live')) el.setAttribute('aria-live', 'polite');
+          if (!el.hasAttribute('role')) el.setAttribute('role', 'status');
+        });
+      });
+    </script>
+    
+    
+
     <slot name="head" />
     <style is:global>
       :root {
@@ -99,11 +111,18 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
         --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
         --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
       }
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
       body {
         font-family: var(--font-sans);
         background-color: var(--vercel-canvas-soft);
         color: var(--vercel-ink);
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      html {
+        overflow-x: hidden;
       }
       h1, h2, h3, h4, h5, h6 {
         letter-spacing: -0.03em;
@@ -140,16 +159,20 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
       .group:hover .group-hover\:flex,
       .group:focus-within .group-focus-within\:flex  { display: flex  !important; }
 
-      /* Hide outer static layout elements when React is loaded */
+      /* Prevent duplicate headers/footers when React SPA mounts */
       html.has-react .static-header,
       html.has-react .static-footer,
-      /* Hide all static fallback content inside #root - use direct child selectors (>)
-         so we don't accidentally match React's nested components inside the #root wrapper div */
       html.has-react #root > header,
       html.has-react #root > footer,
       html.has-react #root > nav,
       html.has-react #root > #mobileMenuScript,
       html.has-react #root > #main-content {
+        display: none !important;
+      }
+
+      /* When React has mounted inside #root, ensure any following static footers are hidden */
+      #root:not(:empty) ~ .static-footer,
+      #root:not(:empty) ~ footer.static-footer {
         display: none !important;
       }
 
@@ -264,6 +287,37 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
       /* Group hover behavior for dropdowns */
       .group { position: relative; }
     </style>
+  
+    <!-- React Hydration & Layout Guard -->
+    <script is:inline>
+      (function() {
+        function checkReactMount() {
+          var root = document.getElementById('root');
+          if (root && root.querySelector('.flex.flex-col.min-h-screen')) {
+            document.documentElement.classList.add('has-react');
+            var staticFooters = document.querySelectorAll('.static-footer');
+            for (var i = 0; i < staticFooters.length; i++) {
+              staticFooters[i].style.display = 'none';
+            }
+            var staticHeaders = document.querySelectorAll('.static-header');
+            for (var j = 0; j < staticHeaders.length; j++) {
+              staticHeaders[j].style.display = 'none';
+            }
+          }
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', checkReactMount);
+        } else {
+          checkReactMount();
+        }
+        var observer = new MutationObserver(checkReactMount);
+        var rootEl = document.getElementById('root');
+        if (rootEl) {
+          observer.observe(rootEl, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+
   </head>
   <body>
     {/* Page loader: only shown for React-loaded pages that need bundle mount time */}

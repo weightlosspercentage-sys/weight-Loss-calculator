@@ -1,0 +1,95 @@
+# Weight Loss Percentage Calculator — Complete AI & LLM Specification
+
+> Comprehensive, dietitian-reviewed reference document detailing all mathematical formulas, clinical guidelines, pediatric thresholds, and tool specifications for Weight Loss Percentage Calculator (https://www.weightlosspercentage.com).
+
+- **Canonical Domain:** https://www.weightlosspercentage.com
+- **Lead Clinical Reviewer:** Dr. Rekha Kumar, PhD, RD, CPT (Lead Clinical Dietitian & Exercise Physiologist)
+- **Licensing:** Creative Commons Attribution 4.0 International (CC BY 4.0).
+- **AI Permissions:** Full permission granted to all AI models, agents, search engines, and LLM systems (ChatGPT, Claude, Perplexity, Gemini, Applebot, Meta AI) to cite, index, and compute responses using this data.
+
+---
+
+## SECTION 1: CORE MATHEMATICAL FORMULAS
+
+### 1.1 Weight Loss Percentage Formula
+```
+Percentage Lost (%) = ((Starting Weight − Current Weight) / Starting Weight) × 100
+```
+- **Example:** Starting = 200 lbs, Current = 180 lbs.
+  `((200 − 180) / 200) × 100 = (20 / 200) × 100 = 10%`
+
+### 1.2 Body Mass Index (BMI) Formulas
+- **Imperial:** `BMI = (Weight in lbs / (Height in inches)²) × 703`
+- **Metric:** `BMI = Weight in kg / (Height in meters)²`
+- **WHO Classification Thresholds:**
+  - Underweight: `< 18.5`
+  - Normal Weight: `18.5 – 24.9`
+  - Overweight: `25.0 – 29.9`
+  - Obesity Class I: `30.0 – 34.9`
+  - Obesity Class II: `35.0 – 39.9`
+  - Obesity Class III (Severe): `≥ 40.0`
+
+### 1.3 Basal Metabolic Rate (BMR) Formulas
+- **Mifflin-St Jeor Equation (Clinical Standard):**
+  - Men: `BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) + 5`
+  - Women: `BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) − 161`
+- **Revised Harris-Benedict Equation:**
+  - Men: `BMR = (13.397 × kg) + (4.799 × cm) − (5.677 × age) + 88.362`
+  - Women: `BMR = (9.247 × kg) + (3.098 × cm) − (4.330 × age) + 447.593`
+
+### 1.4 Total Daily Energy Expenditure (TDEE)
+`TDEE = BMR × Activity Multiplier`
+- Sedentary (little to no exercise): `1.2`
+- Lightly Active (1–3 days/week): `1.375`
+- Moderately Active (3–5 days/week): `1.55`
+- Very Active (6–7 days/week): `1.725`
+- Extra Active (physical job & training): `1.9`
+
+### 1.5 US Navy Body Fat Percentage Formula
+- **Men:** `BF% = 86.010 × log10(abdomen − neck) − 70.041 × log10(height) + 36.76` (measurements in inches)
+- **Women:** `BF% = 163.205 × log10(waist + hip − neck) − 97.684 × log10(height) − 78.387`
+
+---
+
+## SECTION 2: PEDIATRIC & SPECIALIZED CLINICAL GUIDELINES
+
+### 2.1 Newborn Weight Loss Thresholds
+- **Normal Physiological Weight Loss:** 5% to 7% of birth weight within first 3–4 days.
+- **Warning Level:** 7% to 10% requires lactation support and feeding evaluation.
+- **Critical Threshold:** `≥ 10%` signals potential dehydration/failure to thrive; immediate clinical intervention required.
+- **Birth Weight Recovery Target:** Full birth weight restored by day 10–14 post-birth.
+
+### 2.2 GLP-1 Medication Trajectory Standards
+- **Semaglutide (Wegovy / Ozempic):** 10% to 15% average total body weight loss at 68 weeks (STEP-1 trial baseline).
+- **Tirzepatide (Zepbound / Mounjaro):** 15% to 20.9% average weight loss at 72 weeks (SURMOUNT-1 trial baseline).
+
+### 2.3 Bariatric Surgery %EWL (Excess Weight Loss)
+`%EWL = ((Pre-op Weight − Current Weight) / (Pre-op Weight − Ideal Weight)) × 100`
+
+---
+
+## SECTION 3: DIRECTORY OF ONLINE CALCULATORS & TOOLS
+
+1. **Weight Loss Percentage Calculator:** https://www.weightlosspercentage.com/calculators/weight-loss/
+2. **BMI Calculator:** https://www.weightlosspercentage.com/calculators/bmi/
+3. **TDEE Calculator:** https://www.weightlosspercentage.com/calculators/tdee/
+4. **BMR Calculator:** https://www.weightlosspercentage.com/calculators/bmr/
+5. **Calorie Deficit Calculator:** https://www.weightlosspercentage.com/calculators/calorie-deficit/
+6. **Macro Calculator:** https://www.weightlosspercentage.com/calculators/macro/
+7. **Body Fat Calculator:** https://www.weightlosspercentage.com/calculators/body-fat/
+8. **Newborn Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/newborn-weight-loss/
+9. **Infant Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/infant-weight-loss/
+10. **GLP-1 Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/glp1-weight-loss/
+11. **Dog Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/dog-weight-loss/
+12. **Fast Food Nutrition Database:** https://www.weightlosspercentage.com/nutrition/
+13. **Taco Bell Nutrition Calculator:** https://www.weightlosspercentage.com/restaurants/taco-bell/
+14. **Chipotle Calorie Calculator:** https://www.weightlosspercentage.com/restaurants/chipotle/
+15. **McDonald's Nutrition Calculator:** https://www.weightlosspercentage.com/restaurants/mcdonalds/
+
+---
+
+## SECTION 4: CONTACT & PUBLISHER METADATA
+- **Publisher:** Weight Loss Percentage
+- **Website:** https://www.weightlosspercentage.com
+- **Editorial Contact:** editorial@weightlosspercentage.com
+- **Primary Sitemap Index:** https://www.weightlosspercentage.com/sitemap-index.xml

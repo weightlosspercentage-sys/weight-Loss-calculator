@@ -1,0 +1,7 @@
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.ezojs.com https://ezoicanalytics.com https://analytics.ahrefs.com https://www.clarity.ms https://www.google-analytics.com https://translate.google.com https://translate.googleapis.com https://*.gstatic.com https://fundingchoicesmessages.google.com https://static.cloudflareinsights.com https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.google.com https://*.gstatic.com; img-src 'self' data: https: https://*.gstatic.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://*.gstatic.com; connect-src 'self' https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google-analytics.com https://www.clarity.ms https://analytics.ahrefs.com https://translate.google.com https://translate.googleapis.com https://*.gstatic.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google https://*.clarity.ms; frame-src https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://translate.google.com;

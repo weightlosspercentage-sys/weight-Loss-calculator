@@ -1,0 +1,230 @@
+﻿# â”€â”€â”€ HTTPS Redirect â”€â”€â”€
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# â”€â”€â”€ www redirect (non-www â†’ www) â”€â”€â”€
+RewriteCond %{HTTP_HOST} ^weightlosspercentage\.com$ [NC]
+RewriteRule ^ https://www.weightlosspercentage.com%{REQUEST_URI} [L,R=301]
+
+# â”€â”€â”€ 301 Redirect index.html to Trailing Slash URLs â”€â”€â”€
+# Direct requests for index.html at root
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+RewriteRule ^index\.html$ https://www.weightlosspercentage.com/ [R=301,L]
+
+# Direct requests for index.html in subdirectories
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+/)*index\.html\ HTTP/ [NC]
+RewriteRule ^(([^/]+/)*)index\.html$ https://www.weightlosspercentage.com/$1 [R=301,L]
+
+# â”€â”€â”€ Ads.txt served directly â”€â”€â”€
+
+
+# â”€â”€â”€ 301 Redirects from Old/Legacy Paths to New Active Paths â”€â”€â”€
+# Remove /category/ taxonomy prefix in favor of clean /calculators/ hierarchy
+Redirect 301 /category/fitness https://www.weightlosspercentage.com/calculators/fitness
+Redirect 301 /category/fitness/ https://www.weightlosspercentage.com/calculators/fitness
+Redirect 301 /category/nutrition https://www.weightlosspercentage.com/calculators/nutrition
+Redirect 301 /category/nutrition/ https://www.weightlosspercentage.com/calculators/nutrition
+Redirect 301 /category/pregnancy https://www.weightlosspercentage.com/calculators/pregnancy
+Redirect 301 /category/pregnancy/ https://www.weightlosspercentage.com/calculators/pregnancy
+Redirect 301 /category/specialized https://www.weightlosspercentage.com/calculators/specialized
+Redirect 301 /category/specialized/ https://www.weightlosspercentage.com/calculators/specialized
+Redirect 301 /category/weight-loss https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /category/weight-loss/ https://www.weightlosspercentage.com/calculators/weight-loss
+
+# Author profile consolidation
+Redirect 301 /author/sarah-jenkins https://www.weightlosspercentage.com/authors/dr-sarah-jenkins
+Redirect 301 /author/sarah-jenkins/ https://www.weightlosspercentage.com/authors/dr-sarah-jenkins
+
+# Calculator consolidation
+Redirect 301 /calculators/baby-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/baby-weight-loss/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/infant-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/infant-weight-loss/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculators/fat-loss https://www.weightlosspercentage.com/calculators/body-fat
+Redirect 301 /calculators/fat-loss/ https://www.weightlosspercentage.com/calculators/body-fat
+Redirect 301 /calculators/calorie-deficit https://www.weightlosspercentage.com/calculators/calorie
+Redirect 301 /calculators/calorie-deficit/ https://www.weightlosspercentage.com/calculators/calorie
+
+
+# Legacy HTML pages
+Redirect 301 /weight-loss-percentage-calculator-newborn.html https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /weight-loss-percentage-newborn.html https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /body-fat.html https://www.weightlosspercentage.com/calculators/body-fat
+Redirect 301 /calorie-deficit.html https://www.weightlosspercentage.com/calculators/calorie
+
+# Old singular calculator paths to new plural calculator paths
+Redirect 301 /calculator/newborn https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculator/newborn/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
+Redirect 301 /calculator/bmi https://www.weightlosspercentage.com/calculators/bmi
+Redirect 301 /calculator/bmi/ https://www.weightlosspercentage.com/calculators/bmi
+Redirect 301 /calculator/tdee https://www.weightlosspercentage.com/calculators/tdee
+Redirect 301 /calculator/tdee/ https://www.weightlosspercentage.com/calculators/tdee
+Redirect 301 /calculator/bmr https://www.weightlosspercentage.com/calculators/bmr
+Redirect 301 /calculator/bmr/ https://www.weightlosspercentage.com/calculators/bmr
+Redirect 301 /calculator/macro https://www.weightlosspercentage.com/calculators/macro
+Redirect 301 /calculator/macro/ https://www.weightlosspercentage.com/calculators/macro
+Redirect 301 /calculator/calorie-deficit https://www.weightlosspercentage.com/calculators/calorie
+Redirect 301 /calculator/calorie-deficit/ https://www.weightlosspercentage.com/calculators/calorie
+Redirect 301 /calculator/body-fat https://www.weightlosspercentage.com/calculators/body-fat
+Redirect 301 /calculator/body-fat/ https://www.weightlosspercentage.com/calculators/body-fat
+Redirect 301 /calculator/protein https://www.weightlosspercentage.com/calculators/protein
+Redirect 301 /calculator/protein/ https://www.weightlosspercentage.com/calculators/protein
+Redirect 301 /calculator/water-intake https://www.weightlosspercentage.com/calculators/water-intake
+Redirect 301 /calculator/water-intake/ https://www.weightlosspercentage.com/calculators/water-intake
+Redirect 301 /calculator/weight-loss https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /calculator/weight-loss/ https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /calculator/keto https://www.weightlosspercentage.com/calculators/keto
+Redirect 301 /calculator/keto/ https://www.weightlosspercentage.com/calculators/keto
+Redirect 301 /calculator/ideal-weight https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /calculator/ideal-weight/ https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /calculator/pace https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /calculator/pace/ https://www.weightlosspercentage.com/calculators/weight-loss
+Redirect 301 /calculator/pregnancy https://www.weightlosspercentage.com/calculators/postpartum-weight-loss
+Redirect 301 /calculator/pregnancy/ https://www.weightlosspercentage.com/calculators/postpartum-weight-loss
+Redirect 301 /calculator/pregnancy-conception https://www.weightlosspercentage.com/calculators/postpartum-weight-loss
+Redirect 301 /calculator/pregnancy-conception/ https://www.weightlosspercentage.com/calculators/postpartum-weight-loss
+Redirect 301 /calculator/due-date https://www.weightlosspercentage.com/calculators/postpartum-weight-loss
+Redirect 301 /calculator/due-date/ https://www.weightlosspercentage.com/calculators/postpartum-weight-loss
+
+
+# Old nutrition paths to new restaurant paths
+Redirect 301 /nutrition/mcdonalds https://www.weightlosspercentage.com/restaurants/mcdonalds
+Redirect 301 /nutrition/mcdonalds/ https://www.weightlosspercentage.com/restaurants/mcdonalds
+Redirect 301 /nutrition/subway https://www.weightlosspercentage.com/restaurants/subway
+Redirect 301 /nutrition/subway/ https://www.weightlosspercentage.com/restaurants/subway
+Redirect 301 /nutrition/starbucks https://www.weightlosspercentage.com/restaurants/starbucks
+Redirect 301 /nutrition/starbucks/ https://www.weightlosspercentage.com/restaurants/starbucks
+
+# â”€â”€â”€ Custom 404: return proper HTTP 404 status for non-existent URLs â”€â”€â”€
+# All real pages are pre-rendered static HTML files served automatically.
+# Non-existent URLs now return 404 instead of the old SPA fallback (HTTP 200),
+# which was causing Google to flag 295+ pages as Soft 404s.
+ErrorDocument 404 /index.html
+
+# â”€â”€â”€ Security Headers â”€â”€â”€
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://c.clarity.ms https://fonts.googleapis.com https://translate.google.com https://translate.googleapis.com https://*.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.google.com https://*.gstatic.com; font-src 'self' https://fonts.gstatic.com https://*.gstatic.com; img-src 'self' data: https: blob: https://c.clarity.ms https://c.bing.com https://*.gstatic.com https://www.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.clarity.ms https://c.bing.com https://translate.google.com https://translate.googleapis.com https://*.gstatic.com; frame-src 'self' https://*.doubleclick.net https://*.googlesyndication.com https://*.google.com https://translate.google.com; object-src 'none'; base-uri 'self';"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# â”€â”€â”€ GZIP Compression â”€â”€â”€
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml application/xml text/xml
+</IfModule>
+
+# â”€â”€â”€ Browser Caching â”€â”€â”€
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Static assets â€” 1 year (they have hashed filenames)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+
+  # HTML â€” short cache (SPA shell updates)
+  ExpiresByType text/html "access plus 10 minutes"
+
+  # Sitemap & robots â€” 1 day
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+</IfModule>
+
+# â”€â”€â”€ Prevent directory listing â”€â”€â”€
+Options -Indexes
+
+# â”€â”€â”€ Block access to dotfiles â”€â”€â”€
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# â”€â”€â”€ Correct MIME types â”€â”€â”€
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType image/svg+xml .svg
+  AddType application/manifest+json .json
+  AddType application/xml .xml
+</IfModule>
+
+# â”€â”€â”€ Trailing-slash redirects (fix no-slash 404s on Cloudflare Pages) â”€â”€â”€
+Redirect 301 /about https://www.weightlosspercentage.com/about/
+Redirect 301 /accessibility https://www.weightlosspercentage.com/accessibility/
+Redirect 301 /au https://www.weightlosspercentage.com/au/
+Redirect 301 /ca https://www.weightlosspercentage.com/ca/
+Redirect 301 /calculators https://www.weightlosspercentage.com/calculators/
+Redirect 301 /calculators/bariatric-surgery-weight-loss https://www.weightlosspercentage.com/calculators/bariatric-surgery-weight-loss/
+Redirect 301 /calculators/beer-calories https://www.weightlosspercentage.com/calculators/beer-calories/
+Redirect 301 /calculators/biggest-loser https://www.weightlosspercentage.com/calculators/biggest-loser/
+Redirect 301 /calculators/bmi https://www.weightlosspercentage.com/calculators/bmi/
+Redirect 301 /calculators/bmr https://www.weightlosspercentage.com/calculators/bmr/
+Redirect 301 /calculators/boba-tea https://www.weightlosspercentage.com/calculators/boba-tea/
+Redirect 301 /calculators/body-fat https://www.weightlosspercentage.com/calculators/body-fat/
+Redirect 301 /calculators/body-recomposition https://www.weightlosspercentage.com/calculators/body-recomposition/
+Redirect 301 /calculators/calorie https://www.weightlosspercentage.com/calculators/calorie/
+Redirect 301 /calculators/calorie-deficit https://www.weightlosspercentage.com/calculators/calorie-deficit/
+Redirect 301 /calculators/carnivore-diet https://www.weightlosspercentage.com/calculators/carnivore-diet/
+Redirect 301 /calculators/cycling https://www.weightlosspercentage.com/calculators/cycling/
+Redirect 301 /calculators/dog-weight-loss https://www.weightlosspercentage.com/calculators/dog-weight-loss/
+Redirect 301 /calculators/elliptical https://www.weightlosspercentage.com/calculators/elliptical/
+Redirect 301 /calculators/fitness https://www.weightlosspercentage.com/calculators/fitness/
+Redirect 301 /calculators/glp1-weight-loss https://www.weightlosspercentage.com/calculators/glp1-weight-loss/
+Redirect 301 /calculators/hiit-bodyweight https://www.weightlosspercentage.com/calculators/hiit-bodyweight/
+Redirect 301 /calculators/indian-food https://www.weightlosspercentage.com/calculators/indian-food/
+Redirect 301 /calculators/intermittent-fasting https://www.weightlosspercentage.com/calculators/intermittent-fasting/
+Redirect 301 /calculators/keto https://www.weightlosspercentage.com/calculators/keto/
+Redirect 301 /calculators/macro https://www.weightlosspercentage.com/calculators/macro/
+Redirect 301 /calculators/newborn-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss/
+Redirect 301 /calculators/nutrition https://www.weightlosspercentage.com/calculators/nutrition/
+Redirect 301 /calculators/pcos-calorie https://www.weightlosspercentage.com/calculators/pcos-calorie/
+Redirect 301 /calculators/peptide-dosage https://www.weightlosspercentage.com/calculators/peptide-dosage/
+Redirect 301 /calculators/poke-bowl https://www.weightlosspercentage.com/calculators/poke-bowl/
+Redirect 301 /calculators/postpartum-weight-loss https://www.weightlosspercentage.com/calculators/postpartum-weight-loss/
+Redirect 301 /calculators/pregnancy https://www.weightlosspercentage.com/calculators/pregnancy/
+Redirect 301 /calculators/protein https://www.weightlosspercentage.com/calculators/protein/
+Redirect 301 /calculators/rowing https://www.weightlosspercentage.com/calculators/rowing/
+Redirect 301 /calculators/rucking https://www.weightlosspercentage.com/calculators/rucking/
+Redirect 301 /calculators/salad-calories https://www.weightlosspercentage.com/calculators/salad-calories/
+Redirect 301 /calculators/smoothie https://www.weightlosspercentage.com/calculators/smoothie/
+Redirect 301 /calculators/specialized https://www.weightlosspercentage.com/calculators/specialized/
+Redirect 301 /calculators/stairmaster https://www.weightlosspercentage.com/calculators/stairmaster/
+Redirect 301 /calculators/sushi-calories https://www.weightlosspercentage.com/calculators/sushi-calories/
+Redirect 301 /calculators/tdee https://www.weightlosspercentage.com/calculators/tdee/
+Redirect 301 /calculators/unit-converters https://www.weightlosspercentage.com/calculators/unit-converters/
+Redirect 301 /calculators/walking https://www.weightlosspercentage.com/calculators/walking/
+Redirect 301 /calculators/water-intake https://www.weightlosspercentage.com/calculators/water-intake/
+Redirect 301 /calculators/weight-loss https://www.weightlosspercentage.com/calculators/weight-loss/
+Redirect 301 /compare https://www.weightlosspercentage.com/compare/
+Redirect 301 /contact https://www.weightlosspercentage.com/contact/
+Redirect 301 /cookie-policy https://www.weightlosspercentage.com/cookie-policy/
+Redirect 301 /disclaimer https://www.weightlosspercentage.com/disclaimer/
+Redirect 301 /glossary https://www.weightlosspercentage.com/glossary/
+Redirect 301 /nutrition https://www.weightlosspercentage.com/nutrition/
+Redirect 301 /nz https://www.weightlosspercentage.com/nz/
+Redirect 301 /privacy https://www.weightlosspercentage.com/privacy/
+Redirect 301 /restaurants/chipotle https://www.weightlosspercentage.com/restaurants/chipotle/
+Redirect 301 /restaurants/dominos https://www.weightlosspercentage.com/restaurants/dominos/
+Redirect 301 /restaurants/dutch-bros https://www.weightlosspercentage.com/restaurants/dutch-bros/
+Redirect 301 /restaurants/fast-food-hub https://www.weightlosspercentage.com/restaurants/fast-food-hub/
+Redirect 301 /restaurants/five-guys https://www.weightlosspercentage.com/restaurants/five-guys/
+Redirect 301 /restaurants/jimmy-johns https://www.weightlosspercentage.com/restaurants/jimmy-johns/
+Redirect 301 /restaurants/mcdonalds https://www.weightlosspercentage.com/restaurants/mcdonalds/
+Redirect 301 /restaurants/pizza-hut https://www.weightlosspercentage.com/restaurants/pizza-hut/
+Redirect 301 /restaurants/starbucks https://www.weightlosspercentage.com/restaurants/starbucks/
+Redirect 301 /restaurants/subway https://www.weightlosspercentage.com/restaurants/subway/
+Redirect 301 /restaurants/taco-bell https://www.weightlosspercentage.com/restaurants/taco-bell/
+Redirect 301 /restaurants/wendys https://www.weightlosspercentage.com/restaurants/wendys/
+Redirect 301 /ru https://www.weightlosspercentage.com/ru/
+Redirect 301 /terms https://www.weightlosspercentage.com/terms/
+Redirect 301 /uk https://www.weightlosspercentage.com/uk/
+Redirect 301 /zh https://www.weightlosspercentage.com/zh/

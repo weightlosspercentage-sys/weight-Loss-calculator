@@ -196,6 +196,23 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     headInner = headInner.replace(/<script[^>]*type=["']module["'][^>]*src=["'][^"']*\/assets\/[^"']+\.js["'][^>]*><\/script>/gi, '');
     headInner = headInner.replace(/<link[^>]*rel=["']modulepreload["'][^>]*href=["']\/(?:assets|us\/assets)\/[^"']+\.js["'][^>]*\/?>/gi, '');
     headInner = headInner.replace(/<link[^>]*rel=["']modulepreload["'][^>]*href=["'][^"']*\/assets\/[^"']+\.js["'][^>]*\/?>/gi, '');
+  } else {
+    // If we need React but it's not present in headInner, inject it from the root index.html
+    const hasReactScript = headInner.includes('type="module"');
+    if (!hasReactScript && fs.existsSync(path.join(process.cwd(), 'index.html'))) {
+      const rootHtml = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf-8');
+      
+      const scriptRegex = /<script[^>]*type=["']module["'][^>]*src=["']\/(?:assets|us\/assets)\/[^"']+\.js["'][^>]*><\/script>/gi;
+      let match;
+      while ((match = scriptRegex.exec(rootHtml)) !== null) {
+        headInner += '\n' + match[0];
+      }
+
+      const preloadRegex = /<link[^>]*rel=["']modulepreload["'][^>]*href=["']\/(?:assets|us\/assets)\/[^"']+\.js["'][^>]*\/?>/gi;
+      while ((match = preloadRegex.exec(rootHtml)) !== null) {
+        headInner += '\n' + match[0];
+      }
+    }
   }
 
   // Remove duplicate stylesheet link — BaseLayout already adds it

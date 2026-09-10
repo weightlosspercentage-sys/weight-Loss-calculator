@@ -17,7 +17,7 @@ export const calculatorsDropdown: NavItem[] = [
   { label: 'TDEE Calculator', href: '/calculators/tdee/' },
   { label: 'BMR Calculator', href: '/calculators/bmr/' },
   { label: 'Macro Calculator', href: '/calculators/macro/' },
-  { label: 'Calorie Deficit Calculator', href: '/calculators/calorie/' },
+  { label: 'Calorie Deficit Calculator', href: '/calculators/calorie-deficit/' },
   { label: 'Calorie Calculator', href: '/calculators/calorie/' },
   { label: 'Fat Loss Calculator', href: '/calculators/fat-loss/' },
   { label: 'Protein Calculator', href: '/calculators/protein/' },
@@ -72,10 +72,9 @@ export const restaurantsDropdown: NavItem[] = [
 
 export const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Calculators', dropdown: calculatorsDropdown },
-  { label: 'Nutrition & Restaurants', dropdown: restaurantsDropdown },
+  { label: 'Calculators', href: '/calculators/' },
+  { label: 'Nutrition', href: '/nutrition/' },
   { label: 'Compare', href: '/compare/' },
-  { label: 'Blog', href: '/blog/' },
   { label: 'Glossary', href: '/glossary/' }
 ];
 

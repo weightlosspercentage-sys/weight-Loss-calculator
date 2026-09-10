@@ -1,0 +1,1574 @@
+{
+  "total_links_audited": 362,
+  "generic_anchors_found": [],
+  "keyword_stuffed_anchors": [],
+  "natural_anchors": [
+    {
+      "href": "/",
+      "text": "Weight Loss Percentage"
+    },
+    {
+      "href": "/calculators/weight-loss/",
+      "text": "Weight Loss %"
+    },
+    {
+      "href": "/calculators/bmi/",
+      "text": "BMI Calculator"
+    },
+    {
+      "href": "/calculators/tdee/",
+      "text": "TDEE Calculator"
+    },
+    {
+      "href": "/calculators/bmr/",
+      "text": "BMR Calculator"
+    },
+    {
+      "href": "/calculators/calorie/",
+      "text": "Calorie Calculator"
+    },
+    {
+      "href": "/calculators/macro/",
+      "text": "Macro Calculator"
+    },
+    {
+      "href": "/calculators/body-fat/",
+      "text": "Body Fat Calculator"
+    },
+    {
+      "href": "/calculators/newborn-weight-loss/",
+      "text": "Newborn Weight Loss"
+    },
+    {
+      "href": "/calculators/infant-weight-loss/",
+      "text": "Infant Weight Loss"
+    },
+    {
+      "href": "/calculators/baby-weight-loss/",
+      "text": "Baby Weight Loss"
+    },
+    {
+      "href": "/calculators/dog-weight-loss/",
+      "text": "Dog Weight Loss"
+    },
+    {
+      "href": "/calculators/peptide-dosage/",
+      "text": "Peptide Dosage"
+    },
+    {
+      "href": "/about/",
+      "text": "About Us"
+    },
+    {
+      "href": "/contact/",
+      "text": "Contact Us"
+    },
+    {
+      "href": "/glossary/",
+      "text": "Glossary"
+    },
+    {
+      "href": "/privacy/",
+      "text": "Privacy Policy"
+    },
+    {
+      "href": "/terms/",
+      "text": "Terms of Service"
+    },
+    {
+      "href": "/disclaimer/",
+      "text": "Disclaimer"
+    },
+    {
+      "href": "/",
+      "text": "\ud83c\uddfa\ud83c\uddf8 English (US)"
+    },
+    {
+      "href": "/uk/",
+      "text": "\ud83c\uddec\ud83c\udde7 English (UK)"
+    },
+    {
+      "href": "/ca/",
+      "text": "\ud83c\udde8\ud83c\udde6 English (CA)"
+    },
+    {
+      "href": "/au/",
+      "text": "\ud83c\udde6\ud83c\uddfa English (AU)"
+    },
+    {
+      "href": "/nz/",
+      "text": "\ud83c\uddf3\ud83c\uddff English (NZ)"
+    },
+    {
+      "href": "/zh/",
+      "text": "\ud83c\udde8\ud83c\uddf3 \u7b80\u4f53\u4e2d\u6587"
+    },
+    {
+      "href": "/ru/",
+      "text": "\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439"
+    },
+    {
+      "href": "/",
+      "text": "%\n            Weight Loss Percentage"
+    },
+    {
+      "href": "/",
+      "text": "Home"
+    },
+    {
+      "href": "/calculators/",
+      "text": "Calculators"
+    },
+    {
+      "href": "/nutrition/",
+      "text": "Nutrition"
+    },
+    {
+      "href": "/compare/",
+      "text": "Compare"
+    },
+    {
+      "href": "/glossary/",
+      "text": "Glossary"
+    },
+    {
+      "href": "/about/",
+      "text": "About"
+    },
+    {
+      "href": "/authors/dr-rekha-kumar/",
+      "text": "Dr. Rekha Kumar, M.D., M.S."
+    },
+    {
+      "href": "/editorial-policy",
+      "text": "Editorial &amp; Methodology Policy"
+    },
+    {
+      "href": "/calculators/weight-loss/",
+      "text": "Weight Loss Calculator\n            Calorie deficit &amp; timeline to goal weight"
+    },
+    {
+      "href": "/calculators/body-fat/",
+      "text": "Body Fat % Calculator\n            US Navy method, men &amp; women"
+    },
+    {
+      "href": "/calculators/bmi/",
+      "text": "BMI Calculator\n            For women and men \u2014 WHO categories"
+    },
+    {
+      "href": "/calculators/tdee/",
+      "text": "TDEE Calculator\n            Total Daily Energy Expenditure"
+    },
+    {
+      "href": "/calculators/bmr/",
+      "text": "BMR Calculator\n            Basal Metabolic Rate"
+    },
+    {
+      "href": "/calculators/calorie/",
+      "text": "Calorie Calculator\n            Daily calorie needs &amp; deficit"
+    },
+    {
+      "href": "/calculators/weight-loss/",
+      "text": "weight loss calculator"
+    },
+    {
+      "href": "/calculators/bmi/",
+      "text": "BMI Calculator for Women &amp; Men"
+    },
+    {
+      "href": "/calculators/tdee/",
+      "text": "TDEE Calculator"
+    },
+    {
+      "href": "/calculators/bmr/",
+      "text": "BMR Calculator"
+    },
+    {
+      "href": "/calculators/calorie/",
+      "text": "Calorie Calculator"
+    },
+    {
+      "href": "/calculators/calorie-deficit/",
+      "text": "Calorie Deficit Calculator"
+    },
+    {
+      "href": "/calculators/body-fat/",
+      "text": "Body Fat Percentage Calculator"
+    },
+    {
+      "href": "/calculators/protein/",
+      "text": "Protein Calculator"
+    },
+    {
+      "href": "/calculators/water-intake/",
+      "text": "Water Intake Calculator"
+    },
+    {
+      "href": "/calculators/weight-loss/",
+      "text": "Weight Loss Calculator"
+    },
+    {
+      "href": "/calculators/newborn-weight-loss/",
+      "text": "Newborn Weight Loss Calculator"
+    },
+    {
+      "href": "/calculators/macro/",
+      "text": "Macro Calculator"
+    },
+    {
+      "href": "/calculators/bariatric-surgery-weight-loss/",
+      "text": "Bariatric Surgery Calculator"
+    },
+    {
+      "href": "/calculators/postpartum-weight-loss/",
+      "text": "Postpartum Weight Loss Calculator"
+    },
+    {
+      "href": "/calculators/newborn-weight-loss/",
+      "text": "\ud83d\udc76 Newborn Weight Loss % Tool"
+    },
+    {
+      "href": "/calculators/bmi/",
+      "text": "\ud83d\udcca BMI Calculator"
+    },
+    {
+      "href": "/calculators/macro/",
+      "text": "\ud83e\udd57 Macro &amp; Calorie Deficit Tool"
+    },
+    {
+      "href": "/",
+      "text": "Weight Loss Percentage"
+    },
+    {
+      "href": "/calculators/weight-loss/",
+      "text": "Weight Loss %"
+    },
+    {
+      "href": "/calculators/bmi/",
+      "text": "BMI Calculator"
+    },
+    {
+      "href": "/calculators/tdee/",
+      "text": "TDEE Calculator"
+    },
+    {
+      "href": "/calculators/bmr/",
+      "text": "BMR Calculator"
+    },
+    {
+      "href": "/calculators/calorie/",
+      "text": "Calorie Calculator"
+    },
+    {
+      "href": "/calculators/macro/",
+      "text": "Macro Calculator"
+    },
+    {
+      "href": "/calculators/body-fat/",
+      "text": "Body Fat Calculator"
+    },
+    {
+      "href": "/calculators/newborn-weight-loss/",
+      "text": "Newborn Weight Loss"
+    },
+    {
+      "href": "/calculators/infant-weight-loss/",
+      "text": "Infant Weight Loss"
+    },
+    {
+      "href": "/calculators/baby-weight-loss/",
+      "text": "Baby Weight Loss"
+    },
+    {
+      "href": "/calculators/dog-weight-loss/",
+      "text": "Dog Weight Loss"
+    },
+    {
+      "href": "/calculators/peptide-dosage/",
+      "text": "Peptide Dosage"
+    },
+    {
+      "href": "/about/",
+      "text": "About Us"
+    },
+    {
+      "href": "/contact/",
+      "text": "Contact Us"
+    },
+    {
+      "href": "/glossary/",
+      "text": "Glossary"
+    },
+    {
+      "href": "/privacy/",
+      "text": "Privacy Policy"
+    },
+    {
+      "href": "/terms/",
+      "text": "Terms of Service"
+    },
+    {
+      "href": "/disclaimer/",
+      "text": "Disclaimer"
+    },
+    {
+      "href": "/spa-fallback-dummy/",
+      "text": "\ud83c\uddfa\ud83c\uddf8 English (US)"
+    },
+    {
+      "href": "/uk/spa-fallback-dummy/",
+      "text": "\ud83c\uddec\ud83c\udde7 English (UK)"
+    },
+    {
+      "href": "/ca/spa-fallback-dummy/",
+      "text": "\ud83c\udde8\ud83c\udde6 English (CA)"
+    },
+    {
+      "href": "/au/spa-fallback-dummy/",
+      "text": "\ud83c\udde6\ud83c\uddfa English (AU)"
+    },
+    {
+      "href": "/nz/spa-fallback-dummy/",
+      "text": "\ud83c\uddf3\ud83c\uddff English (NZ)"
+    },
+    {
+      "href": "/zh/spa-fallback-dummy/",
+      "text": "\ud83c\udde8\ud83c\uddf3 \u7b80\u4f53\u4e2d\u6587"
+    },
+    {
+      "href": "/ru/spa-fallback-dummy/",
+      "text": "\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439"
+    },
+    {
+      "href": "/",
+      "text": "Skills"
+    },
+    {
+      "href": "/packs",
+      "text": "Packs"
+    },
+    {
+      "href": "/topic",
+      "text": "Topics"
+    },
+    {
+      "href": "/official",
+      "text": "Official"
+    },
+    {
+      "href": "/audits",
+      "text": "Audits"
+    },
+    {
+      "href": "/docs",
+      "text": "Docs"
+    },
+    {
+      "href": "/packs",
+      "text": "Packs"
+    },
+    {
+      "href": "/topic",
+      "text": "Topics"
+    },
+    {
+      "href": "/official",
+      "text": "Official"
+    },
+    {
+      "href": "/audits",
+      "text": "Audits"
+    },
+    {
+      "href": "/docs",
+      "text": "Docs"
+    },
+    {
+      "href": "/",
+      "text": "All Time (1,347,717)"
+    },
+    {
+      "href": "/trending",
+      "text": "Trending (24h)"
+    },
+    {
+      "href": "/hot",
+      "text": "Hot"
+    },
+    {
+      "href": "/vercel-labs/skills/find-skills",
+      "text": "1find-skillsvercel-labs/skills3.2M"
+    },
+    {
+      "href": "/mattpocock/skills/grill-me",
+      "text": "2grill-memattpocock/skills1.1M"
+    },
+    {
+      "href": "/mattpocock/skills/grill-with-docs",
+      "text": "3grill-with-docsmattpocock/skills899.9K"
+    },
+    {
+      "href": "/mattpocock/skills/improve-codebase-architecture",
+      "text": "4improve-codebase-architecturemattpocock/skills863.4K"
+    },
+    {
+      "href": "/anthropics/skills/frontend-design",
+      "text": "5frontend-designanthropics/skills852.2K"
+    },
+    {
+      "href": "/mattpocock/skills/tdd",
+      "text": "6tddmattpocock/skills835.6K"
+    },
+    {
+      "href": "/vercel-labs/agent-browser/agent-browser",
+      "text": "7agent-browservercel-labs/agent-browser784.6K"
+    },
+    {
+      "href": "/mattpocock/skills/setup-matt-pocock-skills",
+      "text": "8setup-matt-pocock-skillsmattpocock/skills770.8K"
+    },
+    {
+      "href": "/vercel-labs/agent-skills/vercel-react-best-practices",
+      "text": "12vercel-react-best-practicesvercel-labs/agent-skills688.2K"
+    },
+    {
+      "href": "/site/uizze.com/anti-ui-slop",
+      "text": "13anti-ui-slopuizze.com658.5K"
+    },
+    {
+      "href": "/site/open.feishu.cn/lark-doc",
+      "text": "14lark-docopen.feishu.cn656.6K"
+    },
+    {
+      "href": "/mattpocock/skills/grilling",
+      "text": "38grillingmattpocock/skills620.6K"
+    },
+    {
+      "href": "/vercel-labs/agent-skills/web-design-guidelines",
+      "text": "39web-design-guidelinesvercel-labs/agent-skills605.9K"
+    },
+    {
+      "href": "/site/open.feishu.cn/lark-vc-agent",
+      "text": "40lark-vc-agentopen.feishu.cn599.2K"
+    },
+    {
+      "href": "/mattpocock/skills/teach",
+      "text": "41teachmattpocock/skills592.2K"
+    },
+    {
+      "href": "/microsoft/azure-skills/microsoft-foundry",
+      "text": "42microsoft-foundrymicrosoft/azure-skills571.2K"
+    },
+    {
+      "href": "/site/open.feishu.cn/lark-apps",
+      "text": "43lark-appsopen.feishu.cn565.2K"
+    },
+    {
+      "href": "/mattpocock/skills/domain-modeling",
+      "text": "44domain-modelingmattpocock/skills564.4K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-diagnostics",
+      "text": "45azure-diagnosticsmicrosoft/azure-skills563.8K"
+    },
+    {
+      "href": "/skills-101/superpowers/ai-video-generation",
+      "text": "50ai-video-generationskills-101/superpowers562.4K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-storage",
+      "text": "51azure-storagemicrosoft/azure-skills562.0K"
+    },
+    {
+      "href": "/skills-101/superpowers/ai-image-generation",
+      "text": "52ai-image-generationskills-101/superpowers561.7K"
+    },
+    {
+      "href": "/microsoft/azure-skills/entra-app-registration",
+      "text": "53entra-app-registrationmicrosoft/azure-skills561.7K"
+    },
+    {
+      "href": "/skills-101/superpowers/ai-avatar-video",
+      "text": "54ai-avatar-videoskills-101/superpowers561.6K"
+    },
+    {
+      "href": "/skills-101/superpowers/twitter-automation",
+      "text": "55twitter-automationskills-101/superpowers561.5K"
+    },
+    {
+      "href": "/microsoft/azure-skills/appinsights-instrumentation",
+      "text": "56appinsights-instrumentationmicrosoft/azure-skills561.4K"
+    },
+    {
+      "href": "/mattpocock/skills/codebase-design",
+      "text": "63codebase-designmattpocock/skills547.4K"
+    },
+    {
+      "href": "/mattpocock/skills/diagnosing-bugs",
+      "text": "64diagnosing-bugsmattpocock/skills538.4K"
+    },
+    {
+      "href": "/remotion-dev/skills/remotion-best-practices",
+      "text": "65remotion-best-practicesremotion-dev/skills509.1K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-compute",
+      "text": "66azure-computemicrosoft/azure-skills504.8K"
+    },
+    {
+      "href": "/mattpocock/skills/ask-matt",
+      "text": "67ask-mattmattpocock/skills498.8K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-cloud-migrate",
+      "text": "68azure-cloud-migratemicrosoft/azure-skills494.8K"
+    },
+    {
+      "href": "/mattpocock/skills/implement",
+      "text": "69implementmattpocock/skills491.7K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-rbac",
+      "text": "70azure-rbacmicrosoft/azure-skills488.1K"
+    },
+    {
+      "href": "/mattpocock/skills/code-review",
+      "text": "71code-reviewmattpocock/skills482.5K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-cli",
+      "text": "72hyperframes-cliheygen-com/hyperframes481.0K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/caveman",
+      "text": "73cavemanjuliusbrussee/caveman480.4K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes",
+      "text": "74hyperframesheygen-com/hyperframes460.5K"
+    },
+    {
+      "href": "/lllllllama/rigorpilot-skills/paper-context-resolver",
+      "text": "75paper-context-resolverlllllllama/rigorpilot-skills450.8K"
+    },
+    {
+      "href": "/mattpocock/skills/wayfinder",
+      "text": "79wayfindermattpocock/skills448.4K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/design-taste-frontend",
+      "text": "80design-taste-frontendleonxlnx/taste-skill441.3K"
+    },
+    {
+      "href": "/mattpocock/skills/research",
+      "text": "81researchmattpocock/skills441.2K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-hosted-copilot-sdk",
+      "text": "82azure-hosted-copilot-sdkmicrosoft/azure-skills439.7K"
+    },
+    {
+      "href": "/site/open.feishu.cn/lark-note",
+      "text": "83lark-noteopen.feishu.cn439.0K"
+    },
+    {
+      "href": "/mattpocock/skills/to-spec",
+      "text": "84to-specmattpocock/skills438.0K"
+    },
+    {
+      "href": "/larksuite/cli/lark-doc",
+      "text": "85lark-doclarksuite/cli437.2K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-quotas",
+      "text": "92azure-quotasmicrosoft/azure-skills431.0K"
+    },
+    {
+      "href": "/larksuite/cli/lark-whiteboard",
+      "text": "93lark-whiteboardlarksuite/cli431.0K"
+    },
+    {
+      "href": "/larksuite/cli/lark-task",
+      "text": "94lark-tasklarksuite/cli430.6K"
+    },
+    {
+      "href": "/mattpocock/skills/to-tickets",
+      "text": "95to-ticketsmattpocock/skills430.4K"
+    },
+    {
+      "href": "/larksuite/cli/lark-calendar",
+      "text": "96lark-calendarlarksuite/cli429.8K"
+    },
+    {
+      "href": "/mattpocock/skills/resolving-merge-conflicts",
+      "text": "106resolving-merge-conflictsmattpocock/skills424.0K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-upgrade",
+      "text": "107azure-upgrademicrosoft/azure-skills423.1K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-registry",
+      "text": "108hyperframes-registryheygen-com/hyperframes416.2K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/video-edit",
+      "text": "109video-editprime-skills/runcomfy-agent-skills414.1K"
+    },
+    {
+      "href": "/larksuite/cli/lark-approval",
+      "text": "120lark-approvallarksuite/cli401.4K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-enterprise-infra-planner",
+      "text": "121azure-enterprise-infra-plannermicrosoft/azure-skills397.6K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-kubernetes",
+      "text": "122azure-kubernetesmicrosoft/azure-skills390.5K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/kling-3-0",
+      "text": "123kling-3-0prime-skills/runcomfy-agent-skills387.8K"
+    },
+    {
+      "href": "/supabase/agent-skills/supabase-postgres-best-practices",
+      "text": "124supabase-postgres-best-practicessupabase/agent-skills385.3K"
+    },
+    {
+      "href": "/larksuite/cli/lark-slides",
+      "text": "125lark-slideslarksuite/cli381.7K"
+    },
+    {
+      "href": "/larksuite/cli/lark-attendance",
+      "text": "126lark-attendancelarksuite/cli379.2K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/codex-pet",
+      "text": "127codex-petprime-skills/runcomfy-agent-skills376.2K"
+    },
+    {
+      "href": "/anthropics/skills/skill-creator",
+      "text": "128skill-creatoranthropics/skills371.9K"
+    },
+    {
+      "href": "/mattpocock/skills/to-prd",
+      "text": "129to-prdmattpocock/skills366.6K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-cost",
+      "text": "130azure-costmicrosoft/azure-skills365.7K"
+    },
+    {
+      "href": "/larksuite/cli/lark-okr",
+      "text": "131lark-okrlarksuite/cli365.2K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-core",
+      "text": "132hyperframes-coreheygen-com/hyperframes362.3K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-animation",
+      "text": "133hyperframes-animationheygen-com/hyperframes358.4K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/ai-video-generation",
+      "text": "134ai-video-generationprime-skills/runcomfy-agent-skills357.4K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/ai-image-generation",
+      "text": "135ai-image-generationprime-skills/runcomfy-agent-skills357.2K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/media-use",
+      "text": "136media-useheygen-com/hyperframes355.4K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/runcomfy-cli",
+      "text": "137runcomfy-cliprime-skills/runcomfy-agent-skills354.7K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/ai-avatar-video",
+      "text": "138ai-avatar-videoprime-skills/runcomfy-agent-skills354.5K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/face-swap",
+      "text": "139face-swapprime-skills/runcomfy-agent-skills354.4K"
+    },
+    {
+      "href": "/mattpocock/skills/to-issues",
+      "text": "140to-issuesmattpocock/skills353.6K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/video-inpainting",
+      "text": "141video-inpaintingprime-skills/runcomfy-agent-skills352.8K"
+    },
+    {
+      "href": "/obra/superpowers/brainstorming",
+      "text": "150brainstormingobra/superpowers350.7K"
+    },
+    {
+      "href": "/larksuite/cli/lark-markdown",
+      "text": "151lark-markdownlarksuite/cli345.9K"
+    },
+    {
+      "href": "/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max",
+      "text": "152ui-ux-pro-maxnextlevelbuilder/ui-ux-pro-max-skill343.6K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/ai-music",
+      "text": "153ai-musicprime-skills/runcomfy-agent-skills343.5K"
+    },
+    {
+      "href": "/prime-skills/runcomfy-agent-skills/ace-step",
+      "text": "154ace-stepprime-skills/runcomfy-agent-skills343.1K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/caveman-commit",
+      "text": "155caveman-commitjuliusbrussee/caveman336.7K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/caveman-review",
+      "text": "156caveman-reviewjuliusbrussee/caveman333.6K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-creative",
+      "text": "157hyperframes-creativeheygen-com/hyperframes332.7K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/caveman-compress",
+      "text": "158caveman-compressjuliusbrussee/caveman331.7K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/high-end-visual-design",
+      "text": "159high-end-visual-designleonxlnx/taste-skill326.8K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/caveman-help",
+      "text": "160caveman-helpjuliusbrussee/caveman324.9K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/redesign-existing-projects",
+      "text": "161redesign-existing-projectsleonxlnx/taste-skill323.1K"
+    },
+    {
+      "href": "/genmedia-labs/skills/video-edit",
+      "text": "162video-editgenmedia-labs/skills322.1K"
+    },
+    {
+      "href": "/genmedia-labs/skills/ai-video-generation",
+      "text": "163ai-video-generationgenmedia-labs/skills321.9K"
+    },
+    {
+      "href": "/genmedia-labs/skills/ai-music",
+      "text": "164ai-musicgenmedia-labs/skills321.9K"
+    },
+    {
+      "href": "/mattpocock/skills/writing-great-skills",
+      "text": "165writing-great-skillsmattpocock/skills321.8K"
+    },
+    {
+      "href": "/genmedia-labs/skills/image-to-video",
+      "text": "166image-to-videogenmedia-labs/skills321.5K"
+    },
+    {
+      "href": "/genmedia-labs/skills/ai-image-generation",
+      "text": "167ai-image-generationgenmedia-labs/skills321.4K"
+    },
+    {
+      "href": "/vercel-labs/agent-skills/vercel-composition-patterns",
+      "text": "168vercel-composition-patternsvercel-labs/agent-skills320.5K"
+    },
+    {
+      "href": "/larksuite/cli/lark-vc-agent",
+      "text": "169lark-vc-agentlarksuite/cli316.2K"
+    },
+    {
+      "href": "/mattpocock/skills/git-guardrails-claude-code",
+      "text": "170git-guardrails-claude-codemattpocock/skills313.9K"
+    },
+    {
+      "href": "/lllllllama/rigorpilot-skills/ai-research-explore",
+      "text": "171ai-research-explorelllllllama/rigorpilot-skills311.1K"
+    },
+    {
+      "href": "/microsoft/azure-skills/airunway-aks-setup",
+      "text": "178airunway-aks-setupmicrosoft/azure-skills309.7K"
+    },
+    {
+      "href": "/mattpocock/skills/setup-pre-commit",
+      "text": "179setup-pre-commitmattpocock/skills306.7K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/minimalist-ui",
+      "text": "185minimalist-uileonxlnx/taste-skill299.9K"
+    },
+    {
+      "href": "/mattpocock/skills/migrate-to-shoehorn",
+      "text": "186migrate-to-shoehornmattpocock/skills297.8K"
+    },
+    {
+      "href": "/flowkit-labs/skills/reddit-automation",
+      "text": "187reddit-automationflowkit-labs/skills290.0K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/full-output-enforcement",
+      "text": "188full-output-enforcementleonxlnx/taste-skill285.9K"
+    },
+    {
+      "href": "/microsoft/azure-skills/entra-agent-id",
+      "text": "189entra-agent-idmicrosoft/azure-skills283.8K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/cavecrew",
+      "text": "190cavecrewjuliusbrussee/caveman282.6K"
+    },
+    {
+      "href": "/juliusbrussee/caveman/caveman-stats",
+      "text": "191caveman-statsjuliusbrussee/caveman281.7K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/industrial-brutalist-ui",
+      "text": "192industrial-brutalist-uileonxlnx/taste-skill279.6K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/gpt-taste",
+      "text": "193gpt-tasteleonxlnx/taste-skill278.1K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/stitch-design-taste",
+      "text": "194stitch-design-tasteleonxlnx/taste-skill278.1K"
+    },
+    {
+      "href": "/larksuite/cli/lark-apps",
+      "text": "195lark-appslarksuite/cli276.2K"
+    },
+    {
+      "href": "/shadcn/ui/shadcn",
+      "text": "196shadcnshadcn/ui271.7K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/brandkit",
+      "text": "197brandkitleonxlnx/taste-skill268.2K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/image-to-code",
+      "text": "198image-to-codeleonxlnx/taste-skill263.2K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-keyframes",
+      "text": "199hyperframes-keyframesheygen-com/hyperframes262.6K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/imagegen-frontend-web",
+      "text": "200imagegen-frontend-webleonxlnx/taste-skill261.8K"
+    },
+    {
+      "href": "/pbakaus/impeccable/impeccable",
+      "text": "201impeccablepbakaus/impeccable261.3K"
+    },
+    {
+      "href": "/prisma/skills/prisma-database-setup",
+      "text": "202prisma-database-setupprisma/skills259.9K"
+    },
+    {
+      "href": "/prisma/skills/prisma-client-api",
+      "text": "203prisma-client-apiprisma/skills259.4K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/remotion-to-hyperframes",
+      "text": "204remotion-to-hyperframesheygen-com/hyperframes257.5K"
+    },
+    {
+      "href": "/prisma/skills/prisma-cli",
+      "text": "205prisma-cliprisma/skills257.2K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/imagegen-frontend-mobile",
+      "text": "206imagegen-frontend-mobileleonxlnx/taste-skill256.5K"
+    },
+    {
+      "href": "/supabase/agent-skills/supabase",
+      "text": "207supabasesupabase/agent-skills255.5K"
+    },
+    {
+      "href": "/mattpocock/skills/loop-me",
+      "text": "208loop-memattpocock/skills253.7K"
+    },
+    {
+      "href": "/prisma/skills/prisma-postgres",
+      "text": "209prisma-postgresprisma/skills253.3K"
+    },
+    {
+      "href": "/mattpocock/skills/to-questionnaire",
+      "text": "210to-questionnairemattpocock/skills251.4K"
+    },
+    {
+      "href": "/prisma/skills/prisma-driver-adapter-implementation",
+      "text": "211prisma-driver-adapter-implementationprisma/skills248.7K"
+    },
+    {
+      "href": "/emilkowalski/skills/emil-design-eng",
+      "text": "212emil-design-engemilkowalski/skills248.6K"
+    },
+    {
+      "href": "/prisma/skills/prisma-upgrade-v7",
+      "text": "213prisma-upgrade-v7prisma/skills248.5K"
+    },
+    {
+      "href": "/prisma/skills/prisma-postgres-setup",
+      "text": "214prisma-postgres-setupprisma/skills247.6K"
+    },
+    {
+      "href": "/obra/superpowers/systematic-debugging",
+      "text": "215systematic-debuggingobra/superpowers247.4K"
+    },
+    {
+      "href": "/scrapegraphai/just-scrape/just-scrape",
+      "text": "216just-scrapescrapegraphai/just-scrape245.0K"
+    },
+    {
+      "href": "/prisma/skills/prisma-compute",
+      "text": "217prisma-computeprisma/skills243.8K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-reliability",
+      "text": "218azure-reliabilitymicrosoft/azure-skills243.0K"
+    },
+    {
+      "href": "/prisma/skills/prisma-mongodb-upgrade",
+      "text": "219prisma-mongodb-upgradeprisma/skills242.5K"
+    },
+    {
+      "href": "/obra/superpowers/writing-plans",
+      "text": "220writing-plansobra/superpowers238.9K"
+    },
+    {
+      "href": "/mattpocock/skills/diagnose",
+      "text": "221diagnosemattpocock/skills238.2K"
+    },
+    {
+      "href": "/obra/superpowers/using-superpowers",
+      "text": "222using-superpowersobra/superpowers234.9K"
+    },
+    {
+      "href": "/mattpocock/skills/claude-handoff",
+      "text": "223claude-handoffmattpocock/skills230.1K"
+    },
+    {
+      "href": "/mattpocock/skills/write-a-skill",
+      "text": "224write-a-skillmattpocock/skills229.7K"
+    },
+    {
+      "href": "/mattpocock/skills/zoom-out",
+      "text": "225zoom-outmattpocock/skills229.2K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/general-video",
+      "text": "226general-videoheygen-com/hyperframes228.8K"
+    },
+    {
+      "href": "/mattpocock/skills/caveman",
+      "text": "227cavemanmattpocock/skills223.7K"
+    },
+    {
+      "href": "/obra/superpowers/requesting-code-review",
+      "text": "228requesting-code-reviewobra/superpowers218.9K"
+    },
+    {
+      "href": "/obra/superpowers/test-driven-development",
+      "text": "229test-driven-developmentobra/superpowers216.6K"
+    },
+    {
+      "href": "/mattpocock/skills/design-an-interface",
+      "text": "230design-an-interfacemattpocock/skills215.8K"
+    },
+    {
+      "href": "/leonxlnx/taste-skill/design-taste-frontend-v1",
+      "text": "231design-taste-frontend-v1leonxlnx/taste-skill214.6K"
+    },
+    {
+      "href": "/anthropics/skills/pptx",
+      "text": "232pptxanthropics/skills214.5K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/faceless-explainer",
+      "text": "233faceless-explainerheygen-com/hyperframes212.3K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/product-launch-video",
+      "text": "234product-launch-videoheygen-com/hyperframes212.1K"
+    },
+    {
+      "href": "/microsoft/azure-skills/azure-cost-optimization",
+      "text": "235azure-cost-optimizationmicrosoft/azure-skills209.4K"
+    },
+    {
+      "href": "/mattpocock/skills/request-refactor-plan",
+      "text": "236request-refactor-planmattpocock/skills209.2K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/motion-graphics",
+      "text": "237motion-graphicsheygen-com/hyperframes208.5K"
+    },
+    {
+      "href": "/mattpocock/skills/qa",
+      "text": "238qamattpocock/skills205.1K"
+    },
+    {
+      "href": "/mattpocock/skills/ubiquitous-language",
+      "text": "239ubiquitous-languagemattpocock/skills203.8K"
+    },
+    {
+      "href": "/stablyai/orca/orca-cli",
+      "text": "240orca-clistablyai/orca203.5K"
+    },
+    {
+      "href": "/larksuite/cli/lark-note",
+      "text": "241lark-notelarksuite/cli203.0K"
+    },
+    {
+      "href": "/obra/superpowers/executing-plans",
+      "text": "242executing-plansobra/superpowers202.5K"
+    },
+    {
+      "href": "/vercel-labs/agent-skills/vercel-react-native-skills",
+      "text": "243vercel-react-native-skillsvercel-labs/agent-skills202.5K"
+    },
+    {
+      "href": "/mattpocock/skills/obsidian-vault",
+      "text": "244obsidian-vaultmattpocock/skills201.6K"
+    },
+    {
+      "href": "/coreyhaines31/marketingskills/seo-audit",
+      "text": "245seo-auditcoreyhaines31/marketingskills200.3K"
+    },
+    {
+      "href": "/obra/superpowers/verification-before-completion",
+      "text": "246verification-before-completionobra/superpowers199.6K"
+    },
+    {
+      "href": "/mattpocock/skills/writing-for-agents",
+      "text": "247writing-for-agentsmattpocock/skills199.2K"
+    },
+    {
+      "href": "/mattpocock/skills/edit-article",
+      "text": "248edit-articlemattpocock/skills197.9K"
+    },
+    {
+      "href": "/obra/superpowers/subagent-driven-development",
+      "text": "249subagent-driven-developmentobra/superpowers195.5K"
+    },
+    {
+      "href": "/coreyhaines31/marketingskills/copywriting",
+      "text": "250copywritingcoreyhaines31/marketingskills192.6K"
+    },
+    {
+      "href": "/mattpocock/skills/wait-what",
+      "text": "251wait-whatmattpocock/skills192.3K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/embedded-captions",
+      "text": "252embedded-captionsheygen-com/hyperframes190.9K"
+    },
+    {
+      "href": "/anthropics/skills/pdf",
+      "text": "253pdfanthropics/skills190.3K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/pr-to-video",
+      "text": "254pr-to-videoheygen-com/hyperframes189.7K"
+    },
+    {
+      "href": "/mattpocock/skills/setup-ts-deep-modules",
+      "text": "255setup-ts-deep-modulesmattpocock/skills188.4K"
+    },
+    {
+      "href": "/obra/superpowers/receiving-code-review",
+      "text": "256receiving-code-reviewobra/superpowers184.5K"
+    },
+    {
+      "href": "/anthropics/skills/docx",
+      "text": "257docxanthropics/skills182.5K"
+    },
+    {
+      "href": "/obra/superpowers/dispatching-parallel-agents",
+      "text": "258dispatching-parallel-agentsobra/superpowers182.0K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/music-to-video",
+      "text": "262music-to-videoheygen-com/hyperframes169.3K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/slideshow",
+      "text": "263slideshowheygen-com/hyperframes166.6K"
+    },
+    {
+      "href": "/microsoft/azure-skills/python-appservice-deploy",
+      "text": "264python-appservice-deploymicrosoft/azure-skills166.1K"
+    },
+    {
+      "href": "/stablyai/orca/orchestration",
+      "text": "265orchestrationstablyai/orca165.7K"
+    },
+    {
+      "href": "/anthropics/skills/xlsx",
+      "text": "266xlsxanthropics/skills163.1K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/talking-head-recut",
+      "text": "267talking-head-recutheygen-com/hyperframes152.7K"
+    },
+    {
+      "href": "/higgsfield-ai/skills/higgsfield-generate",
+      "text": "268higgsfield-generatehiggsfield-ai/skills150.8K"
+    },
+    {
+      "href": "/anthropics/skills/webapp-testing",
+      "text": "269webapp-testinganthropics/skills149.6K"
+    },
+    {
+      "href": "/heygen-com/hyperframes/hyperframes-media",
+      "text": "270hyperframes-mediaheygen-com/hyperframes148.6K"
+    },
+    {
+      "href": "/firebase/agent-skills/firebase-basics",
+      "text": "271firebase-basicsfirebase/agent-skills145.3K"
+    },
+    {
+      "href": "/firebase/agent-skills/firebase-auth-basics",
+      "text": "272firebase-auth-basicsfirebase/agent-skills144.3K"
+    },
+    {
+      "href": "/microsoft/playwright-cli/playwright-cli",
+      "text": "273playwright-climicrosoft/playwright-cli141.7K"
+    },
+    {
+      "href": "/firebase/agent-skills/firebase-hosting-basics",
+      "text": "274firebase-hosting-basicsfirebase/agent-skills140.8K"
+    },
+    {
+      "href": "/",
+      "text": "All skills"
+    },
+    {
+      "href": "/trending",
+      "text": "Trending"
+    },
+    {
+      "href": "/hot",
+      "text": "Hot"
+    },
+    {
+      "href": "/official",
+      "text": "Official"
+    },
+    {
+      "href": "/packs",
+      "text": "Packs"
+    },
+    {
+      "href": "/audits",
+      "text": "Security audits"
+    },
+    {
+      "href": "/topic/react",
+      "text": "React"
+    },
+    {
+      "href": "/topic/nextjs",
+      "text": "Next.js"
+    },
+    {
+      "href": "/topic/design",
+      "text": "Design &amp; UI"
+    },
+    {
+      "href": "/topic/mobile",
+      "text": "Mobile"
+    },
+    {
+      "href": "/topic/agent-workflows",
+      "text": "Agent workflows"
+    },
+    {
+      "href": "/topic/databases",
+      "text": "Databases"
+    },
+    {
+      "href": "/topic/testing",
+      "text": "Testing"
+    },
+    {
+      "href": "/topic/marketing",
+      "text": "Marketing"
+    },
+    {
+      "href": "/topic",
+      "text": "All topics \u2192"
+    },
+    {
+      "href": "/agent/claude-code",
+      "text": "Claude Code"
+    },
+    {
+      "href": "/agent/cursor",
+      "text": "Cursor"
+    },
+    {
+      "href": "/agent/codex",
+      "text": "Codex"
+    },
+    {
+      "href": "/agent/github-copilot",
+      "text": "GitHub Copilot"
+    },
+    {
+      "href": "/agent/windsurf",
+      "text": "Windsurf"
+    },
+    {
+      "href": "/agent/gemini",
+      "text": "Gemini"
+    },
+    {
+      "href": "/agent/cline",
+      "text": "Cline"
+    },
+    {
+      "href": "/agent/amp",
+      "text": "AMP"
+    },
+    {
+      "href": "/agent/antigravity",
+      "text": "Antigravity"
+    },
+    {
+      "href": "/agent/clawdbot",
+      "text": "OpenClaw"
+    },
+    {
+      "href": "/agent",
+      "text": "All agents \u2192"
+    },
+    {
+      "href": "/docs",
+      "text": "Overview"
+    },
+    {
+      "href": "/docs/cli",
+      "text": "CLI"
+    },
+    {
+      "href": "/docs/customize",
+      "text": "Customize pages"
+    },
+    {
+      "href": "/docs/api",
+      "text": "API"
+    },
+    {
+      "href": "/docs/faq",
+      "text": "FAQ"
+    },
+    {
+      "href": "/about",
+      "text": "About"
+    },
+    {
+      "href": "/contact",
+      "text": "Contact"
+    },
+    {
+      "href": "/privacy",
+      "text": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "text": "Terms"
+    }
+  ],
+  "anchor_distribution": {
+    "Weight Loss Percentage": 2,
+    "Weight Loss %": 2,
+    "BMI Calculator": 2,
+    "TDEE Calculator": 3,
+    "BMR Calculator": 3,
+    "Calorie Calculator": 3,
+    "Macro Calculator": 3,
+    "Body Fat Calculator": 2,
+    "Newborn Weight Loss": 2,
+    "Infant Weight Loss": 2,
+    "Baby Weight Loss": 2,
+    "Dog Weight Loss": 2,
+    "Peptide Dosage": 2,
+    "About Us": 2,
+    "Contact Us": 2,
+    "Glossary": 3,
+    "Privacy Policy": 2,
+    "Terms of Service": 2,
+    "Disclaimer": 2,
+    "\ud83c\uddfa\ud83c\uddf8 English (US)": 2,
+    "\ud83c\uddec\ud83c\udde7 English (UK)": 2,
+    "\ud83c\udde8\ud83c\udde6 English (CA)": 2,
+    "\ud83c\udde6\ud83c\uddfa English (AU)": 2,
+    "\ud83c\uddf3\ud83c\uddff English (NZ)": 2,
+    "\ud83c\udde8\ud83c\uddf3 \u7b80\u4f53\u4e2d\u6587": 2,
+    "\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439": 2,
+    "%\n            Weight Loss Percentage": 1,
+    "Home": 1,
+    "Calculators": 1,
+    "Nutrition": 1,
+    "Compare": 1,
+    "About": 2,
+    "Dr. Rekha Kumar, M.D., M.S.": 1,
+    "Editorial &amp; Methodology Policy": 1,
+    "Weight Loss Calculator\n            Calorie deficit &amp; timeline to goal weight": 1,
+    "Body Fat % Calculator\n            US Navy method, men &amp; women": 1,
+    "BMI Calculator\n            For women and men \u2014 WHO categories": 1,
+    "TDEE Calculator\n            Total Daily Energy Expenditure": 1,
+    "BMR Calculator\n            Basal Metabolic Rate": 1,
+    "Calorie Calculator\n            Daily calorie needs &amp; deficit": 1,
+    "weight loss calculator": 1,
+    "BMI Calculator for Women &amp; Men": 1,
+    "Calorie Deficit Calculator": 1,
+    "Body Fat Percentage Calculator": 1,
+    "Protein Calculator": 1,
+    "Water Intake Calculator": 1,
+    "Weight Loss Calculator": 1,
+    "Newborn Weight Loss Calculator": 1,
+    "Bariatric Surgery Calculator": 1,
+    "Postpartum Weight Loss Calculator": 1,
+    "\ud83d\udc76 Newborn Weight Loss % Tool": 1,
+    "\ud83d\udcca BMI Calculator": 1,
+    "\ud83e\udd57 Macro &amp; Calorie Deficit Tool": 1,
+    "Skills": 1,
+    "Packs": 3,
+    "Topics": 2,
+    "Official": 3,
+    "Audits": 2,
+    "Docs": 2,
+    "All Time (1,347,717)": 1,
+    "Trending (24h)": 1,
+    "Hot": 2,
+    "1find-skillsvercel-labs/skills3.2M": 1,
+    "2grill-memattpocock/skills1.1M": 1,
+    "3grill-with-docsmattpocock/skills899.9K": 1,
+    "4improve-codebase-architecturemattpocock/skills863.4K": 1,
+    "5frontend-designanthropics/skills852.2K": 1,
+    "6tddmattpocock/skills835.6K": 1,
+    "7agent-browservercel-labs/agent-browser784.6K": 1,
+    "8setup-matt-pocock-skillsmattpocock/skills770.8K": 1,
+    "12vercel-react-best-practicesvercel-labs/agent-skills688.2K": 1,
+    "13anti-ui-slopuizze.com658.5K": 1,
+    "14lark-docopen.feishu.cn656.6K": 1,
+    "38grillingmattpocock/skills620.6K": 1,
+    "39web-design-guidelinesvercel-labs/agent-skills605.9K": 1,
+    "40lark-vc-agentopen.feishu.cn599.2K": 1,
+    "41teachmattpocock/skills592.2K": 1,
+    "42microsoft-foundrymicrosoft/azure-skills571.2K": 1,
+    "43lark-appsopen.feishu.cn565.2K": 1,
+    "44domain-modelingmattpocock/skills564.4K": 1,
+    "45azure-diagnosticsmicrosoft/azure-skills563.8K": 1,
+    "50ai-video-generationskills-101/superpowers562.4K": 1,
+    "51azure-storagemicrosoft/azure-skills562.0K": 1,
+    "52ai-image-generationskills-101/superpowers561.7K": 1,
+    "53entra-app-registrationmicrosoft/azure-skills561.7K": 1,
+    "54ai-avatar-videoskills-101/superpowers561.6K": 1,
+    "55twitter-automationskills-101/superpowers561.5K": 1,
+    "56appinsights-instrumentationmicrosoft/azure-skills561.4K": 1,
+    "63codebase-designmattpocock/skills547.4K": 1,
+    "64diagnosing-bugsmattpocock/skills538.4K": 1,
+    "65remotion-best-practicesremotion-dev/skills509.1K": 1,
+    "66azure-computemicrosoft/azure-skills504.8K": 1,
+    "67ask-mattmattpocock/skills498.8K": 1,
+    "68azure-cloud-migratemicrosoft/azure-skills494.8K": 1,
+    "69implementmattpocock/skills491.7K": 1,
+    "70azure-rbacmicrosoft/azure-skills488.1K": 1,
+    "71code-reviewmattpocock/skills482.5K": 1,
+    "72hyperframes-cliheygen-com/hyperframes481.0K": 1,
+    "73cavemanjuliusbrussee/caveman480.4K": 1,
+    "74hyperframesheygen-com/hyperframes460.5K": 1,
+    "75paper-context-resolverlllllllama/rigorpilot-skills450.8K": 1,
+    "79wayfindermattpocock/skills448.4K": 1,
+    "80design-taste-frontendleonxlnx/taste-skill441.3K": 1,
+    "81researchmattpocock/skills441.2K": 1,
+    "82azure-hosted-copilot-sdkmicrosoft/azure-skills439.7K": 1,
+    "83lark-noteopen.feishu.cn439.0K": 1,
+    "84to-specmattpocock/skills438.0K": 1,
+    "85lark-doclarksuite/cli437.2K": 1,
+    "92azure-quotasmicrosoft/azure-skills431.0K": 1,
+    "93lark-whiteboardlarksuite/cli431.0K": 1,
+    "94lark-tasklarksuite/cli430.6K": 1,
+    "95to-ticketsmattpocock/skills430.4K": 1,
+    "96lark-calendarlarksuite/cli429.8K": 1,
+    "106resolving-merge-conflictsmattpocock/skills424.0K": 1,
+    "107azure-upgrademicrosoft/azure-skills423.1K": 1,
+    "108hyperframes-registryheygen-com/hyperframes416.2K": 1,
+    "109video-editprime-skills/runcomfy-agent-skills414.1K": 1,
+    "120lark-approvallarksuite/cli401.4K": 1,
+    "121azure-enterprise-infra-plannermicrosoft/azure-skills397.6K": 1,
+    "122azure-kubernetesmicrosoft/azure-skills390.5K": 1,
+    "123kling-3-0prime-skills/runcomfy-agent-skills387.8K": 1,
+    "124supabase-postgres-best-practicessupabase/agent-skills385.3K": 1,
+    "125lark-slideslarksuite/cli381.7K": 1,
+    "126lark-attendancelarksuite/cli379.2K": 1,
+    "127codex-petprime-skills/runcomfy-agent-skills376.2K": 1,
+    "128skill-creatoranthropics/skills371.9K": 1,
+    "129to-prdmattpocock/skills366.6K": 1,
+    "130azure-costmicrosoft/azure-skills365.7K": 1,
+    "131lark-okrlarksuite/cli365.2K": 1,
+    "132hyperframes-coreheygen-com/hyperframes362.3K": 1,
+    "133hyperframes-animationheygen-com/hyperframes358.4K": 1,
+    "134ai-video-generationprime-skills/runcomfy-agent-skills357.4K": 1,
+    "135ai-image-generationprime-skills/runcomfy-agent-skills357.2K": 1,
+    "136media-useheygen-com/hyperframes355.4K": 1,
+    "137runcomfy-cliprime-skills/runcomfy-agent-skills354.7K": 1,
+    "138ai-avatar-videoprime-skills/runcomfy-agent-skills354.5K": 1,
+    "139face-swapprime-skills/runcomfy-agent-skills354.4K": 1,
+    "140to-issuesmattpocock/skills353.6K": 1,
+    "141video-inpaintingprime-skills/runcomfy-agent-skills352.8K": 1,
+    "150brainstormingobra/superpowers350.7K": 1,
+    "151lark-markdownlarksuite/cli345.9K": 1,
+    "152ui-ux-pro-maxnextlevelbuilder/ui-ux-pro-max-skill343.6K": 1,
+    "153ai-musicprime-skills/runcomfy-agent-skills343.5K": 1,
+    "154ace-stepprime-skills/runcomfy-agent-skills343.1K": 1,
+    "155caveman-commitjuliusbrussee/caveman336.7K": 1,
+    "156caveman-reviewjuliusbrussee/caveman333.6K": 1,
+    "157hyperframes-creativeheygen-com/hyperframes332.7K": 1,
+    "158caveman-compressjuliusbrussee/caveman331.7K": 1,
+    "159high-end-visual-designleonxlnx/taste-skill326.8K": 1,
+    "160caveman-helpjuliusbrussee/caveman324.9K": 1,
+    "161redesign-existing-projectsleonxlnx/taste-skill323.1K": 1,
+    "162video-editgenmedia-labs/skills322.1K": 1,
+    "163ai-video-generationgenmedia-labs/skills321.9K": 1,
+    "164ai-musicgenmedia-labs/skills321.9K": 1,
+    "165writing-great-skillsmattpocock/skills321.8K": 1,
+    "166image-to-videogenmedia-labs/skills321.5K": 1,
+    "167ai-image-generationgenmedia-labs/skills321.4K": 1,
+    "168vercel-composition-patternsvercel-labs/agent-skills320.5K": 1,
+    "169lark-vc-agentlarksuite/cli316.2K": 1,
+    "170git-guardrails-claude-codemattpocock/skills313.9K": 1,
+    "171ai-research-explorelllllllama/rigorpilot-skills311.1K": 1,
+    "178airunway-aks-setupmicrosoft/azure-skills309.7K": 1,
+    "179setup-pre-commitmattpocock/skills306.7K": 1,
+    "185minimalist-uileonxlnx/taste-skill299.9K": 1,
+    "186migrate-to-shoehornmattpocock/skills297.8K": 1,
+    "187reddit-automationflowkit-labs/skills290.0K": 1,
+    "188full-output-enforcementleonxlnx/taste-skill285.9K": 1,
+    "189entra-agent-idmicrosoft/azure-skills283.8K": 1,
+    "190cavecrewjuliusbrussee/caveman282.6K": 1,
+    "191caveman-statsjuliusbrussee/caveman281.7K": 1,
+    "192industrial-brutalist-uileonxlnx/taste-skill279.6K": 1,
+    "193gpt-tasteleonxlnx/taste-skill278.1K": 1,
+    "194stitch-design-tasteleonxlnx/taste-skill278.1K": 1,
+    "195lark-appslarksuite/cli276.2K": 1,
+    "196shadcnshadcn/ui271.7K": 1,
+    "197brandkitleonxlnx/taste-skill268.2K": 1,
+    "198image-to-codeleonxlnx/taste-skill263.2K": 1,
+    "199hyperframes-keyframesheygen-com/hyperframes262.6K": 1,
+    "200imagegen-frontend-webleonxlnx/taste-skill261.8K": 1,
+    "201impeccablepbakaus/impeccable261.3K": 1,
+    "202prisma-database-setupprisma/skills259.9K": 1,
+    "203prisma-client-apiprisma/skills259.4K": 1,
+    "204remotion-to-hyperframesheygen-com/hyperframes257.5K": 1,
+    "205prisma-cliprisma/skills257.2K": 1,
+    "206imagegen-frontend-mobileleonxlnx/taste-skill256.5K": 1,
+    "207supabasesupabase/agent-skills255.5K": 1,
+    "208loop-memattpocock/skills253.7K": 1,
+    "209prisma-postgresprisma/skills253.3K": 1,
+    "210to-questionnairemattpocock/skills251.4K": 1,
+    "211prisma-driver-adapter-implementationprisma/skills248.7K": 1,
+    "212emil-design-engemilkowalski/skills248.6K": 1,
+    "213prisma-upgrade-v7prisma/skills248.5K": 1,
+    "214prisma-postgres-setupprisma/skills247.6K": 1,
+    "215systematic-debuggingobra/superpowers247.4K": 1,
+    "216just-scrapescrapegraphai/just-scrape245.0K": 1,
+    "217prisma-computeprisma/skills243.8K": 1,
+    "218azure-reliabilitymicrosoft/azure-skills243.0K": 1,
+    "219prisma-mongodb-upgradeprisma/skills242.5K": 1,
+    "220writing-plansobra/superpowers238.9K": 1,
+    "221diagnosemattpocock/skills238.2K": 1,
+    "222using-superpowersobra/superpowers234.9K": 1,
+    "223claude-handoffmattpocock/skills230.1K": 1,
+    "224write-a-skillmattpocock/skills229.7K": 1,
+    "225zoom-outmattpocock/skills229.2K": 1,
+    "226general-videoheygen-com/hyperframes228.8K": 1,
+    "227cavemanmattpocock/skills223.7K": 1,
+    "228requesting-code-reviewobra/superpowers218.9K": 1,
+    "229test-driven-developmentobra/superpowers216.6K": 1,
+    "230design-an-interfacemattpocock/skills215.8K": 1,
+    "231design-taste-frontend-v1leonxlnx/taste-skill214.6K": 1,
+    "232pptxanthropics/skills214.5K": 1,
+    "233faceless-explainerheygen-com/hyperframes212.3K": 1,
+    "234product-launch-videoheygen-com/hyperframes212.1K": 1,
+    "235azure-cost-optimizationmicrosoft/azure-skills209.4K": 1,
+    "236request-refactor-planmattpocock/skills209.2K": 1,
+    "237motion-graphicsheygen-com/hyperframes208.5K": 1,
+    "238qamattpocock/skills205.1K": 1,
+    "239ubiquitous-languagemattpocock/skills203.8K": 1,
+    "240orca-clistablyai/orca203.5K": 1,
+    "241lark-notelarksuite/cli203.0K": 1,
+    "242executing-plansobra/superpowers202.5K": 1,
+    "243vercel-react-native-skillsvercel-labs/agent-skills202.5K": 1,
+    "244obsidian-vaultmattpocock/skills201.6K": 1,
+    "245seo-auditcoreyhaines31/marketingskills200.3K": 1,
+    "246verification-before-completionobra/superpowers199.6K": 1,
+    "247writing-for-agentsmattpocock/skills199.2K": 1,
+    "248edit-articlemattpocock/skills197.9K": 1,
+    "249subagent-driven-developmentobra/superpowers195.5K": 1,
+    "250copywritingcoreyhaines31/marketingskills192.6K": 1,
+    "251wait-whatmattpocock/skills192.3K": 1,
+    "252embedded-captionsheygen-com/hyperframes190.9K": 1,
+    "253pdfanthropics/skills190.3K": 1,
+    "254pr-to-videoheygen-com/hyperframes189.7K": 1,
+    "255setup-ts-deep-modulesmattpocock/skills188.4K": 1,
+    "256receiving-code-reviewobra/superpowers184.5K": 1,
+    "257docxanthropics/skills182.5K": 1,
+    "258dispatching-parallel-agentsobra/superpowers182.0K": 1,
+    "262music-to-videoheygen-com/hyperframes169.3K": 1,
+    "263slideshowheygen-com/hyperframes166.6K": 1,
+    "264python-appservice-deploymicrosoft/azure-skills166.1K": 1,
+    "265orchestrationstablyai/orca165.7K": 1,
+    "266xlsxanthropics/skills163.1K": 1,
+    "267talking-head-recutheygen-com/hyperframes152.7K": 1,
+    "268higgsfield-generatehiggsfield-ai/skills150.8K": 1,
+    "269webapp-testinganthropics/skills149.6K": 1,
+    "270hyperframes-mediaheygen-com/hyperframes148.6K": 1,
+    "271firebase-basicsfirebase/agent-skills145.3K": 1,
+    "272firebase-auth-basicsfirebase/agent-skills144.3K": 1,
+    "273playwright-climicrosoft/playwright-cli141.7K": 1,
+    "274firebase-hosting-basicsfirebase/agent-skills140.8K": 1,
+    "All skills": 1,
+    "Trending": 1,
+    "Security audits": 1,
+    "React": 1,
+    "Next.js": 1,
+    "Design &amp; UI": 1,
+    "Mobile": 1,
+    "Agent workflows": 1,
+    "Databases": 1,
+    "Testing": 1,
+    "Marketing": 1,
+    "All topics \u2192": 1,
+    "Claude Code": 1,
+    "Cursor": 1,
+    "Codex": 1,
+    "GitHub Copilot": 1,
+    "Windsurf": 1,
+    "Gemini": 1,
+    "Cline": 1,
+    "AMP": 1,
+    "Antigravity": 1,
+    "OpenClaw": 1,
+    "All agents \u2192": 1,
+    "Overview": 1,
+    "CLI": 1,
+    "Customize pages": 1,
+    "API": 1,
+    "FAQ": 1,
+    "Contact": 1,
+    "Privacy": 1,
+    "Terms": 1
+  }
+}

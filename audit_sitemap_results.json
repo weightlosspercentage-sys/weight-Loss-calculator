@@ -1,0 +1,184 @@
+{
+  "timestamp": "2026-09-10T12:17:14.533050",
+  "robots_txt_sitemaps": [
+    "https://www.weightlosspercentage.com/sitemap-index.xml",
+    "https://www.weightlosspercentage.com/sitemap.xml"
+  ],
+  "sitemap_files": {
+    "sitemap-index.xml": {
+      "type": "sitemapindex",
+      "size_mb": 0.001,
+      "url_count": 6,
+      "has_priority": false,
+      "has_changefreq": false,
+      "http_urls_count": 0,
+      "https_urls_count": 0,
+      "valid_lastmod_count": 0,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap.xml": {
+      "type": "urlset",
+      "size_mb": 3.0035,
+      "url_count": 14613,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 14613,
+      "valid_lastmod_count": 14613,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap-main.xml": {
+      "type": "urlset",
+      "size_mb": 0.0916,
+      "url_count": 449,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 449,
+      "valid_lastmod_count": 449,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap-calculators.xml": {
+      "type": "urlset",
+      "size_mb": 0.4109,
+      "url_count": 2021,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 2021,
+      "valid_lastmod_count": 2021,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap-categories.xml": {
+      "type": "urlset",
+      "size_mb": 0.0013,
+      "url_count": 6,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 6,
+      "valid_lastmod_count": 6,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap-compare.xml": {
+      "type": "urlset",
+      "size_mb": 0.0011,
+      "url_count": 5,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 5,
+      "valid_lastmod_count": 5,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap-international.xml": {
+      "type": "urlset",
+      "size_mb": 2.497,
+      "url_count": 12120,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 12120,
+      "valid_lastmod_count": 12120,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    },
+    "sitemap-restaurants.xml": {
+      "type": "urlset",
+      "size_mb": 0.0024,
+      "url_count": 12,
+      "has_priority": true,
+      "has_changefreq": true,
+      "http_urls_count": 0,
+      "https_urls_count": 12,
+      "valid_lastmod_count": 12,
+      "invalid_lastmod_count": 0,
+      "unique_lastmods_count": 1,
+      "lastmods_sample": [
+        "2026-09-09"
+      ]
+    }
+  },
+  "total_unique_urls": 14613,
+  "issues": [
+    {
+      "severity": "Info",
+      "issue": "sitemap.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Low",
+      "issue": "sitemap.xml has uniform <lastmod> across all 14613 URLs (2026-09-09)"
+    },
+    {
+      "severity": "Info",
+      "issue": "sitemap-main.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Low",
+      "issue": "sitemap-main.xml has uniform <lastmod> across all 449 URLs (2026-09-09)"
+    },
+    {
+      "severity": "Info",
+      "issue": "sitemap-calculators.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Low",
+      "issue": "sitemap-calculators.xml has uniform <lastmod> across all 2021 URLs (2026-09-09)"
+    },
+    {
+      "severity": "Info",
+      "issue": "sitemap-categories.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Info",
+      "issue": "sitemap-compare.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Info",
+      "issue": "sitemap-international.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Low",
+      "issue": "sitemap-international.xml has uniform <lastmod> across all 12120 URLs (2026-09-09)"
+    },
+    {
+      "severity": "Info",
+      "issue": "sitemap-restaurants.xml uses deprecated/ignored tags (<priority> or <changefreq>)"
+    },
+    {
+      "severity": "Low",
+      "issue": "sitemap-restaurants.xml has uniform <lastmod> across all 12 URLs (2026-09-09)"
+    }
+  ],
+  "quality_signals": [],
+  "sample_status_counts": {
+    "200": 20
+  }
+}

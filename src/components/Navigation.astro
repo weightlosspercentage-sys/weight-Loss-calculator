@@ -21,56 +21,18 @@ const isLinkActive = (href: string) => {
 
 <div class="md:flex hidden" style="align-items: center; gap: 4px;">
   {navLinks.map((link) => {
-    if ('dropdown' in link) {
-      const parentHref = getLocalizedHref(link.label === 'Calculators' ? '/calculators/' : '/nutrition/', region);
-      const activeClass = isLinkActive(parentHref) ? 'active' : '';
-      return (
-      <div class="relative group">
-          <a 
-            href={parentHref}
-            class={`nav-link ${activeClass}`}
-            style="padding: 6px 12px; font-size: 14px; font-weight: 400; color: var(--vercel-body); text-decoration: none; display: flex; align-items: center; transition: color 0.2s ease; border-radius: var(--vercel-radius-pill);"
-            onmouseover="this.style.color='var(--vercel-ink)'"
-            onmouseout="this.style.color='var(--vercel-body)'"
-            aria-haspopup="true"
-          >
-            {link.label}
-            <svg class="w-4 h-4 ml-1 dropdown-chevron" style="height: 16px; width: 16px; margin-left: 4px;" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </a>
-          <div class="dropdown-menu" style={`position: absolute; left: 0; margin-top: 4px; width: ${link.label === 'Calculators' ? '256px' : '224px'}; border-radius: var(--vercel-radius-md); background: var(--vercel-canvas); box-shadow: 0px 1px 1px #00000005, 0px 8px 16px -4px #0000000a, 0px 24px 32px -8px #0000000f; border: 1px solid var(--vercel-hairline); overflow: hidden; padding: 8px 0;`}>
-            {link.dropdown?.map((subItem) => {
-              const subHref = getLocalizedHref(subItem.href, region);
-              const subActive = isLinkActive(subHref);
-              return (
-                <a 
-                  href={subHref} 
-                  style={`display: block; padding: 8px 16px; font-size: 14px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; ${subActive ? 'color: var(--vercel-ink); font-weight: 500;' : 'color: var(--vercel-body); font-weight: 400;'}`}
-                  onmouseover="this.style.background='var(--vercel-canvas-soft)'; this.style.color='var(--vercel-ink)'"
-                  onmouseout={`this.style.background='transparent'; this.style.color='${subActive ? 'var(--vercel-ink)' : 'var(--vercel-body)'}'`}
-                >
-                  {subItem.label}
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      );
-    } else {
-      const linkHref = getLocalizedHref(link.href, region);
-      const activeClass = isLinkActive(linkHref) ? 'active' : '';
-      return (
-        <a 
-          href={linkHref} 
-          class={`nav-link ${activeClass}`}
-          style="padding: 6px 12px; font-size: 14px; font-weight: 400; color: var(--vercel-body); text-decoration: none; transition: color 0.2s ease; border-radius: var(--vercel-radius-pill);"
-          onmouseover="this.style.color='var(--vercel-ink)'"
-          onmouseout="this.style.color='var(--vercel-body)'"
-        >
-          {link.label}
-        </a>
-      );
-    }
+    const localizedHref = getLocalizedHref(link.href, region);
+    const activeClass = isLinkActive(localizedHref) ? 'active' : '';
+    return (
+      <a 
+        href={localizedHref} 
+        class={`nav-link ${activeClass}`}
+        style={`padding: 6px 14px; font-size: 14px; font-weight: 500; color: ${isLinkActive(localizedHref) ? 'var(--vercel-ink)' : 'var(--vercel-body)'}; text-decoration: none; display: flex; align-items: center; transition: color 0.2s ease, background 0.2s ease; border-radius: var(--vercel-radius-pill);`}
+        onmouseover="this.style.color='var(--vercel-ink)'; this.style.background='var(--vercel-canvas-soft)';"
+        onmouseout={`this.style.color='${isLinkActive(localizedHref) ? 'var(--vercel-ink)' : 'var(--vercel-body)'}'; this.style.background='transparent';`}
+      >
+        {link.label}
+      </a>
+    );
   })}
 </div>

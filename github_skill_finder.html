@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code - Skill Directory & GitHub Finder</title>
+    <!-- Marked for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- DOMPurify for safe rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <!-- Skills Database -->
+    <script src="skills.js"></script>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-hover: #f1f5f9;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            padding-bottom: 2rem; 
+            overflow-x: hidden; 
+            line-height: 1.5;
+        }
+        
+        /* Header */
+        header { 
+            padding: 3rem 2rem; 
+            background-color: var(--surface); 
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+        h1 { 
+            font-size: 2.25rem; 
+            margin-bottom: 0.5rem; 
+            color: #111827; 
+            font-weight: 800; 
+            letter-spacing: -0.025em; 
+        }
+        p.subtitle { 
+            color: var(--text-muted); 
+            font-size: 1.125rem; 
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
+
+        /* Tabs */
+        .tabs { display: flex; justify-content: center; gap: 1rem; border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 50; padding: 0.8rem 2rem 0; }
+        .tab-btn { padding: 0.75rem 1.5rem; background: transparent; border: none; font-size: 1rem; font-weight: 600; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--primary); }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+        .container { max-width: 1300px; margin: 2rem auto; padding: 0 2rem; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .search-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center; justify-content: space-between; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .search-hero input { flex: 1; padding: 0.75rem 1.25rem; border-radius: 8px; border: 1px solid var(--border); font-size: 1rem; outline: none; }
+        .search-hero input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
+        
+        button { background: var(--primary); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+        button:hover { background: var(--primary-hover); }
+        button:disabled { opacity: 0.7; cursor: not-allowed; }
+        button.secondary { background: white; border: 1px solid var(--border); color: var(--text); }
+        button.secondary:hover { background: var(--surface-hover); border-color: #cbd5e1; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.25rem; }
+        
+        .card { 
+            background: var(--surface); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1rem; 
+            transition: all 0.2s; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .card:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px -2px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+        .badge-repo { font-size: 0.75rem; font-weight: 700; color: #475569; text-transform: uppercase; background: #f1f5f9; padding: 0.25rem 0.6rem; border-radius: 6px; margin-bottom: 0.5rem; display: inline-block; }
+        .card-title { font-size: 1.25rem; font-weight: 700; color: var(--text); word-break: break-word; line-height: 1.2; text-decoration: none; }
+        
+        .stars { display: flex; align-items: center; gap: 0.25rem; color: #b45309; background: #fef3c7; font-size: 0.8rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 999px; }
+        
+        .card-desc { color: #475569; font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
+        .card-actions { display: flex; gap: 0.5rem; margin-top: auto; border-top: 1px solid var(--border); padding-top: 1rem; }
+        .card-actions button { flex: 1; padding: 0.6rem; font-size: 0.875rem; border-radius: 8px; }
+
+        /* Split-View Codex (Side Panel) */
+        #codex { 
+            position: fixed; top: 0; right: -100%; width: 55%; max-width: 900px; height: 100vh; background: var(--surface); border-left: 1px solid var(--border); transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; z-index: 100; 
+        }
+        #codex.open { right: 0; }
+        .codex-header { padding: 1.25rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+        .codex-header h2 { font-size: 1.25rem; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 0.5rem; }
+        .codex-header-actions { display: flex; gap: 0.75rem; align-items: center; }
+        .codex-content { padding: 2.5rem; overflow-y: auto; flex-grow: 1; }
+        
+        .close-btn { background: transparent; border: none; font-size: 1.5rem; color: #64748b; cursor: pointer; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+        .close-btn:hover { background: #e2e8f0; color: #0f172a; }
+        
+        .overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(2px); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 90; }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        
+        .loader-block { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-weight: 500; display: none; }
+        .loader { display: inline-block; border: 3px solid #e2e8f0; border-top: 3px solid var(--primary); border-radius: 50%; width: 36px; height: 36px; animation: spin 1s linear infinite; margin-bottom: 1rem; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .message-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; display: flex; flex-direction: column; gap: 0.75rem; }
+        .toast { padding: 1rem 1.25rem; border-radius: 8px; color: #111827; font-weight: 600; font-size: 0.9rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateX(120%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; align-items: center; gap: 0.75rem; background: #fff; border-left: 4px solid #94a3b8; }
+        .toast.show { transform: translateX(0); }
+        .toast.error { border-left-color: var(--danger); }
+        .toast.warning { border-left-color: var(--warning); }
+        .toast.success { border-left-color: var(--success); }
+        
+        .empty-state { text-align: center; padding: 4rem 2rem; border-radius: 12px; color: var(--text-muted); display: none; background: #fff; border: 1px dashed #cbd5e1; }
+        .empty-state h3 { font-size: 1.1rem; color: #1e293b; margin-bottom: 0.25rem; font-weight: 600; }
+
+        .markdown-body { color: #334155; font-size: 1.05rem; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 { color: #0f172a; margin-top: 2em; margin-bottom: 1em; font-weight: 700; }
+        .markdown-body h1 { font-size: 2.25em; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5em; margin-top: 0; }
+        .markdown-body h2 { font-size: 1.5em; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.3em; margin-top: 1.5em; }
+        .markdown-body p { margin-bottom: 1.25em; }
+        .markdown-body a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .markdown-body a:hover { text-decoration: underline; }
+        .markdown-body code { background: #f1f5f9; color: #db2777; padding: 0.2em 0.4em; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; }
+        .markdown-body pre { background: #0f172a; color: #f8fafc; padding: 1.25rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1.5em; line-height: 1.45; }
+        .markdown-body pre code { background: none; color: inherit; padding: 0; font-size: 0.9em; }
+        .markdown-body blockquote { border-left: 4px solid #cbd5e1; padding-left: 1rem; color: #64748b; font-style: italic; margin-bottom: 1.5em; }
+        
+        .tag-pill { display: inline-block; padding: 0.2rem 0.5rem; background: #e0e7ff; color: #4338ca; border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-right: 0.4rem; margin-top: 0.5rem; }
+
+        @media (max-width: 768px) {
+            #codex { width: 100%; max-width: 100%; border-left: none; }
+            header { padding: 2rem 1rem; }
+            .search-hero { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Claude Code Skills</h1>
+        <p class="subtitle">Discover, preview, and download 550+ verified agent skills (SKILL.md).</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('directory', event)">Skills Directory</button>
+        <button class="tab-btn" onclick="switchTab('github', event)">Global GitHub Search</button>
+    </div>
+
+    <div class="message-container" id="toast-container"></div>
+
+    <div class="container">
+        <!-- DIRECTORY TAB -->
+        <div id="tab-directory" class="tab-content active">
+            <div class="search-hero">
+                <input type="text" id="directory-search" placeholder="Search by skill name or repository (e.g., 'seo', 'react', 'mattpocock')..." onkeyup="filterDirectory()">
+                <div style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600;" id="directory-count">Loading skills...</div>
+            </div>
+            
+            <div id="directory-grid" class="grid">
+                <!-- Populated by JavaScript -->
+            </div>
+            
+            <div id="directory-empty" class="empty-state">
+                <h3>No skills match your filter</h3>
+                <p>Try adjusting your search terms.</p>
+            </div>
+        </div>
+
+        <!-- GITHUB SEARCH TAB -->
+        <div id="tab-github" class="tab-content">
+            <div class="search-hero">
+                <input type="text" id="github-search" placeholder="Search keywords (optional - leave blank for all top repos)..." onkeypress="if(event.key === 'Enter') handleGithubSearch()" />
+                <select id="github-category" onchange="handleGithubSearch()" style="padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border); outline: none; background: white;">
+                    <option value="" selected>All Categories</option>
+                    <option value="claude OR anthropic">Claude & Anthropic</option>
+                    <option value="ai OR &quot;machine learning&quot; OR &quot;deep learning&quot;">AI & Machine Learning</option>
+                    <option value="agent OR &quot;ai agent&quot; OR llm">AI Agents & LLMs</option>
+                    <option value="&quot;claude code&quot; OR &quot;claude skill&quot; OR &quot;skill.md&quot;">Claude Skills & MCP</option>
+                    <option value="seo OR &quot;search engine optimization&quot;">SEO & Optimization</option>
+                    <option value="&quot;developer tools&quot; OR devtools OR productivity">Developer Tools</option>
+                    <option value="react OR frontend OR &quot;web dev&quot;">Web Development</option>
+                    <option value="security OR cybersecurity">Security & Privacy</option>
+                    <option value="database OR sql OR postgres">Database & Storage</option>
+                </select>
+                <select id="github-year" onchange="handleGithubSearch()" style="padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border); outline: none; background: white;">
+                    <option value="" selected>Any Year</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+                <select id="github-stars" onchange="handleGithubSearch()" style="padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border); outline: none; background: white;">
+                    <option value="500" selected>Min 500 Stars</option>
+                    <option value="1000">Min 1k Stars</option>
+                    <option value="5000">Min 5k Stars</option>
+                    <option value="10000">Min 10k Stars</option>
+                    <option value="100">Min 100 Stars</option>
+                    <option value="50">Min 50 Stars</option>
+                </select>
+                <button id="github-search-btn" onclick="handleGithubSearch()">Search Repos</button>
+            </div>
+            
+            <div id="github-loader" class="loader-block">
+                <div class="loader"></div>
+                <div>Deep scanning GitHub repositories...</div>
+            </div>
+            <div id="github-grid" class="grid"></div>
+            
+            <div id="github-empty" class="empty-state">
+                <h3>No repositories found</h3>
+                <p>Try another keyword or lower the star requirement.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Overlay -->
+    <div class="overlay" id="overlay" onclick="closeCodex()"></div>
+
+    <!-- Sliding Preview Panel -->
+    <div id="codex">
+        <div class="codex-header">
+            <div>
+                <h2 id="codex-title" style="display:flex; align-items:center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; color: var(--primary);">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>SKILL.md</span>
+                </h2>
+                <div style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem;" id="codex-meta">owner/repo</div>
+            </div>
+            <div class="codex-header-actions">
+                <button id="codex-download-btn" class="secondary" style="padding: 0.5rem 1rem;">⬇ Download File</button>
+                <button class="close-btn" onclick="closeCodex()">✕</button>
+            </div>
+        </div>
+        <div class="codex-content markdown-body" id="codex-content"></div>
+    </div>
+
+    <script>
+        const SKILLS_DB = typeof SKILLS_SH_REGISTRY !== 'undefined' ? SKILLS_SH_REGISTRY : [];
+        
+        let currentActiveSkillRaw = '';
+        let currentActiveItem = '';
+
+        const els = {
+            directoryGrid: document.getElementById('directory-grid'),
+            directoryCount: document.getElementById('directory-count'),
+            directoryEmpty: document.getElementById('directory-empty'),
+            
+            githubGrid: document.getElementById('github-grid'),
+            githubLoader: document.getElementById('github-loader'),
+            githubEmpty: document.getElementById('github-empty'),
+            githubSearchBtn: document.getElementById('github-search-btn'),
+            
+            toastContainer: document.getElementById('toast-container'),
+            codex: document.getElementById('codex'),
+            overlay: document.getElementById('overlay'),
+            codexContent: document.getElementById('codex-content'),
+            codexTitle: document.getElementById('codex-title').querySelector('span'),
+            codexMeta: document.getElementById('codex-meta'),
+            codexDownloadBtn: document.getElementById('codex-download-btn')
+        };
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            const icon = type === 'error' ? '⚠️' : type === 'success' ? '✓' : 'ℹ️';
+            toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+            els.toastContainer.appendChild(toast);
+            
+            void toast.offsetWidth;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function switchTab(tabId, e) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            e.target.classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+
+            // Auto-load top repos if switching to GitHub tab for the first time
+            if (tabId === 'github' && els.githubGrid.children.length === 0) {
+                handleGithubSearch();
+            }
+        }
+
+        // ---------- DIRECTORY LOGIC ----------
+
+        function renderDirectory(data) {
+            els.directoryGrid.innerHTML = '';
+            els.directoryCount.innerText = `${data.length} skills found`;
+            
+            if (data.length === 0) {
+                els.directoryEmpty.style.display = 'block';
+                return;
+            }
+            els.directoryEmpty.style.display = 'none';
+
+            let html = '';
+            const renderLimit = Math.min(data.length, 300);
+            for(let i = 0; i < renderLimit; i++) {
+                const s = data[i];
+                const owner = s.source.split('/')[0];
+                html += `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <span class="badge-repo">${owner}</span>
+                                <div class="card-title">${s.name}</div>
+                            </div>
+                        </div>
+                        <div class="card-desc">
+                            <span class="tag-pill">${s.skillId}</span>
+                            Source repository: <a href="https://github.com/${s.source}" target="_blank" style="text-decoration:none; color:var(--primary); font-weight:500;">${s.source}</a>
+                        </div>
+                        <div class="card-actions">
+                            <button class="secondary" onclick="previewSkillDb('${s.source}', '${s.skillId}', '${s.name}')">Preview</button>
+                            <button onclick="downloadSkillDb('${s.source}', '${s.skillId}', '${s.name}')">Download</button>
+                        </div>
+                    </div>
+                `;
+            }
+            els.directoryGrid.innerHTML = html;
+        }
+
+        function filterDirectory() {
+            const query = document.getElementById('directory-search').value.toLowerCase();
+            if(!query) return renderDirectory(SKILLS_DB);
+            
+            const filtered = SKILLS_DB.filter(s => 
+                s.name.toLowerCase().includes(query) || 
+                s.skillId.toLowerCase().includes(query) || 
+                s.source.toLowerCase().includes(query)
+            );
+            renderDirectory(filtered);
+        }
+
+        // Initialize DB View
+        window.addEventListener('DOMContentLoaded', () => {
+            filterDirectory();
+        });
+
+        // ---------- GITHUB TREE SEARCH LOGIC ----------
+        
+        async function handleGithubSearch() {
+            const query = document.getElementById('github-search').value.trim();
+            const category = document.getElementById('github-category') ? document.getElementById('github-category').value.trim() : '';
+            const stars = document.getElementById('github-stars').value;
+            const year = document.getElementById('github-year') ? document.getElementById('github-year').value : '';
+            
+            els.githubGrid.innerHTML = '';
+            els.githubLoader.style.display = 'block';
+            els.githubEmpty.style.display = 'none';
+            els.githubSearchBtn.disabled = true;
+
+            // Build GitHub search query
+            const queryParts = [];
+            if (query) {
+                queryParts.push(query);
+            }
+            if (category) {
+                queryParts.push(category);
+            }
+            if (stars) {
+                queryParts.push(`stars:>=${stars}`);
+            }
+            if (year) {
+                queryParts.push(`created:${year}-01-01..${year}-12-31`);
+            }
+
+            // Fallback if completely empty
+            if (queryParts.length === 0) {
+                queryParts.push('stars:>=500');
+            }
+
+            const finalQuery = queryParts.join(' ');
+            const apiUrl = `https://api.github.com/search/repositories?q=${encodeURIComponent(finalQuery)}&sort=stars&order=desc`;
+
+            try {
+                const response = await fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } });
+                if (!response.ok) throw new Error(`Rate limit or API Error (${response.status})`);
+                const data = await response.json();
+                
+                if (data.items && data.items.length > 0) {
+                    renderGithubRepos(data.items.slice(0, 30));
+                } else {
+                    els.githubEmpty.style.display = 'block';
+                }
+            } catch (error) {
+                showToast(error.message, 'error');
+                els.githubEmpty.style.display = 'block';
+            } finally {
+                els.githubLoader.style.display = 'none';
+                els.githubSearchBtn.disabled = false;
+            }
+        }
+
+        function renderGithubRepos(repos) {
+            els.githubGrid.innerHTML = repos.map(repo => {
+                const parts = repo.full_name.split('/');
+                const owner = parts[0];
+                const name = parts[1] || owner;
+                const createdYear = repo.created_at ? new Date(repo.created_at).getFullYear() : '';
+                const topics = (repo.topics || []).slice(0, 3);
+                
+                return `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <span class="badge-repo">${owner}</span>
+                                ${createdYear ? `<span class="tag-pill" style="margin: 0 0 0.5rem 0.25rem; font-size: 0.7rem; padding: 0.15rem 0.45rem;">${createdYear}</span>` : ''}
+                                <a href="https://github.com/${repo.full_name}" class="card-title" target="_blank">${name}</a>
+                            </div>
+                            <div class="stars">★ ${(repo.stargazers_count || 0).toLocaleString()}</div>
+                        </div>
+                        <div class="card-desc" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;">
+                            ${repo.description || 'No description provided.'}
+                        </div>
+                        ${topics.length > 0 ? `
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: -0.5rem;">
+                            ${topics.map(t => `<span class="tag-pill" style="background: #f1f5f9; color: #475569; font-size: 0.68rem; margin: 0;">#${t}</span>`).join('')}
+                        </div>` : ''}
+                        <div class="card-actions">
+                            <button class="secondary" onclick="deepSearchSkill('${repo.full_name}', '${repo.default_branch}')">Deep Scan SKILLS</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ---------- DEEP SKILL FETCHING ----------
+
+        async function fetchRawText(url) {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("Not found");
+            return await res.text();
+        }
+
+        async function DeepFindSkillPaths(repoFullName, branch) {
+            showToast(`Scanning ${repoFullName} via Tree API...`, 'info');
+            const treeUrl = `https://api.github.com/repos/${repoFullName}/git/trees/${branch || 'main'}?recursive=1`;
+            const req = await fetch(treeUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' }});
+            if(!req.ok) {
+                return [{ path: 'SKILL.md' }];
+            }
+            const data = await req.json();
+            if(!data.tree) return [];
+            
+            return data.tree.filter(node => node.type === 'blob' && node.path.endsWith('SKILL.md'));
+        }
+
+        async function deepSearchSkill(repoFullName, branch) {
+            try {
+                const skillFiles = await DeepFindSkillPaths(repoFullName, branch);
+                
+                if(skillFiles.length === 0) {
+                    return showToast(`No SKILL.md files found in ${repoFullName}`, 'error');
+                }
+
+                showToast(`Opening skill from ${repoFullName}...`, 'success');
+                const rawUrl = `https://raw.githubusercontent.com/${repoFullName}/${branch}/${skillFiles[0].path}`;
+                const text = await fetchRawText(rawUrl);
+                openCodex(text, repoFullName, skillFiles[0].path);
+
+            } catch (err) {
+                showToast("Failed to run deep scan. Rate limited?", "error");
+            }
+        }
+
+        // DB skill fetcher
+        async function fetchSkillDbContent(repoFullName, skillId) {
+            const branches = ['main', 'master'];
+            const pathsToTry = [`skills/${skillId}/SKILL.md`, `${skillId}/SKILL.md`, 'SKILL.md'];
+
+            for (const branch of branches) {
+                for (const path of pathsToTry) {
+                    const url = `https://raw.githubusercontent.com/${repoFullName}/${branch}/${path}`;
+                    try {
+                        const txt = await fetchRawText(url);
+                        return { text: txt, path: path, branch: branch };
+                    } catch(e) {}
+                }
+            }
+            throw new Error("Skill markdown file not found on GitHub.");
+        }
+
+        async function previewSkillDb(repoFullName, skillId, name) {
+            showToast(`Fetching ${name}...`, 'info');
+            try {
+                const res = await fetchSkillDbContent(repoFullName, skillId);
+                openCodex(res.text, repoFullName, `${res.path} (${res.branch})`);
+            } catch (err) {
+                showToast(`Resolving precise location for ${name}...`, 'warning');
+                try {
+                    const skillFiles = await DeepFindSkillPaths(repoFullName, 'main');
+                    const match = skillFiles.find(f => f.path.includes(skillId));
+                    if(match) {
+                        const rawUrl = `https://raw.githubusercontent.com/${repoFullName}/main/${match.path}`;
+                        const text = await fetchRawText(rawUrl);
+                        openCodex(text, repoFullName, match.path);
+                    } else {
+                        showToast(`Skill content could not be located in repository.`, 'error');
+                    }
+                } catch(e2) {
+                    showToast(`Skill content could not be found via precise scan.`, 'error');
+                }
+            }
+        }
+
+        async function downloadSkillDb(repoFullName, skillId, name) {
+            showToast(`Downloading ${name}...`, 'info');
+            try {
+                const res = await fetchSkillDbContent(repoFullName, skillId);
+                triggerDownload(`${skillId}_SKILL.md`, res.text);
+                showToast(`Downloaded ${name}!`, 'success');
+            } catch (err) {
+                showToast(`Could not download ${name}.`, 'error');
+            }
+        }
+
+        // ---------- CODEX PANEL LOGIC ----------
+
+        function openCodex(markdownText, repoName, fileInfo) {
+            currentActiveSkillRaw = markdownText;
+            currentActiveItem = fileInfo.split('/').pop().replace('.md', '');
+            
+            els.codexTitle.innerText = "SKILL.md";
+            els.codexMeta.innerText = `Source: ${repoName} • Path: ${fileInfo}`;
+            
+            const html = DOMPurify.sanitize(marked.parse(markdownText));
+            els.codexContent.innerHTML = html;
+            
+            els.overlay.classList.add('active');
+            els.codex.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCodex() {
+            els.overlay.classList.remove('active');
+            els.codex.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        els.codexDownloadBtn.addEventListener('click', () => {
+            if (currentActiveSkillRaw) {
+                triggerDownload(`${currentActiveItem || 'SKILL'}_SKILL.md`, currentActiveSkillRaw);
+            }
+        });
+
+        function triggerDownload(filename, text) {
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>

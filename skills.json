@@ -1,0 +1,2782 @@
+[
+  {
+    "source": "vercel-labs/skills",
+    "skillId": "find-skills",
+    "name": "find-skills"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "grill-me",
+    "name": "grill-me"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "grill-with-docs",
+    "name": "grill-with-docs"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "improve-codebase-architecture",
+    "name": "improve-codebase-architecture"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "frontend-design",
+    "name": "frontend-design"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "tdd",
+    "name": "tdd"
+  },
+  {
+    "source": "vercel-labs/agent-browser",
+    "skillId": "agent-browser",
+    "name": "agent-browser"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "setup-matt-pocock-skills",
+    "name": "setup-matt-pocock-skills"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "handoff",
+    "name": "handoff"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "triage",
+    "name": "triage"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "prototype",
+    "name": "prototype"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "vercel-react-best-practices",
+    "name": "vercel-react-best-practices"
+  },
+  {
+    "source": "uizze.com",
+    "skillId": "anti-ui-slop",
+    "name": "anti-ui-slop"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-doc",
+    "name": "lark-doc"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-base",
+    "name": "lark-base"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-drive",
+    "name": "lark-drive"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-approval",
+    "name": "lark-approval"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-shared",
+    "name": "lark-shared"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-im",
+    "name": "lark-im"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-calendar",
+    "name": "lark-calendar"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-sheets",
+    "name": "lark-sheets"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-contact",
+    "name": "lark-contact"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-wiki",
+    "name": "lark-wiki"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-minutes",
+    "name": "lark-minutes"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-event",
+    "name": "lark-event"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-task",
+    "name": "lark-task"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-whiteboard",
+    "name": "lark-whiteboard"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-slides",
+    "name": "lark-slides"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-attendance",
+    "name": "lark-attendance"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-mail",
+    "name": "lark-mail"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-openapi-explorer",
+    "name": "lark-openapi-explorer"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-vc",
+    "name": "lark-vc"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-skill-maker",
+    "name": "lark-skill-maker"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-workflow-meeting-summary",
+    "name": "lark-workflow-meeting-summary"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-workflow-standup-report",
+    "name": "lark-workflow-standup-report"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-okr",
+    "name": "lark-okr"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-markdown",
+    "name": "lark-markdown"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "grilling",
+    "name": "grilling"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "web-design-guidelines",
+    "name": "web-design-guidelines"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-vc-agent",
+    "name": "lark-vc-agent"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "teach",
+    "name": "teach"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "microsoft-foundry",
+    "name": "microsoft-foundry"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-apps",
+    "name": "lark-apps"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "domain-modeling",
+    "name": "domain-modeling"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-diagnostics",
+    "name": "azure-diagnostics"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-prepare",
+    "name": "azure-prepare"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-ai",
+    "name": "azure-ai"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-deploy",
+    "name": "azure-deploy"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-validate",
+    "name": "azure-validate"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "ai-video-generation",
+    "name": "ai-video-generation"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-storage",
+    "name": "azure-storage"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "ai-image-generation",
+    "name": "ai-image-generation"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "entra-app-registration",
+    "name": "entra-app-registration"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "ai-avatar-video",
+    "name": "ai-avatar-video"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "twitter-automation",
+    "name": "twitter-automation"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "appinsights-instrumentation",
+    "name": "appinsights-instrumentation"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-resource-visualizer",
+    "name": "azure-resource-visualizer"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-resource-lookup",
+    "name": "azure-resource-lookup"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-compliance",
+    "name": "azure-compliance"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-aigateway",
+    "name": "azure-aigateway"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-kusto",
+    "name": "azure-kusto"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-messaging",
+    "name": "azure-messaging"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "codebase-design",
+    "name": "codebase-design"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "diagnosing-bugs",
+    "name": "diagnosing-bugs"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-best-practices",
+    "name": "remotion-best-practices"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-compute",
+    "name": "azure-compute"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "ask-matt",
+    "name": "ask-matt"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-cloud-migrate",
+    "name": "azure-cloud-migrate"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "implement",
+    "name": "implement"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-rbac",
+    "name": "azure-rbac"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "code-review",
+    "name": "code-review"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-cli",
+    "name": "hyperframes-cli"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "caveman",
+    "name": "caveman"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes",
+    "name": "hyperframes"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "paper-context-resolver",
+    "name": "paper-context-resolver"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "repo-intake-and-plan",
+    "name": "repo-intake-and-plan"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "minimal-run-and-audit",
+    "name": "minimal-run-and-audit"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "env-and-assets-bootstrap",
+    "name": "env-and-assets-bootstrap"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "wayfinder",
+    "name": "wayfinder"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "design-taste-frontend",
+    "name": "design-taste-frontend"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "research",
+    "name": "research"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-hosted-copilot-sdk",
+    "name": "azure-hosted-copilot-sdk"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-note",
+    "name": "lark-note"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "to-spec",
+    "name": "to-spec"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-quotas",
+    "name": "azure-quotas"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "to-tickets",
+    "name": "to-tickets"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "resolving-merge-conflicts",
+    "name": "resolving-merge-conflicts"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-upgrade",
+    "name": "azure-upgrade"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-registry",
+    "name": "hyperframes-registry"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "video-edit",
+    "name": "video-edit"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "image-to-video",
+    "name": "image-to-video"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "nano-banana-2",
+    "name": "nano-banana-2"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "nano-banana-edit",
+    "name": "nano-banana-edit"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "image-edit",
+    "name": "image-edit"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "flux-kontext",
+    "name": "flux-kontext"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "wan-2-7",
+    "name": "wan-2-7"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "gpt-image-edit",
+    "name": "gpt-image-edit"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "seedance-v2",
+    "name": "seedance-v2"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "happyhorse-1-0",
+    "name": "happyhorse-1-0"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "flux-2-klein",
+    "name": "flux-2-klein"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-enterprise-infra-planner",
+    "name": "azure-enterprise-infra-planner"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-kubernetes",
+    "name": "azure-kubernetes"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "kling-3-0",
+    "name": "kling-3-0"
+  },
+  {
+    "source": "supabase/agent-skills",
+    "skillId": "supabase-postgres-best-practices",
+    "name": "supabase-postgres-best-practices"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "codex-pet",
+    "name": "codex-pet"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "skill-creator",
+    "name": "skill-creator"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "to-prd",
+    "name": "to-prd"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-cost",
+    "name": "azure-cost"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-core",
+    "name": "hyperframes-core"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-animation",
+    "name": "hyperframes-animation"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "media-use",
+    "name": "media-use"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "runcomfy-cli",
+    "name": "runcomfy-cli"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "face-swap",
+    "name": "face-swap"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "to-issues",
+    "name": "to-issues"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "video-inpainting",
+    "name": "video-inpainting"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "image-inpainting",
+    "name": "image-inpainting"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "controlnet-pose",
+    "name": "controlnet-pose"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "lipsync",
+    "name": "lipsync"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "video-extend",
+    "name": "video-extend"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "elevenlabs-music-generation",
+    "name": "elevenlabs-music-generation"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "image-outpainting",
+    "name": "image-outpainting"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "relight",
+    "name": "relight"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "video-outpainting",
+    "name": "video-outpainting"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "brainstorming",
+    "name": "brainstorming"
+  },
+  {
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillId": "ui-ux-pro-max",
+    "name": "ui-ux-pro-max"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "ai-music",
+    "name": "ai-music"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "ace-step",
+    "name": "ace-step"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "caveman-commit",
+    "name": "caveman-commit"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "caveman-review",
+    "name": "caveman-review"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-creative",
+    "name": "hyperframes-creative"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "caveman-compress",
+    "name": "caveman-compress"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "high-end-visual-design",
+    "name": "high-end-visual-design"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "caveman-help",
+    "name": "caveman-help"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "redesign-existing-projects",
+    "name": "redesign-existing-projects"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "writing-great-skills",
+    "name": "writing-great-skills"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "vercel-composition-patterns",
+    "name": "vercel-composition-patterns"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "git-guardrails-claude-code",
+    "name": "git-guardrails-claude-code"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "ai-research-explore",
+    "name": "ai-research-explore"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "analyze-project",
+    "name": "analyze-project"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "ai-research-reproduction",
+    "name": "ai-research-reproduction"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "explore-code",
+    "name": "explore-code"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "safe-debug",
+    "name": "safe-debug"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "run-train",
+    "name": "run-train"
+  },
+  {
+    "source": "lllllllama/rigorpilot-skills",
+    "skillId": "explore-run",
+    "name": "explore-run"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "airunway-aks-setup",
+    "name": "airunway-aks-setup"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "setup-pre-commit",
+    "name": "setup-pre-commit"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "wizard",
+    "name": "wizard"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "scaffold-exercises",
+    "name": "scaffold-exercises"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "writing-beats",
+    "name": "writing-beats"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "writing-shape",
+    "name": "writing-shape"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "writing-fragments",
+    "name": "writing-fragments"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "minimalist-ui",
+    "name": "minimalist-ui"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "migrate-to-shoehorn",
+    "name": "migrate-to-shoehorn"
+  },
+  {
+    "source": "flowkit-labs/skills",
+    "skillId": "reddit-automation",
+    "name": "reddit-automation"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "full-output-enforcement",
+    "name": "full-output-enforcement"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "entra-agent-id",
+    "name": "entra-agent-id"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "cavecrew",
+    "name": "cavecrew"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "caveman-stats",
+    "name": "caveman-stats"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "industrial-brutalist-ui",
+    "name": "industrial-brutalist-ui"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "gpt-taste",
+    "name": "gpt-taste"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "stitch-design-taste",
+    "name": "stitch-design-taste"
+  },
+  {
+    "source": "shadcn/ui",
+    "skillId": "shadcn",
+    "name": "shadcn"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "brandkit",
+    "name": "brandkit"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "image-to-code",
+    "name": "image-to-code"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-keyframes",
+    "name": "hyperframes-keyframes"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "imagegen-frontend-web",
+    "name": "imagegen-frontend-web"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "impeccable",
+    "name": "impeccable"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-database-setup",
+    "name": "prisma-database-setup"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-client-api",
+    "name": "prisma-client-api"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "remotion-to-hyperframes",
+    "name": "remotion-to-hyperframes"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-cli",
+    "name": "prisma-cli"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "imagegen-frontend-mobile",
+    "name": "imagegen-frontend-mobile"
+  },
+  {
+    "source": "supabase/agent-skills",
+    "skillId": "supabase",
+    "name": "supabase"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "loop-me",
+    "name": "loop-me"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-postgres",
+    "name": "prisma-postgres"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "to-questionnaire",
+    "name": "to-questionnaire"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-driver-adapter-implementation",
+    "name": "prisma-driver-adapter-implementation"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "emil-design-eng",
+    "name": "emil-design-eng"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-upgrade-v7",
+    "name": "prisma-upgrade-v7"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-postgres-setup",
+    "name": "prisma-postgres-setup"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "systematic-debugging",
+    "name": "systematic-debugging"
+  },
+  {
+    "source": "scrapegraphai/just-scrape",
+    "skillId": "just-scrape",
+    "name": "just-scrape"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-compute",
+    "name": "prisma-compute"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-reliability",
+    "name": "azure-reliability"
+  },
+  {
+    "source": "prisma/skills",
+    "skillId": "prisma-mongodb-upgrade",
+    "name": "prisma-mongodb-upgrade"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "writing-plans",
+    "name": "writing-plans"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "diagnose",
+    "name": "diagnose"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "using-superpowers",
+    "name": "using-superpowers"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "claude-handoff",
+    "name": "claude-handoff"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "write-a-skill",
+    "name": "write-a-skill"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "zoom-out",
+    "name": "zoom-out"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "general-video",
+    "name": "general-video"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "requesting-code-review",
+    "name": "requesting-code-review"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "test-driven-development",
+    "name": "test-driven-development"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "design-an-interface",
+    "name": "design-an-interface"
+  },
+  {
+    "source": "leonxlnx/taste-skill",
+    "skillId": "design-taste-frontend-v1",
+    "name": "design-taste-frontend-v1"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "pptx",
+    "name": "pptx"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "faceless-explainer",
+    "name": "faceless-explainer"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "product-launch-video",
+    "name": "product-launch-video"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-cost-optimization",
+    "name": "azure-cost-optimization"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "request-refactor-plan",
+    "name": "request-refactor-plan"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "motion-graphics",
+    "name": "motion-graphics"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "qa",
+    "name": "qa"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "ubiquitous-language",
+    "name": "ubiquitous-language"
+  },
+  {
+    "source": "stablyai/orca",
+    "skillId": "orca-cli",
+    "name": "orca-cli"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "executing-plans",
+    "name": "executing-plans"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "vercel-react-native-skills",
+    "name": "vercel-react-native-skills"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "obsidian-vault",
+    "name": "obsidian-vault"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "seo-audit",
+    "name": "seo-audit"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "verification-before-completion",
+    "name": "verification-before-completion"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "writing-for-agents",
+    "name": "writing-for-agents"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "edit-article",
+    "name": "edit-article"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "subagent-driven-development",
+    "name": "subagent-driven-development"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "copywriting",
+    "name": "copywriting"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "wait-what",
+    "name": "wait-what"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "embedded-captions",
+    "name": "embedded-captions"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "pdf",
+    "name": "pdf"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "pr-to-video",
+    "name": "pr-to-video"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "setup-ts-deep-modules",
+    "name": "setup-ts-deep-modules"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "receiving-code-review",
+    "name": "receiving-code-review"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "docx",
+    "name": "docx"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "dispatching-parallel-agents",
+    "name": "dispatching-parallel-agents"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "writing-skills",
+    "name": "writing-skills"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "using-git-worktrees",
+    "name": "using-git-worktrees"
+  },
+  {
+    "source": "obra/superpowers",
+    "skillId": "finishing-a-development-branch",
+    "name": "finishing-a-development-branch"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "music-to-video",
+    "name": "music-to-video"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "slideshow",
+    "name": "slideshow"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "python-appservice-deploy",
+    "name": "python-appservice-deploy"
+  },
+  {
+    "source": "stablyai/orca",
+    "skillId": "orchestration",
+    "name": "orchestration"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "xlsx",
+    "name": "xlsx"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "talking-head-recut",
+    "name": "talking-head-recut"
+  },
+  {
+    "source": "higgsfield-ai/skills",
+    "skillId": "higgsfield-generate",
+    "name": "higgsfield-generate"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "webapp-testing",
+    "name": "webapp-testing"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-media",
+    "name": "hyperframes-media"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-basics",
+    "name": "firebase-basics"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-auth-basics",
+    "name": "firebase-auth-basics"
+  },
+  {
+    "source": "microsoft/playwright-cli",
+    "skillId": "playwright-cli",
+    "name": "playwright-cli"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-hosting-basics",
+    "name": "firebase-hosting-basics"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-app-hosting-basics",
+    "name": "firebase-app-hosting-basics"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-data-connect",
+    "name": "firebase-data-connect"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "review-animations",
+    "name": "review-animations"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "marketing-psychology",
+    "name": "marketing-psychology"
+  },
+  {
+    "source": "wind-information-co-ltd/wind-skills",
+    "skillId": "wind-mcp-skill",
+    "name": "wind-mcp-skill"
+  },
+  {
+    "source": "sentry/dev",
+    "skillId": "sentry-cli",
+    "name": "sentry-cli"
+  },
+  {
+    "source": "neondatabase/agent-skills",
+    "skillId": "neon-postgres",
+    "name": "neon-postgres"
+  },
+  {
+    "source": "uizze.com",
+    "skillId": "ui-radar",
+    "name": "ui-radar"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "content-strategy",
+    "name": "content-strategy"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-adk-code",
+    "name": "google-agents-cli-adk-code"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-workflow",
+    "name": "google-agents-cli-workflow"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-eval",
+    "name": "google-agents-cli-eval"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-deploy",
+    "name": "google-agents-cli-deploy"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-scaffold",
+    "name": "google-agents-cli-scaffold"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-observability",
+    "name": "google-agents-cli-observability"
+  },
+  {
+    "source": "google/agents-cli",
+    "skillId": "google-agents-cli-publish",
+    "name": "google-agents-cli-publish"
+  },
+  {
+    "source": "higgsfield-ai/skills",
+    "skillId": "higgsfield-product-photoshoot",
+    "name": "higgsfield-product-photoshoot"
+  },
+  {
+    "source": "higgsfield-ai/skills",
+    "skillId": "higgsfield-soul-id",
+    "name": "higgsfield-soul-id"
+  },
+  {
+    "source": "higgsfield-ai/skills",
+    "skillId": "higgsfield-marketplace-cards",
+    "name": "higgsfield-marketplace-cards"
+  },
+  {
+    "source": "arvindrk/extract-design-system",
+    "skillId": "extract-design-system",
+    "name": "extract-design-system"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "programmatic-seo",
+    "name": "programmatic-seo"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "animation-vocabulary",
+    "name": "animation-vocabulary"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "marketing-ideas",
+    "name": "marketing-ideas"
+  },
+  {
+    "source": "stablyai/orca",
+    "skillId": "computer-use",
+    "name": "computer-use"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "deploy-to-vercel",
+    "name": "deploy-to-vercel"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "copy-editing",
+    "name": "copy-editing"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "apple-design",
+    "name": "apple-design"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "ai-seo",
+    "name": "ai-seo"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "vercel-react-view-transitions",
+    "name": "vercel-react-view-transitions"
+  },
+  {
+    "source": "get-convex/agent-skills",
+    "skillId": "convex-quickstart",
+    "name": "convex-quickstart"
+  },
+  {
+    "source": "get-convex/agent-skills",
+    "skillId": "convex-create-component",
+    "name": "convex-create-component"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "mcp-builder",
+    "name": "mcp-builder"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "improve-animations",
+    "name": "improve-animations"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-security-rules-auditor",
+    "name": "firebase-security-rules-auditor"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "figma",
+    "name": "figma"
+  },
+  {
+    "source": "browser-act/skills",
+    "skillId": "browser-act",
+    "name": "browser-act"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "ad-creative",
+    "name": "ad-creative"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-ai-logic-basics",
+    "name": "firebase-ai-logic-basics"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-firestore",
+    "name": "firebase-firestore"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "website-to-video",
+    "name": "website-to-video"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "canvas-design",
+    "name": "canvas-design"
+  },
+  {
+    "source": "better-auth/skills",
+    "skillId": "better-auth-best-practices",
+    "name": "better-auth-best-practices"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "cold-email",
+    "name": "cold-email"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "hyperframes-audio",
+    "name": "hyperframes-audio"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-crashlytics",
+    "name": "firebase-crashlytics"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "xcode-project-setup",
+    "name": "xcode-project-setup"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "site-architecture",
+    "name": "site-architecture"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl",
+    "name": "firecrawl"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-observability",
+    "name": "azure-observability"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "find-animation-opportunities",
+    "name": "find-animation-opportunities"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "churn-prevention",
+    "name": "churn-prevention"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "web-artifacts-builder",
+    "name": "web-artifacts-builder"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "sales-enablement",
+    "name": "sales-enablement"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "gsap",
+    "name": "gsap"
+  },
+  {
+    "source": "get-convex/agent-skills",
+    "skillId": "convex-performance-audit",
+    "name": "convex-performance-audit"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "review",
+    "name": "review"
+  },
+  {
+    "source": "get-convex/agent-skills",
+    "skillId": "convex-setup-auth",
+    "name": "convex-setup-auth"
+  },
+  {
+    "source": "get-convex/agent-skills",
+    "skillId": "convex-migration-helper",
+    "name": "convex-migration-helper"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "revops",
+    "name": "revops"
+  },
+  {
+    "source": "browser-use/browser-use",
+    "skillId": "browser-use",
+    "name": "browser-use"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "vercel-cli-with-tokens",
+    "name": "vercel-cli-with-tokens"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "website-to-hyperframes",
+    "name": "website-to-hyperframes"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "firebase-remote-config-basics",
+    "name": "firebase-remote-config-basics"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "lead-magnets",
+    "name": "lead-magnets"
+  },
+  {
+    "source": "neondatabase/agent-skills",
+    "skillId": "neon",
+    "name": "neon"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "customer-research",
+    "name": "customer-research"
+  },
+  {
+    "source": "get-convex/agent-skills",
+    "skillId": "convex",
+    "name": "convex"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "polish",
+    "name": "polish"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "brand-guidelines",
+    "name": "brand-guidelines"
+  },
+  {
+    "source": "browser-act/skills",
+    "skillId": "browser-act-skill-forge",
+    "name": "browser-act-skill-forge"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "critique",
+    "name": "critique"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "audit",
+    "name": "audit"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "animate",
+    "name": "animate"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "adapt",
+    "name": "adapt"
+  },
+  {
+    "source": "kepano/obsidian-skills",
+    "skillId": "obsidian-markdown",
+    "name": "obsidian-markdown"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "clarify",
+    "name": "clarify"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "optimize",
+    "name": "optimize"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "colorize",
+    "name": "colorize"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "pick-ui-library",
+    "name": "pick-ui-library"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "theme-factory",
+    "name": "theme-factory"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "bolder",
+    "name": "bolder"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "delight",
+    "name": "delight"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "doc-coauthoring",
+    "name": "doc-coauthoring"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "distill",
+    "name": "distill"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-search",
+    "name": "firecrawl-search"
+  },
+  {
+    "source": "stripe/ai",
+    "skillId": "stripe-best-practices",
+    "name": "stripe-best-practices"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-scrape",
+    "name": "firecrawl-scrape"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-app-onboard",
+    "name": "azure-app-onboard"
+  },
+  {
+    "source": "microsoft/azure-skills",
+    "skillId": "azure-app-onboard-prereq",
+    "name": "azure-app-onboard-prereq"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "quieter",
+    "name": "quieter"
+  },
+  {
+    "source": "currents-dev/playwright-best-practices-skill",
+    "skillId": "playwright-best-practices",
+    "name": "playwright-best-practices"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-crawl",
+    "name": "firecrawl-crawl"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-agent",
+    "name": "firecrawl-agent"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-map",
+    "name": "firecrawl-map"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "algorithmic-art",
+    "name": "algorithmic-art"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-download",
+    "name": "firecrawl-download"
+  },
+  {
+    "source": "nexscope-ai/amazon-skills",
+    "skillId": "amazon-product-research",
+    "name": "amazon-product-research"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "cloudflare",
+    "name": "cloudflare"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "wrangler",
+    "name": "wrangler"
+  },
+  {
+    "source": "degausai/wonda",
+    "skillId": "wonda-cli",
+    "name": "wonda-cli"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-gmail",
+    "name": "gws-gmail"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "css-animations",
+    "name": "css-animations"
+  },
+  {
+    "source": "kepano/obsidian-skills",
+    "skillId": "obsidian-cli",
+    "name": "obsidian-cli"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "tailwind",
+    "name": "tailwind"
+  },
+  {
+    "source": "intellectronica/agent-skills",
+    "skillId": "notion-api",
+    "name": "notion-api"
+  },
+  {
+    "source": "antibrow/anti-detect-browser-skills",
+    "skillId": "anti-detect-browser",
+    "name": "anti-detect-browser"
+  },
+  {
+    "source": "kepano/obsidian-skills",
+    "skillId": "obsidian-bases",
+    "name": "obsidian-bases"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "animejs",
+    "name": "animejs"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "three",
+    "name": "three"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "web-search",
+    "name": "web-search"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "lottie",
+    "name": "lottie"
+  },
+  {
+    "source": "wshobson/agents",
+    "skillId": "typescript-advanced-types",
+    "name": "typescript-advanced-types"
+  },
+  {
+    "source": "higgsfield-ai/skills",
+    "skillId": "higgsfield-websites",
+    "name": "higgsfield-websites"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "agent-tools",
+    "name": "agent-tools"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "infsh-cli",
+    "name": "infsh-cli"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "remotion-render",
+    "name": "remotion-render"
+  },
+  {
+    "source": "skills-101/superpowers",
+    "skillId": "python-executor",
+    "name": "python-executor"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "waapi",
+    "name": "waapi"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "internal-comms",
+    "name": "internal-comms"
+  },
+  {
+    "source": "squirrelscan/skills",
+    "skillId": "audit-website",
+    "name": "audit-website"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-create",
+    "name": "remotion-create"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "competitor-profiling",
+    "name": "competitor-profiling"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-gmail-send",
+    "name": "gws-gmail-send"
+  },
+  {
+    "source": "vercel/turborepo",
+    "skillId": "turborepo",
+    "name": "turborepo"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "workers-best-practices",
+    "name": "workers-best-practices"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "social-content",
+    "name": "social-content"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-captions",
+    "name": "remotion-captions"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-drive",
+    "name": "gws-drive"
+  },
+  {
+    "source": "kepano/obsidian-skills",
+    "skillId": "json-canvas",
+    "name": "json-canvas"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "community-marketing",
+    "name": "community-marketing"
+  },
+  {
+    "source": "kepano/obsidian-skills",
+    "skillId": "defuddle",
+    "name": "defuddle"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "slack-gif-creator",
+    "name": "slack-gif-creator"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "typeset",
+    "name": "typeset"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-markup",
+    "name": "remotion-markup"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "video",
+    "name": "video"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "image",
+    "name": "image"
+  },
+  {
+    "source": "solana-foundation/solana-dev-skill",
+    "skillId": "solana-dev",
+    "name": "solana-dev"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "vercel-optimize",
+    "name": "vercel-optimize"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "batch-grill-me",
+    "name": "batch-grill-me"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "overdrive",
+    "name": "overdrive"
+  },
+  {
+    "source": "stripe/ai",
+    "skillId": "upgrade-stripe",
+    "name": "upgrade-stripe"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-interactivity",
+    "name": "remotion-interactivity"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "directory-submissions",
+    "name": "directory-submissions"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-interact",
+    "name": "firecrawl-interact"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "template-skill",
+    "name": "template-skill"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "implement-spec",
+    "name": "implement-spec"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "developing-genkit-js",
+    "name": "developing-genkit-js"
+  },
+  {
+    "source": "anthropics/skills",
+    "skillId": "claude-api",
+    "name": "claude-api"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-saas",
+    "name": "remotion-saas"
+  },
+  {
+    "source": "wshobson/agents",
+    "skillId": "tailwind-design-system",
+    "name": "tailwind-design-system"
+  },
+  {
+    "source": "nexscope-ai/ecommerce-skills",
+    "skillId": "cross-border-ecommerce",
+    "name": "cross-border-ecommerce"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "developing-genkit-dart",
+    "name": "developing-genkit-dart"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "web-perf",
+    "name": "web-perf"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "pricing-strategy",
+    "name": "pricing-strategy"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "product-marketing-context",
+    "name": "product-marketing-context"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "durable-objects",
+    "name": "durable-objects"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "cro",
+    "name": "cro"
+  },
+  {
+    "source": "stripe/ai",
+    "skillId": "stripe-projects",
+    "name": "stripe-projects"
+  },
+  {
+    "source": "google-labs-code/stitch-skills",
+    "skillId": "design-md",
+    "name": "design-md"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "product-marketing",
+    "name": "product-marketing"
+  },
+  {
+    "source": "firecrawl/skills",
+    "skillId": "firecrawl-build-scrape",
+    "name": "firecrawl-build-scrape"
+  },
+  {
+    "source": "firecrawl/skills",
+    "skillId": "firecrawl-build-search",
+    "name": "firecrawl-build-search"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "agents-sdk",
+    "name": "agents-sdk"
+  },
+  {
+    "source": "firecrawl/skills",
+    "skillId": "firecrawl-build-interact",
+    "name": "firecrawl-build-interact"
+  },
+  {
+    "source": "firecrawl/skills",
+    "skillId": "firecrawl-build-onboarding",
+    "name": "firecrawl-build-onboarding"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "building-native-ui",
+    "name": "building-native-ui"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-docs",
+    "name": "remotion-docs"
+  },
+  {
+    "source": "higgsfield-ai/skills",
+    "skillId": "higgsfield-video-explainer",
+    "name": "higgsfield-video-explainer"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-shared",
+    "name": "gws-shared"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "social",
+    "name": "social"
+  },
+  {
+    "source": "vercel-labs/agent-skills",
+    "skillId": "writing-guidelines",
+    "name": "writing-guidelines"
+  },
+  {
+    "source": "prime-skills/runcomfy-agent-skills",
+    "skillId": "gpt-image-2",
+    "name": "gpt-image-2"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "analytics-tracking",
+    "name": "analytics-tracking"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "analytics",
+    "name": "analytics"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "page-cro",
+    "name": "page-cro"
+  },
+  {
+    "source": "useosint/skills",
+    "skillId": "is-this-photo-real",
+    "name": "is-this-photo-real"
+  },
+  {
+    "source": "useosint/skills",
+    "skillId": "investigate-without-getting-made",
+    "name": "investigate-without-getting-made"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "co-marketing",
+    "name": "co-marketing"
+  },
+  {
+    "source": "useosint/skills",
+    "skillId": "what-leaked-about-you",
+    "name": "what-leaked-about-you"
+  },
+  {
+    "source": "agent.qq.com",
+    "skillId": "agently-mail",
+    "name": "agently-mail"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "ads",
+    "name": "ads"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "launch-strategy",
+    "name": "launch-strategy"
+  },
+  {
+    "source": "agentix-cloud/skills",
+    "skillId": "agentix-ceo",
+    "name": "agentix-ceo"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "contribute-catalog",
+    "name": "contribute-catalog"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "pricing",
+    "name": "pricing"
+  },
+  {
+    "source": "useosint/skills",
+    "skillId": "find-the-original-image",
+    "name": "find-the-original-image"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "schema-markup",
+    "name": "schema-markup"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "normalize",
+    "name": "normalize"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "email-sequence",
+    "name": "email-sequence"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "competitors",
+    "name": "competitors"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "expo-dev-client",
+    "name": "expo-dev-client"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "paid-ads",
+    "name": "paid-ads"
+  },
+  {
+    "source": "msmps/opentui-skill",
+    "skillId": "opentui",
+    "name": "opentui"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "cloudflare-email-service",
+    "name": "cloudflare-email-service"
+  },
+  {
+    "source": "nozomio-labs/nia-skill",
+    "skillId": "nia",
+    "name": "nia"
+  },
+  {
+    "source": "google-labs-code/stitch-skills",
+    "skillId": "enhance-prompt",
+    "name": "enhance-prompt"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "schema",
+    "name": "schema"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "competitor-alternatives",
+    "name": "competitor-alternatives"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "emails",
+    "name": "emails"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "launch",
+    "name": "launch"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "extract",
+    "name": "extract"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-calendar",
+    "name": "gws-calendar"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "onboard",
+    "name": "onboard"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "harden",
+    "name": "harden"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "motion-doctrine",
+    "name": "motion-doctrine"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "captions-overlay",
+    "name": "captions-overlay"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "onboarding-cro",
+    "name": "onboarding-cro"
+  },
+  {
+    "source": "jakubkrehel/make-interfaces-feel-better",
+    "skillId": "make-interfaces-feel-better",
+    "name": "make-interfaces-feel-better"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "expo-tailwind-setup",
+    "name": "expo-tailwind-setup"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "cut-the-curve",
+    "name": "cut-the-curve"
+  },
+  {
+    "source": "open.feishu.cn",
+    "skillId": "lark-meeting",
+    "name": "lark-meeting"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "seam-craft",
+    "name": "seam-craft"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "changelog-video",
+    "name": "changelog-video"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "oversized-cursor",
+    "name": "oversized-cursor"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "ab-testing",
+    "name": "ab-testing"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "onboarding",
+    "name": "onboarding"
+  },
+  {
+    "source": "google-labs-code/stitch-skills",
+    "skillId": "stitch-loop",
+    "name": "stitch-loop"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "form-cro",
+    "name": "form-cro"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "free-tool-strategy",
+    "name": "free-tool-strategy"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-core",
+    "name": "gsap-core"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "referral-program",
+    "name": "referral-program"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-upgrade",
+    "name": "remotion-upgrade"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "ab-test-setup",
+    "name": "ab-test-setup"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "aso",
+    "name": "aso"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "signup-flow-cro",
+    "name": "signup-flow-cro"
+  },
+  {
+    "source": "vercel/ai",
+    "skillId": "ai-sdk",
+    "name": "ai-sdk"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "paywall-upgrade-cro",
+    "name": "paywall-upgrade-cro"
+  },
+  {
+    "source": "heygen-com/hyperframes",
+    "skillId": "typegpu",
+    "name": "typegpu"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-sheets",
+    "name": "gws-sheets"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "free-tools",
+    "name": "free-tools"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "referrals",
+    "name": "referrals"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "signup",
+    "name": "signup"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "popup-cro",
+    "name": "popup-cro"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-docs",
+    "name": "gws-docs"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "teach-impeccable",
+    "name": "teach-impeccable"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "popups",
+    "name": "popups"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "paywalls",
+    "name": "paywalls"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-scrolltrigger",
+    "name": "gsap-scrolltrigger"
+  },
+  {
+    "source": "google-labs-code/stitch-skills",
+    "skillId": "react:components",
+    "name": "react:components"
+  },
+  {
+    "source": "2dmurali/review-loop-skill",
+    "skillId": "review-loop",
+    "name": "review-loop"
+  },
+  {
+    "source": "dietrichgebert/ponytail",
+    "skillId": "ponytail",
+    "name": "ponytail"
+  },
+  {
+    "source": "google-labs-code/stitch-skills",
+    "skillId": "shadcn-ui",
+    "name": "shadcn-ui"
+  },
+  {
+    "source": "nutlope/hallmark",
+    "skillId": "hallmark",
+    "name": "hallmark"
+  },
+  {
+    "source": "addyosmani/web-quality-skills",
+    "skillId": "accessibility",
+    "name": "accessibility"
+  },
+  {
+    "source": "firebase/agent-skills",
+    "skillId": "developing-genkit-go",
+    "name": "developing-genkit-go"
+  },
+  {
+    "source": "firecrawl/cli",
+    "skillId": "firecrawl-parse",
+    "name": "firecrawl-parse"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "retro",
+    "name": "retro"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-performance",
+    "name": "gsap-performance"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-timeline",
+    "name": "gsap-timeline"
+  },
+  {
+    "source": "momentic-ai/skills",
+    "skillId": "momentic-test",
+    "name": "momentic-test"
+  },
+  {
+    "source": "momentic-ai/skills",
+    "skillId": "momentic-result-classification",
+    "name": "momentic-result-classification"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-plugins",
+    "name": "gsap-plugins"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "native-data-fetching",
+    "name": "native-data-fetching"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "turnstile-spin",
+    "name": "turnstile-spin"
+  },
+  {
+    "source": "op7418/humanizer-zh",
+    "skillId": "humanizer-zh",
+    "name": "humanizer-zh"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-utils",
+    "name": "gsap-utils"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-react",
+    "name": "gsap-react"
+  },
+  {
+    "source": "juliusbrussee/caveman",
+    "skillId": "compress",
+    "name": "compress"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-maps",
+    "name": "remotion-maps"
+  },
+  {
+    "source": "tt-a1i/archify",
+    "skillId": "archify",
+    "name": "archify"
+  },
+  {
+    "source": "remotion-dev/skills",
+    "skillId": "remotion-multimedia",
+    "name": "remotion-multimedia"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "marketing-plan",
+    "name": "marketing-plan"
+  },
+  {
+    "source": "alchaincyf/huashu-design",
+    "skillId": "huashu-design",
+    "name": "huashu-design"
+  },
+  {
+    "source": "resciencelab/opc-skills",
+    "skillId": "seo-geo",
+    "name": "seo-geo"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "sms",
+    "name": "sms"
+  },
+  {
+    "source": "coreyhaines31/marketingskills",
+    "skillId": "prospecting",
+    "name": "prospecting"
+  },
+  {
+    "source": "mcollina/skills",
+    "skillId": "fastify-best-practices",
+    "name": "fastify-best-practices"
+  },
+  {
+    "source": "greensock/gsap-skills",
+    "skillId": "gsap-frameworks",
+    "name": "gsap-frameworks"
+  },
+  {
+    "source": "mattpocock/skills",
+    "skillId": "decision-mapping",
+    "name": "decision-mapping"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "cloudflare-one",
+    "name": "cloudflare-one"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-sheets-read",
+    "name": "gws-sheets-read"
+  },
+  {
+    "source": "wshobson/agents",
+    "skillId": "nodejs-backend-patterns",
+    "name": "nodejs-backend-patterns"
+  },
+  {
+    "source": "github/awesome-copilot",
+    "skillId": "git-commit",
+    "name": "git-commit"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-docs-write",
+    "name": "gws-docs-write"
+  },
+  {
+    "source": "cloudflare/skills",
+    "skillId": "cloudflare-one-migrations",
+    "name": "cloudflare-one-migrations"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-calendar-agenda",
+    "name": "gws-calendar-agenda"
+  },
+  {
+    "source": "spillwavesolutions/design-doc-mermaid",
+    "skillId": "design-doc-mermaid",
+    "name": "design-doc-mermaid"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-drive-upload",
+    "name": "gws-drive-upload"
+  },
+  {
+    "source": "addyosmani/web-quality-skills",
+    "skillId": "seo",
+    "name": "seo"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "upgrading-expo",
+    "name": "upgrading-expo"
+  },
+  {
+    "source": "jane-o-o-o-o/agent-pulse-skill",
+    "skillId": "agent-pulse",
+    "name": "agent-pulse"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-calendar-insert",
+    "name": "gws-calendar-insert"
+  },
+  {
+    "source": "mastra-ai/skills",
+    "skillId": "mastra",
+    "name": "mastra"
+  },
+  {
+    "source": "othmanadi/planning-with-files",
+    "skillId": "planning-with-files",
+    "name": "planning-with-files"
+  },
+  {
+    "source": "antibrow/anti-detect-browser-skills",
+    "skillId": "browser-mcp-agent",
+    "name": "browser-mcp-agent"
+  },
+  {
+    "source": "emilkowalski/skills",
+    "skillId": "ask-sonner",
+    "name": "ask-sonner"
+  },
+  {
+    "source": "antibrow/anti-detect-browser-skills",
+    "skillId": "multi-account-isolation",
+    "name": "multi-account-isolation"
+  },
+  {
+    "source": "skills.volces.com",
+    "skillId": "byted-web-search",
+    "name": "byted-web-search"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-gmail-triage",
+    "name": "gws-gmail-triage"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "expo-deployment",
+    "name": "expo-deployment"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-sheets-append",
+    "name": "gws-sheets-append"
+  },
+  {
+    "source": "clerk/skills",
+    "skillId": "clerk-setup",
+    "name": "clerk-setup"
+  },
+  {
+    "source": "tencent/wechatreading",
+    "skillId": "weread-skills",
+    "name": "weread-skills"
+  },
+  {
+    "source": "pbakaus/impeccable",
+    "skillId": "arrange",
+    "name": "arrange"
+  },
+  {
+    "source": "clerk/skills",
+    "skillId": "clerk-nextjs-patterns",
+    "name": "clerk-nextjs-patterns"
+  },
+  {
+    "source": "expo/skills",
+    "skillId": "expo-cicd-workflows",
+    "name": "expo-cicd-workflows"
+  },
+  {
+    "source": "samber/cc-skills-golang",
+    "skillId": "golang-code-style",
+    "name": "golang-code-style"
+  },
+  {
+    "source": "pexoai/pexo-skills",
+    "skillId": "pexo-agent",
+    "name": "pexo-agent"
+  },
+  {
+    "source": "nrwl/nx-ai-agents-config",
+    "skillId": "nx-workspace",
+    "name": "nx-workspace"
+  },
+  {
+    "source": "herdrdev/herdr",
+    "skillId": "herdr",
+    "name": "herdr"
+  },
+  {
+    "source": "clerk/skills",
+    "skillId": "clerk-custom-ui",
+    "name": "clerk-custom-ui"
+  },
+  {
+    "source": "samber/cc-skills-golang",
+    "skillId": "golang-error-handling",
+    "name": "golang-error-handling"
+  },
+  {
+    "source": "samber/cc-skills-golang",
+    "skillId": "golang-testing",
+    "name": "golang-testing"
+  },
+  {
+    "source": "googleworkspace/cli",
+    "skillId": "gws-tasks",
+    "name": "gws-tasks"
+  },
+  {
+    "source": "insforge/insforge-skills",
+    "skillId": "insforge",
+    "name": "insforge"
+  },
+  {
+    "source": "insforge/insforge-skills",
+    "skillId": "insforge-cli",
+    "name": "insforge-cli"
+  },
+  {
+    "source": "autonnel/autonnel-skills",
+    "skillId": "landing-page-conversion-audit",
+    "name": "landing-page-conversion-audit"
+  },
+  {
+    "source": "google-labs-code/stitch-skills",
+    "skillId": "remotion",
+    "name": "remotion"
+  },
+  {
+    "source": "samber/cc-skills-golang",
+    "skillId": "golang-design-patterns",
+    "name": "golang-design-patterns"
+  },
+  {
+    "source": "samber/cc-skills-golang",
+    "skillId": "golang-performance",
+    "name": "golang-performance"
+  },
+  {
+    "source": "samber/cc-skills-golang",
+    "skillId": "golang-security",
+    "name": "golang-security"
+  },
+  {
+    "source": "clerk/skills",
+    "skillId": "clerk-backend-api",
+    "name": "clerk-backend-api"
+  },
+  {
+    "source": "autonnel/autonnel-skills",
+    "skillId": "sales-funnel-blueprint",
+    "name": "sales-funnel-blueprint"
+  },
+  {
+    "source": "autonnel/autonnel-skills",
+    "skillId": "server-side-conversion-tracking",
+    "name": "server-side-conversion-tracking"
+  },
+  {
+    "source": "autonnel/autonnel-skills",
+    "skillId": "funnel-platform-picker",
+    "name": "funnel-platform-picker"
+  },
+  {
+    "source": "liarjsdev/liarjs-skills",
+    "skillId": "fingerprint-ci-gate",
+    "name": "fingerprint-ci-gate"
+  },
+  {
+    "source": "liarjsdev/liarjs-skills",
+    "skillId": "playwright-stealth-verify",
+    "name": "playwright-stealth-verify"
+  },
+  {
+    "source": "liarjsdev/liarjs-skills",
+    "skillId": "browser-fingerprint-audit",
+    "name": "browser-fingerprint-audit"
+  }
+]

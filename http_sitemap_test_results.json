@@ -1,0 +1,38 @@
+{
+  "total_urls_tested": 14180,
+  "http_200_count": 14180,
+  "http_404_count": 0,
+  "bad_urls": [],
+  "by_file": {
+    "sitemap-main.xml": {
+      "good_200": 16,
+      "bad": 0,
+      "bad_urls_list": []
+    },
+    "sitemap-calculators.xml": {
+      "good_200": 2021,
+      "bad": 0,
+      "bad_urls_list": []
+    },
+    "sitemap-categories.xml": {
+      "good_200": 6,
+      "bad": 0,
+      "bad_urls_list": []
+    },
+    "sitemap-compare.xml": {
+      "good_200": 5,
+      "bad": 0,
+      "bad_urls_list": []
+    },
+    "sitemap-international.xml": {
+      "good_200": 12120,
+      "bad": 0,
+      "bad_urls_list": []
+    },
+    "sitemap-restaurants.xml": {
+      "good_200": 12,
+      "bad": 0,
+      "bad_urls_list": []
+    }
+  }
+}

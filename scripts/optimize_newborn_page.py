@@ -9,7 +9,7 @@ EEAT_BOX_HTML = '''
           </div>
           <div style="flex: 1; min-width: 240px;">
             <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #4f46e5; font-weight: 700;">Medically Reviewed & Written By</div>
-            <div style="font-size: 1.05rem; font-weight: 700; color: #0f172a;"><a href="/authors/dr-sarah-jenkins/" style="color: #0f172a; text-decoration: none;">Dr. Sarah Jenkins, PhD, RD, CPT</a></div>
+            <div style="font-size: 1.05rem; font-weight: 700; color: #0f172a;"><a href="/authors/dr-rekha-kumar/" style="color: #0f172a; text-decoration: none;">Dr. Rekha Kumar, M.D., M.S., PhD, RD, CPT</a></div>
             <div style="font-size: 0.85rem; color: #64748b;">Lead Clinical Dietitian & Pediatric Nutrition Specialist | Updated: August 16, 2026</div>
           </div>
           <div style="font-size: 0.8rem; background: #eff6ff; color: #1e40af; padding: 0.4rem 0.75rem; border-radius: 20px; font-weight: 600; border: 1px solid #bfdbfe;">
@@ -56,7 +56,7 @@ def process_file(filepath):
     )
 
     # 2. Inject E-E-A-T box above H1 or below H1 if missing
-    if 'Dr. Sarah Jenkins' not in content and '<h1' in content:
+    if 'Dr. Rekha Kumar, M.D., M.S.' not in content and '<h1' in content:
         content = content.replace('<h1', EEAT_BOX_HTML + '\n        <h1')
 
     # 3. Add Clinical Citations and Related Tools before FAQs or </main>

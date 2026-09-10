@@ -63,8 +63,11 @@ export function getStaticPaths() {
 }
 
 const isBlog = Astro.url.pathname.includes('/blog/');
-const isInfo = ['/about/', '/contact/', '/privacy/', '/terms/', '/disclaimer/', '/glossary/'].some(p => Astro.url.pathname.includes(p));
-const loadReact = !isBlog && !isInfo;
+  const isInfo = ['/about/', '/contact/', '/privacy/', '/terms/', '/disclaimer/', '/glossary/'].some(p => Astro.url.pathname.includes(p));
+  const isCategory = Astro.url.pathname.includes('/category/');
+  const isNonSpaRestaurant = Astro.url.pathname.includes('/restaurants/') && !['/restaurants/mcdonalds', '/restaurants/starbucks', '/restaurants/subway'].some(p => Astro.url.pathname.includes(p));
+  
+  const loadReact = !isBlog && !isInfo && !isCategory && !isNonSpaRestaurant;
 
 const fallbackPath = Astro.params.fallback || '';
 const filePath = fallbackPath ? `${fallbackPath}/index.html` : 'index.html';
