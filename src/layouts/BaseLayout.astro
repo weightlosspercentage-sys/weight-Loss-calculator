@@ -48,16 +48,19 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
 <!doctype html>
 <html lang={lang} class={loadReact ? "has-react" : ""}>
   <head>
+    <link rel="preconnect" href="https://www.ezojs.com" />
+    <link rel="preconnect" href="https://ezoicanalytics.com" />
+    <link rel="preconnect" href="https://analytics.ahrefs.com" />
     <!-- Ezoic Header Scripts -->
-    <script async src="//www.ezojs.com/ezoic/sa.min.js" is:inline></script>
+    <script defer src="//www.ezojs.com/ezoic/sa.min.js" is:inline></script>
     <script is:inline>
       window.ezstandalone = window.ezstandalone || {};
       ezstandalone.cmd = ezstandalone.cmd || [];
     </script>
-    <script async src="//ezoicanalytics.com/analytics.js" is:inline></script>
+    <script defer src="//ezoicanalytics.com/analytics.js" is:inline></script>
 
     <!-- Ahrefs Web Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="QXNEWlEVlWYHrb6mJIVaUQ" async is:inline></script>
+    <script defer src="https://analytics.ahrefs.com/analytics.js" data-key="QXNEWlEVlWYHrb6mJIVaUQ" is:inline></script>
 
     <link rel="preload" href="/assets/index-43gqMy96.css" as="style" fetchpriority="high" />
     <link rel="stylesheet" href="/assets/index-43gqMy96.css" />

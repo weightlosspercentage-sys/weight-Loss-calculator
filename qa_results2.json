@@ -1,0 +1,218 @@
+{
+  "nav_links": [
+    {
+      "text": "%\nWeight Loss Percentage",
+      "href": "https://www.weightlosspercentage.com/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Calculators",
+      "href": "https://www.weightlosspercentage.com/calculators/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Nutrition",
+      "href": "https://www.weightlosspercentage.com/nutrition/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Compare",
+      "href": "https://www.weightlosspercentage.com/compare/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Glossary",
+      "href": "https://www.weightlosspercentage.com/glossary/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "BMI",
+      "href": "https://www.weightlosspercentage.com/calculators/bmi",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "BMR",
+      "href": "https://www.weightlosspercentage.com/calculators/bmr",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "TDEE",
+      "href": "https://www.weightlosspercentage.com/calculators/tdee",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Body Fat",
+      "href": "https://www.weightlosspercentage.com/calculators/body-fat",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Calorie Deficit",
+      "href": "https://www.weightlosspercentage.com/calculators/calorie",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Macros",
+      "href": "https://www.weightlosspercentage.com/calculators/macro",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Protein",
+      "href": "https://www.weightlosspercentage.com/calculators/protein",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "McDonald\u2019s",
+      "href": "https://www.weightlosspercentage.com/restaurants/mcdonalds",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Starbucks",
+      "href": "https://www.weightlosspercentage.com/restaurants/starbucks",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Subway",
+      "href": "https://www.weightlosspercentage.com/restaurants/subway",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Nutrition Hub",
+      "href": "https://www.weightlosspercentage.com/nutrition",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Water Intake",
+      "href": "https://www.weightlosspercentage.com/calculators/water-intake",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Keto Diet",
+      "href": "https://www.weightlosspercentage.com/calculators/keto",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "About Us",
+      "href": "https://www.weightlosspercentage.com/about",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Contact",
+      "href": "https://www.weightlosspercentage.com/contact",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Glossary",
+      "href": "https://www.weightlosspercentage.com/glossary",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Comparisons",
+      "href": "https://www.weightlosspercentage.com/compare",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "All Tools",
+      "href": "https://www.weightlosspercentage.com/calculators",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.weightlosspercentage.com/privacy",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.weightlosspercentage.com/terms",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Medical Disclaimer",
+      "href": "https://www.weightlosspercentage.com/disclaimer",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "Sitemap",
+      "href": "https://www.weightlosspercentage.com/sitemap.xml",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "\ud83c\uddec\ud83c\udde7 English (UK)",
+      "href": "https://www.weightlosspercentage.com/uk/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "\ud83c\udde8\ud83c\udde6 English (CA)",
+      "href": "https://www.weightlosspercentage.com/ca/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "\ud83c\udde6\ud83c\uddfa English (AU)",
+      "href": "https://www.weightlosspercentage.com/au/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "\ud83c\uddf3\ud83c\uddff English (NZ)",
+      "href": "https://www.weightlosspercentage.com/nz/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "\ud83c\udde8\ud83c\uddf3 \u7b80\u4f53\u4e2d\u6587",
+      "href": "https://www.weightlosspercentage.com/zh/",
+      "status": 200,
+      "functional": true
+    },
+    {
+      "text": "\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439",
+      "href": "https://www.weightlosspercentage.com/ru/",
+      "status": 200,
+      "functional": true
+    }
+  ],
+  "calculator": {
+    "status": "Success",
+    "functional": true,
+    "errors": []
+  },
+  "mobile_responsive": {
+    "functional": true,
+    "status": "Menu expanded"
+  },
+  "slow_loads": [
+    {
+      "url": "https://www.weightlosspercentage.com/",
+      "time": 6.325124263763428
+    }
+  ],
+  "placeholders": []
+}

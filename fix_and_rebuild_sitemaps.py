@@ -25,9 +25,12 @@ for url_elem in list(root):
         loc_text = loc_elem.text.strip()
         path = loc_text.replace("https://www.weightlosspercentage.com", "")
         
-        # Exclude invalid /us/ 404 URLs, fallback dummies, audit reports, and partial snippets
+        # Exclude invalid /us/ 404 URLs, fallback dummies, audit reports, partial snippets, and legacy singular /author/ URLs
         if path.startswith("/us/") or "spa-fallback-dummy" in path or "Google-SEO-Report" in path:
             print(f"[REMOVED 404 Path] {loc_text}")
+            root.remove(url_elem)
+        elif path.startswith("/author/") or "sarah-jenkins" in path:
+            print(f"[REMOVED sarah-jenkins / author Path] {loc_text}")
             root.remove(url_elem)
         elif path in ["/backlink-campaign/dashboard/", "/bottom_content/", "/footer/", "/github_skill_finder/"]:
             print(f"[REMOVED Snippet Path] {loc_text}")

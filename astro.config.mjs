@@ -290,13 +290,14 @@ function postProcessHtml(outDir) {
           {
             "@type": "Person",
             "@id": "https://www.weightlosspercentage.com/#author",
-            "name": "Dr. Rekha Kumar, PhD, RD, CPT",
-            "jobTitle": "Lead Clinical Dietitian & Exercise Physiologist",
+            "name": "Dr. Rekha Kumar, M.D., M.S.",
+            "jobTitle": "Lead Medical Reviewer & Board-Certified Obesity Medicine Specialist",
             "url": "https://www.weightlosspercentage.com/authors/dr-rekha-kumar/",
             "sameAs": [
+              "https://www.linkedin.com/in/rekha-kumar-m-d-m-s-70b481237/",
+              "https://weillcornell.org/rkumar",
               "https://www.facebook.com/weightlossnewborn/",
               "https://x.com/weightlossperce",
-              "https://www.linkedin.com/in/weightloss-percentage/",
               "https://www.instagram.com/weightlosspercentage/"
             ]
           }
@@ -309,7 +310,7 @@ function postProcessHtml(outDir) {
 
     // --- 8. SPA nav guard: fix client-side 404s when navigating from a React
     //    SPA page to static routes the client router does not know ---
-    if (html.includes('has-react') && !html.includes(SPA_NAV_GUARD_MARKER)) {
+    if ((html.includes('has-react') || html.includes('/assets/index-') || html.includes('assets/index-')) && !html.includes(SPA_NAV_GUARD_MARKER)) {
       const bodyClose = html.lastIndexOf('</body>');
       if (bodyClose !== -1) {
         html = html.slice(0, bodyClose) + SPA_NAV_GUARD_SCRIPT + html.slice(bodyClose);
@@ -512,7 +513,6 @@ export default defineConfig({
         'https://www.weightlosspercentage.com/nutrition/',
         'https://www.weightlosspercentage.com/privacy/',
         'https://www.weightlosspercentage.com/terms/',
-        'https://www.weightlosspercentage.com/authors/dr-rekha-kumar/',
         'https://www.weightlosspercentage.com/authors/dr-rekha-kumar/',
         // US calculators
         'https://www.weightlosspercentage.com/calculators/',

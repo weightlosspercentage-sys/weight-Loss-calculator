@@ -15,11 +15,17 @@ const normalizedRelativePath = cleanRelativePath === '//' ? '/' : cleanRelativeP
 // Helper to extract the relative path without the region prefix
 function getBasePath(pathStr: string): string {
   let path = pathStr.replace(/^\//, '');
+  if (!path || path.includes('spa-fallback')) {
+    return '/';
+  }
   const parts = path.split('/');
   if (parts.length > 0 && ['uk', 'ca', 'au', 'nz', 'zh', 'ru'].includes(parts[0])) {
     parts.shift(); // remove region prefix
   }
   let base = '/' + parts.join('/');
+  if (base.includes('spa-fallback')) {
+    return '/';
+  }
   if (base !== '/' && !base.endsWith('/')) {
     base += '/';
   }

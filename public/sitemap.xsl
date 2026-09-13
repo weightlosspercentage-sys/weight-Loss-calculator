@@ -91,10 +91,14 @@
                       </a>
                     </td>
                     <td>
-                      <xsl:value-of select="concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))"/>
-                      <xsl:if test="string-length(sitemap:lastmod) &lt; 11">
-                        <xsl:value-of select="sitemap:lastmod"/>
-                      </xsl:if>
+                      <xsl:choose>
+                        <xsl:when test="contains(sitemap:lastmod, 'T')">
+                          <xsl:value-of select="substring-before(sitemap:lastmod, 'T')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <xsl:value-of select="sitemap:lastmod"/>
+                        </xsl:otherwise>
+                      </xsl:choose>
                     </td>
                   </tr>
                 </xsl:for-each>
@@ -124,10 +128,14 @@
                       </a>
                     </td>
                     <td>
-                      <xsl:value-of select="concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))"/>
-                      <xsl:if test="string-length(sitemap:lastmod) &lt; 11">
-                        <xsl:value-of select="sitemap:lastmod"/>
-                      </xsl:if>
+                      <xsl:choose>
+                        <xsl:when test="contains(sitemap:lastmod, 'T')">
+                          <xsl:value-of select="substring-before(sitemap:lastmod, 'T')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <xsl:value-of select="sitemap:lastmod"/>
+                        </xsl:otherwise>
+                      </xsl:choose>
                     </td>
                     <td><xsl:value-of select="sitemap:changefreq"/></td>
                     <td><xsl:value-of select="sitemap:priority"/></td>
