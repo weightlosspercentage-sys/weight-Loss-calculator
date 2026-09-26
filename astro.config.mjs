@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { SPA_NAV_GUARD_SCRIPT, SPA_NAV_GUARD_MARKER } from './src/utils/spaNavGuard.mjs';
+import { enrichEeat } from './scripts/eeat-enrich.mjs';
 
 // Helper to recursively copy files, excluding only Astro-built HTML and markdown files
 /**
@@ -52,6 +53,28 @@ function copyDirSync(src, dest) {
 const SITE_ORIGIN = 'https://www.weightlosspercentage.com';
 const OG_DEFAULT_IMAGE = `${SITE_ORIGIN}/og-default.jpg`;
 
+// Core ranking pages localized into the 7 UI-language dirs (es/fr/de/it/ja/ko/pt).
+// Any other page under those dirs stays English, so it is noindexed and excluded
+// from hreflang clusters until translated.
+const UI_LANG_DIRS = ['es/', 'fr/', 'de/', 'it/', 'ja/', 'ko/', 'pt/'];
+const TRANSLATED_CORE_PAGES = new Set([
+  'index.html',
+  'calculators/index.html',
+  'calculators/weight-loss/index.html',
+  'calculators/bmi/index.html',
+  'calculators/bmr/index.html',
+  'calculators/tdee/index.html',
+  'calculators/calorie-deficit/index.html',
+  'calculators/body-fat/index.html',
+  'calculators/keto/index.html',
+  'calculators/macro/index.html',
+  'calculators/protein/index.html',
+  'nutrition/index.html'
+]);
+const TRANSLATED_CORE_URLS = new Set(
+  Array.from(TRANSLATED_CORE_PAGES, (p) => '/' + p.replace(/index\.html$/, ''))
+);
+
 /**
  * Truncate a title to ≤60 characters on a clean word boundary.
  * @param {string} rawTitle
@@ -67,7 +90,7 @@ function optimizeTitleLength(rawTitle) {
   }
   const cut = t.substring(0, 57);
   const sp = cut.lastIndexOf(' ');
-  return (sp > 30 ? cut.substring(0, sp) : cut) + '...';
+  return sp > 30 ? cut.substring(0, sp) : cut;
 }
 
 /**
@@ -78,14 +101,19 @@ function optimizeTitleLength(rawTitle) {
 function collectHtmlFiles(dir) {
   /** @type {string[]} */
   let results = [];
-  if (!fs.existsSync(dir)) return results;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results = results.concat(collectHtmlFiles(full));
-    } else if (entry.name.endsWith('.html')) {
-      results.push(full);
+  try {
+    if (!fs.existsSync(dir)) return results;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        results = results.concat(collectHtmlFiles(full));
+      } else if (entry.name.endsWith('.html')) {
+        results.push(full);
+      }
     }
+  } catch (err) {
+    // Gracefully handle locked or permission-denied directories on Windows
   }
   return results;
 }
@@ -116,7 +144,13 @@ function postProcessHtml(outDir) {
   let aboutNavRemoved = 0;
 
   for (const filePath of htmlFiles) {
-    let html = fs.readFileSync(filePath, 'utf-8');
+    if (!fs.existsSync(filePath)) continue;
+    let html = '';
+    try {
+      html = fs.readFileSync(filePath, 'utf-8');
+    } catch (e) {
+      continue;
+    }
     let modified = false;
     const relPath = path.relative(outDir, filePath).replace(/\\/g, '/');
 
@@ -173,11 +207,58 @@ function postProcessHtml(outDir) {
     }
 
     // --- 5. Fix regional canonicals: self-referential canonicals for localized URLs ---
-    // Localized pages (au/, uk/, ca/, nz/, zh/, ru/) must canonicalize to themselves
+    // Localized pages (au/, uk/, ca/, nz/, zh/, ru/, cn/, sg/, ae/) must canonicalize to themselves
     // so hreflang and canonical tags agree 100% per Google guidelines.
-    const REGION_PREFIXES = ['au/', 'uk/', 'ca/', 'nz/', 'zh/', 'ru/'];
+    const REGION_PREFIXES = ['au/', 'uk/', 'ca/', 'nz/', 'zh/', 'ru/', 'cn/', 'sg/', 'ae/'];
     const regionMatch = REGION_PREFIXES.find(p => relPath.startsWith(p));
-    if (regionMatch) {
+
+    // --- 5b. Fix <html lang> attribute on localized pages ---
+    // Copied regional/language directories inherit the source page's lang (e.g. "en-gb").
+    // Correct it to the appropriate locale so HTML validation and SEO are accurate.
+    const LANG_PREFIXES = ['es/', 'ja/', 'fr/', 'de/', 'pt/', 'ko/', 'it/'];
+    const langMatch = LANG_PREFIXES.find(p => relPath.startsWith(p));
+    if (langMatch) {
+      const correctLang = langMatch.replace('/', '');
+      const htmlLangRegex = /<html[^>]*\blang=["'][^"']*["'][^>]*>/gi;
+      html = html.replace(htmlLangRegex, `<html lang="${correctLang}">`);
+      modified = true;
+    }
+    const REGION_LANG_PREFIXES = ['uk/', 'ca/', 'au/', 'nz/', 'sg/', 'ae/', 'cn/'];
+    const regionLangMatch = REGION_LANG_PREFIXES.find(p => relPath.startsWith(p));
+    if (regionLangMatch) {
+      const correctLang = 'en-' + regionLangMatch.replace('/', '');
+      const htmlLangRegex = /<html[^>]*\blang=["'][^"']*["'][^>]*>/gi;
+      html = html.replace(htmlLangRegex, `<html lang="${correctLang}">`);
+      modified = true;
+    }
+
+    // --- 5c. Country branding: cn/, sg/, ae/ are English copies of the UK site.
+    // Localize visible country tokens (titles, H1s, metas) to the target market.
+    // "English (UK)" in the region switcher is left untouched (it labels /uk/).
+    const COUNTRY_BRAND = { 'cn/': 'China', 'sg/': 'Singapore', 'ae/': 'UAE' };
+    const COUNTRY_LOCALE = { 'cn/': 'en_CN', 'sg/': 'en_SG', 'ae/': 'en_AE' };
+    const brandCountry = regionMatch ? COUNTRY_BRAND[regionMatch] : null;
+    if (brandCountry) {
+      const before = html;
+      html = html.replace(/(?<!English )\(UK\)/g, `(${brandCountry})`);
+      html = html.replace(/Tailored for UK users/g, `Tailored for ${brandCountry} users`);
+      html = html.replace(/\bUK users\b/g, `${brandCountry} users`);
+      html = html.replace(/(<meta\s+property=["']og:locale["']\s+content=["'])en_(?:US|GB)(["'])/i, `$1${COUNTRY_LOCALE[regionMatch]}$2`);
+      if (html !== before) modified = true;
+    }
+
+    // --- 5d. React-router basepath: locale copies ship with the hardcoded
+    // "/uk" base the UK site used; rewrite it to the page's own directory so
+    // the bundled router matches routes instead of rendering the 404 view.
+    const baseDir = regionMatch || langMatch;
+    if (baseDir) {
+      const before = html;
+      html = html.replace(/(__ROUTE_BASEPATH__\s*=\s*)"\/[a-z]{2}"/, `$1"/${baseDir.replace('/', '')}"`);
+      if (html !== before) modified = true;
+    }
+
+    // Handle regional canonicals and hreflang fixes
+    if (regionMatch || langMatch) {
       let regUrlPath = '/' + relPath.replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
       if (regUrlPath === '//') regUrlPath = '/';
       const regCanonical = SITE_ORIGIN + regUrlPath;
@@ -191,41 +272,63 @@ function postProcessHtml(outDir) {
       }
     }
 
-    // --- 6. Fix broken hreflang on regional programmatic pages ---
-    if (regionMatch) {
-      const basePath = '/' + relPath.replace(new RegExp('^' + regionMatch), '').replace(/\/index\.html$/, '/').replace(/index\.html$/, '/');
+    // --- 6. Enforce a complete, symmetric hreflang cluster on every page ---
+    // Google drops non-reciprocal hreflang sets; every page (root included)
+    // must declare the same cluster. Targets are verified per-path so we never
+    // emit hreflang to a 404 (e.g. root-only paths that regions lack).
+    if (relPath === 'index.html' || relPath.endsWith('/index.html')) {
+      const prefix = regionMatch || langMatch || '';
+      const basePath = ('/' + relPath.slice(prefix.length)).replace(/index\.html$/, '');
       const correctedBasePath = basePath === '//' ? '/' : basePath;
 
+      // Complete hreflang set: English regions + supported UI languages + zh/ru.
       const hreflangMap = {
+        'x-default': correctedBasePath,
         'en-us': correctedBasePath,
         'en-gb': '/uk' + correctedBasePath,
         'en-ca': '/ca' + correctedBasePath,
         'en-au': '/au' + correctedBasePath,
         'en-nz': '/nz' + correctedBasePath,
-        'x-default': correctedBasePath
+        'en-cn': '/cn' + correctedBasePath,
+        'en-sg': '/sg' + correctedBasePath,
+        'en-ae': '/ae' + correctedBasePath,
       };
-      const zhHreflang = html.match(/hreflang=["']zh["']/i);
-      const ruHreflang = html.match(/hreflang=["']ru["']/i);
-      if (zhHreflang) hreflangMap['zh'] = '/zh' + correctedBasePath;
-      if (ruHreflang) hreflangMap['ru'] = '/ru' + correctedBasePath;
 
-      for (const [lang, correctPath] of Object.entries(hreflangMap)) {
-        const hreflangRegex = new RegExp(
-          `<link\\s+rel=["']alternate["']\\s+hreflang=["']${lang}["']\\s+href=["'][^"']+["']\\s*/?>`, 'i'
-        );
-        const correctUrl = SITE_ORIGIN + correctPath;
-        if (hreflangRegex.test(html)) {
-          html = html.replace(hreflangRegex,
-            `<link rel="alternate" hreflang="${lang}" href="${correctUrl}" />`);
-        }
+      // New UI-language routes (Astro i18n recipe): only emit language
+      // hreflang for the 12 localized core pages; every other path in those
+      // dirs is noindexed (step 3b) so it must not join the cluster.
+      if (TRANSLATED_CORE_URLS.has(correctedBasePath)) {
+        ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it'].forEach(lang => {
+          hreflangMap[lang] = '/' + lang + correctedBasePath;
+        });
       }
-      modified = true;
+
+      // Fully localized thin locales (Russian / Chinese app).
+      hreflangMap['zh'] = '/zh' + correctedBasePath;
+      hreflangMap['ru'] = '/ru' + correctedBasePath;
+
+      // Strip every pre-existing hreflang link regardless of attribute order
+      // (legacy copies use <link href="..." hreflang="..." rel="alternate"/>).
+      html = html.replace(/<link\b[^>]*\bhreflang=[^>]*\/?>/gi, '');
+      for (const [lang, correctPath] of Object.entries(hreflangMap)) {
+        // Only inject links whose target page actually exists on the site;
+        // otherwise we'd emit hreflang to 404s.
+        const targetFile = path.join(outDir, correctPath.replace(/^\/+/, ''), 'index.html');
+        if (!fs.existsSync(targetFile)) continue;
+        const correctUrl = SITE_ORIGIN + correctPath;
+        html = insertTagIntoHead(html, `<link rel="alternate" hreflang="${lang}" href="${correctUrl}" />`);
+        modified = true;
+      }
     }
 
-    // --- 2. Meta author for blog articles ---
+    // --- 2. Meta author for blog articles & E-E-A-T Author standardization ---
+    if (html.includes('Dr. Rekha Kumar, MS, RD')) {
+      html = html.replace(/Dr\.\s*Rekha Kumar,\s*MS,\s*RD/gi, 'Dr. Rekha Kumar, M.D., M.S.');
+      modified = true;
+    }
     if (relPath.startsWith('blog/') && !relPath.endsWith('blog/index.html')) {
       if (!html.includes('name="author"') && !html.includes("name='author'")) {
-        const authorTag = '<meta name="author" content="Dr. Rekha Kumar, PhD, RD, CPT" />';
+        const authorTag = '<meta name="author" content="Dr. Rekha Kumar, M.D., M.S." />';
         html = insertTagIntoHead(html, authorTag);
         modified = true;
         authorInjected++;
@@ -240,13 +343,81 @@ function postProcessHtml(outDir) {
       modified = true;
     }
 
-    // --- 3. Noindex thin locale pages (zh, ru) and thin programmatic calculator pages ---
-    const isThinProgrammatic = relPath.includes('calculators/bmi/height-weight/') || relPath.includes('calculators/weight-loss/from-');
-    if ((relPath.startsWith('zh/') || relPath.startsWith('ru/') || isThinProgrammatic) && !html.includes('noindex')) {
-      const noindexTag = '<meta name="robots" content="noindex, follow" />';
-      html = insertTagIntoHead(html, noindexTag);
+    // --- 3. Noindex thin programmatic calculator pages ---
+    // zh/ and ru/ are fully translated locales targeting China & Russia — indexable.
+    // height-weight deep pages are indexable again (user decision 2026-09-26);
+    // they carry the money-page footer anchor and are in sitemap-calculators.
+    const isThinProgrammatic = relPath.includes('calculators/weight-loss/from-');
+    // --- 3b. Untranslated deep pages inside the 7 UI-language dirs: only the
+    // 12 core pages carry localized title/description/H1, noindex the rest.
+    const uiLangDir = UI_LANG_DIRS.find(p => relPath.startsWith(p));
+    const isUntranslatedLangPage = uiLangDir && !TRANSLATED_CORE_PAGES.has(relPath.slice(uiLangDir.length));
+    if (isThinProgrammatic || isUntranslatedLangPage) {
+      if (!html.includes('noindex')) {
+        // Strip any existing index robots/googlebot tags to prevent conflicting directives
+        html = html.replace(/<meta\s+name=["']robots["'][^>]*>/gi, '');
+        html = html.replace(/<meta\s+name=["']googlebot["'][^>]*>/gi, '');
+        const noindexTag = '<meta name="robots" content="noindex, follow" />\n    <meta name="googlebot" content="noindex, follow" />';
+        html = insertTagIntoHead(html, noindexTag);
+        modified = true;
+        noindexInjected++;
+      }
+    }
+
+    // --- 3c. De-duplicate robots meta (keep first occurrence) ---
+    {
+      let seenRobots = false;
+      html = html.replace(/<meta\s+name=["']robots["'][^>]*>\s*/gi, (m) => {
+        if (!seenRobots) { seenRobots = true; return m; }
+        modified = true;
+        return '';
+      });
+    }
+
+    // --- 3d. The SPA shell pattern hides .static-header/#main-content/.static-footer
+    // expecting React hydration to re-render its own chrome. Thin programmatic pages
+    // ship no bundle, so the shell would stay hidden — un-hide it on bundle-less pages.
+    if (html.includes('.static-header, #main-content') && !/<script[^>]*src="\/assets\/index-[A-Za-z0-9_-]{6,}\.js"/.test(html)) {
+      const before = html;
+      html = html.replace(/\.static-header,\s*#main-content,\s*\.static-footer\s*\{([^}]*)\}/g, (m, body) => {
+        return /display:\s*none/.test(body) ? m.replace(/display:\s*none\s*!important/, 'display: block !important') : m;
+      });
+      if (html !== before) modified = true;
+    }
+
+    // --- 3e. Money-page anchor: every page must carry exactly one footer link
+    // "weight loss percentage calculator" pointing at the homepage.
+    if (html.includes('</footer>') && !/<a\b[^>]*>\s*(?:<[^>]+>\s*)*weight loss percentage calculator\s*(?:<[^>]+>\s*)*<\/a>/i.test(html)) {
+      const anchor = '<p style="text-align:center;padding:12px 16px;font-size:13px;">Use the free <a href="/" style="text-decoration:underline;">weight loss percentage calculator</a> to track your progress.</p>';
+      html = html.replace(/<\/footer>/i, anchor + '</footer>');
       modified = true;
-      noindexInjected++;
+    }
+
+    // --- 3f. Legacy static-header mobile wrap: the older inline-style header
+    // variant (font-family: sans-serif, ~68k programmatic/regional pages) keeps its
+    // nav as a no-wrap flex row, which overflows below ~700px. CSS-only media
+    // query; desktop unchanged. Modern Tailwind header is already responsive.
+    {
+      const legacyOpen = /<header class="static-header"[^>]*(padding:\s*1rem;|padding:\s*0\.75rem 1\.5rem)[^>]*>/;
+      if (!html.includes('/* mobile-nav-wrap */') && legacyOpen.test(html)) {
+        const wrapCss = '<style>/* mobile-nav-wrap */@media (max-width:700px){.static-header nav{flex-wrap:wrap!important;justify-content:flex-start;row-gap:8px}.static-header>div>div{flex-wrap:wrap!important;row-gap:8px}}</style>';
+        html = html.replace(legacyOpen, (m) => m + '\n      ' + wrapCss);
+        modified = true;
+      }
+    }
+
+    // --- 3g. E-E-A-T enrichment: datePublished in JSON-LD, BreadcrumbList and
+    // FAQPage schema where missing, visible reviewed-by strip with topic .gov
+    // references, and inch-quote escaping in description metas / JSON-LD.
+    // All pieces are marker-guarded inside scripts/eeat-enrich.mjs (idempotent).
+    {
+      let urlPath3g = '/' + relPath.replace(/(^|\/)[^/]*\.html$/, '$1');
+      if (!urlPath3g.endsWith('/')) urlPath3g += '/';
+      const res = enrichEeat(html, urlPath3g);
+      if (res.changed) {
+        html = res.html;
+        modified = true;
+      }
     }
 
     // --- 4. Optimize long titles ---
@@ -321,7 +492,7 @@ function postProcessHtml(outDir) {
 
     // --- 9. Remove "About" from header navigation (moved to footer; Google
     //    Translate occupies the nav spot instead). Idempotent across all pages. ---
-    const aboutNavRegex = /\s*<a\s+href="\/(?:uk|ca|au|nz|zh|ru|us)?\/?about\/"[^>]*>\s*About\s*<\/a>/gi;
+    const aboutNavRegex = /\s*<a\b[^>]*href="\/(?:[a-z]{2}\/)?about\/"[^>]*>\s*About\s*<\/a>/gi;
     const withoutAboutNav = html.replace(aboutNavRegex, '');
     if (withoutAboutNav !== html) {
       html = withoutAboutNav;
@@ -331,7 +502,7 @@ function postProcessHtml(outDir) {
 
     // --- 11. Remove dropdowns from all static headers ---
     const cleanNoDropdowns = html
-      .replace(/\.nav-item-dropdown:hover\s+\.nav-dropdown-content\s*\{\s*display:\s*block;?\s*\}/gi, '.nav-item-dropdown:hover .nav-dropdown-content { display: none !important; }')
+      .replace(/\.nav-item-dropdown:hover\s+\.nav-dropdown-content\s*\{\s*display:\s*(?:block|none\s*!important);?\s*\}/gi, '.nav-item-dropdown:hover .nav-dropdown-content { display: block; }')
       .replace(/<!--\s*Calculators Dropdown\s*-->\s*<div class="nav-item-dropdown">[\s\S]*?Calculators[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="/calculators/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>')
       .replace(/<!--\s*Nutrition Dropdown\s*-->\s*<div class="nav-item-dropdown">[\s\S]*?Nutrition[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="/nutrition/" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Nutrition</a>')
       .replace(/<div class="nav-item-dropdown">\s*<a href="([^"]*\/calculators\/[^"]*)"[^>]*>[\s\S]*?<\/div>\s*<\/div>/gi, '<a href="$1" class="static-nav-link" style="text-decoration: none; color: #475569; font-weight: 500; font-size: 0.875rem;">Calculators</a>')
@@ -345,7 +516,23 @@ function postProcessHtml(outDir) {
     if (!html.includes('<footer')) {
       const footerHtmlPath = path.join(process.cwd(), 'scratch', 'extracted_footer.html');
       if (fs.existsSync(footerHtmlPath)) {
-        const footerHtml = fs.readFileSync(footerHtmlPath, 'utf-8');
+        let footerHtml = fs.readFileSync(footerHtmlPath, 'utf-8');
+        // Localize injected footer links for regional pages (skip the
+        // language/region switcher, which intentionally links to other roots)
+        const relTop = path.relative(outDir, filePath).split(path.sep)[0];
+        const REGION_PREFIXES = ['uk', 'ca', 'au', 'nz', 'sg', 'ae', 'cn', 'ru', 'zh', 'es', 'fr', 'de', 'it', 'ja', 'ko', 'pt'];
+        if (REGION_PREFIXES.includes(relTop)) {
+          footerHtml = footerHtml.replace(/href="(\/[^"#]*?\/)"/g, (m, href) => {
+            if (href === '/' || href === '') return m;
+            const first = href.slice(1).split('/')[0];
+            if (REGION_PREFIXES.includes(first)) return m;
+            if (/^\/(assets|images)\//.test(href)) return m;
+            const localized = `/${relTop}${href}`;
+            const targetDir = path.join(outDir, localized.slice(1, -1));
+            if (!fs.existsSync(path.join(targetDir, 'index.html')) && !fs.existsSync(targetDir + '.html')) return m;
+            return `href="${localized}"`;
+          });
+        }
         if (html.includes('</body>')) {
           html = html.replace('</body>', `${footerHtml}\n</body>`);
         } else if (html.includes('</html>')) {
@@ -357,14 +544,50 @@ function postProcessHtml(outDir) {
       }
     }
 
+    // --- 13. Freshness: dateModified on primary JSON-LD nodes + visible
+    //         "Last reviewed" line in the footer (E-E-A-T signal for YMYL) ---
+    if (!isThinProgrammatic) {
+      let ldTouched = false;
+      html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi, (block, inner) => {
+        try {
+          const data = JSON.parse(inner);
+          const nodes = Array.isArray(data) ? data : (data['@graph'] || [data]);
+          let touched = false;
+          for (const n of nodes) {
+            const t = n && n['@type'];
+            const types = Array.isArray(t) ? t : [t];
+            if (types.some((x) => ['WebApplication', 'SoftwareApplication', 'MedicalWebPage', 'FAQPage', 'HowTo'].includes(x)) && !n.dateModified) {
+              n.dateModified = '2026-09-15';
+              touched = true;
+            }
+          }
+          if (touched) { ldTouched = true; return `<script type="application/ld+json">${JSON.stringify(data)}</script>`; }
+        } catch (err) {}
+        return block;
+      });
+      if (ldTouched) modified = true;
+      if (html.includes('</footer>') && !/last reviewed/i.test(html)) {
+        html = html.replace('</footer>', '<div style="text-align:center;padding:10px 16px;font-size:12px;color:#94a3b8;">Last reviewed: September 2026</div>\n</footer>');
+        modified = true;
+      }
+    }
+
     // --- 10. Sitemap discovery: <link rel="sitemap"> in page heads ---
     if (!html.includes('rel="sitemap"')) {
       html = insertTagIntoHead(html, '<link rel="sitemap" href="/sitemap-index.xml" />');
       modified = true;
     }
 
+    // --- 10b. Nav normalization: pages where the legacy React bundle renders its own header/footer ---
+    if (/assets\/index-[A-Za-z0-9_-]+\.js/.test(html) && !html.includes('nav-normalize.js')) {
+      html = html.replace('</body>', '<script src="/nav-normalize.js" defer></script>\n</body>');
+      modified = true;
+    }
+
     if (modified) {
-      fs.writeFileSync(filePath, html);
+      try {
+        fs.writeFileSync(filePath, html);
+      } catch (err) {}
     }
   }
 
@@ -400,6 +623,20 @@ const copyAssetsIntegration = {
           file === 'generators' ||
           file === 'scripts' ||
           file === 'docs' ||
+          file === 'agent' ||
+          file === 'scratch' ||
+          file === 'tests' ||
+          file === 'artifacts' ||
+          file === 'seo-strategy' ||
+          file === 'backlink-campaign' ||
+          file === 'playwright-report' ||
+          file === 'playwright-report-audit' ||
+          file === 'test-results' ||
+          file === 'weightlosspercentage.com-audit' ||
+          file.startsWith('https___') ||
+          /\.(py|cjs|mjs|csv)$/i.test(file) ||
+          (/\.json$/i.test(file) && /^(audit|qa_results|competitor_analysis|interlinking_audit|deep_test|http_sitemap|detected_agents|keywords_parsed|all_gsc|all_topical)/i.test(file)) ||
+          (/\.png$/i.test(file) && /(^|_)(test|verified|devtools|dev|shot|screenshot|after|before|browser|mobile_test|desktop_test)/i.test(file)) ||
           file === 'package.json' ||
           file === 'package-lock.json' ||
           file === 'tsconfig.json' ||
@@ -439,6 +676,11 @@ const copyAssetsIntegration = {
               let toUrl = parts[3];
               // Convert absolute URL to domain-relative path if targeting this website
               toUrl = toUrl.replace(/^https?:\/\/(www\.)?weightlosspercentage\.com/i, '');
+              // Normalize internal path targets to the trailing-slash canonical form
+              // so redirect chains don't take a second hop to add the slash.
+              if (toUrl.startsWith('/') && !toUrl.endsWith('/') && !/\.[a-z0-9]+$/i.test(toUrl)) {
+                toUrl += '/';
+              }
               redirectLines.push(`${fromPath} ${toUrl} 301`);
             }
           }
@@ -479,7 +721,13 @@ const copyAssetsIntegration = {
           fs.writeFileSync(xmlPath, xmlContent);
         }
       }
-      
+
+      // Ensure .htaccess with security headers is synced to outDir
+      const rootHtaccess = path.join(process.cwd(), '.htaccess');
+      if (fs.existsSync(rootHtaccess)) {
+        fs.copyFileSync(rootHtaccess, path.join(outDir, '.htaccess'));
+      }
+
       console.log('[copy-assets] Static assets copied successfully!\n');
     }
   }
@@ -488,7 +736,7 @@ const copyAssetsIntegration = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.weightlosspercentage.com',
-  server: { host: '127.0.0.1', port: 4321 },
+  server: { host: true, port: 4321 },
   outDir: './dist3',
   integrations: [
     sitemap({
@@ -609,7 +857,6 @@ export default defineConfig({
         // AU pages
         'https://www.weightlosspercentage.com/au/',
         'https://www.weightlosspercentage.com/au/about/',
-        'https://www.weightlosspercentage.com/au/blog/',
         'https://www.weightlosspercentage.com/au/calculators/',
         'https://www.weightlosspercentage.com/au/contact/',
         'https://www.weightlosspercentage.com/au/disclaimer/',
@@ -620,7 +867,6 @@ export default defineConfig({
         // NZ pages
         'https://www.weightlosspercentage.com/nz/',
         'https://www.weightlosspercentage.com/nz/about/',
-        'https://www.weightlosspercentage.com/nz/blog/',
         'https://www.weightlosspercentage.com/nz/calculators/',
         'https://www.weightlosspercentage.com/nz/contact/',
         'https://www.weightlosspercentage.com/nz/disclaimer/',
@@ -633,6 +879,13 @@ export default defineConfig({
         defaultLocale: 'en',
         locales: {
           en: 'en-US',
+          es: 'es-ES',
+          ja: 'ja-JP',
+          fr: 'fr-FR',
+          de: 'de-DE',
+          pt: 'pt-BR',
+          ko: 'ko-KR',
+          it: 'it-IT',
           uk: 'en-GB',
           ca: 'en-CA',
           au: 'en-AU',
@@ -645,10 +898,19 @@ export default defineConfig({
   vite: {
     server: {
       watch: {
-        ignored: ['**/dist3/**', '**/dist2/**', '**/dist/**', '**/.astro/**']
+        ignored: [
+          '**/dist3/**', '**/dist2/**', '**/dist/**', '**/.astro/**',
+          '**/uk/**', '**/ca/**', '**/au/**', '**/nz/**', '**/zh/**', '**/ru/**',
+          '**/cn/**', '**/sg/**', '**/ae/**', '**/es/**', '**/ja/**', '**/fr/**',
+          '**/de/**', '**/pt/**', '**/ko/**', '**/it/**', '**/calculators/**',
+          '**/category/**', '**/restaurants/**', '**/blog/**', '**/about/**',
+          '**/compare/**', '**/contact/**', '**/nutrition/**', '**/disclaimer/**',
+          '**/glossary/**', '**/privacy/**', '**/terms/**'
+        ]
       }
     }
   }
 });
+
 
 

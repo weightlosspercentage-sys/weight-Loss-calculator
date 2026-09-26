@@ -19,3 +19,4 @@ dump_dom.py
 *.png
 check-output.txt
 .agents/
+scratch/

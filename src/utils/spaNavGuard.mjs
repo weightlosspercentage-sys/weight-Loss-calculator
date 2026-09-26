@@ -12,7 +12,7 @@ export const SPA_NAV_GUARD_MARKER = '__SPA_NAV_GUARD__';
 // (TanStack Router routes compiled into assets/index-*.js). Routes listed here
 // are handled by the SPA router; every other same-origin link gets a full
 // page load. Dynamic routes use a "$" suffix (prefix match).
-const SPA_ROUTES = [
+export const SPA_ROUTES = [
   '/', '/about', '/calculators/',
   '/calculators/baby-weight-loss', '/calculators/bariatric-surgery-weight-loss',
   '/calculators/bmi', '/calculators/bmr', '/calculators/body-fat',

@@ -1,4 +1,13 @@
-# â”€â”€â”€ HTTPS Redirect â”€â”€â”€
+# ─── HTTP Security Headers ───
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# ─── HTTPS Redirect ───
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -20,31 +29,15 @@ RewriteRule ^(([^/]+/)*)index\.html$ https://www.weightlosspercentage.com/$1 [R=
 
 
 # â”€â”€â”€ 301 Redirects from Old/Legacy Paths to New Active Paths â”€â”€â”€
-# Remove /category/ taxonomy prefix in favor of clean /calculators/ hierarchy
-Redirect 301 /category/fitness https://www.weightlosspercentage.com/calculators/fitness
-Redirect 301 /category/fitness/ https://www.weightlosspercentage.com/calculators/fitness
-Redirect 301 /category/nutrition https://www.weightlosspercentage.com/calculators/nutrition
-Redirect 301 /category/nutrition/ https://www.weightlosspercentage.com/calculators/nutrition
-Redirect 301 /category/pregnancy https://www.weightlosspercentage.com/calculators/pregnancy
-Redirect 301 /category/pregnancy/ https://www.weightlosspercentage.com/calculators/pregnancy
-Redirect 301 /category/specialized https://www.weightlosspercentage.com/calculators/specialized
-Redirect 301 /category/specialized/ https://www.weightlosspercentage.com/calculators/specialized
-Redirect 301 /category/weight-loss https://www.weightlosspercentage.com/calculators/weight-loss
-Redirect 301 /category/weight-loss/ https://www.weightlosspercentage.com/calculators/weight-loss
+# /category/ pages are live, linked and in sitemap-categories.xml — do NOT
+# redirect them to /calculators/ (Cloudflare _redirects shadows the static files).
 
-# Author profile consolidation
-Redirect 301 /authors/dr-rekha-kumar https://www.weightlosspercentage.com/authors/dr-rekha-kumar
-Redirect 301 /authors/dr-rekha-kumar/ https://www.weightlosspercentage.com/authors/dr-rekha-kumar
+# Author profile consolidation (redirect trailing-slash-less URL to canonical form)
+Redirect 301 /authors/dr-rekha-kumar https://www.weightlosspercentage.com/authors/dr-rekha-kumar/
 
-# Calculator consolidation
-Redirect 301 /calculators/baby-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss
-Redirect 301 /calculators/baby-weight-loss/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
-Redirect 301 /calculators/infant-weight-loss https://www.weightlosspercentage.com/calculators/newborn-weight-loss
-Redirect 301 /calculators/infant-weight-loss/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss
-Redirect 301 /calculators/fat-loss https://www.weightlosspercentage.com/calculators/body-fat
-Redirect 301 /calculators/fat-loss/ https://www.weightlosspercentage.com/calculators/body-fat
-Redirect 301 /calculators/calorie-deficit https://www.weightlosspercentage.com/calculators/calorie
-Redirect 301 /calculators/calorie-deficit/ https://www.weightlosspercentage.com/calculators/calorie
+# Note: fat-loss, calorie-deficit, infant-weight-loss and baby-weight-loss are
+# live, linked pages — their old "consolidation" 301s shadowed the real pages
+# on Cloudflare and were removed.
 
 
 # Legacy HTML pages
@@ -56,7 +49,9 @@ Redirect 301 /calorie-deficit.html https://www.weightlosspercentage.com/calculat
 # Combinatorial height-weight & weight-loss range redirect rules
 RewriteRule ^calculators/bmi/height-weight/ https://www.weightlosspercentage.com/calculators/bmi/ [R=301,L]
 RewriteRule ^calculators/weight-loss/from- https://www.weightlosspercentage.com/ [R=301,L]
-Redirect 301 /weight-loss-percentage-chart.html https://www.weightlosspercentage.com/blog/weight-loss-percentage-chart/
+Redirect 301 /weight-loss-percentage-chart.html https://www.weightlosspercentage.com/calculators/weight-loss/
+Redirect 301 /newborn-weight-loss-chart https://www.weightlosspercentage.com/calculators/newborn-weight-loss/
+Redirect 301 /newborn-weight-loss-chart/ https://www.weightlosspercentage.com/calculators/newborn-weight-loss/
 
 # Old singular calculator paths to new plural calculator paths
 Redirect 301 /calculator/newborn https://www.weightlosspercentage.com/calculators/newborn-weight-loss
@@ -69,8 +64,8 @@ Redirect 301 /calculator/bmr https://www.weightlosspercentage.com/calculators/bm
 Redirect 301 /calculator/bmr/ https://www.weightlosspercentage.com/calculators/bmr
 Redirect 301 /calculator/macro https://www.weightlosspercentage.com/calculators/macro
 Redirect 301 /calculator/macro/ https://www.weightlosspercentage.com/calculators/macro
-Redirect 301 /calculator/calorie-deficit https://www.weightlosspercentage.com/calculators/calorie
-Redirect 301 /calculator/calorie-deficit/ https://www.weightlosspercentage.com/calculators/calorie
+Redirect 301 /calculator/calorie-deficit https://www.weightlosspercentage.com/calculators/calorie-deficit
+Redirect 301 /calculator/calorie-deficit/ https://www.weightlosspercentage.com/calculators/calorie-deficit
 Redirect 301 /calculator/body-fat https://www.weightlosspercentage.com/calculators/body-fat
 Redirect 301 /calculator/body-fat/ https://www.weightlosspercentage.com/calculators/body-fat
 Redirect 301 /calculator/protein https://www.weightlosspercentage.com/calculators/protein
@@ -233,3 +228,23 @@ Redirect 301 /ru https://www.weightlosspercentage.com/ru/
 Redirect 301 /terms https://www.weightlosspercentage.com/terms/
 Redirect 301 /uk https://www.weightlosspercentage.com/uk/
 Redirect 301 /zh https://www.weightlosspercentage.com/zh/
+
+# ─── Dead blog hub consolidation (blog content removed; recover any inbound equity) ───
+Redirect 301 /blog https://www.weightlosspercentage.com/
+Redirect 301 /blog/ https://www.weightlosspercentage.com/
+Redirect 301 /uk/blog/ https://www.weightlosspercentage.com/uk/
+Redirect 301 /ca/blog/ https://www.weightlosspercentage.com/ca/
+Redirect 301 /au/blog/ https://www.weightlosspercentage.com/au/
+Redirect 301 /nz/blog/ https://www.weightlosspercentage.com/nz/
+Redirect 301 /sg/blog/ https://www.weightlosspercentage.com/sg/
+Redirect 301 /ae/blog/ https://www.weightlosspercentage.com/ae/
+Redirect 301 /cn/blog/ https://www.weightlosspercentage.com/cn/
+Redirect 301 /ru/blog/ https://www.weightlosspercentage.com/ru/
+Redirect 301 /zh/blog/ https://www.weightlosspercentage.com/zh/
+Redirect 301 /es/blog/ https://www.weightlosspercentage.com/es/
+Redirect 301 /fr/blog/ https://www.weightlosspercentage.com/fr/
+Redirect 301 /de/blog/ https://www.weightlosspercentage.com/de/
+Redirect 301 /it/blog/ https://www.weightlosspercentage.com/it/
+Redirect 301 /ja/blog/ https://www.weightlosspercentage.com/ja/
+Redirect 301 /ko/blog/ https://www.weightlosspercentage.com/ko/
+Redirect 301 /pt/blog/ https://www.weightlosspercentage.com/pt/

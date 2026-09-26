@@ -6,6 +6,7 @@ export interface Props {
   alternates?: Array<{ hreflang: string; href: string }>;
   metaTags?: Array<{ name?: string; property?: string; content: string }>;
   schemas?: string[];
+  lang?: string;
 }
 
 const {
@@ -14,8 +15,37 @@ const {
   canonical = "https://www.weightlosspercentage.com/",
   alternates = [],
   metaTags = [],
-  schemas = []
+  schemas = [],
+  lang = 'en'
 } = Astro.props;
+
+// Supported languages for hreflang generation
+const supportedLangs = ['en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it'];
+
+const siteOrigin = 'https://www.weightlosspercentage.com';
+let canonicalPath = '';
+try {
+  const parsed = new URL(canonical, siteOrigin);
+  canonicalPath = parsed.pathname.replace(/^\/+|\/+$/g, '');
+} catch {
+  canonicalPath = canonical.replace(siteOrigin, '').replace(/^\/+|\/+$/g, '');
+}
+
+// Generate complete hreflang alternates if none provided
+const allAlternates = alternates.length > 0
+  ? alternates
+  : supportedLangs.map(l => ({
+      hreflang: l,
+      href: l === 'en'
+        ? (canonicalPath ? `${siteOrigin}/${canonicalPath}/` : `${siteOrigin}/`)
+        : (canonicalPath ? `${siteOrigin}/${l}/${canonicalPath}/` : `${siteOrigin}/${l}/`)
+    }));
+
+const hasXDefault = allAlternates.some(a => a.hreflang === 'x-default');
+const hasCustomRobots = metaTags.some(t => t.name?.toLowerCase() === 'robots');
+const hasCustomGooglebot = metaTags.some(t => t.name?.toLowerCase() === 'googlebot');
+const customRobots = metaTags.find(t => t.name?.toLowerCase() === 'robots')?.content || '';
+const isNoIndex = customRobots.toLowerCase().includes('noindex');
 ---
 
 <meta charset="utf-8" />
@@ -23,15 +53,25 @@ const {
 <meta name="format-detection" content="telephone=no" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="theme-color" content="#4f46e5" />
+{!hasCustomRobots && (
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+)}
+{!hasCustomGooglebot && (
+  <meta name="googlebot" content={isNoIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+)}
+<meta property="og:locale" content={lang === 'es' ? 'es_ES' : lang === 'ja' ? 'ja_JP' : lang === 'fr' ? 'fr_FR' : lang === 'de' ? 'de_DE' : lang === 'pt' ? 'pt_BR' : lang === 'ko' ? 'ko_KR' : lang === 'it' ? 'it_IT' : 'en_US'} />
 
 <title>{title}</title>
 {description && <meta name="description" content={description} />}
 
 {canonical && <link rel="canonical" href={canonical} />}
 
-{alternates.map((alt) => (
+{allAlternates.map((alt) => (
   <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
 ))}
+
+{/* x-default for international audiences */}
+{!hasXDefault && <link rel="alternate" hreflang="x-default" href={canonical} />}
 
 {metaTags.map((tag) => (
   tag.name ? (

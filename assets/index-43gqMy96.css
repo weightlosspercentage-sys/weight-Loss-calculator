@@ -40,12 +40,6 @@ html.has-react #root > #main-content {
   display: none !important;
 }
 
-#root:not(:empty) ~ .static-footer,
-#root:not(:empty) ~ footer.static-footer,
-#root:has(> div) ~ .static-footer,
-#root:has(> div) ~ footer.static-footer {
-  display: none !important;
-}
 
 body {
   margin: 0;
@@ -56,4 +50,203 @@ body {
 
 #root {
   width: 100%;
+}
+
+
+.faq-section {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.faq-section-title {
+  color: #0f172a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.faq-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.faq-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.faq-card[open] {
+  border-color: #c7d2fe;
+  background: #fdfefe;
+}
+.faq-question {
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 1.05rem;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  list-style: none;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #64748b;
+  border-bottom: 2px solid #64748b;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.faq-card[open] .faq-question::after {
+  transform: rotate(-135deg);
+  border-color: #4f46e5;
+}
+.faq-answer {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 0;
+  padding-top: 0.85rem;
+}
+.faq-answer p {
+  margin: 0;
+}
+
+/* Related Calculators Grid Styling */
+.related-calculators-section {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+}
+.related-calculators-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.related-calculators-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.related-calculators-hub-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4f46e5;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.related-calculators-hub-link:hover {
+  color: #3730a3;
+  text-decoration: underline;
+}
+.related-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.related-calc-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.125rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.related-calc-card:hover {
+  border-color: #6366f1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(79, 70, 229, 0.12);
+}
+.related-calc-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.related-calc-card-title {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.35;
+}
+.related-calc-card:hover .related-calc-card-title {
+  color: #4f46e5;
+}
+.related-calc-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.badge-orange { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+.badge-blue { background: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; }
+.badge-green { background: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
+.badge-indigo { background: #eef2ff; color: #4338ca; border: 1px solid #e0e7ff; }
+.badge-purple { background: #faf5ff; color: #7e22ce; border: 1px solid #f3e8ff; }
+.badge-amber { background: #fffbeb; color: #b45309; border: 1px solid #fef3c7; }
+.badge-rose { background: #fff1f2; color: #be123c; border: 1px solid #ffe4e6; }
+.badge-pink { background: #fdf2f8; color: #be185d; border: 1px solid #fce7f3; }
+.badge-teal { background: #f0fdfa; color: #0f766e; border: 1px solid #ccfbf1; }
+
+.related-calc-card-desc {
+  font-size: 0.825rem;
+  color: #64748b;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.45;
+  flex-grow: 1;
+}
+.related-calc-card-action {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4f46e5;
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Deduplicate Footers on React-Hydrated Pages
+   When React renders its footer inside #root, suppress duplicate static footers
+   ========================================================================== */
+#root:has(footer) + .static-footer,
+#root:has(footer) ~ .static-footer,
+body:has(#root footer) > .static-footer {
+  display: none !important;
 }

@@ -19,7 +19,7 @@ function getBasePath(pathStr: string): string {
     return '/';
   }
   const parts = path.split('/');
-  if (parts.length > 0 && ['uk', 'ca', 'au', 'nz', 'zh', 'ru'].includes(parts[0])) {
+  if (parts.length > 0 && ['uk', 'ca', 'au', 'nz', 'zh', 'ru', 'cn', 'sg', 'ae', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it'].includes(parts[0])) {
     parts.shift(); // remove region prefix
   }
   let base = '/' + parts.join('/');
@@ -35,22 +35,25 @@ function getBasePath(pathStr: string): string {
 const basePath = getBasePath(normalizedRelativePath);
 
 const regions = [
-  { code: 'us', label: '🇺🇸 English (US)', href: basePath },
-  { code: 'uk', label: '🇬🇧 English (UK)', href: `/uk${basePath === '/' ? '/' : basePath}` },
-  { code: 'ca', label: '🇨🇦 English (CA)', href: `/ca${basePath === '/' ? '/' : basePath}` },
-  { code: 'au', label: '🇦🇺 English (AU)', href: `/au${basePath === '/' ? '/' : basePath}` },
-  { code: 'nz', label: '🇳🇿 English (NZ)', href: `/nz${basePath === '/' ? '/' : basePath}` },
-  { code: 'zh', label: '🇨🇳 简体中文', href: `/zh${basePath === '/' ? '/' : basePath}` },
-  { code: 'ru', label: '🇷🇺 Русский', href: `/ru${basePath === '/' ? '/' : basePath}` }
+  { code: 'us', label: '🇺🇸 United States', href: basePath },
+  { code: 'ca', label: '🇨🇦 Canada', href: `/ca${basePath === '/' ? '/' : basePath}` },
+  { code: 'uk', label: '🇬🇧 United Kingdom', href: `/uk${basePath === '/' ? '/' : basePath}` },
+  { code: 'au', label: '🇦🇺 Australia', href: `/au${basePath === '/' ? '/' : basePath}` },
+  { code: 'nz', label: '🇳🇿 New Zealand', href: `/nz${basePath === '/' ? '/' : basePath}` },
+  { code: 'sg', label: '🇸🇬 Singapore', href: `/sg${basePath === '/' ? '/' : basePath}` },
+  { code: 'ae', label: '🇦🇪 UAE', href: `/ae${basePath === '/' ? '/' : basePath}` },
+  { code: 'cn', label: '🇨🇳 China', href: `/cn${basePath === '/' ? '/' : basePath}` },
+  { code: 'ru', label: '🇷🇺 Russia', href: `/ru${basePath === '/' ? '/' : basePath}` }
 ];
 
-const footerLinks = [
-  { label: 'About Us', href: '/about/' },
-  { label: 'Contact Us', href: '/contact/' },
-  { label: 'Privacy Policy', href: '/privacy/' },
-  { label: 'Terms of Service', href: '/terms/' },
-  { label: 'Medical Disclaimer', href: '/disclaimer/' },
-  { label: 'Glossary', href: '/glossary/' }
+const languages = [
+  { code: 'es', label: 'Español', href: `/es${basePath === '/' ? '/' : basePath}` },
+  { code: 'ja', label: '日本語', href: `/ja${basePath === '/' ? '/' : basePath}` },
+  { code: 'fr', label: 'Français', href: `/fr${basePath === '/' ? '/' : basePath}` },
+  { code: 'de', label: 'Deutsch', href: `/de${basePath === '/' ? '/' : basePath}` },
+  { code: 'pt', label: 'Português', href: `/pt${basePath === '/' ? '/' : basePath}` },
+  { code: 'ko', label: '한국어', href: `/ko${basePath === '/' ? '/' : basePath}` },
+  { code: 'it', label: 'Italiano', href: `/it${basePath === '/' ? '/' : basePath}` }
 ];
 ---
 
@@ -128,8 +131,10 @@ const footerLinks = [
           <div style="color: #ffffff; font-family: var(--font-mono); font-size: 12px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase;">More Tools</div>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
             <li><a href={getLocalizedHref('/calculators/newborn-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Newborn Weight Loss</a></li>
-            <li><a href={getLocalizedHref('/calculators/infant-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Infant Weight Loss</a></li>
-            <li><a href={getLocalizedHref('/calculators/baby-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Baby Weight Loss</a></li>
+            <li><a href={getLocalizedHref('/calculators/postpartum-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Postpartum Weight Loss</a></li>
+            <li><a href={getLocalizedHref('/calculators/pregnancy/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Pregnancy Weight Gain</a></li>
+            <li><a href={getLocalizedHref('/restaurants/fast-food-hub/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Fast Food Hub</a></li>
+            <li><a href={getLocalizedHref('/restaurants/subway/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Subway Calculator</a></li>
             <li><a href={getLocalizedHref('/calculators/dog-weight-loss/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Dog Weight Loss</a></li>
             <li><a href={getLocalizedHref('/calculators/peptide-dosage/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Peptide Dosage</a></li>
           </ul>
@@ -153,6 +158,7 @@ const footerLinks = [
             <li><a href={getLocalizedHref('/privacy/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a></li>
             <li><a href={getLocalizedHref('/terms/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a></li>
             <li><a href={getLocalizedHref('/disclaimer/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Disclaimer</a></li>
+            <li><a href={getLocalizedHref('/cookie-policy/', region)} style="color: #94a3b8; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Cookie Policy</a></li>
           </ul>
         </div>
       </div>
@@ -160,26 +166,51 @@ const footerLinks = [
       <!-- Copyright Section -->
       <div style="border-top: 1px solid #1e293b; padding-top: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px;">
         <!-- Region / Language Selector -->
-        <div class="notranslate" translate="no" style="margin-bottom: 32px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: var(--font-sans);">
-          <span style="color: #64748b; font-size: 12px; font-weight: 400; text-transform: uppercase; font-family: var(--font-mono);">Region / Language</span>
-          <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px;">
-            {regions.map((reg, index) => {
-              const isActive = reg.code === region;
-              return (
-                <>
-                  {index > 0 && <span style="color: #334155; font-size: 12px;">•</span>}
-                  <a 
-                    href={reg.href} 
-                    style={isActive 
-                      ? "color: #ffffff; font-weight: 500; text-decoration: none; padding: 4px 8px; background: #1e293b; border-radius: var(--vercel-radius); display: inline-flex; align-items: center; gap: 4px;" 
-                      : "color: #94a3b8; font-weight: 400; text-decoration: none; padding: 4px 8px; display: inline-flex; align-items: center; gap: 4px;"
-                    }
-                  >
-                    {reg.label}
-                  </a>
-                </>
-              );
-            })}
+        <div class="notranslate" translate="no" style="margin-bottom: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px; font-family: var(--font-sans);">
+          <div>
+            <span style="color: #64748b; font-size: 12px; font-weight: 400; text-transform: uppercase; font-family: var(--font-mono); display: block; margin-bottom: 8px;">Regional Editions</span>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px;">
+              {regions.map((reg, index) => {
+                const isActive = reg.code === region;
+                return (
+                  <>
+                    {index > 0 && <span style="color: #334155; font-size: 12px;">•</span>}
+                    <a
+                      href={reg.href}
+                      style={isActive
+                        ? "color: #ffffff; font-weight: 500; text-decoration: none; padding: 4px 8px; background: #1e293b; border-radius: var(--vercel-radius); display: inline-flex; align-items: center; gap: 4px;"
+                        : "color: #94a3b8; font-weight: 400; text-decoration: none; padding: 4px 8px; display: inline-flex; align-items: center; gap: 4px;"
+                      }
+                    >
+                      {reg.label}
+                    </a>
+                  </>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <span style="color: #64748b; font-size: 12px; font-weight: 400; text-transform: uppercase; font-family: var(--font-mono); display: block; margin-bottom: 8px;">Languages</span>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px;">
+              {languages.map((lng, index) => {
+                const isActive = lng.code === region;
+                return (
+                  <>
+                    {index > 0 && <span style="color: #334155; font-size: 12px;">•</span>}
+                    <a
+                      href={lng.href}
+                      style={isActive
+                        ? "color: #ffffff; font-weight: 500; text-decoration: none; padding: 4px 8px; background: #1e293b; border-radius: var(--vercel-radius); display: inline-flex; align-items: center; gap: 4px;"
+                        : "color: #94a3b8; font-weight: 400; text-decoration: none; padding: 4px 8px; display: inline-flex; align-items: center; gap: 4px;"
+                      }
+                    >
+                      {lng.label}
+                    </a>
+                  </>
+                );
+              })}
+            </div>
           </div>
         </div>
 

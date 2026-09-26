@@ -649,6 +649,12 @@
       "skillPath": "skills/design/SKILL.md",
       "computedHash": "bdbc770c4e47d0d09895c955e1c8734cadadf7e070307bac0c685efff17c60d9"
     },
+    "design-md": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/stitch-utilities/skills/design-md/SKILL.md",
+      "computedHash": "44af3e6e89a42a765d9cebf943f1e2ff3cdf43d1958341eb43fb7b74116f6691"
+    },
     "dispatching-parallel-agents": {
       "source": "obra/superpowers",
       "sourceType": "github",

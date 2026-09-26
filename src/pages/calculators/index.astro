@@ -7,7 +7,7 @@ const filePath = 'calculators/index.html';
 const parsed = parseHtmlPage(filePath, true);
 const region = getRegionFromPath(filePath);
 ---
-<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath="calculators" region={region} loadReact={true}>
+<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath="calculators" region={region} loadReact={false}>
   <Fragment set:html={parsed.headContent} slot="head" />
   <Fragment set:html={parsed.bodyContent} />
 </BaseLayout>

@@ -3,8 +3,14 @@ import { test, expect } from '@playwright/test';
 test.describe('Weight Loss Percentage Calculator', () => {
   test('verifies hero styling and footer flags', async ({ page }) => {
     // The baseURL is handled by playwright.config.js, but let's be explicit for with_server.py just in case
-    await page.goto('http://localhost:4321');
-    await page.waitForLoadState('networkidle');
+    await page.goto('http://localhost:4321', { waitUntil: 'domcontentloaded' });
+    // Wait for React hydration instead of networkidle (third-party scripts keep network busy)
+    await page.waitForFunction(
+      () => document.querySelector('#root > div') || document.querySelector('h1'),
+      undefined,
+      { timeout: 30000 }
+    );
+    await page.waitForTimeout(2000);
 
     // 1. Check title
     await expect(page).toHaveTitle(/Weight Loss Percentage Calculator/);

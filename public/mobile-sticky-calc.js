@@ -367,4 +367,67 @@
     }
   }, 1000);
 
+
+  // Deduplicate Footers: if React renders a footer inside #root, remove the static footer
+  var footerObserver = null;
+
+  // Normalize links in the rendered (React) header/footer: trailing slashes + region localization
+  function normalizeRenderedNav() {
+    try {
+      var regionMatch = location.pathname.match(/^\/(uk|ca|au|nz|sg|ae|cn|ru|zh|es|fr|de|it|ja|ko|pt)\//);
+      document.querySelectorAll('footer a[href], nav a[href]').forEach(function(a) {
+        var href = a.getAttribute('href');
+        if (!href || href.charAt(0) !== '/' || href.indexOf('//') === 0) return;
+        var q = href.search(/[#?]/);
+        var path = q === -1 ? href : href.slice(0, q);
+        var suffix = q === -1 ? '' : href.slice(q);
+        if (!path || /\.(png|jpe?g|gif|svg|webp|ico|css|js|xml|txt|json|webmanifest|pdf)$/i.test(path)) return;
+        var changed = false;
+        if (regionMatch) {
+          var r = regionMatch[1];
+          var seg = path.match(/^\/(calculators|nutrition|compare|glossary|contact|about)(\/|$)/);
+          var deepResto = /^\/restaurants\/[^/]+/.test(path);
+          if ((seg || deepResto) && path.indexOf('/' + r + '/') !== 0) {
+            path = '/' + r + path;
+            changed = true;
+          }
+        }
+        if (path.length > 1 && path.charAt(path.length - 1) !== '/') {
+          path += '/';
+          changed = true;
+        }
+        if (changed) a.setAttribute('href', path + suffix);
+      });
+    } catch(e) {}
+  }
+
+  function deduplicateFooters() {
+    try {
+      normalizeRenderedNav();
+      if (document.querySelector('#root footer')) {
+        document.documentElement.classList.add('has-react');
+        var staticFooters = document.querySelectorAll('.static-footer');
+        staticFooters.forEach(function(el) { el.remove(); });
+        if (footerObserver) {
+          footerObserver.disconnect();
+          footerObserver = null;
+        }
+      }
+    } catch(e) {}
+  }
+  deduplicateFooters();
+  setTimeout(normalizeRenderedNav, 1500);
+  setTimeout(normalizeRenderedNav, 4000);
+  if (typeof MutationObserver !== 'undefined' && document.body) {
+    footerObserver = new MutationObserver(deduplicateFooters);
+    footerObserver.observe(document.body, { childList: true, subtree: true });
+    // Safety disconnect after 10 seconds to avoid indefinite DOM observation
+    setTimeout(function() {
+      if (footerObserver) {
+        footerObserver.disconnect();
+        footerObserver = null;
+      }
+    }, 10000);
+  }
+
 })();

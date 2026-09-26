@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import RelatedCalculators from '../components/RelatedCalculators.astro';
 import { SPA_NAV_GUARD_SCRIPT } from '../utils/spaNavGuard.mjs';
 
 export interface Props {
@@ -43,11 +44,21 @@ const finalMetaTags = [...(metaTags || [])];
 if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
   finalMetaTags.push({ name: 'robots', content: 'noindex, follow' });
 }
+
+const currentPath = activePath || Astro.url.pathname;
+const isCalculatorOrRestaurantSubpage = (currentPath.includes('/calculators/') || currentPath.includes('/restaurants/')) &&
+  !currentPath.endsWith('/calculators/') &&
+  !currentPath.endsWith('/restaurants/') &&
+  !currentPath.endsWith('/fast-food-hub/');
 ---
 
 <!doctype html>
-<html lang={lang} class={loadReact ? "has-react" : ""}>
+<html lang={lang} class={loadReact ? 'spa-route' : ''}>
   <head>
+    <noscript><style>#layout-loader { display: none !important; }
+      html.spa-route .static-header, html.spa-route .static-footer,
+      html.spa-route .static-medical-disclaimer { display: revert !important; }
+    </style></noscript>
     <link rel="preconnect" href="https://www.ezojs.com" />
     <link rel="preconnect" href="https://ezoicanalytics.com" />
     <link rel="preconnect" href="https://analytics.ahrefs.com" />
@@ -66,13 +77,14 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
     <link rel="stylesheet" href="/assets/index-43gqMy96.css" />
     <link rel="stylesheet" href="/assets/vercel-overrides.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <SEO 
+    <SEO
       title={title}
       description={description}
       canonical={resolvedCanonical}
       alternates={alternates}
       metaTags={finalMetaTags}
       schemas={schemas}
+      lang={lang}
     />
     <!-- Security Headers (client-side equivalents) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -132,7 +144,13 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
         font-weight: 600;
       }
       
-      /* Critical styles to prevent Flash of Unstyled Content (FOUC) */
+      /* Critical styles to prevent Flash of Unstyled Content (FOUC) on SPA routes */
+      html.spa-route .static-header,
+      html.spa-route .static-footer,
+      html.spa-route .static-medical-disclaimer {
+        display: none !important;
+      }
+
       .hidden { display: none !important; }
       
       /* Base mobile-first display utilities */
@@ -165,6 +183,7 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
       /* Prevent duplicate headers/footers when React SPA mounts */
       html.has-react .static-header,
       html.has-react .static-footer,
+      html.has-react .static-medical-disclaimer,
       html.has-react #root > header,
       html.has-react #root > footer,
       html.has-react #root > nav,
@@ -173,11 +192,6 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
         display: none !important;
       }
 
-      /* When React has mounted inside #root, ensure any following static footers are hidden */
-      #root:not(:empty) ~ .static-footer,
-      #root:not(:empty) ~ footer.static-footer {
-        display: none !important;
-      }
 
       /* Spinner animation for the layout-level loader */
       @keyframes layout-spin {
@@ -294,17 +308,22 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
     <!-- React Hydration & Layout Guard -->
     <script is:inline>
       (function() {
+        var observer = null;
         function checkReactMount() {
           var root = document.getElementById('root');
           if (root && root.querySelector('.flex.flex-col.min-h-screen')) {
             document.documentElement.classList.add('has-react');
-            var staticFooters = document.querySelectorAll('.static-footer');
+            var staticFooters = document.querySelectorAll('.static-footer, body > footer, html > footer');
             for (var i = 0; i < staticFooters.length; i++) {
               staticFooters[i].style.display = 'none';
             }
-            var staticHeaders = document.querySelectorAll('.static-header');
+            var staticHeaders = document.querySelectorAll('.static-header, body > header, html > header');
             for (var j = 0; j < staticHeaders.length; j++) {
               staticHeaders[j].style.display = 'none';
+            }
+            if (observer) {
+              observer.disconnect();
+              observer = null;
             }
           }
         }
@@ -313,10 +332,16 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
         } else {
           checkReactMount();
         }
-        var observer = new MutationObserver(checkReactMount);
         var rootEl = document.getElementById('root');
-        if (rootEl) {
+        if (rootEl && typeof MutationObserver !== 'undefined') {
+          observer = new MutationObserver(checkReactMount);
           observer.observe(rootEl, { childList: true, subtree: true });
+          setTimeout(function() {
+            if (observer) {
+              observer.disconnect();
+              observer = null;
+            }
+          }, 10000);
         }
       })();
     </script>
@@ -333,8 +358,15 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
     <div id="root">
       <slot />
       
+      <!-- Topical Interlinking: Related Calculators (matching GSC keyword clusters) -->
+      {isCalculatorOrRestaurantSubpage && (
+        <div class="static-related-calculators" style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+          <RelatedCalculators currentSlug={currentPath} region={region} />
+        </div>
+      )}
+      
       <!-- Global Medical Disclaimer & Educational Guidance -->
-      <div style="max-width: 800px; margin: 3rem auto 1rem; padding: 1.5rem; background: #fcfcfc; border: 1px solid #e2e8f0; border-radius: 12px; font-family: sans-serif; text-align: left; color: #475569; font-size: 0.85rem; line-height: 1.5;">
+      <div class="static-medical-disclaimer" style="max-width: 800px; margin: 3rem auto 1rem; padding: 1.5rem; background: #fcfcfc; border: 1px solid #e2e8f0; border-radius: 12px; font-family: sans-serif; text-align: left; color: #475569; font-size: 0.85rem; line-height: 1.5;">
         <div style="margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700; color: #1e293b;">Medical Disclaimer & Evidence-Based Guidelines</div>
         <p style="margin: 0 0 0.75rem;">
           <strong>Educational Resource Only:</strong> The metrics, tools, and deficit projections displayed on Weight Loss Percentage are designed to support personal goal tracking and promote healthy weight management. They do not constitute formal medical diagnoses or clinical treatment plans. Please consult a registered dietitian or healthcare professional before embarking on restrictive dieting or intensive physical training.
@@ -350,10 +382,18 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
     </div>
     <Footer relativePath={activePath} region={region} />
     {loadReact && <Fragment set:html={SPA_NAV_GUARD_SCRIPT} />}
-    <!-- Dismiss loader once React has fully rendered -->
+    <!-- Dismiss loader once React has fully rendered (NOT on window.load —
+         window.load can fire before React mounts, exposing the static UI mid-swap) -->
     <script is:inline>
       (function() {
+        var dismissed = false;
+        function isReactMounted() {
+          var root = document.getElementById('root');
+          return !!(root && root.querySelector('.flex.flex-col.min-h-screen'));
+        }
         function dismissLoader() {
+          if (dismissed) return;
+          dismissed = true;
           var loader = document.getElementById('layout-loader');
           if (!loader) return;
           loader.style.opacity = '0';
@@ -361,10 +401,17 @@ if (isThinLocale && !finalMetaTags.some(t => t.name === 'robots')) {
             if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
           }, 250);
         }
-        // Dismiss when window fully loads (scripts executed, React mounted)
-        window.addEventListener('load', dismissLoader);
-        // Safety fallback: dismiss after 4 seconds no matter what
-        setTimeout(dismissLoader, 2000);
+        function poll() {
+          if (isReactMounted()) {
+            dismissLoader();
+          } else if (!dismissed) {
+            setTimeout(poll, 100);
+          }
+        }
+        poll();
+        // Safety fallback: if React never mounts (bundle failed/blocked),
+        // reveal the static fallback UI so the page is never stuck on a spinner.
+        setTimeout(dismissLoader, 4000);
       })();
     </script>
   </body>

@@ -80,7 +80,7 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
   let canonical = ''; // Let BaseLayout compute canonical from Astro.url.href to fix Canonicalised errors
   
   let cleanRoute = relativeFilePath.replace(/\\/g, '/').replace(/\/index\.html$/, '').replace(/index\.html$/, '').replace(/^\/+/, '');
-  const regionPrefixes = ['uk', 'ca', 'au', 'nz', 'zh', 'ru', 'us'];
+  const regionPrefixes = ['uk', 'ca', 'au', 'nz', 'zh', 'ru', 'us', 'cn', 'sg', 'ae'];
   let baseRoute = cleanRoute;
   for (const prefix of regionPrefixes) {
     if (cleanRoute === prefix || cleanRoute.startsWith(prefix + '/')) {
@@ -107,6 +107,14 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
   addAlt('en-ca', 'ca/');
   addAlt('en-au', 'au/');
   addAlt('en-nz', 'nz/');
+  addAlt('en-cn', 'cn/');
+  addAlt('en-sg', 'sg/');
+  addAlt('en-ae', 'ae/');
+
+  const langs = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it'];
+  for (const l of langs) {
+    addAlt(l, `${l}/`);
+  }
 
   const metaTags: Array<{ name?: string; property?: string; content: string }> = [];
   const metaRegex = /<meta\s+([^>]*)\/?\s*>/gi;
@@ -220,16 +228,35 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
   headInner = headInner.replace(/<link[^>]*rel=["']stylesheet["'][^>]*href=["'][^"']*\/assets\/[^"']+\.css["'][^>]*crossorigin[^>]*\/?>/gi, '');
 
   // Extract only the main content area from the body
-  const mainStart = html.indexOf('<main id="main-content"');
-  const mainEnd = html.indexOf('</main>');
+  // First, strip duplicate legacy structural elements that Astro components
+  // (Header.astro, Footer.astro) will render separately, preventing FOUC/duplicates
+  let strippedHtml = html;
+
+  // Remove static-header from body if present
+  strippedHtml = strippedHtml.replace(/<header\s+class=["']static-header["'][^>]*>[\s\S]*?<\/header>/gi, '');
+
+  // Remove static-footer from body if present
+  strippedHtml = strippedHtml.replace(/<footer\s+class=["']static-footer["'][^>]*>[\s\S]*?<\/footer>/gi, '');
+
+  // Remove static-medical-disclaimer from body if present
+  strippedHtml = strippedHtml.replace(/<div\s+class=["']static-medical-disclaimer["'][^>]*>[\s\S]*?<\/div>/gi, '');
+
   let bodyInner;
 
+  const mainStart = strippedHtml.indexOf('<main id="main-content"');
+  const mainEnd = strippedHtml.indexOf('</main>');
+
   if (mainStart !== -1 && mainEnd !== -1) {
-    bodyInner = html.substring(mainStart, mainEnd + 7); // +7 for `</main>`
+    bodyInner = strippedHtml.substring(mainStart, mainEnd + 7); // +7 for `</main>`
   } else {
-    // Fallback if main content not found
-    const bodyTagEnd = html.indexOf('>', bodyStart);
-    bodyInner = html.substring(bodyTagEnd + 1, bodyEnd);
+    // Fallback if main content not found - use the cleaned body, excluding <body> tags
+    const bodyStart = strippedHtml.indexOf('<body');
+    const bodyEnd = strippedHtml.indexOf('</body>', bodyStart);
+    if (bodyStart !== -1 && bodyEnd !== -1) {
+      bodyInner = strippedHtml.substring(bodyStart, bodyEnd + 7); // include </body>
+    } else {
+      bodyInner = strippedHtml;
+    }
   }
 
   // Helper to optimize page titles to stay under 60 characters

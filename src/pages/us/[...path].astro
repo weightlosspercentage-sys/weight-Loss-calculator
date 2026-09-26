@@ -40,6 +40,9 @@ export function getStaticPaths() {
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
       if (entry.isDirectory()) {
+        if (entry.name.startsWith('from-') || entry.name.includes('-to-') || entry.name === 'height-weight') {
+          continue;
+        }
         scanDir(fullPath);
       } else if (entry.name === 'index.html') {
         // Calculate clean path relative to rootDir

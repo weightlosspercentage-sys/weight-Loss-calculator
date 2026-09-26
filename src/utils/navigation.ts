@@ -82,7 +82,7 @@ export function getRegionFromPath(path: string): string {
   const cleanPath = path.replace(/^\//, '');
   const parts = cleanPath.split('/');
   const prefix = parts[0];
-  if (['uk', 'ca', 'au', 'nz', 'zh', 'ru', 'us'].includes(prefix)) {
+  if (['uk', 'ca', 'au', 'nz', 'zh', 'ru', 'us', 'cn', 'sg', 'ae'].includes(prefix)) {
     return prefix;
   }
   return '';
