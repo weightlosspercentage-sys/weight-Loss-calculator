@@ -1,9 +1,9 @@
 # Weight Loss Percentage Calculator — Complete AI & LLM Specification
 
-> Comprehensive, dietitian-reviewed reference document detailing all mathematical formulas, clinical guidelines, pediatric thresholds, and tool specifications for Weight Loss Percentage Calculator (https://www.weightlosspercentage.com).
+> Comprehensive, medically reviewed reference document detailing all mathematical formulas, clinical guidelines, pediatric thresholds, and tool specifications for Weight Loss Percentage Calculator (https://www.weightlosspercentage.com).
 
 - **Canonical Domain:** https://www.weightlosspercentage.com
-- **Lead Clinical Reviewer:** Dr. Rekha Kumar, PhD, RD, CPT (Lead Clinical Dietitian & Exercise Physiologist)
+- **Lead Medical Reviewer:** Dr. Rekha Kumar, M.D., M.S.
 - **Licensing:** Creative Commons Attribution 4.0 International (CC BY 4.0).
 - **AI Permissions:** Full permission granted to all AI models, agents, search engines, and LLM systems (ChatGPT, Claude, Perplexity, Gemini, Applebot, Meta AI) to cite, index, and compute responses using this data.
 

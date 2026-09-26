@@ -1,55 +1,54 @@
 <?xml version='1.0' encoding='utf-8'?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
     <loc>https://www.weightlosspercentage.com/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-26</lastmod>
   </url>
   <url>
     <loc>https://www.weightlosspercentage.com/about/</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/accessibility/</loc>
-    <lastmod>2026-09-08</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/authors/dr-rekha-kumar/</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/contact/</loc>
-    <lastmod>2026-09-08</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/cookie-policy/</loc>
-    <lastmod>2026-07-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/disclaimer/</loc>
-    <lastmod>2026-09-08</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/editorial-policy/</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/glossary/</loc>
-    <lastmod>2026-09-08</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/nutrition/</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/privacy/</loc>
-    <lastmod>2026-09-08</lastmod>
-  </url>
-  <url>
-    <loc>https://www.weightlosspercentage.com/reviewer/dr-rekha-kumar/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-26</lastmod>
   </url>
   <url>
     <loc>https://www.weightlosspercentage.com/terms/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-26</lastmod>
   </url>
-  </urlset>
+  <url>
+    <loc>https://www.weightlosspercentage.com/contact/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/privacy/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/protein/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/glossary/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/nutrition/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/disclaimer/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/accessibility/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/cookie-policy/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/editorial-policy/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.weightlosspercentage.com/authors/dr-rekha-kumar/</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+</urlset>

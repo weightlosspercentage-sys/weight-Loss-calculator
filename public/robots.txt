@@ -53,7 +53,7 @@ Allow: /llms-full.txt
 Allow: /ai.txt
 
 # OMgili Crawler
-User-agent: OMgiliBot
+User-agent: Omgilibot
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
