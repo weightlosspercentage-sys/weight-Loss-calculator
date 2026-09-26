@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { SPA_NAV_GUARD_SCRIPT, SPA_NAV_GUARD_MARKER } from './src/utils/spaNavGuard.mjs';
 import { enrichEeat } from './scripts/eeat-enrich.mjs';
+import { pruneNoindex } from './scripts/prune-noindex.mjs';
 
 // Helper to recursively copy files, excluding only Astro-built HTML and markdown files
 /**
@@ -707,6 +708,11 @@ const copyAssetsIntegration = {
       // noindex for thin locales, and optimize long titles
       console.log('[seo-inject] Post-processing HTML files for SEO fixes...');
       postProcessHtml(outDir);
+
+      // Cloudflare Pages enforces a 20,000-file project limit: drop the noindexed
+      // thin locale pages (excluded from sitemaps anyway) and repoint any kept-page
+      // links that target them to their English canonical equivalents.
+      pruneNoindex(outDir);
 
       // Sanitize XML sitemaps to use domain-relative XSL stylesheet path (/sitemap.xsl)
       const xmlFiles = ['sitemap-index.xml', 'sitemap-0.xml', 'sitemap.xml'];
