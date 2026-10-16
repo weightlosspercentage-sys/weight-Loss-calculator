@@ -128,6 +128,24 @@ function insertTagIntoHead(html, snippet) {
 }
 
 /**
+ * Trust/legal pages must serve no ads at all, including AdSense Auto Ads units,
+ * which are injected by the client tag rather than by any markup we control.
+ * @param {string} relPath
+ */
+function isLegalPath(relPath) {
+  return /(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test(relPath);
+}
+
+/**
+ * Trust/legal pages stay unmonetised, and the zh/ru thin locales are pruned from
+ * the deploy, so neither should carry the placement script.
+ * @param {string} relPath path relative to the build output dir, forward slashes
+ */
+function isAdExcludedPath(relPath) {
+  return isLegalPath(relPath) || /^(zh|ru)\//i.test(relPath);
+}
+
+/**
  * Post-process all HTML files in outDir:
  * 1. Inject OG/Twitter meta tags where missing
  * 2. Inject <meta name="author"> for blog articles
@@ -143,6 +161,8 @@ function postProcessHtml(outDir) {
   let titlesOptimized = 0;
   let guardInjected = 0;
   let aboutNavRemoved = 0;
+  let adPlaceInjected = 0;
+  let adLoaderStripped = 0;
 
   for (const filePath of htmlFiles) {
     if (!fs.existsSync(filePath)) continue;
@@ -150,6 +170,7 @@ function postProcessHtml(outDir) {
     try {
       html = fs.readFileSync(filePath, 'utf-8');
     } catch (e) {
+      console.warn(`[seo-inject] unreadable ${filePath}: ${e.message}`);
       continue;
     }
     let modified = false;
@@ -304,9 +325,8 @@ function postProcessHtml(outDir) {
         });
       }
 
-      // Fully localized thin locales (Russian / Chinese app).
-      hreflangMap['zh'] = '/zh' + correctedBasePath;
-      hreflangMap['ru'] = '/ru' + correctedBasePath;
+      // zh/ru are noindexed thin locales that pruneNoindex deletes from the
+      // deploy; advertising them as alternates points Google at 404s.
 
       // Strip every pre-existing hreflang link regardless of attribute order
       // (legacy copies use <link href="..." hreflang="..." rel="alternate"/>).
@@ -563,7 +583,9 @@ function postProcessHtml(outDir) {
             }
           }
           if (touched) { ldTouched = true; return `<script type="application/ld+json">${JSON.stringify(data)}</script>`; }
-        } catch (err) {}
+        } catch (err) {
+          console.warn(`[seo-inject] unparseable JSON-LD on ${relPath}: ${err.message}`);
+        }
         return block;
       });
       if (ldTouched) modified = true;
@@ -585,10 +607,40 @@ function postProcessHtml(outDir) {
       modified = true;
     }
 
+    // --- 10c. AdSense anchor placement (public/ad-place.js) ---
+    // Deliberately not gated on the bundle the way 10b is: static calculators such
+    // as /calculators/calorie-deficit/ ship no React and so rendered zero ads, and
+    // on SPA routes createRoot(#root).render() destroys any shipped <ins>.
+    // Guard matches the tag, not the filename: prose mentioning ad-place.js in a
+    // comment must not be mistaken for an injection that already happened.
+    if (!/<script[^>]+\bsrc=["']\/ad-place\.js["']/.test(html) && !isAdExcludedPath(relPath)) {
+      html = html.replace('</body>', '<script src="/ad-place.js" defer></script>\n</body>');
+      modified = true;
+      adPlaceInjected++;
+    }
+
+    // --- 10d. De-monetise trust pages ---
+    // Committed HTML hardcodes the adsbygoogle client tag, and Auto Ads injects a
+    // slot-less <ins> through it on every route, privacy and terms included. Removing
+    // the tag is the only code-side way to honour "no ads on these pages".
+    if (isLegalPath(relPath)) {
+      const stripped = html
+        .replace(/<script[^>]*\bsrc=["'][^"']*adsbygoogle\.js[^"']*["'][^>]*>\s*<\/script>\s*/gi, '')
+        .replace(/<link[^>]*\bhref=["']https:\/\/(pagead2\.googlesyndication\.com|googleads\.g\.doubleclick\.net|www\.googletagservices\.com)["'][^>]*>\s*/gi, '');
+      if (stripped !== html) {
+        html = stripped;
+        modified = true;
+        adLoaderStripped++;
+      }
+    }
+
     if (modified) {
       try {
         fs.writeFileSync(filePath, html);
-      } catch (err) {}
+      } catch (err) {
+        // Silently dropping the write loses every SEO/ad edit for that page.
+        console.error(`[seo-inject] failed to write ${filePath}: ${err.message}`);
+      }
     }
   }
 
@@ -597,6 +649,65 @@ function postProcessHtml(outDir) {
   console.log(`[seo-inject] Noindex added: ${noindexInjected} thin locale pages`);
   console.log(`[seo-inject] Titles optimized: ${titlesOptimized} pages`);
   console.log(`[seo-inject] Regional canonical/hreflang fixes applied to all regional pages.`);
+  console.log(`[seo-inject] ad-place.js injected: ${adPlaceInjected} pages`);
+  console.log(`[seo-inject] AdSense loader stripped from ${adLoaderStripped} trust/legal pages`);
+}
+
+/**
+ * Drop <url> blocks for pages pruneNoindex just deleted. Must run after the
+ * prune: the sitemap files are committed assets that still list those URLs, and
+ * a <loc> pointing at a 404 is reported as a discovery error in Search Console.
+ * @param {string} outDir
+ * @param {string[]} prunedUrls root-relative paths with trailing slashes
+ */
+function syncSitemaps(outDir, prunedUrls) {
+  if (!prunedUrls || prunedUrls.length === 0) return 0;
+  const pruned = new Set(prunedUrls.map((p) => (p.endsWith('/') ? p : p + '/')));
+
+  let sitemapFiles = [];
+  try {
+    sitemapFiles = fs.readdirSync(outDir).filter(
+      (f) => /^sitemap(-[a-z0-9-]+)?\.xml$/i.test(f) && f !== 'sitemap-index.xml'
+    );
+  } catch (err) {
+    console.error(`[sitemaps] cannot list ${outDir}: ${err.message}`);
+    return 0;
+  }
+
+  let removed = 0;
+  for (const file of sitemapFiles) {
+    const xmlPath = path.join(outDir, file);
+    let xml;
+    try {
+      xml = fs.readFileSync(xmlPath, 'utf8');
+    } catch (err) {
+      console.error(`[sitemaps] cannot read ${xmlPath}: ${err.message}`);
+      continue;
+    }
+    let dropped = 0;
+    const next = xml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
+      const loc = (block.match(/<loc>\s*([^<\s]+)\s*<\/loc>/i) || [])[1];
+      if (!loc) return block;
+      let target;
+      try {
+        target = new URL(loc).pathname;
+      } catch {
+        return block;
+      }
+      if (!pruned.has(target.endsWith('/') ? target : target + '/')) return block;
+      dropped++;
+      return '';
+    });
+    if (!dropped) continue;
+    try {
+      fs.writeFileSync(xmlPath, next);
+      removed += dropped;
+      console.log(`[sitemaps] ${file}: dropped ${dropped} pruned <loc> ${dropped === 1 ? 'entry' : 'entries'}`);
+    } catch (err) {
+      console.error(`[sitemaps] cannot write ${xmlPath}: ${err.message}`);
+    }
+  }
+  return removed;
 }
 
 const copyAssetsIntegration = {
@@ -712,7 +823,10 @@ const copyAssetsIntegration = {
       // Cloudflare Pages enforces a 20,000-file project limit: drop the noindexed
       // thin locale pages (excluded from sitemaps anyway) and repoint any kept-page
       // links that target them to their English canonical equivalents.
-      pruneNoindex(outDir);
+      const pruned = pruneNoindex(outDir);
+      // hreflang and <link rel="alternate"> clusters are emitted for those pages
+      // while they still exist, so they are reconciled here, after the deletion.
+      syncSitemaps(outDir, pruned.prunedUrls);
 
       // Sanitize XML sitemaps to use domain-relative XSL stylesheet path (/sitemap.xsl)
       const xmlFiles = ['sitemap-index.xml', 'sitemap-0.xml', 'sitemap.xml'];

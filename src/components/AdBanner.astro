@@ -1,0 +1,112 @@
+---
+/**
+ * Responsive AdSense display unit.
+ *
+ * Must be rendered OUTSIDE #root: the legacy React bundle calls
+ * createRoot(#root).render(), which replaces #root's children rather than
+ * hydrating them, and `html.has-react` CSS hides `#root > *` and any `.static-*`.
+ */
+interface Props {
+  slot?: string;
+  format?: 'auto' | 'fluid' | 'rectangle' | 'link' | 'halfpage';
+  layout?: 'auto' | 'in-article';
+  className?: string;
+}
+
+const {
+  slot = '8714170901',
+  format = 'auto',
+  layout = 'auto',
+  className = ''
+} = Astro.props;
+
+const isInArticle = layout === 'in-article';
+const resolvedFormat = isInArticle ? 'fluid' : format;
+const minHeight = isInArticle ? 250 : 280;
+---
+<div class={`ad-banner ${className}`.trim()}>
+  <p class="ad-banner-label">Advertisement</p>
+  <ins class="adsbygoogle"
+    style={`display:block;width:100%;min-height:${minHeight}px`}
+    data-ad-client="ca-pub-7203223934454111"
+    data-ad-slot={slot}
+    data-ad-format={resolvedFormat}
+    data-ad-layout={isInArticle ? 'in-article' : undefined}
+    data-full-width-responsive="true"></ins>
+</div>
+
+<style>
+  .ad-banner {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  .ad-banner-label {
+    margin: 0 0 4px;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    text-align: center;
+  }
+</style>
+
+<script>
+  // Astro processes this as an ES module, so the body is wrapped to allow early exit.
+  // Shares the ad budget with public/ad-place.js through window.__wlAdCount /
+  // window.__wlAdLimit so the two mechanisms cannot jointly exceed the cap.
+  (function () {
+    var w = window;
+    var LIMIT = 3;
+    var units = Array.prototype.slice.call(document.querySelectorAll('.ad-banner ins.adsbygoogle'));
+    if (!units.length) return;
+
+    w.__wlAdLimit = w.__wlAdLimit || LIMIT;
+    w.__wlAdCount = w.__wlAdCount || 0;
+
+    var served = 0;
+    for (var i = 0; i < units.length; i++) {
+      if (w.__wlAdCount + served >= w.__wlAdLimit) {
+        // Over budget: drop the reserved space rather than leave an empty box.
+        var extra = units[i].closest('.ad-banner');
+        if (extra) extra.remove();
+        continue;
+      }
+      served++;
+    }
+    w.__wlAdCount += served;
+    var pending = units.slice(0, served);
+
+    function fill(ins) {
+      if (ins.getAttribute('data-wl-filled') === '1') return;
+      ins.setAttribute('data-wl-filled', '1');
+      try {
+        (w.adsbygoogle = w.adsbygoogle || []).push({});
+      } catch (err) {
+        // Never double-push into a unit Auto Ads may have already filled.
+      }
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      pending.forEach(fill);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var box = entry.target;
+        var ins = box.querySelector('ins.adsbygoogle');
+        if (ins) fill(ins);
+        observer.unobserve(box);
+      });
+    }, { rootMargin: '400px 0px' });
+
+    pending.forEach(function (ins) {
+      var box = ins.closest('.ad-banner');
+      if (box) observer.observe(box);
+    });
+  })();
+</script>

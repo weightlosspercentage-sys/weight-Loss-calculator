@@ -31,6 +31,11 @@ try {
   canonicalPath = canonical.replace(siteOrigin, '').replace(/^\/+|\/+$/g, '');
 }
 
+// Trust pages must serve no ads at all. Auto Ads is driven entirely by the
+// adsbygoogle client tag, so on those routes the tag itself is omitted; without
+// it nothing loads, and no slot-less unit can be injected into the page.
+const serveAdLoader = !/(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test('/' + canonicalPath + '/');
+
 // Generate complete hreflang alternates if none provided
 const allAlternates = alternates.length > 0
   ? alternates
@@ -176,11 +181,21 @@ const isNoIndex = customRobots.toLowerCase().includes('noindex');
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.json" />
 
-<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
-<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
-<link rel="dns-prefetch" href="https://www.googletagservices.com" />
+{serveAdLoader && (
+  <>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagservices.com" />
 
-<script async is:inline src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7203223934454111" crossorigin="anonymous"></script>
+    {/* Consent: Google's own CMP (formerly Funding Choices) is served automatically by the
+        adsbygoogle loader below once it is enabled in AdSense > Privacy & messaging, and it
+        requests personalized-ad consent from EEA/UK visitors. Funding Choices was folded into
+        AdSense, so there is no standalone embed tag to add here; the CSP in public/_headers
+        whitelists fundingchoicesmessages.google.com so nothing blocks it, and no tfua
+        parameter is set, so non-EEA visitors are never gated. */}
+    <script async is:inline src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7203223934454111" crossorigin="anonymous"></script>
+  </>
+)}
 
 {/* Google Analytics (tag.js) */}
 <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-VY7X5E6GFN"></script>

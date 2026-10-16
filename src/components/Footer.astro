@@ -55,11 +55,15 @@ const languages = [
   { code: 'ko', label: '한국어', href: `/ko${basePath === '/' ? '/' : basePath}` },
   { code: 'it', label: 'Italiano', href: `/it${basePath === '/' ? '/' : basePath}` }
 ];
+
+// Ad units are not rendered here. They come from src/components/AdBanner.astro
+// (mounted outside #root in BaseLayout) and public/ad-place.js, which inserts
+// them into the bundle-rendered routes at their content anchors. Each unit is
+// pushed exactly once, guarded per instance. Kept out of the template on
+// purpose: an emitted comment naming that file defeats step 10c's injection
+// guard in astro.config.mjs, which skips pages that already mention it.
 ---
 
-
-    <!-- Ad placements are handled automatically by AdSense Auto Ads (page-level),
-         which avoids the "ins already has ads" double-push conflict. -->
 
 <footer class="static-footer" style="background: #0f172a; border-top: 1px solid #1e293b; padding: 64px 24px; font-family: var(--font-sans); color: #94a3b8;">
   <div style="max-width: 1400px; margin: 0 auto; text-align: center;">

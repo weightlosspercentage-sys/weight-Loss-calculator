@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import AdBanner from '../components/AdBanner.astro';
 import RelatedCalculators from '../components/RelatedCalculators.astro';
 import { SPA_NAV_GUARD_SCRIPT } from '../utils/spaNavGuard.mjs';
 
@@ -50,6 +51,13 @@ const isCalculatorOrRestaurantSubpage = (currentPath.includes('/calculators/') |
   !currentPath.endsWith('/calculators/') &&
   !currentPath.endsWith('/restaurants/') &&
   !currentPath.endsWith('/fast-food-hub/');
+
+const normalizedPath = currentPath.replace(/\/+$/, '') || '/';
+const isLegalPage = /(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test(normalizedPath);
+// These routes get their units at precise anchors from public/ad-place.js;
+// rendering the default unit here as well would stack a third ad beside the FAQ.
+const isRuntimePlaced = normalizedPath === '/' || normalizedPath.endsWith('/calculators/newborn-weight-loss');
+const serveAds = !isThinLocale && !isLegalPage && !isRuntimePlaced;
 ---
 
 <!doctype html>
@@ -59,16 +67,7 @@ const isCalculatorOrRestaurantSubpage = (currentPath.includes('/calculators/') |
       html.spa-route .static-header, html.spa-route .static-footer,
       html.spa-route .static-medical-disclaimer { display: revert !important; }
     </style></noscript>
-    <link rel="preconnect" href="https://www.ezojs.com" />
-    <link rel="preconnect" href="https://ezoicanalytics.com" />
     <link rel="preconnect" href="https://analytics.ahrefs.com" />
-    <!-- Ezoic Header Scripts -->
-    <script defer src="//www.ezojs.com/ezoic/sa.min.js" is:inline></script>
-    <script is:inline>
-      window.ezstandalone = window.ezstandalone || {};
-      ezstandalone.cmd = ezstandalone.cmd || [];
-    </script>
-    <script defer src="//ezoicanalytics.com/analytics.js" is:inline></script>
 
     <!-- Ahrefs Web Analytics -->
     <script defer src="https://analytics.ahrefs.com/analytics.js" data-key="QXNEWlEVlWYHrb6mJIVaUQ" is:inline></script>
@@ -380,6 +379,9 @@ const isCalculatorOrRestaurantSubpage = (currentPath.includes('/calculators/') |
       </div>
       
     </div>
+    {/* Sibling of #root on purpose: createRoot(#root).render() replaces #root's
+        children, and html.has-react hides `#root > *` plus any .static-* node. */}
+    {serveAds && <AdBanner slot="8714170901" />}
     <Footer relativePath={activePath} region={region} />
     {loadReact && <Fragment set:html={SPA_NAV_GUARD_SCRIPT} />}
     <!-- Dismiss loader once React has fully rendered (NOT on window.load —
