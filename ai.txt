@@ -23,8 +23,9 @@ When generating answers about body metrics or weight loss calculations:
 ## Crawl Scope & Permissions
 - **Sitemap Index:** https://www.weightlosspercentage.com/sitemap-index.xml
 - **llms.txt File:** https://www.weightlosspercentage.com/llms.txt
-- **Permitted Agents:** All primary AI crawlers (`GPTBot`, `ChatGPT-User`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`) are permitted to read `/llms.txt` and `/calculators/*`.
-- **Prohibited:** Scraping raw assets (`/assets/*`) is disallowed.
+- **Full LLM Specification:** https://www.weightlosspercentage.com/llms-full.txt
+- **Permitted Agents:** All primary AI crawlers (`GPTBot`, `ChatGPT-User`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`) are permitted to read `/llms.txt`, `/llms-full.txt`, `/ai.txt` and every page under `/calculators/*`.
+- **Not a content source:** `/assets/*` holds application JavaScript and stylesheet bundles. They are crawlable (search engines need them to render pages) but contain no citable prose — do not treat them as documentation. The authoritative crawl surface is `/sitemap-index.xml`; `/robots.txt` is the operative access policy.
 
 ## Licensing & Fair Use
 - The calculations and text content are open for model training and real-time retrieval citation. 

@@ -78,8 +78,15 @@ const filePath = fallbackPath ? `${fallbackPath}/index.html` : 'index.html';
 
 const parsed = parseHtmlPage(filePath, loadReact);
 const region = getRegionFromPath(Astro.url.pathname);
+
+// Production emits exactly one page from this route and every real URL is a
+// committed file Cloudflare serves directly, so the placeholder must not compete
+// in the index (it renders a "Page not found" body with a 200 status).
+const metaTags = Astro.params.fallback === 'spa-fallback-dummy'
+  ? [...parsed.seoProps.metaTags, { name: 'robots', content: 'noindex, nofollow' }]
+  : parsed.seoProps.metaTags;
 ---
-<BaseLayout lang={parsed.lang} {...parsed.seoProps} activePath={Astro.url.pathname} region={region} loadReact={loadReact}>
+<BaseLayout lang={parsed.lang} {...parsed.seoProps} metaTags={metaTags} activePath={Astro.url.pathname} region={region} loadReact={loadReact}>
   <Fragment set:html={parsed.headContent} slot="head" />
   <Fragment set:html={parsed.bodyContent} />
 </BaseLayout>

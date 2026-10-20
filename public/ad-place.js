@@ -14,13 +14,20 @@
   var LIMIT = 3;
   var path = location.pathname.replace(/\/+$/, '') || '/';
 
-  // Never monetise trust pages, or the thin locales pruned from the deploy.
-  if (/(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test(path)) return;
-  if (/^\/(zh|ru)(\/|$)/i.test(path)) return;
+  // Never monetise trust pages. The zh/ru trees are NOT excluded: they are
+  // indexable, self-canonicalised and listed in sitemap-international.xml, so
+  // leaving them out cost them every direct placement.
+  if (/(^|\/)(privacy|terms|contact|disclaimer|cookie-policy|accessibility)(\/|$)/i.test(path)) return;
 
   var CLIENT = 'ca-pub-7203223934454111';
   var TOP = '8714170901';
   var PRE_FOOTER = '9720699039';
+
+  var isHome = path === '/' || /^\/(us|uk|ca|au|nz|cn|sg|ae)$/.test(path);
+  var isNewborn = /\/calculators\/newborn-weight-loss$/i.test(path);
+  // The 2C default placement: any calculator page that is not one of the two
+  // routes with hand-picked anchors.
+  var isDefaultCalc = !isHome && !isNewborn && /\/calculators\/[^/]/i.test(path);
 
   function hasControls(el) {
     return !!(el && el.querySelector && el.querySelector('input, select, textarea'));
@@ -58,12 +65,14 @@
     var wrap = document.createElement('div');
     wrap.className = 'wl-ad';
     wrap.setAttribute('data-wl-ad', slot);
+    wrap.setAttribute('data-wl-owned', '1');
     wrap.style.cssText = 'margin:2rem 0;padding:0 1rem;box-sizing:border-box;min-height:' + (minHeight + 18) + 'px';
     var label = document.createElement('p');
     label.textContent = 'Advertisement';
-    label.style.cssText = 'margin:0 0 4px;font-size:10px;line-height:14px;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8;text-align:center';
+    label.style.cssText = 'margin:0 0 4px;font-size:10px;line-height:14px;letter-spacing:.08em;text-transform:uppercase;color:#475569;text-align:center';
     var ins = document.createElement('ins');
     ins.className = 'adsbygoogle';
+    ins.setAttribute('data-wl-owned', '1');
     ins.style.cssText = 'display:block;width:100%;min-height:' + minHeight + 'px';
     ins.setAttribute('data-ad-client', CLIENT);
     ins.setAttribute('data-ad-slot', slot);
@@ -139,6 +148,11 @@
         node = node.parentElement;
       }
       if (!hidden) continue;
+      // At the lg breakpoint this wrapper is visible, so the bundle's Li can intersect it and
+      // push it before we get here. Taking back a div AdSense is already working on is the
+      // loader's Error: no_div, so a pushed sidebar unit is left in place and only spends part
+      // of the budget instead of being detached mid-request.
+      if (pushed(units[i])) continue;
 
       var wrapper = units[i].parentElement;
       var keepsSiblingContent = wrapper && Array.prototype.some.call(
@@ -160,11 +174,61 @@
     return last || main.lastElementChild;
   }
 
+  function ownedWrappers() {
+    // Wrappers this script created, and nothing else. A committed or Astro-rendered
+    // .ad-banner is a unit we did not place: its own inline script pushes it
+    // (AdBanner.astro:83-88), so it can be filled while looking untouched to us.
+    return document.querySelectorAll('[data-wl-owned].wl-ad');
+  }
+
+  // AdSense stamps a div once it has processed the push for it: data-adsbygoogle-status and
+  // a child iframe. That is true however the push happened - our fill(), AdBanner.astro's
+  // inline script, or the bundle's Li component - so it is the only signal that works for
+  // units we did not create. data-wl-filled is ours alone and is checked as well, because
+  // it is set at push time, before AdSense has had a chance to answer.
+  function pushed(node) {
+    var ins = node.matches && node.matches('ins.adsbygoogle') ? node : node.querySelector('ins.adsbygoogle');
+    if (!ins) return false;
+    return ins.hasAttribute('data-adsbygoogle-status') || ins.children.length > 0 ||
+      ins.getAttribute('data-wl-filled') === '1';
+  }
+
+  // The bundle mounts its own ad component *after* the first placement pass, so
+  // a count taken at insertion time cannot see it. Yielding is slot-specific:
+  // 2C asks for TOP, so a bundle unit sitting in a different slot (its
+  // in-article 8863033072) does not satisfy the brief and must not suppress our
+  // placement — it only spends part of the 3-unit budget. Auto Ads units are
+  // slot-less and deliberately not considered here.
+  function foreignSlotTaken(slot) {
+    return document.querySelectorAll('ins.adsbygoogle[data-ad-slot="' + slot + '"]:not([data-wl-owned])').length > 0;
+  }
+
+  function reconcile() {
+    // 2C asks for the default unit once per page. If the bundle already supplies
+    // that slot, it is the placement; drop ours rather than stacking a second.
+    if (isDefaultCalc && foreignSlotTaken(TOP)) {
+      var mine = document.querySelectorAll('.wl-ad[data-wl-owned]');
+      for (var i = 0; i < mine.length; i++) {
+        if (mine[i].parentElement && !pushed(mine[i])) mine[i].parentElement.removeChild(mine[i]);
+      }
+    }
+    // Hard rule: never more than LIMIT ads in a view. Trim our own, last first, and never
+    // a unit already pushed: the loader throws Error: no_div when the div its queued push
+    // resolves to is !isConnected, and that throw happens inside adsbygoogle.js where our
+    // try/catch cannot see it. So an unfilled unit is the only safe thing to take back.
+    var all = document.querySelectorAll('ins.adsbygoogle');
+    if (all.length <= LIMIT) return;
+    var ours = ownedWrappers();
+    for (var k = ours.length - 1; k >= 0 && document.querySelectorAll('ins.adsbygoogle').length > LIMIT; k--) {
+      var orphaned = ours[k].parentElement === null;
+      if (orphaned || pushed(ours[k])) continue;
+      ours[k].parentElement.removeChild(ours[k]);
+    }
+  }
+
   function normalize() {
     dropHiddenSidebarAds();
-
-    var isHome = path === '/' || /^\/(us|uk|ca|au|nz|cn|sg|ae)$/.test(path);
-    var isNewborn = /\/calculators\/newborn-weight-loss$/i.test(path);
+    reconcile();
 
     if (isNewborn) {
       place(document.getElementById('quick-answer-snippet'), TOP, 'after', true);
@@ -181,7 +245,11 @@
 
     // Reusable default for every other calculator. Static pages such as
     // /calculators/calorie-deficit/ ship no bundle and so rendered zero ads.
-    if (/\/calculators\/[^/]/i.test(path) && adCount() < 1) {
+    // Keyed off slot-tagged units only, never off adCount(): Auto Ads injects
+    // slot-less <ins> nodes, and when one of those wins the race it must not
+    // swallow the placement the brief asks for by name (BMI, TDEE, calorie
+    // deficit). The per-view cap is still enforced by place() and reconcile().
+    if (isDefaultCalc && !document.querySelector('ins.adsbygoogle[data-wl-owned]') && !foreignSlotTaken(TOP)) {
       var main = document.getElementById('main-content') || document.querySelector('main');
       if (main) place(lastInputFreeBlock(main), TOP, 'after', false);
     }

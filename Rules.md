@@ -14,7 +14,10 @@
 
 3. **Zero Duplicate Sitemaps Rule:**
    - NEVER add duplicate URLs across sub-sitemaps in `astro.config.mjs` or XML generators.
-   - Always run `python fix_and_rebuild_sitemaps.py` after creating new pages or editing routing configuration.
+   - Sitemap and hreflang integrity is owned by the build: `postProcessHtml` marks thin locales
+     `noindex`, `pruneNoindex` deletes them and returns `prunedUrls`, then `syncSitemaps` drops
+     those `<loc>` entries and strips hreflang pointing at them. `npm run build` is the only
+     step required — no manual sitemap script exists.
 
 ---
 
@@ -35,5 +38,6 @@
 
 1. **Commit Messages:** Follow Conventional Commits format (`feat:`, `fix:`, `docs:`, `perf:`).
 2. **Pre-push Verification:**
-   - Run `python fix_and_rebuild_sitemaps.py` to ensure clean sitemap synchronization.
+   - Run `npm run build` and confirm `dist3` exits clean — the build regenerates `_redirects`
+     from `.htaccess`, prunes noindexed pages and re-syncs every silo sitemap.
    - Verify zero horizontal overflow on mobile viewports.

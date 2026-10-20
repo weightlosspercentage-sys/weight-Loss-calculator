@@ -19,7 +19,7 @@
 
 **Hi [Name],**
 
-I'm a contributor at Weight Loss Percentage — we build free, dietitian-reviewed health calculators that help people track weight loss safely.
+I'm a contributor at Weight Loss Percentage — we build free health calculators that help people track weight loss safely. Every formula on the site is checked by our Lead Medical Reviewer, Dr. Rekha Kumar, M.D., M.S.
 
 I've been reading [Blog Name] and think your audience would love a practical piece on [topic idea, e.g., "How to Calculate Safe Weekly Weight Loss"] — I'd write it with embedded data from our tools and real examples.
 
@@ -45,7 +45,7 @@ Weight Loss Percentage
 
 I was reading "[Post Title]" and noticed the link to [broken URL] is returning a 404.
 
-Since you're linking to a weight loss tool there, I wanted to let you know our free, dietitian-reviewed calculator at **https://www.weightlosspercentage.com/calculators/weight-loss/** covers the same calculations and could be a clean replacement for your readers.
+Since you're linking to a weight loss tool there, I wanted to let you know our free, medically reviewed calculator at **https://www.weightlosspercentage.com/calculators/weight-loss/** covers the same calculations and could be a clean replacement for your readers.
 
 No pressure at all — just wanted to help keep your resource page in top shape.
 
@@ -85,7 +85,7 @@ Thanks,
 
 I saw your recent roundup "[Example Roundup Title]" — great list!
 
-If you're ever updating it, I'd love to suggest our free tool at Weight Loss Percentage. It's a **weight loss calculator** that shows progress as a percentage, calculates safe calorie deficits, and adjusts for different weekly paces (0.5–2 lbs/week). It's reviewed by a registered dietitian, so it's evidence-based.
+If you're ever updating it, I'd love to suggest our free tool at Weight Loss Percentage. It's a **weight loss calculator** that shows progress as a percentage, calculates safe calorie deficits, and adjusts for different weekly paces (0.5–2 lbs/week). Our Lead Medical Reviewer, Dr. Rekha Kumar, M.D., M.S., checks the math behind it.
 
 Would you be open to including it? Happy to provide a screenshot or any info you need.
 
@@ -132,7 +132,7 @@ I'd like to suggest adding our free **weight loss calculator** to the list. It's
 ✅ Tracks progress as a percentage (fair across all body sizes)
 ✅ Includes interactive sliders to adjust weight goals
 ✅ Shows clinical health categories (mild / clinically significant / major)
-✅ Reviewed by a registered dietitian
+✅ Medically reviewed by our Lead Medical Reviewer (M.D., M.S.)
 ✅ Available in 7 languages
 
 Link: https://www.weightlosspercentage.com/calculators/weight-loss/
@@ -177,7 +177,7 @@ Best,
 
 I was reading "[Old Roundup Post]" — great resource, but noticed it hasn't been updated in a while.
 
-Since you're listing weight loss tools there, I wanted to introduce ours: a **free dietitian-reviewed tool** at weightlosspercentage.com that's gained traction in 2026. It might be worth adding as a fresh option for your readers.
+Since you're listing weight loss tools there, I wanted to introduce ours: a **free, medically reviewed tool** at weightlosspercentage.com that's gained traction in 2026. It might be worth adding as a fresh option for your readers.
 
 Let me know if you'd like a short description and link.
 
@@ -198,14 +198,14 @@ Thanks,
 
 **Dear [Name],**
 
-I'm writing from Weight Loss Percentage, a free, dietitian-reviewed health calculator platform.
+I'm writing from Weight Loss Percentage, a free, medically reviewed health calculator platform.
 
 I see that [Site Name] provides health and wellness resources for [students/members/readers]. I'd like to respectfully suggest our tool at **https://www.weightlosspercentage.com/calculators/weight-loss/** as a resource for anyone looking to track weight loss safely.
 
 It's:
 - 100% free with no signup
-- Reviewed by a registered dietitian
-- Clinically accurate (uses proven formulas)
+- Reviewed by our Lead Medical Reviewer, Dr. Rekha Kumar, M.D., M.S.
+- Formulas shown on the page, not hidden behind the result
 - Accessible in 7 languages
 
 Please let me know if this would be a fit for your resources page.
@@ -263,7 +263,7 @@ weightlosspercentage.com
 ---
 **Reddit/Forum Signature:**
 
-*Want to track your weight loss properly? Check out our free, dietitian-reviewed tool: [Weight Loss Percentage](https://www.weightlosspercentage.com)*
+*Want to track your weight loss properly? Check out our free, medically reviewed tool: [Weight Loss Percentage](https://www.weightlosspercentage.com)*
 ---
 
 ## 📊 Anchor Text Assignment Per Template

@@ -27,7 +27,7 @@ div:has(> ins.adsbygoogle[data-ad-status="unfilled"]) {
   display: block !important;
 }
 
-.skiptranslate{display:none!important}#goog-gt-tt{display:none!important}body{top:0!important}#google_translate_element{min-height:28px}
+.skiptranslate:not(.goog-te-gadget):not(iframe){display:none!important}#google_translate_element .goog-te-gadget,#google_translate_element_spa .goog-te-gadget{display:inline-block!important;white-space:nowrap;line-height:1}#google_translate_element .goog-te-gadget-simple,#google_translate_element_spa .goog-te-gadget-simple{display:inline-flex!important;align-items:center;gap:4px;white-space:nowrap;line-height:1}#google_translate_element .goog-te-gadget-icon,#google_translate_element_spa .goog-te-gadget-icon{display:inline-block!important;vertical-align:middle;flex:0 0 auto}#goog-gt-tt{display:none!important}body{top:0!important}#google_translate_element{min-height:28px}
 
 /* === React Hydration & Layout Cleanup === */
 html.has-react .static-header,

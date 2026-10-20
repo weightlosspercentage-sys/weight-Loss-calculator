@@ -23,9 +23,6 @@ const { region, activePath } = Astro.props;
       <div style="display: flex; align-items: center; gap: 1rem;">
         <!-- Desktop Navigation -->
         <Navigation region={region} activePath={activePath} />
-
-        <!-- Google Translate Widget Container for Tier 1 & Global Users -->
-        <div class="notranslate" id="google_translate_element" style="display: inline-flex; align-items: center;"></div>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -73,50 +70,119 @@ const { region, activePath } = Astro.props;
 </style>
 
 <script is:inline>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: true
-    }, 'google_translate_element');
+  // The picker is a footer control: the header row has no spare width at desktop
+  // and translating is not a navigation action. Google renders into whichever id
+  // it is handed, so the container is created in the footer copyright bar and any
+  // legacy header copy is moved there. React replaces #root's children, so on SPA
+  // pages the footer we must wait for is the bundle's own.
+  var GT_LANGUAGES = 'es,id,pt,fr,ar,de';
+
+  // Once React mounts, createRoot(#root).render() leaves exactly one visible
+  // <footer> per route — the bundle's own — and .static-footer is no longer in the
+  // DOM. Before the mount, .static-footer is the only footer there is, so picking
+  // querySelector('footer') at the first poll tick attaches the widget to a node on
+  // its way out. Wait for the real one; pages that never load the bundle take
+  // .static-footer straight away.
+  function gtHasSpa() {
+    return !!document.querySelector('script[src*="/assets/index-"]');
   }
 
-  // On React-mounted (SPA) pages the visible nav is rendered by the bundle and
-  // exposes a translate container with the "_spa" suffix. Wait for React to
-  // mount (poll up to ~5s); otherwise fall back to the static header container.
-  (function () {
-    function loadScript(targetId) {
-      window.__gtTargetId__ = targetId;
-      window.googleTranslateElementInit = function () {
-        try {
-          new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: true
-          }, targetId);
-        } catch (e) {}
-      };
-      if (!document.getElementById('google-translate-script')) {
-        var gtScript = document.createElement('script');
-        gtScript.id = 'google-translate-script';
-        gtScript.type = 'text/javascript';
-        gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        document.head.appendChild(gtScript);
+  // Returns the footer plus whether it is the pre-rendered static one. A static
+  // footer is not allowed to host the container: if TranslateElement renders into a
+  // node nested inside .static-footer, the gadget's click replaces the document
+  // before the popup opens. One node outside it, as the footer's preceding sibling,
+  // opens normally. Ruled out as the cause: overlapping footer links, an <a> or
+  // <form> ancestor, and a transform ancestor — relocating an already-rendered
+  // gadget into that same footer works, so it is the position at render time.
+  function gtBar(keepStatic) {
+    var fs = document.querySelectorAll('footer');
+    for (var k = 0; k < fs.length; k++) {
+      if (fs[k].className.indexOf('static-footer') < 0) return { footer: fs[k], stat: false };
+    }
+    if (keepStatic || !gtHasSpa()) return fs.length ? { footer: fs[0], stat: true } : null;
+    return null;
+  }
+
+  function gtHost(keepStatic) {
+    var bar = gtBar(keepStatic);
+    if (!bar) return null;
+    var el = document.getElementById('google_translate_element');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'google_translate_element';
+    }
+    el.className = 'notranslate';
+    if (bar.stat) {
+      // The footer's own parent, not document.body: insertBefore throws if the
+      // reference node is not a child of the node it is called on, and this runs
+      // from a 200ms poll.
+      var par = bar.footer.parentNode || document.body;
+      if (el.parentNode !== par || el.nextElementSibling !== bar.footer) {
+        el.style.cssText = 'display:flex;justify-content:flex-end;max-width:1400px;margin:14px auto 0;padding:0 24px;';
+        par.insertBefore(el, bar.footer);
       }
+      return el;
+    }
+    var host = bar.footer;
+    var ps = host.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      if (/©|All rights reserved/.test(ps[i].textContent || '')) {
+        host = ps[i].parentElement || host;
+        break;
+      }
+    }
+    if (el.parentNode !== host) {
+      el.style.cssText = 'display:flex;justify-content:flex-end;margin-top:14px;';
+      host.appendChild(el);
+    }
+    return el;
+  }
+
+  window.googleTranslateElementInit = function () {
+    // element.js calls this once. Re-resolve with the same preference the poll used:
+    // the React footer first, .static-footer only if that is all there is. Passing
+    // keepStatic straight through would re-parent the container back onto the
+    // static footer whenever React happened to mount in between.
+    var host = gtHost(false) || gtHost(true);
+    if (!host) return;
+    try {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: GT_LANGUAGES,
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: true
+      }, 'google_translate_element');
+    } catch (e) {
+      // Swallowing this made a dead widget indistinguishable from a working
+      // one while diagnosing why no dropdown ever appeared.
+      console.warn('[translate] TranslateElement failed for #google_translate_element:', e && e.message);
+    }
+  };
+
+  (function () {
+    function load() {
+      if (document.getElementById('google-translate-script')) return;
+      // element.js pulls a large payload for a control no first-time visitor is
+      // looking for, so hand the append to the first CPU idle. Capped at 3s and
+      // not chained to window "load", which ads delay by many seconds.
+      var gtScript = document.createElement('script');
+      gtScript.id = 'google-translate-script';
+      gtScript.type = 'text/javascript';
+      gtScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.head.appendChild(gtScript);
     }
 
     var attempts = 0;
     var timer = setInterval(function () {
       attempts++;
-      var spaEl = document.getElementById('google_translate_element_spa');
-      if (spaEl) { clearInterval(timer); loadScript('google_translate_element_spa'); return; }
-      if (attempts >= 25) {
+      // Past 8s React is not coming, so a hidden .static-footer is the best host.
+      if (gtHost(attempts >= 40)) {
         clearInterval(timer);
-        var staticEl = document.getElementById('google_translate_element');
-        if (staticEl) loadScript('google_translate_element');
+        if (window.requestIdleCallback) requestIdleCallback(load, { timeout: 3000 });
+        else setTimeout(load, 1200);
+        return;
       }
+      if (attempts >= 50) clearInterval(timer);
     }, 200);
   })();
 

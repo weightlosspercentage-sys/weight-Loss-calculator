@@ -17,6 +17,11 @@ artifacts/*.png
 dump.html
 dump_dom.py
 *.png
+# Served site assets, not scratch screenshots: the *.png rule above would let an
+# ignore-aware tooling pass skip the reviewer photo and the touch icon.
+!public/apple-touch-icon.png
+!public/images/dr-rekha-kumar.png
 check-output.txt
 .agents/
+.qoder/
 scratch/

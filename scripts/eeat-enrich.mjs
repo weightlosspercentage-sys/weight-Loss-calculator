@@ -1,10 +1,20 @@
-// E-E-A-T enrichment applied to every static HTML page (build step 3g + offline
-// runner). All steps are self-guarded so re-running never duplicates content.
+// E-E-A-T enrichment applied to every static HTML page. There is exactly one caller:
+// step 3g of the build (astro.config.mjs:581), which rewrites dist3 output, not the committed
+// source. So every change here is a delivery-time guarantee, not a source edit: if the build
+// step were ever dropped, the copy it removes would come back. All steps are self-guarded so
+// re-running never duplicates content.
 // 1. Meta description inch-quote fix (4'8" broke the content="" attribute).
-// 2. datePublished injected next to every dateModified in JSON-LD.
-// 3. BreadcrumbList schema generated from the URL path when missing.
-// 4. Topic-aware FAQPage schema + visible Q&A section when missing.
-// 5. Visible medically-reviewed strip with real .gov references when missing.
+// 2. BreadcrumbList schema generated from the URL path when missing.
+// 3. Topic-aware FAQPage schema + visible Q&A section when missing.
+// 4. Visible medically-reviewed strip with real .gov references when missing. The strip
+//    asserts no "Last reviewed" month - see stripReviewDate() for why that claim went.
+// This script writes no schema dates. It used to inject a hardcoded datePublished; that was
+// deleted, because this module has no evidence for any date. Step 13 of the build stamps both
+// datePublished and dateModified from the file's own git history (or the committed manifest),
+// and deletes the claim when it cannot back it. The one date this file still emits is the
+// visible "Updated: 2026-09-15" in the byline strip (buildSection), which step 13 overwrites
+// with the file's real commit date wherever it has one; step 13b's stale-date guard counts the
+// indexable pages where no evidence exists and the literal therefore survives.
 
 const ORIGIN = 'https://www.weightlosspercentage.com';
 
@@ -92,14 +102,13 @@ function fixJsonQuotes(html) {
   );
 }
 
-// --- 2. datePublished beside every dateModified ------------------------------
-function addDatePublished(html) {
-  const re = /(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g;
-  return html.replace(re, (m, open, body, close) => {
-    if (!/"dateModified"/.test(body) || /"datePublished"/.test(body)) return m;
-    return open + body.replace(/"dateModified"(\s*:\s*"\d{4}-\d{2}-\d{2}")/g, '"datePublished":"2025-03-01","dateModified"$1') + close;
-  });
-}
+// --- 2. Dates are not this script's business ---------------------------------
+// It used to inject a hardcoded "datePublished":"2025-03-01" beside every dateModified. The
+// repository's first commit is 2026-05-26, so that date predates any evidence in this tree: it
+// told Google content had stood the test of time two months longer than it can be shown to, on
+// all 17,239 pages, with nothing in a page's own visible content to back it. astro.config.mjs
+// step 13 now takes both dates from the file's real git history, which is the only honest
+// source, and refuses to write one when history is unavailable.
 
 function docHasDates(html) {
   return /"datePublished"/.test(html) && /"dateModified"/.test(html);
@@ -152,6 +161,68 @@ function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// "Last reviewed: September 2026" tells a visitor that a named physician reviewed this
+// page in a specific month. No record of any review event exists, on this site or in this
+// repository, so the clause is an invented fact on a YMYL health page - the reviewer, her
+// credentials and the .gov references are all evidenced; the date is not. It was also the
+// English month literal inside the zh/ru/ja/ko strips, so it read as broken localisation.
+// The label list comes from L itself, so a new locale cannot reintroduce the claim.
+function reEscape(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+const REVIEW_LABELS = [...new Set(Object.values(L).map((t) => t.lastReviewed))].map(reEscape);
+// One leading separator is consumed so `A · Last reviewed: X · Updated: Y` collapses to
+// `A · Updated: Y` instead of leaving a doubled bullet behind. The whitespace BEFORE the
+// separator is deliberately not consumed - that is what put `</a>&middot; Updated:` in
+// the first draft. The tail group keeps an ISO value from truncating to `-09-15`.
+const REVIEW_VALUE = '[^<&]{0,20}?(?:19|20)\\d{2}(?:-\\d{1,2}(?:-\\d{1,2})?)?';
+// Two shapes, because the site writes the claim two ways. The build's own strip is bare text
+// (`Last reviewed: September 2026`). 90 committed calculator pages wrap the label in its own
+// <strong> cell (`<strong>Last reviewed:</strong> July 2026 &nbsp;|&nbsp; <strong>Sources:`),
+// where the closing tag sits between label and value - so a label: value pattern silently
+// misses it, and the guard that reuses this function reported "0 residual" while 83 indexable
+// pages still served the claim. The pair is consumed whole to keep <strong> balanced; the tail
+// eats only whitespace, &nbsp; and the pipe separator so `Sources:` moves up cleanly.
+const WRAPPED = '<(?:strong|b)>\\s*(?:' + REVIEW_LABELS.join('|') + ')\\s*[:\\uFF1A]\\s*</(?:strong|b)>' +
+  '\\s*' + REVIEW_VALUE + '(?:\\s|&nbsp;|\\|)*';
+const REVIEW_CLAUSE_RE = new RegExp(
+  '(?:&middot;|·|&bull;|\\|)?\\s*(?:' + REVIEW_LABELS.join('|') + ')' +
+  '\\s*[:\\uFF1A]\\s*' + REVIEW_VALUE + '\\s*' +
+  '|' + WRAPPED,
+  'gi');
+
+// Markup only. Inside <script> the same English words are __TRANSLATIONS__ keys, which
+// must match the bundle's literals byte for byte or the translation is dropped and the
+// page falls back to English mid-localisation.
+export function stripReviewDate(html) {
+  const blocks = [];
+  const scriptRe = /<script[\s\S]*?<\/script>/gi;
+  let cursor = 0;
+  let m;
+  while ((m = scriptRe.exec(html))) {
+    blocks.push(html.slice(cursor, m.index), m[0]);
+    cursor = m.index + m[0].length;
+  }
+  blocks.push(html.slice(cursor));
+  let removed = 0;
+  const out = blocks
+    .map((seg, i) => {
+      if (i % 2 === 1) return seg;
+      return seg.replace(REVIEW_CLAUSE_RE, () => {
+        removed++;
+        return '';
+      });
+    })
+    .join('');
+  return { html: out, removed };
+}
+
+// Guard helper: would stripReviewDate still find something? Reusing the same function
+// (rather than a second regex in astro.config.mjs) keeps one definition of the claim.
+export function hasReviewDateClaim(html) {
+  return stripReviewDate(html).removed > 0;
+}
+
 // --- 3+4+5. inject section + schema ------------------------------------------
 const FAQ_MARK = '<!-- eeat-faq -->';
 const CRUMB_MARK = '<!-- eeat-breadcrumb -->';
@@ -161,7 +232,7 @@ function buildSection(urlPath, lang, opts) {
   const parts = [];
   if (opts.byline) {
     parts.push(
-      `<p style="margin:0 0 .5rem"><strong>${esc(t.reviewed)}</strong> <a href="/authors/dr-rekha-kumar/" style="text-decoration:underline">${esc(t.reviewer)}</a> &middot; ${esc(t.lastReviewed)}: September 2026 &middot; ${esc(t.updated)}: 2026-09-15</p>`);
+      `<p style="margin:0 0 .5rem"><strong>${esc(t.reviewed)}</strong> <a href="/authors/dr-rekha-kumar/" style="text-decoration:underline">${esc(t.reviewer)}</a> &middot; ${esc(t.updated)}: 2026-09-15</p>`);
   }
   if (opts.refs) {
     const refs = REF[topicOf(urlPath)];
@@ -195,9 +266,10 @@ export function enrichEeat(html, urlPath, opts = {}) {
   if (!/<head|<\/html>/i.test(html)) return { html, changed: false }; // skip partials/non-documents
   if (opts.strip) html = stripEeat(html);
   let out = fixJsonQuotes(fixMetaQuotes(html));
+  const reviewDates = stripReviewDate(out);
+  out = reviewDates.html;
 
   const lang = langOf(urlPath);
-  out = addDatePublished(out);
 
   const hasBreadcrumb = /"BreadcrumbList"/.test(out);
   const hasFaq = /"FAQPage"/.test(out);
@@ -229,11 +301,12 @@ export function enrichEeat(html, urlPath, opts = {}) {
       mark: '<!-- eeat-webpage -->',
       obj: {
         '@context': 'https://schema.org', '@type': 'MedicalWebPage', '@id': ORIGIN + urlPath + '#webpage',
-        url: ORIGIN + urlPath, name, description: 'Free dietitian-reviewed health tool.',
+        url: ORIGIN + urlPath, name, description: 'Free, medically reviewed health tool.',
         inLanguage: lang === 'en' ? 'en' : lang,
         author: { '@type': 'Person', name: 'Dr. Rekha Kumar', jobTitle: 'M.D., M.S. — Lead Medical Reviewer', url: ORIGIN + '/authors/dr-rekha-kumar/', sameAs: 'https://www.linkedin.com/in/rekha-kumar-m-d-m-s-70b481237/' },
         reviewedBy: { '@type': 'Person', name: 'Dr. Rekha Kumar', jobTitle: 'M.D., M.S. — Lead Medical Reviewer', url: ORIGIN + '/authors/dr-rekha-kumar/', sameAs: 'https://www.linkedin.com/in/rekha-kumar-m-d-m-s-70b481237/' },
-        datePublished: '2025-03-01', dateModified: '2026-09-15',
+        // no datePublished / dateModified here: this script has no evidence for a date, and
+        // step 13 of the build stamps both from the file's own git history.
       },
     });
   }
@@ -246,5 +319,5 @@ export function enrichEeat(html, urlPath, opts = {}) {
     else out = out + block;
   }
 
-  return { html: out, changed: out !== html };
+  return { html: out, changed: out !== html, reviewDatesRemoved: reviewDates.removed };
 }

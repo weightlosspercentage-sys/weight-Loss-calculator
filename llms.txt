@@ -1,6 +1,6 @@
 # Weight Loss Percentage
 
-> Free, dietitian-reviewed health, weight loss, nutrition, and fitness calculators designed to scale body metrics scientifically.
+> Free, medically reviewed health, weight loss, nutrition, and fitness calculators designed to scale body metrics scientifically.
 
 - **Canonical Domain:** https://www.weightlosspercentage.com
 - **Sitemap Index:** https://www.weightlosspercentage.com/sitemap-index.xml
@@ -51,8 +51,8 @@
 
 - [Calculator Hub](https://www.weightlosspercentage.com/calculators/) - Complete index of 35+ health and fitness tools.
 - [Topical Comparisons](https://www.weightlosspercentage.com/compare/) - In-depth articles comparing fitness concepts (e.g., BMR vs TDEE, BMI vs Body Fat).
-- [Medical Glossary](https://www.weightlosspercentage.com/glossary/) - Dietitian-reviewed dictionary of metabolic and fitness terms.
-- [About Us](https://www.weightlosspercentage.com/about/) - Medical board and dietitian reviewer background (Lead Reviewer: Dr. Rekha Kumar, PhD, RD, CPT).
+- [Medical Glossary](https://www.weightlosspercentage.com/glossary/) - Medically reviewed dictionary of metabolic and fitness terms.
+- [About Us](https://www.weightlosspercentage.com/about/) - Medical board and reviewer background (Lead Medical Reviewer: Dr. Rekha Kumar, M.D., M.S.).
 
 ---
 

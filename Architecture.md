@@ -32,7 +32,7 @@ weight-loss-calculator/
 │   └── utils/
 │       └── spaNavGuard.mjs       # SPA_ROUTES list and navigation guard
 ├── astro.config.mjs              # Astro configuration, copy-assets & build hooks
-├── scripts/prune-noindex.mjs     # Thin-locale pruning for the Cloudflare file limit
+├── scripts/prune-noindex.mjs     # Deletes pages the build marked noindex, to fit Cloudflare's 20k file limit
 └── package.json                  # Node.js dependencies and script entries
 ```
 
@@ -54,9 +54,11 @@ flowchart TD
     E --> F["Inject OG / Twitter Tags"]
     E --> G["Inject Schema.org Person & WebSite JSON-LD"]
     E --> H["Validate Self-Referential Canonicals"]
-    D --> I["Sitemap Sync Script (fix_and_rebuild_sitemaps.py)"]
-    I --> J["Clean 0-Duplicate Sitemaps (sitemap.xml, sitemap-main.xml)"]
-    F & G & H & J --> K["Deployment Target (dist3 / GitHub Pages / Cloudflare)"]
+    H --> L["pruneNoindex: delete noindex pages, return prunedUrls"]
+    L --> I["syncSitemaps: drop pruned <loc> entries, refresh lastmod"]
+    D --> I
+    I --> J["Consistent Index + Sub-sitemaps (sitemap-index.xml, sitemap-main.xml)"]
+    F & G & J --> K["Deployment Target (Cloudflare Pages, serving dist3)"]
 ```
 
 ---
@@ -70,5 +72,5 @@ To prevent client-side routing errors when navigating between static pages and c
 ## 5. Sitemap & SEO Subsystem
 
 * **Index Structure:** `sitemap-index.xml` acts as the root index referencing 6 modular sub-sitemaps (`sitemap-main.xml`, `sitemap-calculators.xml`, `sitemap-restaurants.xml`, `sitemap-compare.xml`, `sitemap-categories.xml`, `sitemap-international.xml`).
-* **Sitemap Cleanliness:** Automated script `fix_and_rebuild_sitemaps.py` guarantees 0 duplicate `<loc>` tags across index and sub-sitemaps.
+* **Sitemap Cleanliness:** `syncSitemaps()` in `astro.config.mjs` runs after `pruneNoindex()` and removes every pruned `<loc>` from the sub-sitemaps, so no sitemap can advertise a deleted page. `npm run check:sitemaps` audits the built `dist3` for duplicates, forbidden paths and `<loc>` values with no matching file.
 * **XSL Rendering:** Custom `sitemap.xsl` transforms raw XML sitemaps into clean, human-readable HTML tables in all browsers.

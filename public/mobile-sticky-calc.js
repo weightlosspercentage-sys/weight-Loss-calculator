@@ -42,12 +42,12 @@
           <span style="font-size:1rem;">📊</span>
           <div style="display:flex;gap:0.5rem;align-items:baseline;flex-wrap:wrap;">
             <span style="font-size:0.7rem;opacity:0.9;">Progress:</span>
-            <strong id="sticky-pct" style="font-size:1rem;color:#a78bfa;">--</strong>
+            <strong id="sticky-pct" style="font-size:1rem;color:#ede9fe;">--</strong>
           </div>
           <div style="height:16px;width:1px;background:rgba(255,255,255,0.3);"></div>
           <div style="display:flex;gap:0.5rem;align-items:baseline;">
             <span style="font-size:0.7rem;opacity:0.9;">Left:</span>
-            <strong id="sticky-lbs-remaining" style="font-size:0.9rem;color:#fbcfe8;">--</strong>
+            <strong id="sticky-lbs-remaining" style="font-size:0.9rem;color:#fce7f3;">--</strong>
           </div>
           <div style="height:16px;width:1px;background:rgba(255,255,255,0.3);"></div>
           <div style="display:flex;gap:0.5rem;align-items:baseline;">
@@ -227,11 +227,11 @@
       pctEl.textContent = `${metrics.percentage}%`;
       // Color based on progress
       if (parseFloat(metrics.percentage) >= 10) {
-        pctEl.style.color = '#86efac'; // green
+        pctEl.style.color = '#dcfce7'; // green
       } else if (parseFloat(metrics.percentage) >= 5) {
-        pctEl.style.color = '#a78bfa'; // purple
+        pctEl.style.color = '#ede9fe'; // purple
       } else {
-        pctEl.style.color = '#fbcfe8'; // pink
+        pctEl.style.color = '#fce7f3'; // pink
       }
     }
 
@@ -240,7 +240,7 @@
         remainingEl.textContent = `${metrics.remaining} ${metrics.unit}`;
       } else {
         remainingEl.textContent = 'Goal!';
-        remainingEl.style.color = '#86efac';
+        remainingEl.style.color = '#dcfce7';
       }
     }
 

@@ -53,11 +53,11 @@ const isCalculatorOrRestaurantSubpage = (currentPath.includes('/calculators/') |
   !currentPath.endsWith('/fast-food-hub/');
 
 const normalizedPath = currentPath.replace(/\/+$/, '') || '/';
-const isLegalPage = /(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test(normalizedPath);
+const isLegalPage = /(^|\/)(privacy|terms|contact|disclaimer|cookie-policy|accessibility)(\/|$)/i.test(normalizedPath);
 // These routes get their units at precise anchors from public/ad-place.js;
 // rendering the default unit here as well would stack a third ad beside the FAQ.
 const isRuntimePlaced = normalizedPath === '/' || normalizedPath.endsWith('/calculators/newborn-weight-loss');
-const serveAds = !isThinLocale && !isLegalPage && !isRuntimePlaced;
+const serveAds = !isLegalPage && !isRuntimePlaced;
 ---
 
 <!doctype html>
@@ -75,6 +75,7 @@ const serveAds = !isThinLocale && !isLegalPage && !isRuntimePlaced;
     <link rel="preload" href="/assets/index-43gqMy96.css" as="style" fetchpriority="high" />
     <link rel="stylesheet" href="/assets/index-43gqMy96.css" />
     <link rel="stylesheet" href="/assets/vercel-overrides.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <SEO
       title={title}
@@ -85,11 +86,6 @@ const serveAds = !isThinLocale && !isLegalPage && !isRuntimePlaced;
       schemas={schemas}
       lang={lang}
     />
-    <!-- Security Headers (client-side equivalents) -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
     <script define:vars={{ region }} is:inline>
       window.__ROUTE_BASEPATH__ = region ? `/${region}` : "/";
     </script>

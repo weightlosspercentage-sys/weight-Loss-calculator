@@ -23,11 +23,13 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     : path.join(baseDir, relativeFilePath);
 
   if (!fs.existsSync(filePath)) {
-    // Return a valid structure with an error message to display
+    // Return a valid structure with an error message to display.
+    // Nothing path- or request-derived may appear in this string: callers render
+    // bodyContent through <Fragment set:html>, so it ships to the browser raw.
     return {
       lang: 'en',
       headContent: '',
-      bodyContent: `<h1>Error: Page not found</h1><p>The file could not be found at: ${filePath}</p>`,
+      bodyContent: '<h1>Error: Page not found</h1>',
       seoProps: {
         title: 'Error: Not Found | Weight Loss Percentage',
         description: 'Page not found',

@@ -34,7 +34,7 @@ try {
 // Trust pages must serve no ads at all. Auto Ads is driven entirely by the
 // adsbygoogle client tag, so on those routes the tag itself is omitted; without
 // it nothing loads, and no slot-less unit can be injected into the page.
-const serveAdLoader = !/(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test('/' + canonicalPath + '/');
+const serveAdLoader = !/(^|\/)(privacy|terms|contact|disclaimer|cookie-policy|accessibility)(\/|$)/i.test('/' + canonicalPath + '/');
 
 // Generate complete hreflang alternates if none provided
 const allAlternates = alternates.length > 0
@@ -152,7 +152,7 @@ const isNoIndex = customRobots.toLowerCase().includes('noindex');
           "@type": "Organization",
           "name": "Weight Loss Percentage",
           "url": "https://www.weightlosspercentage.com",
-          "description": "Free dietitian-reviewed health, weight loss, nutrition and fitness calculators."
+          "description": "Free, medically reviewed health, weight loss, nutrition and fitness calculators."
         },
         {
           "@type": "SoftwareApplication",

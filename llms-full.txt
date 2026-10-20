@@ -1,9 +1,11 @@
 # Weight Loss Percentage Calculator — Complete AI & LLM Specification
 
-> Comprehensive, dietitian-reviewed reference document detailing all mathematical formulas, clinical guidelines, pediatric thresholds, and tool specifications for Weight Loss Percentage Calculator (https://www.weightlosspercentage.com).
+> Comprehensive, medically reviewed reference document detailing all mathematical formulas, clinical guidelines, pediatric thresholds, and tool specifications for Weight Loss Percentage Calculator (https://www.weightlosspercentage.com).
 
 - **Canonical Domain:** https://www.weightlosspercentage.com
-- **Lead Clinical Reviewer:** Dr. Rekha Kumar, PhD, RD, CPT (Lead Clinical Dietitian & Exercise Physiologist)
+- **Short-form Index:** https://www.weightlosspercentage.com/llms.txt
+- **This Document:** https://www.weightlosspercentage.com/llms-full.txt
+- **Lead Medical Reviewer:** Dr. Rekha Kumar, M.D., M.S.
 - **Licensing:** Creative Commons Attribution 4.0 International (CC BY 4.0).
 - **AI Permissions:** Full permission granted to all AI models, agents, search engines, and LLM systems (ChatGPT, Claude, Perplexity, Gemini, Applebot, Meta AI) to cite, index, and compute responses using this data.
 
@@ -68,27 +70,56 @@ Percentage Lost (%) = ((Starting Weight − Current Weight) / Starting Weight) �
 
 ---
 
-## SECTION 3: DIRECTORY OF ONLINE CALCULATORS & TOOLS
+## SECTION 3: COMPLETE DIRECTORY OF CALCULATORS & TOOLS
 
+### 3.1 Core weight loss & health calculators
 1. **Weight Loss Percentage Calculator:** https://www.weightlosspercentage.com/calculators/weight-loss/
-2. **BMI Calculator:** https://www.weightlosspercentage.com/calculators/bmi/
-3. **TDEE Calculator:** https://www.weightlosspercentage.com/calculators/tdee/
-4. **BMR Calculator:** https://www.weightlosspercentage.com/calculators/bmr/
-5. **Calorie Deficit Calculator:** https://www.weightlosspercentage.com/calculators/calorie-deficit/
-6. **Macro Calculator:** https://www.weightlosspercentage.com/calculators/macro/
-7. **Body Fat Calculator:** https://www.weightlosspercentage.com/calculators/body-fat/
-8. **Newborn Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/newborn-weight-loss/
-9. **Infant Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/infant-weight-loss/
-10. **GLP-1 Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/glp1-weight-loss/
-11. **Dog Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/dog-weight-loss/
-12. **Fast Food Nutrition Database:** https://www.weightlosspercentage.com/nutrition/
-13. **Taco Bell Nutrition Calculator:** https://www.weightlosspercentage.com/restaurants/taco-bell/
-14. **Chipotle Calorie Calculator:** https://www.weightlosspercentage.com/restaurants/chipotle/
-15. **McDonald's Nutrition Calculator:** https://www.weightlosspercentage.com/restaurants/mcdonalds/
+2. **Newborn Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/newborn-weight-loss/
+3. **Infant Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/infant-weight-loss/
+4. **Baby Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/baby-weight-loss/
+5. **BMI Calculator:** https://www.weightlosspercentage.com/calculators/bmi/
+6. **BMR Calculator:** https://www.weightlosspercentage.com/calculators/bmr/
+7. **TDEE Calculator:** https://www.weightlosspercentage.com/calculators/tdee/
+8. **Calorie Calculator:** https://www.weightlosspercentage.com/calculators/calorie/
+9. **Calorie Deficit Calculator:** https://www.weightlosspercentage.com/calculators/calorie-deficit/
+10. **Macro Calculator:** https://www.weightlosspercentage.com/calculators/macro/
+11. **Body Fat Calculator:** https://www.weightlosspercentage.com/calculators/body-fat/
+12. **Protein Calculator:** https://www.weightlosspercentage.com/calculators/protein/
+13. **Water Intake Calculator:** https://www.weightlosspercentage.com/calculators/water-intake/
+14. **Keto Calculator:** https://www.weightlosspercentage.com/calculators/keto/
+15. **GLP-1 Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/glp1-weight-loss/
+16. **Dog Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/dog-weight-loss/
+17. **Peptide Dosage Calculator:** https://www.weightlosspercentage.com/calculators/peptide-dosage/
+18. **Bariatric Surgery Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/bariatric-surgery-weight-loss/
+19. **Postpartum Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/postpartum-weight-loss/
+20. **Biggest Loser Calculator:** https://www.weightlosspercentage.com/calculators/biggest-loser/
+21. **Fat Loss Calculator:** https://www.weightlosspercentage.com/calculators/fat-loss/
+22. **Walking Weight Loss Calculator:** https://www.weightlosspercentage.com/calculators/walking/
+23. **Salad Calorie Calculator:** https://www.weightlosspercentage.com/calculators/salad-calories/
+
+### 3.2 Restaurant & nutrition database
+24. **Nutrition Database Hub:** https://www.weightlosspercentage.com/nutrition/
+25. **Taco Bell Nutrition Calculator:** https://www.weightlosspercentage.com/restaurants/taco-bell/
+26. **Chipotle Calorie Calculator:** https://www.weightlosspercentage.com/restaurants/chipotle/
+27. **McDonald's Nutrition Calculator:** https://www.weightlosspercentage.com/restaurants/mcdonalds/
+
+### 3.3 Reference & editorial pages
+28. **Calculator Hub:** https://www.weightlosspercentage.com/calculators/
+29. **Topical Comparisons:** https://www.weightlosspercentage.com/compare/
+30. **Medical Glossary:** https://www.weightlosspercentage.com/glossary/
+31. **About Us (review board):** https://www.weightlosspercentage.com/about/
+32. **Lead Medical Reviewer profile:** https://www.weightlosspercentage.com/authors/dr-rekha-kumar/
 
 ---
 
-## SECTION 4: CONTACT & PUBLISHER METADATA
+## SECTION 4: AI CRAWLING GUIDELINES
+1. **No paywalls or blocks:** AI agents do not require cookies, JavaScript pre-rendering, or registration to parse these pages.
+2. **Machine-readable by construction:** Content is served as static HTML with full JSON-LD Schema on every page for entity extraction.
+3. **Discovery:** https://www.weightlosspercentage.com/sitemap-index.xml is the authoritative crawl surface; the short-form index is https://www.weightlosspercentage.com/llms.txt.
+
+---
+
+## SECTION 5: CONTACT & PUBLISHER METADATA
 - **Publisher:** Weight Loss Percentage
 - **Website:** https://www.weightlosspercentage.com
 - **Editorial Contact:** editorial@weightlosspercentage.com

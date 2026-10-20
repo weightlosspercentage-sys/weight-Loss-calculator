@@ -5,8 +5,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { SPA_NAV_GUARD_SCRIPT, SPA_NAV_GUARD_MARKER } from './src/utils/spaNavGuard.mjs';
-import { enrichEeat } from './scripts/eeat-enrich.mjs';
+import { enrichEeat, hasReviewDateClaim } from './scripts/eeat-enrich.mjs';
 import { pruneNoindex } from './scripts/prune-noindex.mjs';
+import { loadContentDates } from './scripts/content-dates.mjs';
+import {
+  applyDateClaims, FROZEN_DATEMODIFIED, FABRICATED_DATEPUBLISHED,
+} from './scripts/date-stamp.mjs';
 
 // Helper to recursively copy files, excluding only Astro-built HTML and markdown files
 /**
@@ -37,6 +41,15 @@ function copyDirSync(src, dest) {
     } else {
       const relPath = path.relative(rootDir.toLowerCase(), srcPath.toLowerCase()).replace(/\\/g, '/');
       if (entry.name.endsWith('.md')) {
+        continue;
+      }
+      // Editor/patcher backups of the prebuilt bundle and stylesheet. Nothing links to
+      // them, but copyDirSync shipped them anyway: 1.3 MB publicly downloadable at
+      // /assets/index-Ctp2HkQJ.js.bak-mojibake, three extra files against Cloudflare's
+      // 20k limit, and the JS copies still carry the fabricated "James Peterson, RD"
+      // byline that was removed from every served page. They stay on disk as recovery
+      // copies; they just stop being deployed.
+      if (/\.bak[-_.]/i.test(entry.name)) {
         continue;
       }
       if (astroBuiltFiles.includes(relPath)) {
@@ -84,14 +97,18 @@ const TRANSLATED_CORE_URLS = new Set(
 function optimizeTitleLength(rawTitle) {
   const t = rawTitle.trim();
   if (t.length <= 60) return t;
-  // Try splitting by colon first
-  if (t.includes(':')) {
-    const first = t.split(':')[0].trim();
-    if (first.length <= 60 && first.length >= 20) return first;
+  // Keep the leading clause when it is a complete thought. Colon was the only separator
+  // tried, so "Biggest Loser Weight Loss Calculator (Australia) | TV Show Formula" (66)
+  // fell through to blind truncation and shipped as "...(Australia) | TV".
+  for (const sep of [':', '|', '—', '–']) {
+    if (!t.includes(sep)) continue;
+    const first = t.split(sep)[0].trim();
+    if (first.length >= 20 && first.length <= 60) return first;
   }
   const cut = t.substring(0, 57);
   const sp = cut.lastIndexOf(' ');
-  return sp > 30 ? cut.substring(0, sp) : cut;
+  const trimmed = (sp > 30 ? cut.substring(0, sp) : cut).replace(/[\s|—–:-]+$/, '');
+  return trimmed;
 }
 
 /**
@@ -130,20 +147,116 @@ function insertTagIntoHead(html, snippet) {
 /**
  * Trust/legal pages must serve no ads at all, including AdSense Auto Ads units,
  * which are injected by the client tag rather than by any markup we control.
- * @param {string} relPath
+ * The zh/ru trees are deliberately NOT in here: unlike the pages pruneNoindex
+ * deletes, they are indexable and carry a self-canonical, so excluding them
+ * from placements cost them every direct ad.
+ * @param {string} relPath path relative to the build output dir, forward slashes
  */
 function isLegalPath(relPath) {
-  return /(^|\/)(privacy|terms|contact|disclaimer)(\/|$)/i.test(relPath);
+  return /(^|\/)(privacy|terms|contact|disclaimer|cookie-policy|accessibility)(\/|$)/i.test(relPath);
 }
 
 /**
- * Trust/legal pages stay unmonetised, and the zh/ru thin locales are pruned from
- * the deploy, so neither should carry the placement script.
- * @param {string} relPath path relative to the build output dir, forward slashes
+ * Replaces the eager translate element.js tag on committed HTML.
+ *
+ * Two jobs, both verified against local and production:
+ *
+ * 1. Timing. The tag no longer blocks parsing; it is appended on the first CPU
+ *    idle, capped at 3s so a slow ad script cannot starve it. Deliberately not
+ *    chained to window "load", which ads delay by many seconds.
+ *
+ * 2. Container. On SPA routes createRoot(#root).render() destroys the committed
+ *    #google_translate_element, so by the time element.js invokes the page's
+ *    inline googleTranslateElementInit the id is gone, TranslateElement is
+ *    handed nothing, and no dropdown ever appears. The bundle renders its own
+ *    surviving #google_translate_element_spa beside it. Re-creating the id next
+ *    to that survivor restores the widget without touching the page's own
+ *    options (pageLanguage, includedLanguages, layout, autoDisplay), which stay
+ *    in the inline callback where they are parsed from.
+ *
+ * No `$` characters: html.replace() treats those as substitution patterns.
  */
-function isAdExcludedPath(relPath) {
-  return isLegalPath(relPath) || /^(zh|ru)\//i.test(relPath);
-}
+const TRANSLATE_DEFER_SNIPPET =
+  '<script>(function(){' +
+  'var SRC="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";' +
+  'var done=false;' +
+  // The picker belongs at the foot of the page, not in the header row, which has
+  // no spare width. Measured on build 11 output: once React mounts, every SPA route
+  // has exactly one <footer> left — the bundle's, inside #root — because
+  // createRoot(#root).render() replaces #root's children and the pre-rendered
+  // .static-footer goes with them. Before that happens the only footer present IS
+  // .static-footer, so a plain querySelector("footer") would attach the widget to a
+  // node React is about to delete: the original dead-picker bug. Prefer a non-static
+  // footer and keep polling until React produces one.
+  //
+  // Two hosts, because the two page types behave differently. On a SPA route the
+  // container goes inside the React footer's copyright bar, and the popup opens
+  // there. On a page that never loads the bundle (/calculators/calorie-deficit/ has
+  // no script[src*="/assets/index-"]) it goes one node OUTSIDE .static-footer, as
+  // that footer's preceding sibling. Reason, measured with raw mouse events: if
+  // TranslateElement renders into a container nested inside that particular footer,
+  // the gadget's click replaces the document before the popup opens; from a
+  // body-level sibling it opens at 137x171. What is *not* the cause: an overlapping
+  // footer link (elementFromPoint at the anchor centre returns the gadget's own
+  // span), an <a> or <form> ancestor, or a transform/filter ancestor — and moving a
+  // gadget that was already rendered elsewhere into the same footer works fine, so
+  // it is the container's position at render time, not at click time, that matters.
+  'function spa(){return !!document.querySelector("script[src*=\\"/assets/index-\\"]");}' +
+  'function bar(keepStatic){' +
+  'var fs=document.querySelectorAll("footer");' +
+  'for(var k=0;k<fs.length;k++){' +
+  'if(fs[k].className.indexOf("static-footer")<0){return {f:fs[k],stat:false};}' +
+  '}' +
+  'if(keepStatic||!spa()){return fs.length?{f:fs[0],stat:true}:null;}' +
+  'return null;' +
+  '}' +
+  'function foot(f){' +
+  'var ps=f.querySelectorAll("p");' +
+  'for(var i=0;i<ps.length;i++){' +
+  'if(/\\u00a9|All rights reserved/.test(ps[i].textContent||"")){return ps[i].parentElement||f;}' +
+  '}' +
+  'return f;' +
+  '}' +
+  // Returns true only once the container is verifiably sitting at its footer-adjacent
+  // host. The gate matters: committed HTML still carries a header #google_translate_element
+  // inside #root, so "the id exists" is not evidence we placed it anywhere. If it were
+  // enough, the first poll tick — which runs before React mounts — would load element.js
+  // against a node seconds away from being destroyed, and the widget would be dead again.
+  'function ensure(keepStatic){' +
+  'var t=bar(keepStatic);if(!t){return false;}' +
+  'var el=document.getElementById("google_translate_element");' +
+  'if(!el){el=document.createElement("div");el.id="google_translate_element";}' +
+  'el.className="notranslate";' +
+  'if(t.stat){' +
+  'var par=t.f.parentNode||document.body;' +
+  'if(el.parentNode!==par||el.nextElementSibling!==t.f){' +
+  'el.style.cssText="display:flex;justify-content:flex-end;max-width:1400px;margin:14px auto 0;padding:0 24px;";' +
+  'par.insertBefore(el,t.f);' +
+  '}' +
+  'return el.parentNode===par&&el.nextElementSibling===t.f;' +
+  '}' +
+  'var host=foot(t.f);' +
+  'if(el.parentNode!==host){' +
+  'el.style.cssText="display:flex;justify-content:flex-end;margin-top:14px;";' +
+  'host.appendChild(el);' +
+  '}' +
+  'return el.parentNode===host;' +
+  '}' +
+  'function attempt(keepStatic){' +
+  'if(done){return;}' +
+  'if(!ensure(keepStatic)){return;}' +
+  'var e=document.createElement("script");' +
+  'e.id="gt-defer-src";e.src=SRC;document.head.appendChild(e);' +
+  'done=true;' +
+  '}' +
+  'function poll(){' +
+  'var n=0;' +
+  'var t=setInterval(function(){n++;attempt(n>=40);if(done||n>=50){clearInterval(t);}},200);' +
+  '}' +
+  'function go(){attempt(false);poll();}' +
+  'if(window.requestIdleCallback){requestIdleCallback(go,{timeout:3000});}' +
+  'else{setTimeout(go,1200);}' +
+  '})();</script>';
 
 /**
  * Post-process all HTML files in outDir:
@@ -153,8 +266,18 @@ function isAdExcludedPath(relPath) {
  * 4. Optimize <title> tags exceeding 60 characters
  * @param {string} outDir
  */
+// Labels eeat-enrich.mjs writes the ISO date after, in each UI language.
+const UPDATED_LABELS = 'Updated|Updated on|Last updated|Actualizado|Mis \u00e0 jour|Aktualisiert|Aggiornato|Atualizado|\u66f4\u65b0\u65e5|\uc5c5\ub370\uc774\ud2b8|\u66f4\u65b0\u65f6\u95f4|\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u043e';
+// The invented reviewer this site used to credit. Plain strings, not a regex: they are
+// tested against ~34k pages and only the rare hit needs the expensive visible-markup pass.
+const BYLINE_MARKERS = ['James Peterson', 'dietitian-reviewed', 'Dietitian-Reviewed'];
+
 function postProcessHtml(outDir) {
   const htmlFiles = collectHtmlFiles(outDir);
+  const contentDates = loadContentDates(process.cwd());
+  if (!contentDates) {
+    console.warn('[seo-inject] no git history and no committed manifest: unevidenced date claims will be deleted, never stamped');
+  }
   let ogInjected = 0;
   let authorInjected = 0;
   let noindexInjected = 0;
@@ -162,7 +285,24 @@ function postProcessHtml(outDir) {
   let guardInjected = 0;
   let aboutNavRemoved = 0;
   let adPlaceInjected = 0;
+  let adLoaderInjected = 0;
   let adLoaderStripped = 0;
+  let translateDeferred = 0;
+  let translateLangsTrimmed = 0;
+  let translateAutoDisplay = 0;
+  let datesCorrected = 0;
+  let publishedDatesCorrected = 0;
+  let dateClaimsDropped = 0;
+  let staleDateResidual = 0;
+  let publishedResidual = 0;
+  let bylineResidual = 0;
+  let reviewClausesRemoved = 0;
+  let reviewClausePages = 0;
+  let reviewClauseResidual = 0;
+  const residualExamples = [];
+  // Freshness degeneracy: how many indexable pages ended up on each dateModified value.
+  const dateHistogram = new Map();
+  const publishedHistogram = new Map();
 
   for (const filePath of htmlFiles) {
     if (!fs.existsSync(filePath)) continue;
@@ -325,8 +465,12 @@ function postProcessHtml(outDir) {
         });
       }
 
-      // zh/ru are noindexed thin locales that pruneNoindex deletes from the
-      // deploy; advertising them as alternates points Google at 404s.
+      // zh/ru are excluded because their committed pages carry English body copy —
+      // only the UI chrome is translated, at runtime, from window.__TRANSLATIONS__ —
+      // so they are near-duplicates of the English page, not Chinese or Russian
+      // versions. Declaring them as `zh`/`ru` alternates would tell Google the
+      // opposite. (They are NOT deleted by pruneNoindex, which only removes pages
+      // already marked noindex; an earlier version of this comment claimed that.)
 
       // Strip every pre-existing hreflang link regardless of attribute order
       // (legacy copies use <link href="..." hreflang="..." rel="alternate"/>).
@@ -435,23 +579,20 @@ function postProcessHtml(outDir) {
       let urlPath3g = '/' + relPath.replace(/(^|\/)[^/]*\.html$/, '$1');
       if (!urlPath3g.endsWith('/')) urlPath3g += '/';
       const res = enrichEeat(html, urlPath3g);
+      if (res.reviewDatesRemoved) {
+        // Occurrences, not pages: a page can carry the clause twice (byline strip + a stray
+        // footer line), so the two counts are reported separately rather than conflated.
+        reviewClausesRemoved += res.reviewDatesRemoved;
+        reviewClausePages++;
+      }
       if (res.changed) {
         html = res.html;
         modified = true;
       }
     }
 
-    // --- 4. Optimize long titles ---
-    const titleMatch2 = html.match(/<title>([\s\S]*?)<\/title>/i);
-    if (titleMatch2 && titleMatch2[1].trim().length > 60) {
-      const original = titleMatch2[1].trim();
-      const optimized = optimizeTitleLength(original);
-      if (optimized !== original) {
-        html = html.replace(`<title>${titleMatch2[1]}</title>`, `<title>${optimized}</title>`);
-        modified = true;
-        titlesOptimized++;
-      }
-    }
+    // --- 4. Title length is handled at step 11, after the last mutation of <title>.
+    // (Optimising here meant step 1 copied the untruncated title into og:title/twitter:title.)
 
     // --- Inject Google WebSite & Organization Schema for Site Name & Brand Entity recognition ---
     if (!html.includes('"@type":"WebSite"') && !html.includes('"@type": "WebSite"')) {
@@ -565,33 +706,97 @@ function postProcessHtml(outDir) {
       }
     }
 
-    // --- 13. Freshness: dateModified on primary JSON-LD nodes + visible
-    //         "Last reviewed" line in the footer (E-E-A-T signal for YMYL) ---
+    // --- 13. Freshness: dateModified in JSON-LD taken from this file's own commit history,
+    //         mirrored in the visible "Updated:" line when a real date exists.
+    //         Guarded for degeneracy in step 13b below.
+    //
+    // One hardcoded date across ~39k pages is not a freshness signal and it decays: it was
+    // 34 days stale by 2026-10-19 while claiming a revision that never happened. The date
+    // now comes from the last commit that touched this exact file. When this build cannot
+    // know that date - a Cloudflare Pages shallow clone, which is where production is
+    // actually built - the two fabricated literals are DELETED from the schema rather than
+    // kept or re-stamped: under-reporting freshness is safe, inventing it is not, and a
+    // shallow clone must not re-date the whole site to today. scripts/date-stamp.mjs owns
+    // that call so it can be tested without a 17-minute build. ---
     if (!isThinProgrammatic) {
+      const real = contentDates ? contentDates.isoFor(relPath) : null;
+      const realPub = contentDates && contentDates.publishedFor ? contentDates.publishedFor(relPath) : null;
       let ldTouched = false;
-      html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi, (block, inner) => {
-        try {
-          const data = JSON.parse(inner);
-          const nodes = Array.isArray(data) ? data : (data['@graph'] || [data]);
-          let touched = false;
-          for (const n of nodes) {
-            const t = n && n['@type'];
-            const types = Array.isArray(t) ? t : [t];
-            if (types.some((x) => ['WebApplication', 'SoftwareApplication', 'MedicalWebPage', 'FAQPage', 'HowTo'].includes(x)) && !n.dateModified) {
-              n.dateModified = '2026-09-15';
-              touched = true;
-            }
-          }
-          if (touched) { ldTouched = true; return `<script type="application/ld+json">${JSON.stringify(data)}</script>`; }
-        } catch (err) {
-          console.warn(`[seo-inject] unparseable JSON-LD on ${relPath}: ${err.message}`);
-        }
-        return block;
-      });
-      if (ldTouched) modified = true;
-      if (html.includes('</footer>') && !/last reviewed/i.test(html)) {
-        html = html.replace('</footer>', '<div style="text-align:center;padding:10px 16px;font-size:12px;color:#94a3b8;">Last reviewed: September 2026</div>\n</footer>');
+      // scripts/date-stamp.mjs owns the policy: replace a fabricated literal only with this
+      // file's own commit date, and delete the claim where no date can be backed. The config
+      // used to fall back to stamping FROZEN_DATEMODIFIED into any schema node lacking one,
+      // which is exactly what a shallow CI clone hit - see the module header.
+      const claims = applyDateClaims(html, { modified: real, published: realPub });
+      if (claims.warned) console.warn(`[seo-inject] unparseable JSON-LD on ${relPath}: ${claims.warned}`);
+      if (claims.html !== html) {
+        html = claims.html;
         modified = true;
+        ldTouched = true;
+      }
+      if (claims.datePublishedApplied) publishedDatesCorrected++;
+      if (claims.claimsDropped) dateClaimsDropped++;
+      // Markup must mirror the visible page. The eeat strip prints the same date in prose,
+      // so the stale literal is corrected there too - label-anchored, never a bare date.
+      if (real) {
+        // The labels are alternated, so they need their own non-capturing group: `|` binds
+        // looser than concatenation, and bare `(A|B|C\s*:)` would apply the colon only to C.
+        const visibleStaleDate = new RegExp(`((?:${UPDATED_LABELS})\\s*[:\\uFF1A]\\s*)${FROZEN_DATEMODIFIED}`, 'g');
+        const withFreshDate = html.replace(visibleStaleDate, `$1${real}`);
+        if (withFreshDate !== html) {
+          html = withFreshDate;
+          modified = true;
+        }
+      }
+      if (ldTouched) datesCorrected++;
+      // This used to inject "Last reviewed: September 2026" into any footer that lacked it.
+      // No commit evidences a review event, so that line was a fact this build invented -
+      // and unlike dateModified, there is no real date to substitute it with. Removed.
+      // Pages whose committed HTML already carries the phrase (the E-E-A-T byline strip)
+      // are untouched: this stops new text, it deletes nothing a visitor currently sees.
+    }
+
+    // --- 13b. Regression guard: neither a frozen date nor an invented reviewer may
+    //          survive on a page Google can index, and the dates must still discriminate.
+    // Step 13 takes dateModified from this exact file's last commit, so an indexable page
+    // still carrying the marker is one that pass never reached — a silent SEO regression,
+    // which is what this counts. The 428 pages that legitimately keep the marker are thin
+    // programmatic and /us/ duplicates, all noindexed, so the date is not a signal there.
+    // The byline test looks only at markup outside <script>: in the UI-language trees
+    // "James Peterson, RD" survives as a __TRANSLATIONS__ *key*, because keys must match the
+    // bundle's English literals byte for byte and the Russian *value* already credits
+    // Dr. Rekha Kumar. Editing a key drops the translation and shows English instead.
+    //
+    // The histogram below exists because the frozen-string test alone was not enough. A bulk
+    // commit that rewrites every page (cdaa9a8509 touched 39,126 HTML files) makes every
+    // "last commit for this file" the same day, so the dates pass the stale-string check while
+    // collapsing to one value site-wide — truthful on the day it is written, then decaying into
+    // the same fake-freshness signal it replaced, with no build error to say so.
+    if (!/content="noindex/i.test(html)) {
+      if (html.includes(FROZEN_DATEMODIFIED)) {
+        staleDateResidual++;
+        if (residualExamples.length < 8) residualExamples.push(relPath + ' (frozen date)');
+      }
+      if (html.includes(FABRICATED_DATEPUBLISHED)) {
+        publishedResidual++;
+        if (residualExamples.length < 8) residualExamples.push(relPath + ' (invented datePublished)');
+      }
+      const pageDates = new Set();
+      for (const m of html.matchAll(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/g)) pageDates.add(m[1]);
+      for (const value of pageDates) dateHistogram.set(value, (dateHistogram.get(value) || 0) + 1);
+      const pagePublished = new Set();
+      for (const m of html.matchAll(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})/g)) pagePublished.add(m[1]);
+      for (const value of pagePublished) publishedHistogram.set(value, (publishedHistogram.get(value) || 0) + 1);
+      if (BYLINE_MARKERS.some(marker => html.includes(marker))) {
+        const visible = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+        if (BYLINE_MARKERS.some(marker => visible.includes(marker))) {
+          bylineResidual++;
+          if (residualExamples.length < 8) residualExamples.push(relPath + ' (invented byline)');
+        }
+      }
+      // Step 3g deletes this clause; surviving means the page never reached that pass.
+      if (hasReviewDateClaim(html)) {
+        reviewClauseResidual++;
+        if (residualExamples.length < 8) residualExamples.push(relPath + ' (unevidenced review date)');
       }
     }
 
@@ -613,7 +818,16 @@ function postProcessHtml(outDir) {
     // on SPA routes createRoot(#root).render() destroys any shipped <ins>.
     // Guard matches the tag, not the filename: prose mentioning ad-place.js in a
     // comment must not be mistaken for an injection that already happened.
-    if (!/<script[^>]+\bsrc=["']\/ad-place\.js["']/.test(html) && !isAdExcludedPath(relPath)) {
+    if (!/<script[^>]+\bsrc=["']\/ad-place\.js["']/.test(html) && !isLegalPath(relPath)) {
+      // ad-place.js builds <ins> nodes and pushes them through window.adsbygoogle. With no
+      // loader that push lands in an orphan array: the slot reserves its height and never
+      // fills, silently. 175 locale clones (103 indexable) ship no loader in their committed
+      // HTML at all, so the placement script has to bring the tag with it. Same form as
+      // SEO.astro:196, so the client id cannot drift between Astro and build-injected pages.
+      if (!/adsbygoogle\.js[?&]client=/i.test(html)) {
+        html = insertTagIntoHead(html, '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7203223934454111" crossorigin="anonymous"></script>');
+        adLoaderInjected++;
+      }
       html = html.replace('</body>', '<script src="/ad-place.js" defer></script>\n</body>');
       modified = true;
       adPlaceInjected++;
@@ -634,6 +848,76 @@ function postProcessHtml(outDir) {
       }
     }
 
+    // --- 10e. Google Translate widget off the critical path ---
+    // Committed HTML loads element.js with `defer`, which still fetches it during
+    // the load window: translate.googleapis.com + www.gstatic.com + tpc is ~244 KB
+    // and three scripts competing with the calculator for bandwidth, for a header
+    // dropdown almost no first-time visitor uses. Astro's own Header.astro already
+    // lazy-loads this widget, so this brings the committed pages to the same
+    // behaviour instead of inventing a new one. The injected snippet also moves the
+    // container from the header row into the footer copyright bar before
+    // element.js is requested, so the widget appears in the footer rather than
+    // where the committed markup put it.
+    const deferred = html.replace(
+      /<script\b[^>]*\bsrc=["']https:\/\/translate\.google\.com\/translate_a\/element\.js[^"']*["'][^>]*>\s*<\/script>/i,
+      TRANSLATE_DEFER_SNIPPET
+    );
+    if (deferred !== html) {
+      html = deferred;
+      modified = true;
+      translateDeferred++;
+    }
+
+    // --- 10f. Language picker population and visibility ---
+    // The page-inline googleTranslateElementInit is what element.js actually calls,
+    // so its options win over anything Header.astro sets. Two problems there: the 20
+    // language list included Hindi and several locales the site has no content for,
+    // and autoDisplay:false makes the gadget render nothing at all for a visitor
+    // whose browser language already matches pageLanguage ('en') — which is most of
+    // the traffic. The picker has to be on screen before anyone can choose a
+    // language from it.
+    const langs = html.replace(
+      /includedLanguages:\s*['"]en,es,fr,de,it,pt,ja,ko,zh-CN,ar,hi,nl,sv,da,no,fi,pl,ru,tr,uk['"]/g,
+      "includedLanguages: 'es,id,pt,fr,ar,de'"
+    );
+    if (langs !== html) {
+      html = langs;
+      modified = true;
+      translateLangsTrimmed++;
+    }
+
+    const shown = html.replace(/autoDisplay:\s*false\b/g, 'autoDisplay: true');
+    if (shown !== html) {
+      html = shown;
+      modified = true;
+      translateAutoDisplay++;
+    }
+
+    // --- 11. Titles last. Step 1 copies <title> into og:title / twitter:title, and 3g/5c
+    // can still rewrite it afterwards, so truncation has to run after every mutation and
+    // then push the same string into the social tags. Rules.md 2.1 caps titles at 60.
+    {
+      const t = html.match(/<title>([\s\S]*?)<\/title>/i);
+      if (t) {
+        const beforeTitles = html;
+        const original = t[1].trim();
+        const optimized = optimizeTitleLength(original);
+        if (optimized !== original) {
+          html = html.replace(t[0], `<title>${optimized}</title>`);
+          titlesOptimized++;
+        }
+        const esc = optimized.replace(/"/g, '&quot;');
+        // A social tag that merely starts with the final title is the older, uncut string
+        // (truncation always yields a prefix), so realigning it is safe. A tag that differs
+        // in its opening words is deliberate hand-written copy and is left alone.
+        html = html.replace(
+          /(<meta\s+(?:property|name)=["'](?:og|twitter):title["']\s+content=)["']([^"']*)["']/gi,
+          (m, pre, val) => (val.length > esc.length && val.startsWith(esc) ? `${pre}"${esc}"` : m),
+        );
+        if (html !== beforeTitles) modified = true;
+      }
+    }
+
     if (modified) {
       try {
         fs.writeFileSync(filePath, html);
@@ -647,10 +931,48 @@ function postProcessHtml(outDir) {
   console.log(`[seo-inject] OG/Twitter tags injected: ${ogInjected} pages`);
   console.log(`[seo-inject] Meta author injected: ${authorInjected} blog articles`);
   console.log(`[seo-inject] Noindex added: ${noindexInjected} thin locale pages`);
+  console.log(`[seo-inject] Unevidenced "Last reviewed" clause removed: ${reviewClausesRemoved} clauses on ${reviewClausePages} pages (markup only; __TRANSLATIONS__ keys untouched)`);
+  if (staleDateResidual || publishedResidual || bylineResidual || reviewClauseResidual) {
+    console.warn(`[seo-inject] WARNING on indexable pages: ${staleDateResidual} frozen dateModified, ${publishedResidual} invented datePublished, ${bylineResidual} invented byline, ${reviewClauseResidual} unevidenced review date: ${residualExamples.join(', ')}`);
+  } else {
+    console.log('[seo-inject] Date/byline guard: 0 indexable pages carry 2026-09-15, 2025-03-01, the invented byline, or a "Last reviewed" month');
+  }
+  for (const [field, histogram, why] of [
+    ['dateModified', dateHistogram, 'A bulk commit that rewrote every file is why; edit pages per-page, or this decays into the same site-wide frozen stamp the pass was built to remove.'],
+    ['datePublished', publishedHistogram, 'One content batch entered this repository on that date and dominates the indexable set; that is the real add history, and the literal it replaced (2025-03-01) predated the first commit.'],
+  ]) {
+    const ranked = [...histogram.entries()].sort((a, b) => b[1] - a[1]);
+    const counted = ranked.reduce((sum, [, pages]) => sum + pages, 0);
+    if (counted < 100 || !ranked.length) continue;
+    const [topDate, topPages] = ranked[0];
+    const share = topPages / counted;
+    if (share >= 0.9) {
+      const ageDays = Math.floor((Date.now() - Date.parse(`${topDate}T00:00:00Z`)) / 86400000);
+      console.warn(
+        `[seo-inject] WARNING ${field} is not discriminating: ${Math.round(share * 100)}% of ${counted} indexable pages ` +
+        `share ${topDate} (${ageDays} days old) across ${ranked.length} value(s). ${why}`
+      );
+    } else {
+      const spread = ranked.slice(0, 4).map(([d, n]) => `${d} ${Math.round((n / counted) * 100)}%`).join(', ');
+      console.log(`[seo-inject] ${field} spread: ${ranked.length} values over ${counted} indexable pages (${spread})`);
+    }
+  }
   console.log(`[seo-inject] Titles optimized: ${titlesOptimized} pages`);
   console.log(`[seo-inject] Regional canonical/hreflang fixes applied to all regional pages.`);
   console.log(`[seo-inject] ad-place.js injected: ${adPlaceInjected} pages`);
+  console.log(`[seo-inject] AdSense loader added where placement script ran without one: ${adLoaderInjected} pages`);
   console.log(`[seo-inject] AdSense loader stripped from ${adLoaderStripped} trust/legal pages`);
+  console.log(`[seo-inject] Google Translate deferred to idle: ${translateDeferred} pages`);
+  console.log(`[seo-inject] Google Translate language list trimmed to 6: ${translateLangsTrimmed} pages`);
+  console.log(`[seo-inject] Google Translate autoDisplay set to true: ${translateAutoDisplay} pages`);
+  console.log(
+    contentDates
+      ? `[seo-inject] dates from ${contentDates.source}${contentDates.commits ? ` (${contentDates.commits} commit dates)` : ''}: ` +
+        `dateModified corrected on ${datesCorrected} pages, invented datePublished 2025-03-01 replaced with that file's add commit on ${publishedDatesCorrected} pages, ` +
+        `${dateClaimsDropped} pages had a date claim deleted because this build could not back it`
+      : '[seo-inject] NO date evidence (no git history and no scripts/content-dates.manifest.txt): ' +
+        `${dateClaimsDropped} pages had an unevidenced date claim deleted; nothing was stamped in its place`
+  );
 }
 
 /**
@@ -666,8 +988,10 @@ function syncSitemaps(outDir, prunedUrls) {
 
   let sitemapFiles = [];
   try {
+    // sitemap.xml and sitemap-0.xml are skipped: both are replaced wholesale by the
+    // alias/remove step in copy-assets, so pruning their <loc> entries is wasted I/O.
     sitemapFiles = fs.readdirSync(outDir).filter(
-      (f) => /^sitemap(-[a-z0-9-]+)?\.xml$/i.test(f) && f !== 'sitemap-index.xml'
+      (f) => /^sitemap(-[a-z0-9-]+)?\.xml$/i.test(f) && !['sitemap-index.xml', 'sitemap.xml', 'sitemap-0.xml'].includes(f)
     );
   } catch (err) {
     console.error(`[sitemaps] cannot list ${outDir}: ${err.message}`);
@@ -725,9 +1049,12 @@ const copyAssetsIntegration = {
       for (const file of files) {
         const fullPath = path.join(srcDir, file);
         
-        // Exclude system directories and files (allow .htaccess and .well-known)
+        // Exclude system directories and files (allow .well-known).
+        // .htaccess stays out of the deploy: Cloudflare Pages ignores it, serves
+        // dotfiles on request, and the copy that shipped here declared a weaker
+        // CSP than the operative public/_headers.
         if (
-          (file.startsWith('.') && file !== '.htaccess' && file !== '.well-known') ||
+          (file.startsWith('.') && file !== '.well-known') ||
           file === 'node_modules' ||
           file === 'src' ||
           file === 'public' ||
@@ -741,20 +1068,32 @@ const copyAssetsIntegration = {
           file === 'artifacts' ||
           file === 'seo-strategy' ||
           file === 'backlink-campaign' ||
+          file === 'utils' ||
           file === 'playwright-report' ||
           file === 'playwright-report-audit' ||
           file === 'test-results' ||
           file === 'weightlosspercentage.com-audit' ||
           file.startsWith('https___') ||
-          /\.(py|cjs|mjs|csv)$/i.test(file) ||
-          (/\.json$/i.test(file) && /^(audit|qa_results|competitor_analysis|interlinking_audit|deep_test|http_sitemap|detected_agents|keywords_parsed|all_gsc|all_topical)/i.test(file)) ||
-          (/\.png$/i.test(file) && /(^|_)(test|verified|devtools|dev|shot|screenshot|after|before|browser|mobile_test|desktop_test)/i.test(file)) ||
+          // Client JS lives in public/ (Astro-copied) and assets/ (committed tree); a
+          // full check of the tracked root found nine .js files and every one is local
+          // QA tooling (audit_localhost, playwright configs, skills.js, test*.js) that
+          // zero served pages reference. .log and .backup are likewise tool output.
+          /\.(py|cjs|mjs|csv|js|log|backup)$/i.test(file) ||
+          (/\.json$/i.test(file) && /^(audit|qa_results|competitor_analysis|interlinking_audit|deep_test|deep_sitemap|http_sitemap|detected_agents|keywords_parsed|all_gsc|all_topical|skills)/i.test(file)) ||
+          (/\.png$/i.test(file) && /(^|_)(test|verified|devtools|dev|shot|screenshot|after|before|browser|mobile_test|desktop_test|applied|live_)/i.test(file)) ||
           file === 'package.json' ||
           file === 'package-lock.json' ||
           file === 'tsconfig.json' ||
           file === 'astro.config.mjs' ||
           file === 'skills-lock.json' ||
-          file === 'translation_cache.json'
+          file === 'translation_cache.json' ||
+          // Internal QA artifacts and generator fragments. None is in any sitemap and a
+          // full 34,398-file scan found zero links to /skills/ or /protein/, so they were
+          // reachable only as direct file URLs - browser-check-report.txt published the
+          // site's page inventory and nav_dump.txt published the raw homepage nav markup.
+          /^(browser-check-report|nav_dump|menu_dump)\.txt$/i.test(file) ||
+          /^dist3_.+\.(txt|xml)$/i.test(file) ||
+          /^(footer|bottom_content|github_skill_finder|skills|protein)\.html$/i.test(file)
         ) {
           continue;
         }
@@ -828,8 +1167,36 @@ const copyAssetsIntegration = {
       // while they still exist, so they are reconciled here, after the deletion.
       syncSitemaps(outDir, pruned.prunedUrls);
 
+      // One crawl surface, one URL set. /sitemap.xml shipped a 14,177-<loc> <urlset>
+      // that duplicated 14,177 of the 14,177 URLs already listed by the six silos
+      // reachable from sitemap-index.xml - a byte-for-byte redundant list, plus an
+      // orphaned sitemap-0.xml (116 locs, all already in the silos, linked by nothing).
+      // Redundant lists make the Search Console sitemap counts disagree and split the
+      // crawl report without adding a single discoverable URL.
+      // /sitemap.xml is kept alive as a copy of the index because it is the URL
+      // previously submitted to Google; sitemap-0.xml is removed because nothing points
+      // at it. Verified 2026-10-19: unique-in-sitemap-xml = 0, unique-in-sitemap-0 = 0.
+      try {
+        const legacyXml = path.join(outDir, 'sitemap.xml');
+        fs.copyFileSync(path.join(outDir, 'sitemap-index.xml'), legacyXml);
+        console.log('[sitemaps] /sitemap.xml now serves the index; duplicate <urlset> retired');
+      } catch (err) {
+        console.error(`[sitemaps] could not alias /sitemap.xml to the index: ${err.message}`);
+      }
+      for (const orphan of ['sitemap-0.xml']) {
+        const orphanPath = path.join(outDir, orphan);
+        try {
+          if (fs.existsSync(orphanPath)) {
+            fs.rmSync(orphanPath);
+            console.log(`[sitemaps] removed ${orphan} (URLs already covered by the silos, referenced by nothing)`);
+          }
+        } catch (err) {
+          console.error(`[sitemaps] could not remove ${orphan}: ${err.message}`);
+        }
+      }
+
       // Sanitize XML sitemaps to use domain-relative XSL stylesheet path (/sitemap.xsl)
-      const xmlFiles = ['sitemap-index.xml', 'sitemap-0.xml', 'sitemap.xml'];
+      const xmlFiles = ['sitemap-index.xml', 'sitemap.xml'];
       for (const xmlFile of xmlFiles) {
         const xmlPath = path.join(outDir, xmlFile);
         if (fs.existsSync(xmlPath)) {
@@ -840,12 +1207,6 @@ const copyAssetsIntegration = {
           }
           fs.writeFileSync(xmlPath, xmlContent);
         }
-      }
-
-      // Ensure .htaccess with security headers is synced to outDir
-      const rootHtaccess = path.join(process.cwd(), '.htaccess');
-      if (fs.existsSync(rootHtaccess)) {
-        fs.copyFileSync(rootHtaccess, path.join(outDir, '.htaccess'));
       }
 
       console.log('[copy-assets] Static assets copied successfully!\n');
