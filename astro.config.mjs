@@ -983,8 +983,10 @@ function postProcessHtml(outDir) {
  * @param {string[]} prunedUrls root-relative paths with trailing slashes
  */
 function syncSitemaps(outDir, prunedUrls) {
-  if (!prunedUrls || prunedUrls.length === 0) return 0;
-  const pruned = new Set(prunedUrls.map((p) => (p.endsWith('/') ? p : p + '/')));
+  const pruned = new Set((prunedUrls || []).map((p) => (p.endsWith('/') ? p : p + '/')));
+  // <lastmod> is a crawl-priority claim, so it gets the same evidence rule as
+  // dateModified in the JSON-LD: use the file's own commit date, never invent one.
+  const dates = loadContentDates(process.cwd());
 
   let sitemapFiles = [];
   try {
@@ -999,6 +1001,7 @@ function syncSitemaps(outDir, prunedUrls) {
   }
 
   let removed = 0;
+  const siloMax = new Map();
   for (const file of sitemapFiles) {
     const xmlPath = path.join(outDir, file);
     let xml;
@@ -1009,6 +1012,7 @@ function syncSitemaps(outDir, prunedUrls) {
       continue;
     }
     let dropped = 0;
+    let restamped = 0;
     const next = xml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
       const loc = (block.match(/<loc>\s*([^<\s]+)\s*<\/loc>/i) || [])[1];
       if (!loc) return block;
@@ -1018,18 +1022,59 @@ function syncSitemaps(outDir, prunedUrls) {
       } catch {
         return block;
       }
-      if (!pruned.has(target.endsWith('/') ? target : target + '/')) return block;
-      dropped++;
-      return '';
+      if (pruned.has(target.endsWith('/') ? target : target + '/')) {
+        dropped++;
+        return '';
+      }
+      if (!dates) return block;
+      const clean = target.replace(/^\/+/, '').replace(/\/+$/, '');
+      const iso = dates.isoFor(clean ? clean + '/index.html' : 'index.html');
+      if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return block;
+      const upd = block.includes('<lastmod>')
+        ? block.replace(/<lastmod>\s*[^<\s]*\s*<\/lastmod>/i, `<lastmod>${iso}</lastmod>`)
+        : block.replace(/<\/loc>/i, `</loc>\n    <lastmod>${iso}</lastmod>`);
+      if (upd !== block) restamped++;
+      return upd;
     });
-    if (!dropped) continue;
+    // Record the max even for a file we do not rewrite: the index's <lastmod>
+    // claims a date for this silo, and a silo that already agrees still has to
+    // be able to prove it.
+    for (const m of next.matchAll(/<lastmod>\s*(\d{4}-\d{2}-\d{2})\s*<\/lastmod>/gi)) {
+      if (!siloMax.get(file) || m[1] > siloMax.get(file)) siloMax.set(file, m[1]);
+    }
+    if (!dropped && !restamped) continue;
     try {
       fs.writeFileSync(xmlPath, next);
       removed += dropped;
-      console.log(`[sitemaps] ${file}: dropped ${dropped} pruned <loc> ${dropped === 1 ? 'entry' : 'entries'}`);
+      console.log(`[sitemaps] ${file}: dropped ${dropped} pruned <loc> ${dropped === 1 ? 'entry' : 'entries'}, <lastmod> refreshed on ${restamped} ${restamped === 1 ? 'url' : 'urls'}`);
     } catch (err) {
       console.error(`[sitemaps] cannot write ${xmlPath}: ${err.message}`);
     }
+  }
+
+  // The index's <lastmod> is a claim about its silo, so it is derived from the
+  // silo rather than left at whatever date generated the committed file.
+  const indexPath = path.join(outDir, 'sitemap-index.xml');
+  try {
+    const idx = fs.readFileSync(indexPath, 'utf8');
+    let changed = 0;
+    const nextIdx = idx.replace(/<sitemap>[\s\S]*?<\/sitemap>/g, (block) => {
+      const loc = (block.match(/<loc>\s*([^<\s]+)\s*<\/loc>/i) || [])[1];
+      if (!loc) return block;
+      let name;
+      try { name = new URL(loc).pathname.split('/').pop(); } catch { return block; }
+      const max = siloMax.get(name);
+      if (!max) return block;
+      const upd = block.includes('<lastmod>')
+        ? block.replace(/<lastmod>\s*[^<\s]*\s*<\/lastmod>/i, `<lastmod>${max}</lastmod>`)
+        : block.replace(/<\/loc>/i, `</loc>\n    <lastmod>${max}</lastmod>`);
+      if (upd !== block) changed++;
+      return upd;
+    });
+    if (changed) fs.writeFileSync(indexPath, nextIdx);
+    console.log(`[sitemaps] sitemap-index.xml: ${changed} of ${sitemapFiles.length} silo ${changed === 1 ? 'entry' : 'entries'} re-dated from its own <url> set`);
+  } catch (err) {
+    console.error(`[sitemaps] cannot re-date sitemap-index.xml: ${err.message}`);
   }
   return removed;
 }

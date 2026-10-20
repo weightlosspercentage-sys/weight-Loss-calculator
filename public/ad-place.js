@@ -66,7 +66,11 @@
     wrap.className = 'wl-ad';
     wrap.setAttribute('data-wl-ad', slot);
     wrap.setAttribute('data-wl-owned', '1');
-    wrap.style.cssText = 'margin:2rem 0;padding:0 1rem;box-sizing:border-box;min-height:' + (minHeight + 18) + 'px';
+    // max-width/overflow: data-full-width-responsive sizes the unit to the
+    // viewport, and a CSS-grid item (min-width:auto) lets that widen its track
+    // past a padded container. Measured on /calculators/newborn-weight-loss/ at
+    // 390px: 390px unit inside a 358px content box => 16px page overflow.
+    wrap.style.cssText = 'margin:2rem 0;padding:0 1rem;box-sizing:border-box;min-width:0;max-width:100%;overflow:hidden;min-height:' + (minHeight + 18) + 'px';
     var label = document.createElement('p');
     label.textContent = 'Advertisement';
     label.style.cssText = 'margin:0 0 4px;font-size:10px;line-height:14px;letter-spacing:.08em;text-transform:uppercase;color:#475569;text-align:center';
