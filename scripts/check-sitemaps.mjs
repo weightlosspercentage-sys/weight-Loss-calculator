@@ -77,6 +77,22 @@ if (fs.existsSync(redirects)) {
     if (status === '404') continue;
     const target = (to || '').replace(/^https?:\/\/(www\.)?weightlosspercentage\.com/i, '');
     if (!target.startsWith('/')) continue;
+    // A dynamic target such as /calculators/weight-loss/from-:splat is a template, not a
+    // path, so testing it literally reports every splat rule as broken. Resolve it against
+    // the tree: the directory the template sits in must exist and must hold at least one
+    // entry carrying the literal prefix that precedes the placeholder.
+    const wildAt = [target.indexOf(':splat'), target.indexOf('*')].filter((i) => i >= 0).sort((a, b) => a - b)[0];
+    if (wildAt !== undefined) {
+      const upTo = target.slice(0, wildAt);
+      const slash = upTo.lastIndexOf('/');
+      const dir = upTo.slice(0, slash).replace(/^\/|\/$/g, '');
+      const prefix = upTo.slice(slash + 1);
+      const abs = path.join(ROOT, dir);
+      const lands = fs.existsSync(abs) && fs.readdirSync(abs, { withFileTypes: true })
+        .some((e) => e.isDirectory() && e.name.startsWith(prefix));
+      if (!lands) fail(`_redirects sends ${from} to template ${target} but nothing matches ${dir}/${prefix}* to land on`);
+      continue;
+    }
     const disk = target === '/' ? 'index.html' : target.replace(/^\/|\/$/g, '') + '/index.html';
     if (fs.existsSync(path.join(ROOT, 'index.html')) && !fs.existsSync(path.join(ROOT, disk))) {
       fail(`_redirects sends ${from} to ${target} but ${disk} is absent (redirect chain ends in a 404)`);

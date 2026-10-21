@@ -161,9 +161,23 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
 
   // 2. Remove <meta name="description"> — SEO.astro emits it
   headInner = headInner.replace(/<meta\s+name=["']description["'][^>]*\/?>/gi, '');
+  // The committed pages write these tags attribute-first
+  // (<meta content="…" name="description">), which the patterns above cannot see, so
+  // SEO.astro's copy and the committed one both shipped. Google honours the FIRST, which is
+  // SEO.astro's — so on / the served snippet was the truncated one. Measure-before-you-fix:
+  // 6 indexable pages (/, /about/, /calculators/, /compare/, /contact/, /nutrition/) had 2
+  // canonicals, 2 robots, 2 descriptions and 2 og:title each. hreflang (:174-175) already
+  // matched both orders; every other rule here did not.
+  headInner = headInner.replace(/<meta\s+content=["'][^"']*["'][^>]*\bname=["']description["'][^>]*\/?>/gi, '');
 
   // 3. Remove <link rel="canonical"> — SEO.astro emits it
   headInner = headInner.replace(/<link\s+rel=["']canonical["'][^>]*\/?>/gi, '');
+  headInner = headInner.replace(/<link\s+href=["'][^"']*["'][^>]*\brel=["']canonical["'][^>]*\/?>/gi, '');
+
+  // 3a. Remove the committed robots meta — SEO.astro emits it. Only when it does not say
+  // noindex: stripping a real noindex would flip a page from excluded to indexable, and a
+  // duplicate robots tag is resolved to the most restrictive value by crawlers anyway.
+  headInner = headInner.replace(/<meta(?![^>]*noindex)[^>]*\bname=["']robots["'][^>]*\/?>/gi, '');
 
   // 3b. Remove JSON-LD schema scripts from the head — they are captured into
   // `schemas` above and SEO.astro re-injects them, so leaving them here produces
@@ -177,6 +191,8 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
   // 5. Remove OG / Twitter meta — SEO.astro emits defaults
   headInner = headInner.replace(/<meta\s+property=["']og:[^"']*["'][^>]*\/?>/gi, '');
   headInner = headInner.replace(/<meta\s+name=["']twitter:[^"']*["'][^>]*\/?>/gi, '');
+  headInner = headInner.replace(/<meta\s+content=["'][^"']*["'][^>]*\bproperty=["']og:[^"']*["'][^>]*\/?>/gi, '');
+  headInner = headInner.replace(/<meta\s+content=["'][^"']*["'][^>]*\bname=["']twitter:[^"']*["'][^>]*\/?>/gi, '');
 
   // 6. Remove charset / viewport / standard head metas — SEO.astro emits them
   headInner = headInner.replace(/<meta\s+charset=[^>]*\/?>/gi, '');
@@ -266,41 +282,53 @@ export function parseHtmlPageV2(relativeFilePath: string, loadReact: boolean = f
     const cleanTitle = rawTitle.trim();
     if (cleanTitle.length <= 60) return cleanTitle;
 
-    // Try splitting by colon (e.g. "Weight Loss Percentage from X to Y lbs: Safe Deficit Plan")
-    if (cleanTitle.includes(':')) {
-      const parts = cleanTitle.split(':');
-      const firstPart = parts[0].trim();
-      const localeMatch = cleanTitle.match(/\s*\([^)]+\)\s*$/); // Extract (UK), (Canada), etc.
-      const suffix = localeMatch ? localeMatch[0] : '';
-      const candidate = firstPart + suffix;
-      if (candidate.length <= 60) {
+    // Try the leading clause plus any trailing locale marker ("(UK)", "(Canada)").
+    const localeMatch = cleanTitle.match(/\s*\([^)]+\)\s*$/);
+    const suffix = localeMatch ? localeMatch[0] : '';
+
+    // Colon was the only separator tried, so "Weight Loss Percentage Calculator — Free
+    // Percent Weight Loss Tool" (65) skipped this branch entirely and shipped as
+    // "Weight Loss Percentage Calculator — Free Percent Weight..." in both <title> and
+    // og:title. The em/en dashes and pipe are the separators this site's own titles use.
+    for (const sep of [':', '|', '—', '–']) {
+      if (!cleanTitle.includes(sep)) continue;
+      const candidate = cleanTitle.split(sep)[0].trim() + suffix;
+      if (candidate.length >= 20 && candidate.length <= 60) {
         return candidate;
       }
     }
 
-    // Clean word boundary truncation fallback
+    // Last resort: a clean word boundary, with no appended "...". Google renders its own
+    // truncation marker; the literal one reads as machine output.
     const truncated = cleanTitle.substring(0, 57);
     const lastSpace = truncated.lastIndexOf(' ');
-    return (lastSpace > 30 ? truncated.substring(0, lastSpace) : truncated) + '...';
+    return lastSpace > 30 ? truncated.substring(0, lastSpace) : truncated;
   };
 
-  // Helper to optimize descriptions to be between 70 and 155 characters
+  // Helper to keep descriptions in the range Google renders without inventing an ellipsis.
   const optimizeDescription = (rawDesc: string): string => {
     const cleanDesc = rawDesc.trim();
     if (!cleanDesc) return '';
-    
-    if (cleanDesc.length > 155) {
-      const truncated = cleanDesc.substring(0, 152);
-      const lastSpace = truncated.lastIndexOf(' ');
-      return (lastSpace > 80 ? truncated.substring(0, lastSpace) : truncated) + '...';
+
+    // 155 was cutting complete human-written copy: the six parsed pages measure 100, 129,
+    // 151, 152, 156 and 162 characters, so / and /nutrition/ lost their closing clause and
+    // shipped "...in a..." in the SERP. 165 clears every real value while still bounding
+    // bloated ones, and a cut is made at the last complete sentence, never with an
+    // appended "..." — Google adds its own marker, and the literal one is a slop fingerprint.
+    if (cleanDesc.length > 165) {
+      const window = cleanDesc.substring(0, 162);
+      const stop = Math.max(window.lastIndexOf('. '), window.lastIndexOf('! '), window.lastIndexOf('? '));
+      if (stop > 80) return window.substring(0, stop + 1);
+      const lastSpace = window.lastIndexOf(' ');
+      return lastSpace > 80 ? window.substring(0, lastSpace) : window;
     }
 
     if (cleanDesc.length < 70) {
       const suffix = " Track body weight trends, calculate healthy deficit goals, and start your weight loss journey safely today.";
-      if (cleanDesc.length + suffix.length <= 155) {
+      if (cleanDesc.length + suffix.length <= 165) {
         return cleanDesc + suffix;
       }
-      return (cleanDesc + suffix).substring(0, 152) + '...';
+      return cleanDesc;
     }
 
     return cleanDesc;

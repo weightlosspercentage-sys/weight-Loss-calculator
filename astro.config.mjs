@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 import { SPA_NAV_GUARD_SCRIPT, SPA_NAV_GUARD_MARKER } from './src/utils/spaNavGuard.mjs';
 import { enrichEeat, hasReviewDateClaim } from './scripts/eeat-enrich.mjs';
 import { pruneNoindex } from './scripts/prune-noindex.mjs';
+import { applyRedirectConsolidation } from './scripts/redirect-consolidation.mjs';
+import { addLocaleCoverage } from './scripts/sitemap-coverage.mjs';
 import { loadContentDates } from './scripts/content-dates.mjs';
 import {
   applyDateClaims, FROZEN_DATEMODIFIED, FABRICATED_DATEPUBLISHED,
@@ -976,14 +978,22 @@ function postProcessHtml(outDir) {
 }
 
 /**
- * Drop <url> blocks for pages pruneNoindex just deleted. Must run after the
- * prune: the sitemap files are committed assets that still list those URLs, and
- * a <loc> pointing at a 404 is reported as a discovery error in Search Console.
+ * Drop <url> blocks for pages pruneNoindex just deleted, and for locale pages whose own
+ * head a client-side app rewrites. Must run after the prune: the sitemap files are
+ * committed assets that still list those URLs, and a <loc> pointing at a 404 is reported
+ * as a discovery error in Search Console.
  * @param {string} outDir
  * @param {string[]} prunedUrls root-relative paths with trailing slashes
+ * @param {string[]} [spaUrls] locale paths that mount the React router, from
+ *   addLocaleCoverage. A locale URL is only a claim if this build controls the head it
+ *   serves; when the router replaces the committed self-canonical with one derived from
+ *   the locale-free route (342 of 394 such pages, measured), or renders its own
+ *   "Page not found" view (16 more), the sitemap and the page contradict each other.
+ * @returns {{ removed: number, spaTotal: number }}
  */
-function syncSitemaps(outDir, prunedUrls) {
+function syncSitemaps(outDir, prunedUrls, spaUrls) {
   const pruned = new Set((prunedUrls || []).map((p) => (p.endsWith('/') ? p : p + '/')));
+  const spa = new Set((spaUrls || []).map((p) => (p.endsWith('/') ? p : p + '/')));
   // <lastmod> is a crawl-priority claim, so it gets the same evidence rule as
   // dateModified in the JSON-LD: use the file's own commit date, never invent one.
   const dates = loadContentDates(process.cwd());
@@ -997,10 +1007,11 @@ function syncSitemaps(outDir, prunedUrls) {
     );
   } catch (err) {
     console.error(`[sitemaps] cannot list ${outDir}: ${err.message}`);
-    return 0;
+    return { removed: 0, spaTotal: 0 };
   }
 
   let removed = 0;
+  let spaTotal = 0;
   const siloMax = new Map();
   for (const file of sitemapFiles) {
     const xmlPath = path.join(outDir, file);
@@ -1012,6 +1023,7 @@ function syncSitemaps(outDir, prunedUrls) {
       continue;
     }
     let dropped = 0;
+    let spaDropped = 0;
     let restamped = 0;
     const next = xml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
       const loc = (block.match(/<loc>\s*([^<\s]+)\s*<\/loc>/i) || [])[1];
@@ -1022,8 +1034,13 @@ function syncSitemaps(outDir, prunedUrls) {
       } catch {
         return block;
       }
-      if (pruned.has(target.endsWith('/') ? target : target + '/')) {
+      const key = target.endsWith('/') ? target : target + '/';
+      if (pruned.has(key)) {
         dropped++;
+        return '';
+      }
+      if (spa.has(key)) {
+        spaDropped++;
         return '';
       }
       if (!dates) return block;
@@ -1042,11 +1059,12 @@ function syncSitemaps(outDir, prunedUrls) {
     for (const m of next.matchAll(/<lastmod>\s*(\d{4}-\d{2}-\d{2})\s*<\/lastmod>/gi)) {
       if (!siloMax.get(file) || m[1] > siloMax.get(file)) siloMax.set(file, m[1]);
     }
-    if (!dropped && !restamped) continue;
+    if (!dropped && !spaDropped && !restamped) continue;
     try {
       fs.writeFileSync(xmlPath, next);
       removed += dropped;
-      console.log(`[sitemaps] ${file}: dropped ${dropped} pruned <loc> ${dropped === 1 ? 'entry' : 'entries'}, <lastmod> refreshed on ${restamped} ${restamped === 1 ? 'url' : 'urls'}`);
+      spaTotal += spaDropped;
+      console.log(`[sitemaps] ${file}: dropped ${dropped} pruned + ${spaDropped} SPA-mounted <loc> ${dropped + spaDropped === 1 ? 'entry' : 'entries'}, <lastmod> refreshed on ${restamped} ${restamped === 1 ? 'url' : 'urls'}`);
     } catch (err) {
       console.error(`[sitemaps] cannot write ${xmlPath}: ${err.message}`);
     }
@@ -1076,7 +1094,15 @@ function syncSitemaps(outDir, prunedUrls) {
   } catch (err) {
     console.error(`[sitemaps] cannot re-date sitemap-index.xml: ${err.message}`);
   }
-  return removed;
+  // Fail loud rather than fail open. An empty spaUrls means addLocaleCoverage could not
+  // walk the trees, in which case the committed silo's SPA entries survive this build
+  // un-reviewed - which is the exact defect this pass exists to close.
+  if (!spaUrls || spaUrls.length === 0) {
+    console.warn('[sitemaps] WARNING: no SPA locale urls supplied by addLocaleCoverage; SPA <loc> entries were not reviewed this build');
+  } else {
+    console.log(`[sitemaps] SPA-mounted locale urls: ${spaUrls.length} withheld from coverage, ${spaTotal} pre-existing <loc> ${spaTotal === 1 ? 'entry' : 'entries'} dropped`);
+  }
+  return { removed, spaTotal };
 }
 
 const copyAssetsIntegration = {
@@ -1183,9 +1209,13 @@ const copyAssetsIntegration = {
         }
         
         // Regional catch-alls: return 404 for non-existent regional URLs (Fix 1)
-        // Real pages are pre-rendered static files served with 200 before these
-        // rules are ever reached. Non-existent URLs now properly return 404,
-        // fixing 295+ Soft 404 errors in Google Search Console.
+        // Measured in production, these rules do NOT take effect: /zz-does-not-exist/
+        // answers HTTP 200 with the ROOT index.html, as do /.env, /wp-admin/ and
+        // /cgi-bin/test.cgi (see SEC-6). The 308 that /author/dr-rekha-kumar returns
+        // for a rule nothing in this file emits shows a higher-precedence
+        // dashboard/zone rule is involved, and the dashboard is not readable from
+        // here. So this block is the intended behaviour, not a verified one - do not
+        // cite it as proof the soft-404s are fixed.
         redirectLines.push('/uk/* /uk/index.html 404');
         redirectLines.push('/ca/* /ca/index.html 404');
         redirectLines.push('/au/* /au/index.html 404');
@@ -1195,7 +1225,12 @@ const copyAssetsIntegration = {
         // Global catch-all: 404 for any other unknown path
         redirectLines.push('/* /index.html 404');
         
-        fs.writeFileSync(path.join(outDir, '_redirects'), redirectLines.join('\n'));
+        // A newline-terminated line. The previous writer joined with '\n', so the
+        // global 404 catch-all was the file's final line with no terminator
+        // (lastByte="4", endsWithNewline=false measured on the deployed artifact) -
+        // the exact line whose status was not being honoured. Cheap, strictly safe
+        // hygiene: every other rule was already newline-terminated by construction.
+        fs.writeFileSync(path.join(outDir, '_redirects'), redirectLines.join('\n') + '\n');
         console.log(`[copy-assets] Generated ${redirectLines.length} redirects in _redirects file successfully!`);
       }
       
@@ -1208,9 +1243,26 @@ const copyAssetsIntegration = {
       // thin locale pages (excluded from sitemaps anyway) and repoint any kept-page
       // links that target them to their English canonical equivalents.
       const pruned = pruneNoindex(outDir);
+      // Two sitemap integrity passes. addLocaleCoverage re-adds the 5,091 committed
+      // locale URLs that this pipeline itself drops every deploy (it regenerates the
+      // silos from the root copy, which lists fewer trees than the committed one does),
+      // and reports the locale pages that mount the client router so the reconciliation
+      // below can withhold a claim it cannot keep. Both run before syncSitemaps so its
+      // per-silo <lastmod> is re-derived from the finished file rather than a stale one.
+      const coverage = addLocaleCoverage(outDir, { fs, path, dates: loadContentDates(process.cwd()) });
       // hreflang and <link rel="alternate"> clusters are emitted for those pages
       // while they still exist, so they are reconciled here, after the deletion.
-      syncSitemaps(outDir, pruned.prunedUrls);
+      syncSitemaps(outDir, pruned.prunedUrls, coverage.spaUrls);
+
+      // 253 URLs in this site's own Search Console export (9,978 impressions, 12 clicks)
+      // ship no file and carry no 301, so they answer HTTP 200 with the homepage shell
+      // while self-canonicalising - a soft 404 Google keeps serving. Rules are added last
+      // because a target is only valid once pruneNoindex has decided what actually ships:
+      // locale trees keep 12 of 2,020 pages, so a rule must be able to fall back to the
+      // English canonical it was translated from, and the thin-page splats need the pruned
+      // URL set to know which families are gone. Cloudflare caps this file at 2,000 static
+      // + 100 dynamic rules, which the module checks and throws on.
+      applyRedirectConsolidation(outDir, { fs, path, prunedUrls: pruned.prunedUrls });
 
       // One crawl surface, one URL set. /sitemap.xml shipped a 14,177-<loc> <urlset>
       // that duplicated 14,177 of the 14,177 URLs already listed by the six silos
