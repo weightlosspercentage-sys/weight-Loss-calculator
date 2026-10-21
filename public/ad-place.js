@@ -66,10 +66,9 @@
     wrap.className = 'wl-ad';
     wrap.setAttribute('data-wl-ad', slot);
     wrap.setAttribute('data-wl-owned', '1');
-    // max-width/overflow: data-full-width-responsive sizes the unit to the
-    // viewport, and a CSS-grid item (min-width:auto) lets that widen its track
-    // past a padded container. Measured on /calculators/newborn-weight-loss/ at
-    // 390px: 390px unit inside a 358px content box => 16px page overflow.
+    // overflow:hidden is what keeps the page from being widened: the unit is a
+    // grid item's child, so a creative measured to the viewport would otherwise
+    // set that item's min-content width and push the track past the container.
     wrap.style.cssText = 'margin:2rem 0;padding:0 1rem;box-sizing:border-box;min-width:0;max-width:100%;overflow:hidden;min-height:' + (minHeight + 18) + 'px';
     var label = document.createElement('p');
     label.textContent = 'Advertisement';
@@ -85,6 +84,26 @@
     wrap.appendChild(label);
     wrap.appendChild(ins);
     return wrap;
+  }
+
+  // A grid/flex item's automatic minimum size is its min-content width, so a
+  // creative sized to the viewport inside a padded card widens the track past
+  // the container and the page scrolls sideways. Releasing min-width lets the
+  // wrapper's own clamp work. Attributed on the live site at 390px: with only
+  // this script blocked AdSense still injects 9 units and the page overflows
+  // 0px, while with it running the page overflows 16px - the bleed is ours.
+  function releaseAutoMinWidth(el) {
+    for (var i = 0; el && i < 3; i++) {
+      var parent = el.parentElement;
+      if (!parent) break;
+      var d = getComputedStyle(parent).display;
+      if (d.indexOf('grid') === -1 && d.indexOf('flex') === -1) {
+        el = parent;
+        continue;
+      }
+      if (getComputedStyle(el).minWidth !== '0px') el.style.minWidth = '0';
+      el = parent;
+    }
   }
 
   function fill(ins) {
@@ -125,6 +144,7 @@
     anchor.setAttribute('data-wl-placed', '1');
     var unit = makeUnit(slot, 280);
     card.parentElement.insertBefore(unit, position === 'before' ? card : card.nextSibling);
+    releaseAutoMinWidth(unit.parentElement);
     lazyFill(unit, unit.querySelector('ins.adsbygoogle'));
   }
 
