@@ -106,6 +106,30 @@
     }
   }
 
+  // The client router owns only the routes compiled into the bundle, so a direct
+  // load of e.g. /es/calculators/calorie-deficit/ replaces #root with the app's
+  // own "404 / Page not found" view while the URL still answers HTTP 200 over a
+  // complete committed page. AdSense forbids units on error pages, and measured
+  // live this script was placing a 390x408 box under that message on 10 of 34
+  // probed es paths. Detection is the h1 the view renders, not the status code.
+  function isErrorView() {
+    var root = document.getElementById('root') || document.body;
+    var h1 = root.querySelector('h1');
+    var head = (h1 && h1.textContent || '').trim();
+    if (head === '404' || /^404\b/.test(head)) return true;
+    var txt = (root.textContent || '').slice(0, 300);
+    return /page not found/i.test(txt) && /go home/i.test(txt);
+  }
+
+  // Take back every unit we created, but only those AdSense has not begun work
+  // on: a detached div behind a queued push is the loader's Error: no_div.
+  function dropOwnUnits() {
+    var mine = ownedWrappers();
+    for (var i = mine.length - 1; i >= 0; i--) {
+      if (mine[i].parentElement && !pushed(mine[i])) mine[i].parentElement.removeChild(mine[i]);
+    }
+  }
+
   function fill(ins) {
     if (!ins || ins.getAttribute('data-wl-filled') === '1') return;
     ins.setAttribute('data-wl-filled', '1');
@@ -251,6 +275,11 @@
   }
 
   function normalize() {
+    if (isErrorView()) {
+      dropOwnUnits();
+      return;
+    }
+
     dropHiddenSidebarAds();
     reconcile();
 
