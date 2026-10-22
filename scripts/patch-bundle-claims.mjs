@@ -137,19 +137,49 @@ const RULES = [
   },
 
   // ---- the two date claims the app builds at RUNTIME, which no build step can reach ----
-  // Qe is the shared lastUpdated for every calculator entry in zi (bmi, tdee, bmr, calorie, macro,
-  // body-fat, weight-loss-percentage) and the component near the citation list renders
-  // new Date(g.lastUpdated).toLocaleDateString(...), so the site shows "Last updated: November 1,
-  // 2025" on those pages. The bundle file itself entered this repository on 2026-07-04 (git
-  // log --reverse) and the repository starts 2026-05-26, so November 2025 is not stale - it is
-  // impossible. 2026-10-22 is this file's own commit date once this change lands, which is the
-  // same evidence step 13 uses for committed HTML (isoFor = newest touch of that file).
+  // Qe is the shared lastUpdated for every calculator entry in zi (17 of them: weight-loss-percentage,
+  // bmi, tdee, bmr, calorie, macro, body-fat, protein, water-intake, weight-loss, keto, newborn-weight-loss,
+  // glp1, dog-weight-loss, peptide-dosage, bariatric, postpartum) and the component next to the citation
+  // list renders it, so the site shows "Last updated: November 1, 2025" on those pages. The bundle file
+  // itself entered this repository on 2026-05-26 and the repository starts the same day, so November 2025
+  // is not stale - it is impossible.
+  //
+  // RETARGETING IT WAS MEASURED AND REJECTED. An earlier revision of this rule wrote Qe="2026-10-22",
+  // this file's own newest-touch date, on the model of step 13's git-derived dateModified. Two facts kill
+  // that: (1) Qe is ONE constant behind 17 different pages, so it claims all 17 were updated the day the
+  // bundle was patched, while those pages' own HTML was last committed on 2026-10-20 - the visible line
+  // would contradict the page's own evidenced schema date on every one of them; (2) it is a literal that
+  // rots, which is the defect this patch exists to remove. So the whole claim is deleted instead: the
+  // constant, the 17 fields that read it, and the text node that renders it. Nothing is substituted.
+  //
+  // EMPTINESS IS NOT AN OPTION HERE EITHER, and that is why R16 and R17 differ. R16's consumer is
+  // `d && ["Last updated: ", d]`, so "" suppresses the line. R17's consumer at @485304 is UNGUARDED -
+  // `new Date(g.lastUpdated).toLocaleDateString(...)` - and new Date("") or new Date(undefined) yields
+  // the literal string "Invalid Date" on 17 live calculator pages. Deleting the rendered element is the
+  // only removal that does not replace a false date with a broken one.
   {
     id: 'R17',
-    need: 'Qe="2025-11-01"',
-    repl: 'Qe="2026-10-22"',
+    structural: true,
+    need: 'Qe="2025-11-01",',
+    repl: '',
     count: 1,
-    why: 'shared calculator lastUpdated constant, read by 17 `lastUpdated:Qe` entries -> "Last updated: November 1, 2025" on every calculator, a date before the artifact existed',
+    why: 'the shared calculator lastUpdated constant. Removing it makes the 17 `lastUpdated:Qe` fields below unreadable, so all 18 refs go in one pass and no identifier is left dangling.',
+  },
+  {
+    id: 'R20',
+    structural: true,
+    need: ',lastUpdated:Qe',
+    repl: '',
+    count: 17,
+    why: 'one whole `key:value` pair per calculator entry, each followed by `}` - balanced, so every object literal stays intact.',
+  },
+  {
+    id: 'R21',
+    structural: true,
+    need: '"Last updated: ",new Date(g.lastUpdated).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})," ",',
+    repl: '',
+    count: 1,
+    why: 'the rendered claim itself. Three whole array elements (label, formatted date, separator) go together, leaving children:["· Reviewed by the Weight Loss Percentage editorial team."] - the reviewer attestation survives, the unevidenced date does not.',
   },
   // The WebPage blocks the app injects per route carried a fabricated publish date and a client-clock
   // "modified" stamp: dateModified:new Date().toISOString().slice(0,10) reads as today EVERY time the
@@ -203,7 +233,7 @@ const KEEP = [
 // literal proves nothing.
 const GONE = ['James Peterson', 'Dietitian-Reviewed', 'Dietitian-reviewed', 'dietitian-reviewed',
   'Registered Dietitian', 'November 1, 2025', 'datePublished:"2025-01-01"', 'Qe="2025-11-01"',
-  'new Date().toISOString().slice(0,10)'];
+  'new Date().toISOString().slice(0,10)', ',lastUpdated:Qe', 'new Date(g.lastUpdated)'];
 
 const abort = (msg, code) => { console.error(`\nABORT: ${msg}`); process.exit(code); };
 const COUNTED = (hay, needle) => {
