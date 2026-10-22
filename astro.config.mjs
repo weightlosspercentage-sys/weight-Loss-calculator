@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { SPA_NAV_GUARD_SCRIPT, SPA_NAV_GUARD_MARKER } from './src/utils/spaNavGuard.mjs';
-import { enrichEeat, hasReviewDateClaim } from './scripts/eeat-enrich.mjs';
+import { enrichEeat, hasReviewDateClaim, unevidencedReviewers } from './scripts/eeat-enrich.mjs';
 import { pruneNoindex } from './scripts/prune-noindex.mjs';
 import { applyRedirectConsolidation } from './scripts/redirect-consolidation.mjs';
 import { addLocaleCoverage } from './scripts/sitemap-coverage.mjs';
@@ -301,6 +301,8 @@ function postProcessHtml(outDir) {
   let reviewClausesRemoved = 0;
   let reviewClausePages = 0;
   let reviewClauseResidual = 0;
+  let reviewerEntityResidual = 0;
+  const reviewerEntities = new Set();
   const residualExamples = [];
   // Freshness degeneracy: how many indexable pages ended up on each dateModified value.
   const dateHistogram = new Map();
@@ -800,6 +802,17 @@ function postProcessHtml(outDir) {
         reviewClauseResidual++;
         if (residualExamples.length < 8) residualExamples.push(relPath + ' (unevidenced review date)');
       }
+      // A reviewer attestation that names no one the site documents. The guard above could not
+      // see this class: it keys on a "Last reviewed" label plus a 4-digit year, and "Reviewed by
+      // Clinical Pediatric Team" has neither - yet it shipped on the newborn and infant
+      // calculators while the same page credited Dr. Rekha Kumar a few hundred characters later.
+      // Census over all 17,239 artifact pages: this flags exactly those 2, 0 false positives.
+      const ghostReviewers = unevidencedReviewers(html);
+      if (ghostReviewers.length) {
+        reviewerEntityResidual++;
+        for (const who of ghostReviewers) reviewerEntities.add(who);
+        if (residualExamples.length < 8) residualExamples.push(relPath + ' (unevidenced reviewer)');
+      }
     }
 
     // --- 10. Sitemap discovery: <link rel="sitemap"> in page heads ---
@@ -934,10 +947,10 @@ function postProcessHtml(outDir) {
   console.log(`[seo-inject] Meta author injected: ${authorInjected} blog articles`);
   console.log(`[seo-inject] Noindex added: ${noindexInjected} thin locale pages`);
   console.log(`[seo-inject] Unevidenced "Last reviewed" clause removed: ${reviewClausesRemoved} clauses on ${reviewClausePages} pages (markup only; __TRANSLATIONS__ keys untouched)`);
-  if (staleDateResidual || publishedResidual || bylineResidual || reviewClauseResidual) {
-    console.warn(`[seo-inject] WARNING on indexable pages: ${staleDateResidual} frozen dateModified, ${publishedResidual} invented datePublished, ${bylineResidual} invented byline, ${reviewClauseResidual} unevidenced review date: ${residualExamples.join(', ')}`);
+  if (staleDateResidual || publishedResidual || bylineResidual || reviewClauseResidual || reviewerEntityResidual) {
+    console.warn(`[seo-inject] WARNING on indexable pages: ${staleDateResidual} frozen dateModified, ${publishedResidual} invented datePublished, ${bylineResidual} invented byline, ${reviewClauseResidual} unevidenced review date, ${reviewerEntityResidual} unevidenced reviewer [${[...reviewerEntities].join(' | ')}]: ${residualExamples.join(', ')}`);
   } else {
-    console.log('[seo-inject] Date/byline guard: 0 indexable pages carry 2026-09-15, 2025-03-01, the invented byline, or a "Last reviewed" month');
+    console.log('[seo-inject] Date/byline guard: 0 indexable pages carry 2026-09-15, 2025-03-01, the invented byline, a "Last reviewed" month, or a reviewer this site does not document');
   }
   for (const [field, histogram, why] of [
     ['dateModified', dateHistogram, 'A bulk commit that rewrote every file is why; edit pages per-page, or this decays into the same site-wide frozen stamp the pass was built to remove.'],

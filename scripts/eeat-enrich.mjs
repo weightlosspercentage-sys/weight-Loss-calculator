@@ -223,6 +223,41 @@ export function hasReviewDateClaim(html) {
   return stripReviewDate(html).removed > 0;
 }
 
+// A reviewer attestation has to name a reviewer that exists. "Reviewed by Clinical Pediatric
+// Team" shipped on the newborn and infant calculators named an entity present in no Person
+// schema, no component and no other tracked file, while the same page credited
+// Dr. Rekha Kumar, M.D., M.S. a few hundred characters later. The label-driven guards above
+// could not see it: there is no "Last reviewed:" and no 4-digit year in that clause.
+//
+// The allowlist is measured, not invented. Every remaining "reviewed by" in shipped HTML
+// resolves to one of these two entities, so anything else is a claim this build cannot back.
+const EVIDENCED_REVIEWERS = [
+  /dr\.?\s+kumar|rekha\s+kumar/i,
+  /weight\s+loss\s+percentage\s+editorial\s+team/i,
+];
+
+export function unevidencedReviewers(html) {
+  const markup = html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const found = [];
+  // Tag-tolerant between label and name, because the honest attestations wrap the physician in
+  // <strong><a href="/authors/dr-rekha-kumar/"></a></strong>; a flat capture after stripping tags
+  // would truncate "Dr. Rekha Kumar" at the first period and flag it as an unknown reviewer.
+  // The name itself stops at '<' (end of the element), '|' (a separator cell) or a newline.
+  const re = /(?:medically\s+|clinically\s+)?reviewed\s+by\s+(?:<[^>]{0,200}>\s*)*([^<|\n]{3,80})/gi;
+  for (const m of markup.matchAll(re)) {
+    const who = m[1].replace(/\s+/g, ' ').trim();
+    // An attestation names someone: a capital-led noun phrase. Prose trailing the label
+    // ("reviewed by the team we keep") is not a claim about a reviewer.
+    if (!/^[A-Z]/.test(who)) continue;
+    if (EVIDENCED_REVIEWERS.some((r) => r.test(who))) continue;
+    found.push(who);
+  }
+  return found;
+}
+
 // --- 3+4+5. inject section + schema ------------------------------------------
 const FAQ_MARK = '<!-- eeat-faq -->';
 const CRUMB_MARK = '<!-- eeat-breadcrumb -->';
