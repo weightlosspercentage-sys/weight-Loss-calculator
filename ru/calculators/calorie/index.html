@@ -48,7 +48,7 @@
     <meta name="theme-color" content="#4f46e5" /></meta>
 
     <title>Калькулятор калорий — ежедневная потребность в калориях и целевые показатели дефицита (бесплатно)</title>
-    <meta name="description" content="Рассчитайте свою ежедневную потребность в калориях, чтобы похудеть, сохранить или набрать вес. Найдите точные целевые показатели дефицита калорий с помощью Mifflin-St Jeor. Проверено врачом." /></meta>
+    <meta name="description" content="Рассчитайте свою ежедневную потребность в калориях, чтобы похудеть, сохранить или набрать вес. Найдите точные целевые показатели дефицита калорий с помощью уравнения Харриса-Бенедикта. Проверено врачом." /></meta>
 
     <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
     <meta property="og:site_name" content="Weight Loss Percentage" /></meta>
@@ -93,7 +93,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Daily Calorie Calculator",
-      "description": "Free calorie calculator estimating daily energy needs and fat-loss calorie deficits using the Mifflin-St Jeor equation.",
+      "description": "Free calorie calculator estimating daily energy needs and fat-loss calorie deficits using the revised Harris-Benedict equation.",
       "url": "https://www.weightlosspercentage.com/calculators/calorie/",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
@@ -110,7 +110,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "How many calories should I eat a day to lose weight?", "acceptedAnswer": { "@type": "Answer", "text": "To lose weight safely, subtract 300 to 500 calories from your Total Daily Energy Expenditure (TDEE). For most people, this results in a target of 1,500-2,000 calories per day for women, and 2,000-2,500 for men." } },
         { "@type": "Question", "name": "What is a safe daily calorie deficit?", "acceptedAnswer": { "@type": "Answer", "text": "A safe daily calorie deficit is 300 to 500 calories. This allows for a steady fat loss of 0.5 to 1 pound per week while protecting muscle mass, thyroid function, and metabolic rate." } },
-        { "@type": "Question", "name": "How does a calorie calculator estimate daily needs?", "acceptedAnswer": { "@type": "Answer", "text": "It calculates your Basal Metabolic Rate (BMR) using Mifflin-St Jeor or Harris-Benedict formulas based on age, sex, height, and weight, then multiplies it by an activity coefficient representing daily physical exertion." } }
+        { "@type": "Question", "name": "How does a calorie calculator estimate daily needs?", "acceptedAnswer": { "@type": "Answer", "text": "It calculates your Basal Metabolic Rate (BMR) using the revised Harris-Benedict equation based on age, sex, height, and weight, then multiplies it by an activity coefficient representing daily physical exertion." } }
       ]
     }
     </script>
@@ -289,8 +289,8 @@
 
         <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">Как работают формулы калорий</h2>
         <p>В этом калькуляторе используется **уравнение Миффлина-Сент-Джора**, которое широко считается наиболее точным инструментом оценки для здоровых взрослых. Он рассчитывает BMR в метрических единицах (вес в кг, рост в см):</p>
-        <p><strong>Для мужчин:</strong> BMR = (10 × вес) + (6,25 × рост) − (5 × возраст) + 5</p>
-        <p><strong>Для женщин:</strong> BMR = (10 × вес) + (6,25 × рост) — (5 × возраст) — 161</p>
+        <p><strong>Для мужчин:</strong> BMR = 88,362 + (13,397 × вес) + (4,799 × рост) − (5,677 × возраст)</p>
+        <p><strong>Для женщин:</strong> BMR = 447,593 + (9,247 × вес) + (3,098 × рост) − (4,33 × возраст)</p>
         <p>После расчета BMR он умножается на множитель вашей активности:</p>
         <table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin-bottom:1.5rem;">
           <thead>

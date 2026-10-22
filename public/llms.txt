@@ -18,7 +18,7 @@
 - [Infant Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/infant-weight-loss/) - Tracks weight changes for older infants and breastfed babies.
 - [Baby Weight Loss Calculator](https://www.weightlosspercentage.com/calculators/baby-weight-loss/) - Monitored pediatric tool for tracking birth weight recovery.
 - [BMI Calculator](https://www.weightlosspercentage.com/calculators/bmi/) - Calculates Body Mass Index from height and weight according to WHO standard weight categories.
-- [BMR Calculator](https://www.weightlosspercentage.com/calculators/bmr/) - Computes Basal Metabolic Rate using the Mifflin-St Jeor and Harris-Benedict equations.
+- [BMR Calculator](https://www.weightlosspercentage.com/calculators/bmr/) - Computes Basal Metabolic Rate using the revised Harris-Benedict equation.
 - [TDEE Calculator](https://www.weightlosspercentage.com/calculators/tdee/) - Determines Total Daily Energy Expenditure by applying activity multipliers to BMR.
 - [Calorie Calculator](https://www.weightlosspercentage.com/calculators/calorie/) - Estimates daily calorie requirements for weight loss, maintenance, or muscle gain.
 - [Macro Calculator](https://www.weightlosspercentage.com/calculators/macro/) - Breaks down daily calorie targets into protein, carbohydrate, and fat macronutrient splits.

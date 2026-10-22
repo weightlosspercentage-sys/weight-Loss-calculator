@@ -45,7 +45,7 @@
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <meta content="#4f46e5" name="theme-color"/>
 <title>Calorie Calculator — Daily Calorie Deficit & Maintenance</title>
-<meta content="Calculate your daily calorie needs to lose weight, maintain, or build muscle. Find your exact calorie deficit targets with Mifflin-St Jeor. Medically reviewed." name="description"/>
+<meta content="Calculate your daily calorie needs to lose weight, maintain, or build muscle. Find your exact calorie deficit targets with the Harris-Benedict equation. Medically reviewed." name="description"/>
 <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
 <meta content="Weight Loss Percentage" property="og:site_name"/>
 <meta content="website" property="og:type"/>
@@ -100,7 +100,7 @@
         box-sizing: border-box !important;
       }
     </style>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="googlebot"/><meta content="Calorie Calculator — Daily Calorie Deficit & Maintenance" property="og:title"/><meta content="Calculate your daily calorie needs to lose weight, maintain, or build muscle. Find your exact calorie deficit targets with Mifflin-St Jeor. Medically reviewed." property="og:description"/><meta content="https://www.weightlosspercentage.com/calculators/calorie/" property="og:url"/><meta content="Calorie Calculator — Daily Calorie Deficit & Maintenance" name="twitter:title"/><meta content="Calculate your daily calorie needs to lose weight, maintain, or build muscle. Find your exact calorie deficit targets with Mifflin-St Jeor. Medically reviewed." name="twitter:description"/><script type="application/ld+json">
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="googlebot"/><meta content="Calorie Calculator — Daily Calorie Deficit & Maintenance" property="og:title"/><meta content="Calculate your daily calorie needs to lose weight, maintain, or build muscle. Find your exact calorie deficit targets with the Harris-Benedict equation. Medically reviewed." property="og:description"/><meta content="https://www.weightlosspercentage.com/calculators/calorie/" property="og:url"/><meta content="Calorie Calculator — Daily Calorie Deficit & Maintenance" name="twitter:title"/><meta content="Calculate your daily calorie needs to lose weight, maintain, or build muscle. Find your exact calorie deficit targets with the Harris-Benedict equation. Medically reviewed." name="twitter:description"/><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -131,7 +131,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Daily Calorie Calculator",
-      "description": "Free calorie calculator estimating daily energy needs and fat-loss calorie deficits using the Mifflin-St Jeor equation.",
+      "description": "Free calorie calculator estimating daily energy needs and fat-loss calorie deficits using the revised Harris-Benedict equation.",
       "url": "https://www.weightlosspercentage.com/calculators/calorie/",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
@@ -176,7 +176,7 @@
           "name": "How does a calorie calculator estimate daily needs?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It calculates your Basal Metabolic Rate (BMR) using Mifflin-St Jeor or Harris-Benedict formulas based on age, sex, height, and weight, then multiplies it by an activity coefficient representing daily physical exertion."
+            "text": "It calculates your Basal Metabolic Rate (BMR) using the revised Harris-Benedict equation based on age, sex, height, and weight, then multiplies it by an activity coefficient representing daily physical exertion."
           }
         }
       ],
@@ -590,9 +590,9 @@
 </nav>
 <h1 style="color:#0f172a; font-size:2.25rem; font-weight:800; margin-bottom:0.5rem; line-height:1.25;">Daily Calorie Calculator</h1>
 <p style="color:#64748b; font-size:0.9rem; margin-bottom:1.5rem;">
-          ✅ Mifflin-St Jeor &amp; Katch-McArdle Equations  |  ✅ Custom Deficit Targets  |  ✅ Medically Reviewed 2026
+          ✅ Harris-Benedict Equation  |  ✅ Custom Deficit Targets  |  ✅ Medically Reviewed 2026
         </p>
-<p style="font-size:1.1rem; margin-bottom:2rem;">Use our free <strong>daily calorie calculator</strong> to estimate the exact number of calories your body burns daily and determine your target intake for fat loss, weight maintenance, or muscle gain. Based on the clinically validated <strong>Mifflin-St Jeor equation</strong>.</p>
+<p style="font-size:1.1rem; margin-bottom:2rem;">Use our free <strong>daily calorie calculator</strong> to estimate the exact number of calories your body burns daily and determine your target intake for fat loss, weight maintenance, or muscle gain. Based on the <strong>revised Harris-Benedict equation</strong>.</p>
 <!-- CALCULATOR WIDGET RENDERED BY REACT -->
 <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">How Many Calories Should You Eat Per Day?</h2>
 <p>Your daily calorie requirement depends entirely on your personal details (age, sex, height, weight) and how physically active you are. To establish your target, the calculator determines two numbers:</p>
@@ -612,9 +612,9 @@
 <h3 style="color:#0f172a; font-size:1.1rem; font-weight:700; margin-top:1.5rem; margin-bottom:0.75rem;">3. Muscle Gain (Calorie Surplus)</h3>
 <p>Building lean muscle requires extra energy. A small surplus of <strong>200–300 calories above maintenance</strong> supports muscle protein synthesis while keeping body fat gain to a minimum.</p>
 <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">How the Calorie Formulas Work</h2>
-<p>This calculator employs the **Mifflin-St Jeor equation**, widely regarded as the most accurate estimation tool for healthy adults. It calculates BMR in metric units (weight in kg, height in cm):</p>
-<p><strong>For Men:</strong> BMR = (10 × weight) + (6.25 × height) − (5 × age) + 5</p>
-<p><strong>For Women:</strong> BMR = (10 × weight) + (6.25 × height) − (5 × age) − 161</p>
+<p>This calculator employs the <strong>revised Harris-Benedict equation</strong>, one of the most widely used formulas for estimating BMR. It calculates BMR in metric units (weight in kg, height in cm):</p>
+<p><strong>For Men:</strong> BMR = 88.362 + (13.397 × weight) + (4.799 × height) − (5.677 × age)</p>
+<p><strong>For Women:</strong> BMR = 447.593 + (9.247 × weight) + (3.098 × height) − (4.33 × age)</p>
 <p>Once BMR is calculated, it is multiplied by your activity multiplier:</p>
 <table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin-bottom:1.5rem;">
 <thead>

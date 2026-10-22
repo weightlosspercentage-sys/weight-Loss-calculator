@@ -48,7 +48,7 @@
     <meta name="theme-color" content="#4f46e5" /></meta>
 
     <title>卡路里计算器 - 每日卡路里需求和赤字目标（免费）</title>
-    <meta name="description" content="计算您每日减肥、维持或增加体重所需的卡路里。通过 Mifflin-St Jeor 找到您准确的卡路里赤字目标。医学审核。" /></meta>
+    <meta name="description" content="计算您每日减肥、维持或增加体重所需的卡路里。通过 Harris-Benedict 方程找到您准确的卡路里赤字目标。医学审核。" /></meta>
 
     <!-- OpenGraph defaults (overridden per-page by React 19 head hoisting) -->
     <meta property="og:site_name" content="Weight Loss Percentage" /></meta>
@@ -93,7 +93,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Daily Calorie Calculator",
-      "description": "Free calorie calculator estimating daily energy needs and fat-loss calorie deficits using the Mifflin-St Jeor equation.",
+      "description": "Free calorie calculator estimating daily energy needs and fat-loss calorie deficits using the revised Harris-Benedict equation.",
       "url": "https://www.weightlosspercentage.com/calculators/calorie/",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
@@ -110,7 +110,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "How many calories should I eat a day to lose weight?", "acceptedAnswer": { "@type": "Answer", "text": "To lose weight safely, subtract 300 to 500 calories from your Total Daily Energy Expenditure (TDEE). For most people, this results in a target of 1,500-2,000 calories per day for women, and 2,000-2,500 for men." } },
         { "@type": "Question", "name": "What is a safe daily calorie deficit?", "acceptedAnswer": { "@type": "Answer", "text": "A safe daily calorie deficit is 300 to 500 calories. This allows for a steady fat loss of 0.5 to 1 pound per week while protecting muscle mass, thyroid function, and metabolic rate." } },
-        { "@type": "Question", "name": "How does a calorie calculator estimate daily needs?", "acceptedAnswer": { "@type": "Answer", "text": "It calculates your Basal Metabolic Rate (BMR) using Mifflin-St Jeor or Harris-Benedict formulas based on age, sex, height, and weight, then multiplies it by an activity coefficient representing daily physical exertion." } }
+        { "@type": "Question", "name": "How does a calorie calculator estimate daily needs?", "acceptedAnswer": { "@type": "Answer", "text": "It calculates your Basal Metabolic Rate (BMR) using the revised Harris-Benedict equation based on age, sex, height, and weight, then multiplies it by an activity coefficient representing daily physical exertion." } }
       ]
     }
     </script>
@@ -258,7 +258,7 @@
         <h1 style="color:#0f172a; font-size:2.25rem; font-weight:800; margin-bottom:0.5rem; line-height:1.25;">每日卡路里计算器</h1>
         
         <p style="color:#64748b; font-size:0.9rem; margin-bottom:1.5rem;">
-          ✅ Mifflin-St Jeor 和 Katch-McArdle 方程 |  ✅ 自定义赤字目标 |  ✅ 2026 年医学审核
+          ✅ Harris-Benedict 方程 |  ✅ 自定义赤字目标 |  ✅ 2026 年医学审核
         </p>
 
         <p style="font-size:1.1rem; margin-bottom:2rem;">使用我们的免费 <strong>每日卡路里计算器</strong> 估算您的身体每天燃烧的确切卡路里数，并确定减脂、维持体重或增肌的目标摄入量。基于临床验证 <strong>米夫林-圣杰尔方程</strong>.</p>
@@ -288,9 +288,9 @@
         <p>锻炼肌肉需要额外的能量。少量盈余 <strong>比维持量高 200–300 卡路里</strong> 支持肌肉蛋白质合成，同时将体内脂肪增加保持在最低限度。</p>
 
         <h2 style="color:#0f172a; font-size:1.5rem; font-weight:700; margin-top:3rem; margin-bottom:1rem;">卡路里公式如何运作</h2>
-        <p>该计算器采用 **Mifflin-St Jeor 方程**，该方程被广泛认为是健康成年人最准确的估计工具。它以公制单位计算 BMR（体重以千克为单位，身高以厘米为单位）：</p>
-        <p><strong>男士：</strong> 基础代谢率 = (10 × 体重) + (6.25 × 身高) − (5 × 年龄) + 5</p>
-        <p><strong>对女性来说：</strong> 基础代谢率 = (10 × 体重) + (6.25 × 身高) − (5 × 年龄) − 161</p>
+        <p>该计算器采用 <strong>Harris-Benedict 修正方程</strong>，这是目前广泛使用的静息代谢估算公式之一。它以公制单位计算 BMR（体重以千克为单位，身高以厘米为单位）：</p>
+        <p><strong>男士：</strong> 基础代谢率 = 88.362 + (13.397 × 体重) + (4.799 × 身高) − (5.677 × 年龄)</p>
+        <p><strong>对女性来说：</strong> 基础代谢率 = 447.593 + (9.247 × 体重) + (3.098 × 身高) − (4.33 × 年龄)</p>
         <p>计算出 BMR 后，将其乘以您的活动乘数：</p>
         <table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin-bottom:1.5rem;">
           <thead>
